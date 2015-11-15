@@ -1,0 +1,21 @@
+{
+  "name": "generator-themeplate",
+  "version": "0.1.0",
+  "description": "A Yeoman generator for ThemePlate",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Gene Alyson Fortunado Torcende",
+    "email": "genealyson.torcende@gmail.com"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kermage/generator-themeplate.git"
+  },
+  "dependencies": {
+    "yeoman-generator": "^0.21.1"
+  }
+}
