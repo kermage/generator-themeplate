@@ -8,26 +8,32 @@ var Generator = yeoman.generators.Base.extend({
 			{
 				name: 'themeName',
 				message: 'Theme Name:',
+				default: 'ThemePlate'
 			},
 			{
 				name: 'themeURI',
 				message: 'Theme URI:',
+				default: 'http://wordpress.org/themes'
 			},
 			{
 				name: 'author',
 				message: 'Author:',
+				default: this.user.git.name
 			},
 			{
 				name: 'authorURI',
 				message: 'Author URI:',
+				default: this.user.git.email
 			},
 			{
 				name: 'description',
 				message: 'Description:',
+				default: 'A Wordpress Starter Theme'
 			},
 			{
 				name: 'functionPrefix',
 				message: 'Function Prefix:',
+				default: 'themeplate'
 			}
 		];
 		this.prompt(prompts, function (props) {
