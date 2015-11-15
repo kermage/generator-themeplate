@@ -38,6 +38,9 @@ var Generator = yeoman.generators.Base.extend({
 	theme: function() {
 		this.template( '_style.css', 'style.css' );
 		this.template( '_functions.php', 'functions.php' );
+		this.template( '_index.php', 'index.php' );
+		this.template( '_header.php', 'header.php' );
+		this.template( '_footer.php', 'footer.php' );
 	}
 });
 
