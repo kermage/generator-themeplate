@@ -1,4 +1,4 @@
-var yeoman = require('yeoman-generator');
+var yeoman = require( 'yeoman-generator' );
 var async = require( 'async' );
 
 var Generator = yeoman.generators.Base.extend({
@@ -36,10 +36,11 @@ var Generator = yeoman.generators.Base.extend({
 				default: 'themeplate'
 			}
 		];
-		this.prompt(prompts, function (props) {
+		this.prompt( prompts, function ( props ) {
 			this.opts = props;
+			this.opts.projectSlug = this.opts.themeName.toLowerCase().replace( /[\s]/g, '-' );
 			done();
-		}.bind(this));
+		}.bind( this ));
 	},
 	theme: function() {
 		this.template( '_style.css', 'style.css' );
@@ -47,6 +48,9 @@ var Generator = yeoman.generators.Base.extend({
 		this.template( '_index.php', 'index.php' );
 		this.template( '_header.php', 'header.php' );
 		this.template( '_footer.php', 'footer.php' );
+	},
+	project: function() {
+		this.template( '_package.json', 'package.json' );
 	}
 });
 

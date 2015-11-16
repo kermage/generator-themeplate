@@ -1,0 +1,15 @@
+{
+  "name": "<%= opts.projectSlug %>",
+  "title": "<%= opts.themeName %>",
+  "version": "0.1.0",
+  "description": "<%= opts.description %>",
+  "keywords": [
+    "wordpress"
+  ],
+  "homepage": "<%= opts.themeURI %>",
+  "author": {
+    "name": "<%= opts.author %>",
+    "email": "<%= opts.authorURI %>"
+  },
+  "main": "style.css"
+}
