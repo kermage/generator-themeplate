@@ -64,6 +64,10 @@ var Generator = yeoman.generators.Base.extend({
 	},
 	project: function() {
 		this.template( '_package.json', 'package.json' );
+		this.template( '_gulpfile.js', 'gulpfile.js' );
+	},
+	style: function() {
+		this.template( '_style.scss', 'sass/' + this.opts.projectSlug + '.scss' );
 	}
 });
 
