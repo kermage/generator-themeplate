@@ -37,6 +37,16 @@ var Generator = yeoman.generators.Base.extend({
 				name: 'functionPrefix',
 				message: 'Function Prefix:',
 				default: 'themeplate'
+			},
+			{
+				name: 'license',
+				message: 'License:',
+				default: 'GNU General Public License v2 or later'
+			},
+			{
+				name: 'licenseURI',
+				message: 'License URI:',
+				default: 'http://www.gnu.org/licenses/gpl-2.0.html'
 			}
 		];
 		this.prompt( prompts, function ( props ) {

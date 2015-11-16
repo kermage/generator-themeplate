@@ -7,6 +7,10 @@
     "wordpress"
   ],
   "homepage": "<%= opts.themeURI %>",
+  "license": {
+    "type": "<%= opts.license %>",
+    "url": "<%= opts.licenseURI %>"
+  },
   "author": {
     "name": "<%= opts.authorName %>",
     "email": "<%= opts.authorEmail %>"<% if ( opts.authorURI ) { %>,
