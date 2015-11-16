@@ -3,3 +3,5 @@
  *  Copyright (C) <%= new Date().getFullYear() %> <%= opts.authorName %>
  *  Licensed under <%= opts.license %>.
  */
+
+@import "../bower_components/susy/sass/susy";
