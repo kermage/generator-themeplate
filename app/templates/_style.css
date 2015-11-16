@@ -1,8 +1,8 @@
 /**
  * Theme Name:	<%= opts.themeName %>
  * Theme URI:	<%= opts.themeURI %>
- * Author:		<%= opts.author %>
- * Author URI:	<%= opts.authorURI %>
+ * Author:		<%= opts.authorName %>
+ * Author URI:	<%= ( opts.authorURI ) ? opts.authorURI : opts.authorEmail %>
  * Description:	<%= opts.description %>
  * Version:		0.1.0
  * License:		GNU General Public License v2 or later

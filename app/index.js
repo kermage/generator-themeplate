@@ -16,14 +16,17 @@ var Generator = yeoman.generators.Base.extend({
 				default: 'http://wordpress.org/themes'
 			},
 			{
-				name: 'author',
+				name: 'authorName',
 				message: 'Author:',
 				default: this.user.git.name
+			},			{
+				name: 'authorEmail',
+				message: 'Author Email:',
+				default: this.user.git.email
 			},
 			{
 				name: 'authorURI',
-				message: 'Author URI:',
-				default: this.user.git.email
+				message: 'Author URI:'
 			},
 			{
 				name: 'description',

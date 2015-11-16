@@ -8,8 +8,9 @@
   ],
   "homepage": "<%= opts.themeURI %>",
   "author": {
-    "name": "<%= opts.author %>",
-    "email": "<%= opts.authorURI %>"
+    "name": "<%= opts.authorName %>",
+    "email": "<%= opts.authorEmail %>"<% if ( opts.authorURI ) { %>,
+    "url": "<%= opts.authorURI %>"<% } %>
   },
   "main": "style.css"
 }
