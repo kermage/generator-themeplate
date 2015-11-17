@@ -69,6 +69,9 @@ var Generator = yeoman.generators.Base.extend({
 	},
 	style: function() {
 		this.template( 'assets/_style.scss', 'assets/sass/' + this.opts.projectSlug + '.scss' );
+	},
+	script: function() {
+		this.template( 'assets/_script.js', 'assets/js/' + this.opts.projectSlug + '.js' );
 	}
 });
 
