@@ -28,6 +28,12 @@ require_once( THEME_INC . 'features.php' );
 require_once( THEME_INC . 'widgets.php' );
 
 /* ==================================================
+Register custom post types and taxonomies
+================================================== */
+require_once( THEME_INC . 'posts.php' );
+require_once( THEME_INC . 'taxonomies.php' );
+
+/* ==================================================
 Cleanup WordPress markup
 ================================================== */
 require_once( THEME_INC . 'cleanup.php' );
