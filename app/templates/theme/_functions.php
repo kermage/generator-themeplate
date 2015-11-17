@@ -34,6 +34,12 @@ require_once( THEME_INC . 'posts.php' );
 require_once( THEME_INC . 'taxonomies.php' );
 
 /* ==================================================
+Register meta boxes
+================================================== */
+require_once( THEME_INC . 'setup.php' );
+require_once( THEME_INC . 'entries.php' );
+
+/* ==================================================
 Cleanup WordPress markup
 ================================================== */
 require_once( THEME_INC . 'cleanup.php' );

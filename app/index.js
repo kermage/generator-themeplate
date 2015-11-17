@@ -66,6 +66,8 @@ var Generator = yeoman.generators.Base.extend({
 		this.template( 'theme/inc/_widgets.php', 'inc/widgets.php' );
 		this.template( 'theme/inc/_posts.php', 'inc/posts.php' );
 		this.template( 'theme/inc/_taxonomies.php', 'inc/taxonomies.php' );
+		this.template( 'theme/inc/_setup.php', 'inc/setup.php' );
+		this.template( 'theme/inc/_entries.php', 'inc/entries.php' );
 		this.template( 'theme/inc/_cleanup.php', 'inc/cleanup.php' );
 		this.template( 'theme/inc/_scripts-styles.php', 'inc/scripts-styles.php' );
 	},
@@ -76,9 +78,11 @@ var Generator = yeoman.generators.Base.extend({
 	},
 	style: function() {
 		this.template( 'assets/_style.scss', 'assets/sass/' + this.opts.projectSlug + '.scss' );
+		this.template( 'assets/_metabox.css', 'css/admin/metabox.css' );
 	},
 	script: function() {
 		this.template( 'assets/_script.js', 'assets/js/' + this.opts.projectSlug + '.js' );
+		this.template( 'assets/_metabox.js', 'js/admin/metabox.js' );
 	}
 });
 

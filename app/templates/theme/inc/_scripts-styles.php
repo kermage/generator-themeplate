@@ -19,3 +19,11 @@ if( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 	}
 	add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_scripts_styles' );
 }
+
+if( ! function_exists( '<%= opts.functionPrefix %>_admin_scripts_styles' ) ) {
+	function <%= opts.functionPrefix %>_admin_scripts_styles() {
+		wp_enqueue_style( '<%= opts.functionPrefix %>-metabox-style', THEME_URL . 'css/admin/metabox.css', array(), THEME_VERSION, false );
+		wp_enqueue_script( '<%= opts.functionPrefix %>-metabox-script', THEME_URL . 'js/admin/metabox.js', array(), THEME_VERSION, true );
+	}
+	add_action( 'admin_enqueue_scripts', '<%= opts.functionPrefix %>_admin_scripts_styles' );
+}
