@@ -21,3 +21,13 @@ define( 'THEME_PATH',		get_stylesheet_directory() . '/' );
 define( 'THEME_INC',		THEME_PATH . 'inc/' );
 define( 'THEME_DEBUG',		true );
 
+/* ==================================================
+Register theme features
+================================================== */
+require_once( THEME_INC . 'features.php' );
+
+/* ==================================================
+Enqueue scripts and styles
+================================================== */
+require_once( THEME_INC . 'scripts-styles.php' );
+
