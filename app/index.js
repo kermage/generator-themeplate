@@ -68,7 +68,7 @@ var Generator = yeoman.generators.Base.extend({
 		this.template( '_bower.json', 'bower.json' );
 	},
 	style: function() {
-		this.template( '_style.scss', 'sass/' + this.opts.projectSlug + '.scss' );
+		this.template( '_style.scss', 'assets/sass/' + this.opts.projectSlug + '.scss' );
 	}
 });
 
