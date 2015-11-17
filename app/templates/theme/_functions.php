@@ -22,9 +22,15 @@ define( 'THEME_INC',		THEME_PATH . 'inc/' );
 define( 'THEME_DEBUG',		true );
 
 /* ==================================================
-Register theme features
+Register theme features and widgets
 ================================================== */
 require_once( THEME_INC . 'features.php' );
+require_once( THEME_INC . 'widgets.php' );
+
+/* ==================================================
+Cleanup WordPress markup
+================================================== */
+require_once( THEME_INC . 'cleanup.php' );
 
 /* ==================================================
 Enqueue scripts and styles
