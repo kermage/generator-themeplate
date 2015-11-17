@@ -56,19 +56,19 @@ var Generator = yeoman.generators.Base.extend({
 		}.bind( this ));
 	},
 	theme: function() {
-		this.template( '_style.css', 'style.css' );
-		this.template( '_functions.php', 'functions.php' );
-		this.template( '_index.php', 'index.php' );
-		this.template( '_header.php', 'header.php' );
-		this.template( '_footer.php', 'footer.php' );
+		this.template( 'theme/_style.css', 'style.css' );
+		this.template( 'theme/_functions.php', 'functions.php' );
+		this.template( 'theme/_index.php', 'index.php' );
+		this.template( 'theme/_header.php', 'header.php' );
+		this.template( 'theme/_footer.php', 'footer.php' );
 	},
 	project: function() {
-		this.template( '_package.json', 'package.json' );
-		this.template( '_gulpfile.js', 'gulpfile.js' );
-		this.template( '_bower.json', 'bower.json' );
+		this.template( 'project/_package.json', 'package.json' );
+		this.template( 'project/_gulpfile.js', 'gulpfile.js' );
+		this.template( 'project/_bower.json', 'bower.json' );
 	},
 	style: function() {
-		this.template( '_style.scss', 'assets/sass/' + this.opts.projectSlug + '.scss' );
+		this.template( 'assets/_style.scss', 'assets/sass/' + this.opts.projectSlug + '.scss' );
 	}
 });
 
