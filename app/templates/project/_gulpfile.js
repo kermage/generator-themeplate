@@ -1,11 +1,21 @@
 var gulp = require('gulp'),
 	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
 	imagemin = require('gulp-imagemin'),
-	sass = require('gulp-sass');
+	rename = require('gulp-rename'),
+	sass = require('gulp-sass'),
+	cssnano = require('gulp-cssnano');
 
 gulp.task('concat', function(){
 	gulp.src('assets/js/*.js')
 		.pipe(concat('<%= opts.projectSlug %>.js'))
+		.pipe(gulp.dest('js'));
+});
+
+gulp.task('uglify', function(){
+	gulp.src(['js/*.js','!js/*.min.js'])
+		.pipe(uglify())
+		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('js'));
 });
 
@@ -21,7 +31,18 @@ gulp.task('imagemin', function(){
 
 gulp.task('sass', function(){
 	gulp.src('assets/sass/*.{scss,sass}')
-		.pipe(sass())
+		.pipe(sass({
+			outputStyle: 'expanded'
+		}))
+		.pipe(gulp.dest('css'));
+});
+
+gulp.task('cssnano', function(){
+	gulp.src(['css/*.css','!css/*.min.css'])
+		.pipe(cssnano({
+			discardComments:{removeAllButFirst:true}
+		}))
+		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('css'));
 });
 
@@ -31,4 +52,6 @@ gulp.task('watch', function() {
 	gulp.watch('assets/sass/**/*.{scss,sass}', ['sass'])
 });
 
-gulp.task('default', ['sass', 'concat', 'imagemin', 'watch']);
+gulp.task('dev', ['sass', 'concat']);
+gulp.task('build', ['uglify', 'cssnano', 'imagemin']);
+gulp.task('default', ['dev', 'watch']);
