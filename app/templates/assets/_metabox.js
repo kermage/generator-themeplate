@@ -1,19 +1,19 @@
 jQuery(document).ready(function($) {
 	function HideAll() {
-		$('div[id^="<%= opts.functionPrefix %>_meta_box_post_"]').hide();
+		$('div[id^="<%= opts.functionPrefix %>_meta_box_"][id $="_post"]').hide();
 	};
 	
 	HideAll();
 	
-	$('#<%= opts.functionPrefix %>_meta_box_post_' + $('input[name=post_format]:checked').val()).show();
+	$('#<%= opts.functionPrefix %>_meta_box_' + $('input[name=post_format]:checked').val() + '_post').show();
 	
 	$('#post-formats-select input').change(function() {
 		HideAll();
-		if ($( '#<%= opts.functionPrefix %>_meta_box_post_' + $( this ).val() ).length) {
-			$( '#<%= opts.functionPrefix %>_meta_box_post_' + $( this ).val() ).show();
+		if ($('#<%= opts.functionPrefix %>_meta_box_' + $(this).val() + '_post').length) {
+			$('#<%= opts.functionPrefix %>_meta_box_' + $(this).val() + '_post').show();
 			
 			$('html,body').animate({
-				scrollTop: $( '#<%= opts.functionPrefix %>_meta_box_post_' + $( this ).val() ).offset().top
+				scrollTop: $('#<%= opts.functionPrefix %>_meta_box_' + $(this).val() + '_post').offset().top
 			});
 		}
 	});

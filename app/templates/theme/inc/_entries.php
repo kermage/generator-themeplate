@@ -48,7 +48,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_page_meta_boxes' ) ) {
 				)
 			),
 			
-			$prefix . 'meta_box_post_link' => array(
+			$prefix . 'meta_box_link' => array(
 				'title'			=> __( 'Link Post Settings', '<%= opts.functionPrefix %>' ),
 				'description'	=> '',
 				'screen'		=> 'post',
@@ -64,7 +64,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_page_meta_boxes' ) ) {
 				)
 			),
 			
-			$prefix . 'meta_box_post_quote' => array(
+			$prefix . 'meta_box_quote' => array(
 				'title'			=> __( 'Quote Post Settings', '<%= opts.functionPrefix %>' ),
 				'description'	=> '',
 				'screen'		=> 'post',
