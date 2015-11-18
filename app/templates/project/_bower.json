@@ -8,6 +8,8 @@
     "tests"
   ],
   "devDependencies": {
+    "breakpoint": "~4.6.4",
+    "normalize-css": "normalize.css#~3.0.3",
     "susy": "~2.2.6"
   }
 }
