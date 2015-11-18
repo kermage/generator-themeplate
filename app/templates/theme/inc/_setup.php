@@ -88,6 +88,14 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
 						echo '<input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="off" /><input type="checkbox" id="' . $id . '" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="on"' . $val . ' /> ';
 						echo '</td>';
 						break;
+
+					case 'color':
+						echo '<td><input type="text" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" class="wp-color-picker" value="' . ( $meta ? $meta : $field['std'] ) . '" data-default-color="' . $field['std'] . '" /></td>';
+						break;
+
+					case 'file':
+						echo '<td><input type="text" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . ( $meta ? $meta : $field['std'] ) . '" size="30" /><input type="button" class="button" id="' . $id . '_button" value="Browse" /></td>';
+						break;
 				}
 				echo '</tr>';
 			}

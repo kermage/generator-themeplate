@@ -38,6 +38,12 @@ if( ! function_exists( '<%= opts.functionPrefix %>_page_meta_boxes' ) ) {
 						'type'		=> 'select',
 						'std' 		=> 'Header; Footer',
 						'options' => array( 'Header; Footer', 'No Header; Footer', 'Header; No Footer', 'No Header; No Footer' )
+					),
+					$prefix . 'bg_color' => array(
+						'name'		=> __( 'Background Color', '<%= opts.functionPrefix %>' ),
+						'desc'		=> __( 'Select background color.', '<%= opts.functionPrefix %>' ),
+						'type'		=> 'color',
+						'std'		=> '#ffffff'
 					)
 				)
 			),
@@ -75,6 +81,22 @@ if( ! function_exists( '<%= opts.functionPrefix %>_page_meta_boxes' ) ) {
 						'name'		=> __( 'Citation', '<%= opts.functionPrefix %>' ),
 						'desc'		=> __( 'Source of the quotation.', '<%= opts.functionPrefix %>' ),
 						'type'		=> 'text',
+						'std' 		=> ''
+					)
+				)
+			),
+			
+			$prefix . 'meta_box_portfolio' => array(
+				'title'			=> __( 'Portfolio Settings', '<%= opts.functionPrefix %>' ),
+				'description'	=> '',
+				'screen'		=> '<%= opts.functionPrefix %>_portfolio',
+				'context'		=> 'normal',
+				'priority'		=> 'high',
+				'fields'		=> array(
+					$prefix . 'portfolio_project' => array(
+						'name'		=> __( 'Project File', '<%= opts.functionPrefix %>' ),
+						'desc'		=> __( 'Select portfolio project file.', '<%= opts.functionPrefix %>' ),
+						'type'		=> 'file',
 						'std' 		=> ''
 					)
 				)
