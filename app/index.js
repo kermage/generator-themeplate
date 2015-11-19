@@ -84,6 +84,9 @@ var Generator = yeoman.generators.Base.extend({
 	script: function() {
 		this.template( 'assets/_script.js', 'assets/js/' + this.opts.projectSlug + '.js' );
 		this.template( 'assets/_metabox.js', 'js/admin/metabox.js' );
+	},
+	install: function() {
+		this.installDependencies();
 	}
 });
 
