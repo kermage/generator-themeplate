@@ -19,6 +19,11 @@ if( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 		// Add theme support for document Title tag
 		add_theme_support( 'title-tag' );
+		// Register Navigation Menus
+		register_nav_menus( array(
+			'primary'	=> __( 'Primary Menu', '<%= opts.functionPrefix %>' ),
+			'footer'	=> __( 'Footer Menu', '<%= opts.functionPrefix %>' )
+		) );
 	}
 	add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_setup' );
 }

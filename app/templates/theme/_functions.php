@@ -25,6 +25,7 @@ define( 'THEME_DEBUG',		true );
 Register theme features and widgets
 ================================================== */
 require_once( THEME_INC . 'features.php' );
+require_once( THEME_INC . 'navigations.php' );
 require_once( THEME_INC . 'widgets.php' );
 
 /* ==================================================

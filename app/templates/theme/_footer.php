@@ -8,6 +8,10 @@
  */
 ?>
 
+		<div class="themeplate-links-wrap">
+			<?php themeplate_footer_menu(); ?>
+		</div>
+		
 	<?php wp_footer(); ?>
 	</body>
 </html>

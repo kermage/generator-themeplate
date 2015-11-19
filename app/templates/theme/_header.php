@@ -15,3 +15,7 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
+
+		<nav class="<%= opts.functionPrefix %>-nav-wrap" role="navigation">
+			<?php <%= opts.functionPrefix %>_primary_menu(); ?>
+		</nav>
