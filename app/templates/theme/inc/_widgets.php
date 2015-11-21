@@ -19,6 +19,13 @@ if( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 			'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'	=> '</aside>'
 		) );
+		
+		$widgets =  glob( THEME_INC . 'widgets/*_widget.php' );
+		foreach( $widgets as $widget ) {
+			require_once $widget;
+			if( class_exists( basename( $widget, ".php" ) ) )
+				register_widget( basename( $widget, ".php" ) );
+		}
 	}
 	add_action( 'widgets_init', '<%= opts.functionPrefix %>_widgets_init' );
 }
