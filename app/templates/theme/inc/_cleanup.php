@@ -15,6 +15,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 		add_filter( 'the_generator', '__return_false' );
 		// Remove injected recent comments sidebar widget style
 		add_action( 'widgets_init', '<%= opts.functionPrefix %>_remove_recent_comments_style', 1 );
+		// Remove tag cloud inline style
+		add_filter( 'wp_generate_tag_cloud', '<%= opts.functionPrefix %>_remove_tag_cloud_inline_style' );
 		// Remove injected gallery shortcode style
 		add_filter( 'use_default_gallery_style', '__return_false' );
 		// Remove automatic paragraph tags
@@ -87,5 +89,11 @@ if( ! function_exists( '<%= opts.functionPrefix %>_clean_body_class' ) ) {
 			if( preg_match( $match, $value ) ) unset( $classes[$key] );
 		}
 		return $classes;
+	}
+}
+
+if( ! function_exists( '<%= opts.functionPrefix %>_remove_tag_cloud_inline_style' ) ) {
+	function <%= opts.functionPrefix %>_remove_tag_cloud_inline_style( $tag_string ) {
+		return preg_replace( "/style='font-size:.+pt;'/", '', $tag_string );
 	}
 }
