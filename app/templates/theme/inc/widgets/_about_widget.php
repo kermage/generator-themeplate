@@ -9,7 +9,7 @@
 
 class <%= opts.projectSlug %>_about_widget extends WP_Widget {
 	function __construct() {
-		$widget_ops = array( 'description' => __( 'Display site logo and info.', '<%= opts.functionPrefix %>' ) );
+		$widget_ops = array( 'classname' => '<%= opts.projectSlug %>_about', 'description' => __( 'Display site logo and info.', '<%= opts.functionPrefix %>' ) );
 		parent::__construct( '<%= opts.functionPrefix %>_about', '<%= opts.themeName %>: About', $widget_ops );
 	}
 	

@@ -9,7 +9,7 @@
 
 class <%= opts.projectSlug %>_contact_widget extends WP_Widget {
 	function __construct() {
-		$widget_ops = array( 'description' => __( 'Display site logo and info.', '<%= opts.projectSlug %>' ) );
+		$widget_ops = array( 'classname' => '<%= opts.projectSlug %>_contact', 'description' => __( 'Display contact information.', '<%= opts.projectSlug %>' ) );
 		parent::__construct( '<%= opts.projectSlug %>_contact', '<%= opts.themeName %>: Contact', $widget_ops );
 	}
 	
