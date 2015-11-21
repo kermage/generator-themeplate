@@ -32,6 +32,16 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 
 if( ! function_exists( '<%= opts.functionPrefix %>_cleanup_head' ) ) {
 	function <%= opts.functionPrefix %>_cleanup_head() {
+		// Display the link to the Really Simple Discovery service endpoint.
+		remove_action( 'wp_head', 'rsd_link' );
+		// Display the link to the Windows Live Writer manifest file.
+		remove_action( 'wp_head', 'wlwmanifest_link' );
+		// Display relational links for the posts adjacent to the current post for single post pages.
+		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+		// Output rel=canonical for singular queries.
+		remove_action( 'wp_head', 'rel_canonical', 10, 0 );
+		// Inject rel=shortlink into head if a shortlink is defined for the current page.
+		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
 		// Display the XHTML generator that is generated on the wp_head hook
 		remove_action( 'wp_head', 'wp_generator' );
 		// Emoji support detection script and styles
