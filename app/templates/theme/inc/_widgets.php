@@ -13,11 +13,10 @@ if( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 			'id'			=> 'sidebar-1',
 			'name'			=> __( 'Sidebar Area', '<%= opts.functionPrefix %>' ),
 			'description'	=> __( 'Add widgets here to appear in sidebar.', '<%= opts.functionPrefix %>' ),
-			'class'			=> 'widget-sidebar',
 			'before_title'	=> '<h3 class="widget-title">',
 			'after_title'	=> '</h3>',
-			'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'	=> '</aside>'
+			'before_widget'	=> '<section class="widget %2$s">',
+			'after_widget'	=> '</section>'
 		) );
 		
 		$widgets =  glob( THEME_INC . 'widgets/*_widget.php' );
