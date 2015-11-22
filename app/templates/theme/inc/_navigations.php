@@ -14,7 +14,6 @@ if( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 			'theme_location'	=> 'primary',
 			'menu'				=> '',
 			'container'			=> false,
-			'menu_id'			=> '<%= opts.functionPrefix %>-primary-nav',
 			'depth'				=> 0,
 			'walker'			=> new themeplate_nav_walker()
 		) );
@@ -28,7 +27,6 @@ if( ! function_exists( '<%= opts.functionPrefix %>_footer_menu' ) ) {
 			'theme_location'	=> 'footer',
 			'menu'				=> '',
 			'container'			=> false,
-			'menu_id'			=> '<%= opts.functionPrefix %>-site-links',
 			'depth'				=> 1,
 			'walker'			=> new themeplate_nav_walker()
 		) );
@@ -38,7 +36,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_footer_menu' ) ) {
 if( ! class_exists( 'themeplate_nav_walker' ) ) {
 	class themeplate_nav_walker extends Walker_Nav_Menu {
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {
-			$output .= "\n$indent<ul>\n";
+			$output .= "\n$indent<ul class=\"sub-menu\">\n";
 		}
 		
 		public function end_lvl( &$output, $depth = 0, $args = array() ) {
