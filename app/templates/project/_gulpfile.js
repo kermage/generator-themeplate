@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 gulp.task('concat', function(){
 	gulp.src('assets/js/*.js')
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(concat('<%= opts.projectSlug %>.js'))
 		.pipe(plumber.stop())
 		.pipe(gulp.dest('js'))
@@ -21,7 +21,7 @@ gulp.task('concat', function(){
 
 gulp.task('uglify', function(){
 	gulp.src(['js/*.js','!js/*.min.js'])
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(uglify())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(plumber.stop())
@@ -32,7 +32,7 @@ gulp.task('uglify', function(){
 
 gulp.task('imagemin', function(){
 	gulp.src('assets/images/*.{gif,jpg,png}')
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(imagemin({
 			optimizationLevel: 7,
 			progressive: true,
@@ -46,7 +46,7 @@ gulp.task('imagemin', function(){
 
 gulp.task('sass', function(){
 	gulp.src('assets/sass/*.{scss,sass}')
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(sass({
 			outputStyle: 'expanded'
 		}))
@@ -58,7 +58,7 @@ gulp.task('sass', function(){
 
 gulp.task('cssnano', function(){
 	gulp.src(['css/*.css','!css/*.min.css'])
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(cssnano({
 			discardComments:{removeAllButFirst:true}
 		}))
