@@ -23,6 +23,13 @@ gulp.task('uglify', function(){
 		.pipe(plugins.notify({message: 'Uglify task complete', onLast: true }));
 });
 
+gulp.task('imagecopy', function(){
+	gulp.src('assets/images/*.{gif,jpg,png}')
+		.pipe(gulp.dest('images'))
+		.pipe(browserSync.stream())
+		.pipe(plugins.notify({message: 'Imagecopy task complete', onLast: true }));
+});
+
 gulp.task('imagemin', function(){
 	gulp.src('assets/images/*.{gif,jpg,png}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
@@ -62,18 +69,35 @@ gulp.task('cssnano', function(){
 		.pipe(plugins.notify({message: 'Cssnano task complete', onLast: true }));
 });
 
-gulp.task('watch', function() {
+gulp.task('debug-true', function(){
+	gulp.src('functions.php')
+		.pipe(plugins.replace(/define\( 'THEME_DEBUG',(\s+)\w+ \);/, 'define( \'THEME_DEBUG\',$1true );'))
+		.pipe(gulp.dest('.'));
+});
+
+gulp.task('debug-false', function(){
+	gulp.src('functions.php')
+		.pipe(plugins.replace(/define\( 'THEME_DEBUG',(\s+)\w+ \);/, 'define( \'THEME_DEBUG\',$1false );'))
+		.pipe(gulp.dest('.'));
+});
+
+gulp.task('browsersync', function() {
 	browserSync.init({
 		files: ['**/*.php'],
 		proxy: "localhost:8080",
 		open: false,
 		notify: false
 	});
-	gulp.watch('assets/js/**/*.js', ['concat'])
-	gulp.watch('assets/images/**/*.{gif,jpg,png}', ['imagecopy'])
-	gulp.watch('assets/sass/**/*.{scss,sass}', ['sass'])
 });
 
-gulp.task('dev', ['sass', 'concat']);
-gulp.task('build', ['uglify', 'cssnano', 'imagemin']);
-gulp.task('default', ['dev', 'watch']);
+gulp.task('watch', function() {
+	gulp.watch('assets/js/**/*.js', ['concat']);
+	gulp.watch('assets/images/**/*.{gif,jpg,png}', ['imagecopy']);
+	gulp.watch('assets/sass/**/*.{scss,sass}', ['sass']);
+});
+
+gulp.task('build', ['sass', 'concat', 'imagecopy']);
+gulp.task('dev', ['debug-true', 'build', 'browsersync', 'watch']);
+gulp.task('dist', ['cssnano', 'uglify', 'imagemin']);
+gulp.task('test', ['debug-false', 'dist', 'browsersync']);
+gulp.task('default', ['dev']);
