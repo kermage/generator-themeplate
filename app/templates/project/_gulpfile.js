@@ -5,13 +5,15 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	sass = require('gulp-sass'),
 	cssnano = require('gulp-cssnano'),
-	browserSync = require('browser-sync');
+	browserSync = require('browser-sync'),
+	notify = require('gulp-notify');
 
 gulp.task('concat', function(){
 	gulp.src('assets/js/*.js')
 		.pipe(concat('<%= opts.projectSlug %>.js'))
 		.pipe(gulp.dest('js'))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
+		.pipe(notify({message: 'Concat task complete', onLast: true }));
 });
 
 gulp.task('uglify', function(){
@@ -19,7 +21,8 @@ gulp.task('uglify', function(){
 		.pipe(uglify())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('js'))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
+		.pipe(notify({message: 'Uglify task complete', onLast: true }));
 });
 
 gulp.task('imagemin', function(){
@@ -30,7 +33,8 @@ gulp.task('imagemin', function(){
 			interlaced: true
 		}))
 		.pipe(gulp.dest('images'))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
+		.pipe(notify({message: 'Imagemin task complete', onLast: true }));
 });
 
 gulp.task('sass', function(){
@@ -39,7 +43,8 @@ gulp.task('sass', function(){
 			outputStyle: 'expanded'
 		}))
 		.pipe(gulp.dest('css'))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
+		.pipe(notify({message: 'Sass task complete', onLast: true }));
 });
 
 gulp.task('cssnano', function(){
@@ -49,7 +54,8 @@ gulp.task('cssnano', function(){
 		}))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('css'))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.stream())
+		.pipe(notify({message: 'Cssnano task complete', onLast: true }));
 });
 
 gulp.task('watch', function() {
