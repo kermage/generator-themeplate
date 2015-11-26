@@ -1,72 +1,65 @@
 var gulp = require('gulp'),
-	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
-	imagemin = require('gulp-imagemin'),
-	rename = require('gulp-rename'),
-	sass = require('gulp-sass'),
-	cssnano = require('gulp-cssnano'),
 	browserSync = require('browser-sync'),
-	notify = require('gulp-notify'),
-	plumber = require('gulp-plumber');
+	plugins = require('gulp-load-plugins')({ camelize: true });
 
 gulp.task('concat', function(){
 	gulp.src('assets/js/*.js')
-		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-		.pipe(concat('<%= opts.projectSlug %>.js'))
-		.pipe(plumber.stop())
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%= error.message %>")}))
+		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
+		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('js'))
 		.pipe(browserSync.stream())
-		.pipe(notify({message: 'Concat task complete', onLast: true }));
+		.pipe(plugins.notify({message: 'Concat task complete', onLast: true }));
 });
 
 gulp.task('uglify', function(){
 	gulp.src(['js/*.js','!js/*.min.js'])
-		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-		.pipe(uglify())
-		.pipe(rename({suffix: '.min'}))
-		.pipe(plumber.stop())
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%= error.message %>")}))
+		.pipe(plugins.uglify())
+		.pipe(plugins.rename({suffix: '.min'}))
+		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('js'))
 		.pipe(browserSync.stream())
-		.pipe(notify({message: 'Uglify task complete', onLast: true }));
+		.pipe(plugins.notify({message: 'Uglify task complete', onLast: true }));
 });
 
 gulp.task('imagemin', function(){
 	gulp.src('assets/images/*.{gif,jpg,png}')
-		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-		.pipe(imagemin({
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%= error.message %>")}))
+		.pipe(plugins.imagemin({
 			optimizationLevel: 7,
 			progressive: true,
 			interlaced: true
 		}))
-		.pipe(plumber.stop())
+		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('images'))
 		.pipe(browserSync.stream())
-		.pipe(notify({message: 'Imagemin task complete', onLast: true }));
+		.pipe(plugins.notify({message: 'Imagemin task complete', onLast: true }));
 });
 
 gulp.task('sass', function(){
 	gulp.src('assets/sass/*.{scss,sass}')
-		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-		.pipe(sass({
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%= error.message %>")}))
+		.pipe(plugins.sass({
 			outputStyle: 'expanded'
 		}))
-		.pipe(plumber.stop())
+		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('css'))
 		.pipe(browserSync.stream())
-		.pipe(notify({message: 'Sass task complete', onLast: true }));
+		.pipe(plugins.notify({message: 'Sass task complete', onLast: true }));
 });
 
 gulp.task('cssnano', function(){
 	gulp.src(['css/*.css','!css/*.min.css'])
-		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-		.pipe(cssnano({
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%= error.message %>")}))
+		.pipe(plugins.cssnano({
 			discardComments:{removeAllButFirst:true}
 		}))
-		.pipe(rename({suffix: '.min'}))
-		.pipe(plumber.stop())
+		.pipe(plugins.rename({suffix: '.min'}))
+		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('css'))
 		.pipe(browserSync.stream())
-		.pipe(notify({message: 'Cssnano task complete', onLast: true }));
+		.pipe(plugins.notify({message: 'Cssnano task complete', onLast: true }));
 });
 
 gulp.task('watch', function() {
