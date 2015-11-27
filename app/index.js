@@ -56,11 +56,15 @@ var Generator = yeoman.generators.Base.extend({
 		}.bind( this ));
 	},
 	theme: function() {
+		this.copy( 'theme/_screenshot.png', 'screenshot.png' );
 		this.template( 'theme/_style.css', 'style.css' );
 		this.template( 'theme/_functions.php', 'functions.php' );
 		this.template( 'theme/_index.php', 'index.php' );
 		this.template( 'theme/_header.php', 'header.php' );
 		this.template( 'theme/_footer.php', 'footer.php' );
+		this.template( 'theme/_sidebar.php', 'sidebar.php' );
+		this.template( 'theme/_page.php', 'page.php' );
+		this.template( 'theme/_single.php', 'single.php' );
 		
 		this.template( 'theme/inc/_features.php', 'inc/features.php' );
 		this.template( 'theme/inc/_navigations.php', 'inc/navigations.php' );
