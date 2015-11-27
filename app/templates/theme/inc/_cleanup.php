@@ -24,8 +24,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 		add_filter( 'the_content', 'shortcode_unautop', 100 );
 		remove_filter( 'the_excerpt', 'wpautop' );
 		add_filter( 'the_excerpt', 'shortcode_unautop', 100 );
-		// Remove unnecessary body classes
+		// Remove unnecessary body and post classes
 		add_filter( 'body_class', '<%= opts.functionPrefix %>_clean_body_class' );
+		add_filter( 'post_class', '<%= opts.functionPrefix %>_clean_post_class' );
 	}
 	add_action( 'after_setup_theme','<%= opts.functionPrefix %>_markup_cleaner' );
 }
@@ -95,6 +96,16 @@ if( ! function_exists( '<%= opts.functionPrefix %>_remove_recent_comments_style'
 if( ! function_exists( '<%= opts.functionPrefix %>_clean_body_class' ) ) {
 	function <%= opts.functionPrefix %>_clean_body_class( $classes ) {
 		$match = '/((postid|attachmentid|page-id|parent-pageid|category|tag|term)-\d+$|(attachment|page-parent|page-child)$)/';
+		foreach ( $classes as $key => $value ) {
+			if( preg_match( $match, $value ) ) unset( $classes[$key] );
+		}
+		return $classes;
+	}
+}
+
+if( ! function_exists( '<%= opts.functionPrefix %>_clean_post_class' ) ) {
+	function <%= opts.functionPrefix %>_clean_post_class( $classes ) {
+		$match = '/(post-\d+$|(type|status|category|tag)-[\w-]+$)/';
 		foreach ( $classes as $key => $value ) {
 			if( preg_match( $match, $value ) ) unset( $classes[$key] );
 		}
