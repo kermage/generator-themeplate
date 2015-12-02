@@ -7,10 +7,10 @@
  * @since 0.1.0
  */
 
-class <%= opts.projectSlug %>_contact_widget extends WP_Widget {
+class <%= opts.functionPrefix %>_contact_widget extends WP_Widget {
 	function __construct() {
-		$widget_ops = array( 'classname' => '<%= opts.projectSlug %>_contact', 'description' => __( 'Display contact information.', '<%= opts.projectSlug %>' ) );
-		parent::__construct( '<%= opts.projectSlug %>_contact', '<%= opts.themeName %>: Contact', $widget_ops );
+		$widget_ops = array( 'classname' => '<%= opts.functionPrefix %>_contact', 'description' => __( 'Display contact information.', '<%= opts.functionPrefix %>' ) );
+		parent::__construct( '<%= opts.functionPrefix %>_contact', '<%= opts.themeName %>: Contact', $widget_ops );
 	}
 	
 	function widget( $args, $instance ) {
@@ -42,23 +42,23 @@ class <%= opts.projectSlug %>_contact_widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_title' ) ); ?>"><?php _e( 'Title:', '<%= opts.projectSlug %>' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_title' ) ); ?>"><?php _e( 'Title:', '<%= opts.functionPrefix %>' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'contact_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'contact_title' ) ); ?>" value="<?php echo esc_attr( $instance['contact_title'] ); ?>" />
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_text' ) ); ?>"><?php _e( 'Contact Text:', '<%= opts.projectSlug %>' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_text' ) ); ?>"><?php _e( 'Contact Text:', '<%= opts.functionPrefix %>' ); ?></label>
 			<textarea class="widefat" rows="4" id="<?php echo esc_attr( $this->get_field_id( 'contact_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'contact_text' ) ); ?>"><?php echo $instance['contact_text']; ?></textarea>
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_number' ) ); ?>"><?php _e( 'Contact Number:', '<%= opts.projectSlug %>' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_number' ) ); ?>"><?php _e( 'Contact Number:', '<%= opts.functionPrefix %>' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'contact_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'contact_number' ) ); ?>" value="<?php echo esc_attr( $instance['contact_number'] ); ?>" />
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_email' ) ); ?>"><?php _e( 'Email Address:', '<%= opts.projectSlug %>' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_email' ) ); ?>"><?php _e( 'Email Address:', '<%= opts.functionPrefix %>' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'contact_email' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'contact_email' ) ); ?>" value="<?php echo esc_attr( $instance['contact_email'] ); ?>" />
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_address' ) ); ?>"><?php _e( 'Site Address:', '<%= opts.projectSlug %>' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_address' ) ); ?>"><?php _e( 'Site Address:', '<%= opts.functionPrefix %>' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'contact_address' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'contact_address' ) ); ?>" value="<?php echo esc_attr( $instance['contact_address'] ); ?>" />
 		</p>
 	<?php
