@@ -15,7 +15,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 			'menu'				=> '',
 			'container'			=> false,
 			'depth'				=> 0,
-			'walker'			=> new themeplate_nav_walker()
+			'walker'			=> new <%= opts.functionPrefix %>_nav_walker()
 		) );
 	}
 }
@@ -28,13 +28,13 @@ if( ! function_exists( '<%= opts.functionPrefix %>_footer_menu' ) ) {
 			'menu'				=> '',
 			'container'			=> false,
 			'depth'				=> 1,
-			'walker'			=> new themeplate_nav_walker()
+			'walker'			=> new <%= opts.functionPrefix %>_nav_walker()
 		) );
 	}
 }
 
-if( ! class_exists( 'themeplate_nav_walker' ) ) {
-	class themeplate_nav_walker extends Walker_Nav_Menu {
+if( ! class_exists( '<%= opts.functionPrefix %>_nav_walker' ) ) {
+	class <%= opts.functionPrefix %>_nav_walker extends Walker_Nav_Menu {
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {
 			$output .= "\n$indent<ul class=\"sub-menu\">\n";
 		}
