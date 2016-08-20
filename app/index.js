@@ -70,8 +70,8 @@ var Generator = yeoman.generators.Base.extend({
 		this.template( 'theme/inc/_navigations.php', 'inc/navigations.php' );
 		this.template( 'theme/inc/_widgets.php', 'inc/widgets.php' );
 		
-		this.template( 'theme/inc/widgets/_about_widget.php', 'inc/widgets/' + this.opts.projectSlug + '_about_widget.php' );
-		this.template( 'theme/inc/widgets/_contact_widget.php', 'inc/widgets/' + this.opts.projectSlug + '_contact_widget.php' );
+		this.template( 'theme/inc/widgets/_about_widget.php', 'inc/widgets/' + this.opts.functionPrefix + '_about_widget.php' );
+		this.template( 'theme/inc/widgets/_contact_widget.php', 'inc/widgets/' + this.opts.functionPrefix + '_contact_widget.php' );
 		
 		this.template( 'theme/inc/_posts.php', 'inc/posts.php' );
 		this.template( 'theme/inc/_taxonomies.php', 'inc/taxonomies.php' );
