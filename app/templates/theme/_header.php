@@ -26,13 +26,13 @@
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 								<?php bloginfo( 'name' ); ?>
 							</a>
-						</h1>												
+						</h1>
 					<?php else : ?>
 						<p class="site-title">
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 								<strong><?php bloginfo( 'name' ); ?></strong>
 							</a>
-						</p>						
+						</p>
 					<?php endif; ?>
 					
 					<p class="tagline">

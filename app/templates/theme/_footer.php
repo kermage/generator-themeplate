@@ -17,7 +17,7 @@
 				</nav>
 				
 				<div class="copyright">
-					Copyright © <%= new Date().getFullYear() %> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>.
+					Copyright &copy; <%= new Date().getFullYear() %> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>.
 					<span>Designed and developed by <a href="<?php echo AUTHOR_URI; ?>"><?php echo THEME_AUTHOR; ?></a>.</span>
 				</div>
 			</div>
