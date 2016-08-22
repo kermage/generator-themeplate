@@ -1,5 +1,6 @@
 var yeoman = require( 'yeoman-generator' );
 var async = require( 'async' );
+var fs = require( 'fs' );
 
 var Generator = yeoman.generators.Base.extend({
     promptUser: function() {
@@ -52,6 +53,14 @@ var Generator = yeoman.generators.Base.extend({
         this.prompt( prompts, function ( props ) {
             this.opts = props;
             this.opts.projectSlug = this.opts.themeName.toLowerCase().replace( /[\s]/g, '-' );
+            
+            fs.lstat( this.destinationPath( this.opts.projectSlug ), function( err, stats ) {
+                if ( !err && stats.isDirectory() ) {
+                    console.log( '\nTheme already exists. Exiting!' );
+                    process.exit();
+                }
+            });
+            
             this.destinationRoot( this.opts.projectSlug );
             done();
         }.bind( this ));
