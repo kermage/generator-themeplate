@@ -52,6 +52,7 @@ var Generator = yeoman.generators.Base.extend({
         this.prompt( prompts, function ( props ) {
             this.opts = props;
             this.opts.projectSlug = this.opts.themeName.toLowerCase().replace( /[\s]/g, '-' );
+            this.destinationRoot( this.opts.projectSlug );
             done();
         }.bind( this ));
     },
