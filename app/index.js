@@ -37,7 +37,9 @@ var Generator = yeoman.generators.Base.extend({
             {
                 name: 'functionPrefix',
                 message: 'Function Prefix:',
-                default: 'themeplate'
+                default: function( answer ) {
+                    return answer.themeName.toLowerCase().replace( /[\s]/g, '_' );
+                }
             },
             {
                 name: 'license',
