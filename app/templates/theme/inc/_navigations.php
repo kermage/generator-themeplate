@@ -14,8 +14,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
             'theme_location'    => 'primary',
             'menu'              => '',
             'container'         => false,
-            'depth'             => 0,
-            'walker'            => new <%= opts.functionPrefix %>_nav_walker()
+            'depth'             => 0
         ) );
     }
 }
@@ -27,8 +26,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_footer_menu' ) ) {
             'theme_location'    => 'footer',
             'menu'              => '',
             'container'         => false,
-            'depth'             => 1,
-            'walker'            => new <%= opts.functionPrefix %>_nav_walker()
+            'depth'             => 1
         ) );
     }
 }
@@ -40,7 +38,7 @@ if( ! class_exists( '<%= opts.functionPrefix %>_nav_walker' ) ) {
         }
         
         public function end_lvl( &$output, $depth = 0, $args = array() ) {
-            $indent = str_repeat("\t", $depth );
+            $indent = str_repeat( "\t", $depth );
             $output .= "$indent</ul>\n";
         }
         
@@ -48,11 +46,11 @@ if( ! class_exists( '<%= opts.functionPrefix %>_nav_walker' ) ) {
             $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
             
             $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-            if( in_array( 'menu-item-has-children', ( array ) $classes ) ) $classes[] = 'has-sub';
-            if( in_array( 'current-menu-item', ( array ) $classes ) ) $classes[] = 'active';
-            $classes = preg_replace('/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', '', $classes);
-            $classes = preg_replace('/^((menu|page)[-_\w+]+)+/', '', $classes);
-            $classes = preg_replace('/\s\s+/', '', join( ' ', $classes ));
+            if( in_array( 'menu-item-has-children', (array) $classes ) ) $classes[] = 'has-sub';
+            if( in_array( 'current-menu-item', (array) $classes ) ) $classes[] = 'active';
+            $classes = preg_replace( '/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', '', $classes );
+            $classes = preg_replace( '/^((menu|page)[-_\w+]+)+/', '', $classes );
+            $classes = preg_replace( '/\s\s+/', '', join( ' ', $classes ) );
             $output .=  $indent . '<li' . ( ( $classes ) ? ' class="' . $classes . '"' : '' ) . '>';
             
             $attributes = ! empty( $item->attr_title )      ? ' title="'            . esc_attr( $item->attr_title   ) . '"' : '';
@@ -78,4 +76,13 @@ if( ! class_exists( '<%= opts.functionPrefix %>_nav_walker' ) ) {
             $output .= "</li>\n";
         }
     }
+}
+
+if( ! function_exists( '<%= opts.functionPrefix %>_walker' ) ) {
+    function <%= opts.functionPrefix %>_walker( $args ) {
+        return array_merge( $args, array(
+            'walker' => new <%= opts.functionPrefix %>_nav_walker()
+        ) );
+    }
+    add_filter( 'wp_nav_menu_args', '<%= opts.functionPrefix %>_walker' );
 }
