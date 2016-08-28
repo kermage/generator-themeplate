@@ -32,7 +32,9 @@ var Generator = yeoman.generators.Base.extend({
             {
                 name: 'description',
                 message: 'Description:',
-                default: 'A Wordpress Starter Theme'
+                default: function( answer ) {
+                    return 'Theme for ' + answer.themeName;
+                }
             },
             {
                 name: 'functionPrefix',
