@@ -101,6 +101,7 @@ var Generator = yeoman.generators.Base.extend({
     },
     style: function() {
         this.template( 'assets/_style.scss', 'assets/sass/' + this.opts.projectSlug + '.scss' );
+        this.directory( 'assets/layouts', 'assets/sass/layouts' );
         this.template( 'assets/_metabox.css', 'css/admin/metabox.css' );
     },
     script: function() {

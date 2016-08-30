@@ -6,3 +6,9 @@
 
 @import "../../bower_components/susy/sass/susy";
 @import "../../bower_components/normalize-css/normalize";
+
+@import "layouts/grid";
+@import "layouts/header";
+@import "layouts/navigation";
+@import "layouts/content";
+@import "layouts/footer";
