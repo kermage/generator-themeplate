@@ -31,8 +31,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_footer_menu' ) ) {
     }
 }
 
-if( ! class_exists( '<%= opts.functionPrefix %>_nav_walker' ) ) {
-    class <%= opts.functionPrefix %>_nav_walker extends Walker_Nav_Menu {
+if( ! class_exists( '<%= opts.classPrefix %>_nav_walker' ) ) {
+    class <%= opts.classPrefix %>_nav_walker extends Walker_Nav_Menu {
         public function start_lvl( &$output, $depth = 0, $args = array() ) {
             $output .= "\n$indent<ul class=\"sub-menu\">\n";
         }
@@ -81,7 +81,7 @@ if( ! class_exists( '<%= opts.functionPrefix %>_nav_walker' ) ) {
 if( ! function_exists( '<%= opts.functionPrefix %>_walker' ) ) {
     function <%= opts.functionPrefix %>_walker( $args ) {
         return array_merge( $args, array(
-            'walker' => new <%= opts.functionPrefix %>_nav_walker()
+            'walker' => new <%= opts.classPrefix %>_nav_walker()
         ) );
     }
     add_filter( 'wp_nav_menu_args', '<%= opts.functionPrefix %>_walker' );
