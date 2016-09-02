@@ -40,14 +40,14 @@ var Generator = yeoman.generators.Base.extend({
                 name: 'functionPrefix',
                 message: 'Function Prefix:',
                 default: function( answer ) {
-                    return answer.themeName.toLowerCase().replace( /[\s]/g, '_' );
+                    return answer.themeName.toLowerCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-z_]/g, '' );
                 }
             },
             {
                 name: 'classPrefix',
                 message: 'Class Prefix:',
                 default: function( answer ) {
-                    return answer.themeName.replace( /[\s]/g, '_' );
+                    return answer.themeName.replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' );
                 }
             },
             {
