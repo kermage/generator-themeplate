@@ -88,6 +88,8 @@ var Generator = yeoman.generators.Base.extend({
         this.template( 'theme/_page.php', 'page.php' );
         this.template( 'theme/_single.php', 'single.php' );
         
+        this.template( 'theme/templates/_fullwidth-page.php', 'templates/fullwidth-page.php' );
+        
         this.template( 'theme/inc/_features.php', 'inc/features.php' );
         this.template( 'theme/inc/_navigations.php', 'inc/navigations.php' );
         this.template( 'theme/inc/_widgets.php', 'inc/widgets.php' );
