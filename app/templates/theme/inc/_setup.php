@@ -35,28 +35,25 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
             
             foreach ( $fields as $id => $field ) {
                 $meta = get_post_meta( $post->ID, $id, true );
+                $meta = $meta ? $meta : $field['std'];
                 echo '<tr><th><label for="' . $id . '"><strong>' . $field['name'] . '</strong>
                     <span>' . $field['desc'] . '</span></label></th>';
                 
                 switch ( $field['type'] ) {
                     default:
                     case 'text':
-                        echo '<td><input type="text" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . ( $meta ? $meta : $field['std'] ) . '" size="30" /></td>';
+                        echo '<td><input type="text" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" /></td>';
                         break;
                         
                     case 'textarea' :
-                        echo '<td><textarea name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" rows="4" cols="2">' . ( $meta ? $meta : $field['std'] ) . '</textarea></td>';
+                        echo '<td><textarea name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" rows="4">' . $meta . '</textarea></td>';
                         break;
                         
                     case 'select' :
                         echo '<td><select name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '">';
                         foreach( $field['options'] as $option ) {
                             echo'<option';
-                            if ( $meta ) {
-                                if ( $meta == $option ) echo ' selected="selected"';
-                            } else {
-                                if ( $field['std'] == $option ) echo ' selected="selected"';
-                            }
+                            if ( $meta == $option ) echo ' selected="selected"';
                             echo'>' . $option . '</option>';
                         }
                         echo '</select></td>';
@@ -66,36 +63,25 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         echo '<td>';
                         foreach( $field['options'] as $option ) {
                             echo '<label class="radio-label"><input type="radio" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="' . $option . '" class="radio"';
-                            if ( $meta ) {
-                                if ( $meta == $option ) echo ' checked="yes"';
-                            } else {
-                                if ( $field['std'] == $option ) echo ' checked="yes"';
-                            }
-                            echo ' /> ' . $option . '</label> ';
+                            if ( $meta == $option ) echo ' checked="yes"';
+                            echo ' /> ' . $option . '</label>';
                         }
                         echo '</td>';
                         break;
                         
                     case 'checkbox' :
                         echo '<td>';
-                        $val = '';
-                        if ( $meta ) {
-                            if ( $meta == 'on' )
-                                $val = ' checked="yes"';
-                        } else {
-                            if( $field['std'] == 'on' )
-                                $val = ' checked="yes"';
-                        }
+                        $val = ( $meta == 'on' ) ? ' checked="yes"' : '';
                         echo '<input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="off" /><input type="checkbox" id="' . $id . '" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="on"' . $val . ' /> ';
                         echo '</td>';
                         break;
-
+                        
                     case 'color':
-                        echo '<td><input type="text" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" class="wp-color-picker" value="' . ( $meta ? $meta : $field['std'] ) . '" data-default-color="' . $field['std'] . '" /></td>';
+                        echo '<td><input type="text" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" class="wp-color-picker" value="' . $meta . '" data-default-color="' . $field['std'] . '" /></td>';
                         break;
-
+                        
                     case 'file':
-                        echo '<td><input type="text" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . ( $meta ? $meta : $field['std'] ) . '" size="30" /><input type="button" class="button" id="' . $id . '_button" value="Browse" /></td>';
+                        echo '<td><input type="text" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" /><input type="button" class="button" id="' . $id . '_button" value="Browse" /></td>';
                         break;
                 }
                 echo '</tr>';
