@@ -21,5 +21,4 @@ get_header(); ?>
                 
             </main><!-- .content -->
 
-<?php get_sidebar( 'footer' ); ?>
 <?php get_footer();

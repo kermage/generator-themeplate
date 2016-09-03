@@ -10,6 +10,8 @@
 
         </div><!-- .site-content -->
         
+        <?php get_sidebar( 'footer' ); ?>
+        
         <footer class="site-footer" role="contentinfo">
             <div class="container">
                 <nav class="sitelinks">
