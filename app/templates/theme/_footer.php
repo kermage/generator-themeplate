@@ -11,7 +11,7 @@
         </div><!-- .site-content -->
         
         <footer class="site-footer" role="contentinfo">
-            <div class="wrap">
+            <div class="container">
                 <nav class="sitelinks">
                     <?php <%= opts.functionPrefix %>_footer_menu(); ?>
                 </nav>

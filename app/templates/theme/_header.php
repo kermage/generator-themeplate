@@ -19,7 +19,7 @@
     <body <?php body_class(); ?>>
         <header class="site-header" role="banner">
             <div class="branding">
-                <div class="wrap">
+                <div class="container">
                 
                     <?php if( is_front_page() ) : ?>
                         <h1 class="site-title">
@@ -43,7 +43,7 @@
             </div><!-- .branding -->
             
             <div class="navbar">
-                <div class="wrap">
+                <div class="container">
                     <nav class="sitenav" role="navigation">
                         <?php <%= opts.functionPrefix %>_primary_menu(); ?>
                     </nav>

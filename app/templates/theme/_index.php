@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-            <div class="content-sidebar wrap">
+            <div class="content-sidebar container">
                 <main class="content" role="main">
                 
                     <?php if( is_home() && ! is_front_page() ) : ?>

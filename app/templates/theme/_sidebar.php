@@ -12,10 +12,10 @@
                     <?php dynamic_sidebar( 'sidebar' ); ?>
                 </aside><!-- .sidebar -->
                 
-            </div><!-- .content-sidebar wrap -->
+            </div><!-- .content-sidebar.container -->
             
             <div class="footer">
-                <div class="wrap">
+                <div class="container">
                     <?php dynamic_sidebar( 'footer-1' ); ?>
                     <?php dynamic_sidebar( 'footer-2' ); ?>
                     <?php dynamic_sidebar( 'footer-3' ); ?>
