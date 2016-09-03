@@ -81,7 +81,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         break;
                         
                     case 'file':
-                        echo '<td><input type="text" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" /><input type="button" class="button" id="' . $id . '_button" value="Browse" /></td>';
+                        echo '<td><input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" />';
+                        echo '<p>' . get_the_title( $meta ) . '</p>';
+                        echo '<input type="button" class="button" id="' . $id . '_button" value="' . ( $meta ? 'Re-select' : 'Select' ) . '" /></td>';
                         break;
                 }
                 echo '</tr>';
