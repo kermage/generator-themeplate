@@ -8,15 +8,14 @@
  */
 
 if( ! function_exists( '<%= opts.functionPrefix %>_add_meta_box' ) ) {
-    function <%= opts.functionPrefix %>_add_meta_box( $meta_boxes ) {
-        if ( ! is_array( $meta_boxes ) )
+    function <%= opts.functionPrefix %>_add_meta_box( $meta_box ) {
+        if ( ! is_array( $meta_box ) )
             return false;
         
-        foreach ( $meta_boxes as $id => $meta_box ) {
-            if ( $meta_box['screen'] == 'post' )
-                $id =  $id . '_post';
-            add_meta_box( $id, $meta_box['title'], '<%= opts.functionPrefix %>_create_meta_box', $meta_box['screen'], $meta_box['context'], $meta_box['priority'], $meta_box );
-        }
+        if ( $meta_box['screen'] == 'post' )
+            $meta_box['id'] =  $meta_box['id'] . '_post';
+        
+        add_meta_box( $meta_box['id'], $meta_box['title'], '<%= opts.functionPrefix %>_create_meta_box', $meta_box['screen'], $meta_box['context'], $meta_box['priority'], $meta_box );
     }
 }
 
