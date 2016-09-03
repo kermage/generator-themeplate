@@ -18,27 +18,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
             'before_widget' => '<section class="widget %2$s">',
             'after_widget'  => '</section>'
         ) );
-        register_sidebar( array(
-            'id'            => 'footer-1',
-            'name'          => __( 'Footer Area1', '<%= opts.functionPrefix %>' ),
-            'description'   => __( 'Add widgets here to appear in footer.', '<%= opts.functionPrefix %>' ),
-            'before_title'  => '<h4 class="widget-title">',
-            'after_title'   => '</h4>',
-            'before_widget' => '<section class="widget %2$s">',
-            'after_widget'  => '</section>'
-        ) );
-        register_sidebar( array(
-            'id'            => 'footer-2',
-            'name'          => __( 'Footer Area2', '<%= opts.functionPrefix %>' ),
-            'description'   => __( 'Add widgets here to appear in footer.', '<%= opts.functionPrefix %>' ),
-            'before_title'  => '<h4 class="widget-title">',
-            'after_title'   => '</h4>',
-            'before_widget' => '<section class="widget %2$s">',
-            'after_widget'  => '</section>'
-        ) );
-        register_sidebar( array(
-            'id'            => 'footer-3',
-            'name'          => __( 'Footer Area3', '<%= opts.functionPrefix %>' ),
+        register_sidebars( 3, array(
+            'id'            => 'footer',
+            'name'          => __( 'Footer Area %d', '<%= opts.functionPrefix %>' ),
             'description'   => __( 'Add widgets here to appear in footer.', '<%= opts.functionPrefix %>' ),
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',

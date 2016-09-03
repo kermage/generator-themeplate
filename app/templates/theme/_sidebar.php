@@ -16,7 +16,7 @@
             
             <div class="footer">
                 <div class="container">
-                    <?php dynamic_sidebar( 'footer-1' ); ?>
+                    <?php dynamic_sidebar( 'footer' ); ?>
                     <?php dynamic_sidebar( 'footer-2' ); ?>
                     <?php dynamic_sidebar( 'footer-3' ); ?>
                 </div>
