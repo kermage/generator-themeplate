@@ -84,6 +84,7 @@ var Generator = yeoman.generators.Base.extend({
         this.template( 'theme/_header.php', 'header.php' );
         this.template( 'theme/_footer.php', 'footer.php' );
         this.template( 'theme/_sidebar.php', 'sidebar.php' );
+        this.template( 'theme/_sidebar-footer.php', 'sidebar-footer.php' );
         this.template( 'theme/_page.php', 'page.php' );
         this.template( 'theme/_single.php', 'single.php' );
         
