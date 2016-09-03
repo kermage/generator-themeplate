@@ -56,6 +56,10 @@ get_header(); ?>
                     <?php endif; ?>
                     
                 </main><!-- .content -->
+                
+                <?php get_sidebar(); ?>
+                
+            </div><!-- .content-sidebar.container -->
 
-<?php get_sidebar(); ?>
+<?php get_sidebar( 'footer' ); ?>
 <?php get_footer();
