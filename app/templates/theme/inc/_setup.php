@@ -81,12 +81,14 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         break;
                         
                     case 'file':
-                        echo '<td><input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" />';
-                        $files = explode( ',', $meta );
-                        foreach( $files as $file ){
-                            echo '<p>' . get_the_title( $file ) . '</p>'; 
+                        echo '<td><input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" /><div id="' . $id . '_files">';
+                        if ( $meta ) {
+                            $files = explode( ',', $meta );
+                            foreach( $files as $file ){
+                                echo '<p>' . get_the_title( $file ) . '</p>'; 
+                            }
                         }
-                        echo '<input type="button" class="button" id="' . $id . '_button" value="' . ( $meta ? 'Re-select' : 'Select' ) . '" ' . ( $field['multiple'] ? 'multiple' : '' ) . ' /></td>';
+                        echo '</div><input type="button" class="button" id="' . $id . '_button" value="' . ( $meta ? 'Re-select' : 'Select' ) . '" ' . ( $field['multiple'] ? 'multiple' : '' ) . ' /> <input type="' . ( $meta ? 'button' : 'hidden' ) . '" class="button" id="' . $id . '_remove" value="Remove" /></td>';
                         break;
                 }
                 echo '</tr>';

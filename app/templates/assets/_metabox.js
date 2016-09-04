@@ -63,10 +63,26 @@ jQuery( document ).ready( function( $ ) {
                 selected.push( media.id );
             });
             
+            $( '#' + e.target.id.replace( '_button', '_files' ) ).html( '' );
+            selection.forEach( function( id ) {
+                $( '#' + e.target.id.replace( '_button', '_files' ) ).append( '<p>' + id.title + '</p>' );
+            });
+            
             $( '#' + e.target.id.replace( '_button', '' ) ).val( selected.join( "," ) );
+            $( '#' + e.target.id ).val( 'Re-select' );
+            $( '#' + e.target.id.replace( '_button', '_remove' ) ).attr( 'type', 'button' );
         });
         
         meta_media_frame.open();
+    });
+    
+    $( 'input[id^="themeplate_"][id $="_remove"]' ).click( function( e ) {
+        e.preventDefault();
+        
+        $( '#' + e.target.id.replace( '_remove', '_files' ) ).html( '' );
+        $( '#' + e.target.id.replace( '_remove', '' ) ).val('');
+        $( '#' + e.target.id.replace( '_remove', '_button' ) ).val( 'Select' );
+        $( '#' + e.target.id ).attr( 'type', 'hidden' );
     });
     
 });
