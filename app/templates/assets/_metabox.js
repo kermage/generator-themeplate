@@ -30,22 +30,40 @@ jQuery( document ).ready( function( $ ) {
             return;
         }
         
+        var isMultiple = false;
+        if ( $( this ).attr( 'multiple' ) ) {
+            isMultiple = true;
+        }
+        
         meta_media_frame = wp.media.frames.meta_media_frame = wp.media({
-            title: 'Select Media'
+            title: 'Select Media',
+            multiple: isMultiple
         });
         
         meta_media_frame.on( 'open', function() {
             var selection = meta_media_frame.state().get( 'selection' );
             var selected = $( '#' + e.target.id.replace( '_button', '' ) ).val();
             
-            if ( selected ) {
+            if ( selected && isMultiple ) {
+                selected = selected.split( ',' );
+                selected.forEach( function( id ) {
+                    attachment = wp.media.attachment( id );
+                    selection.add( attachment );
+                });
+            } else if ( selected && !isMultiple ) {
                 selection.add( wp.media.attachment( selected ) );
             }
         });
         
         meta_media_frame.on( 'select', function() {
-            var selection = meta_media_frame.state().get( 'selection' ).first().toJSON();
-            $( '#' + e.target.id.replace( '_button', '' ) ).val( selection.id );
+            var selection = meta_media_frame.state().get( 'selection' ).toJSON();
+            var selected = [];
+            
+            selection.map( function( media ) {
+                selected.push( media.id );
+            });
+            
+            $( '#' + e.target.id.replace( '_button', '' ) ).val( selected.join( "," ) );
         });
         
         meta_media_frame.open();
