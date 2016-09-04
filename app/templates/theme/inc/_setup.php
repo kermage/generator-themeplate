@@ -90,6 +90,18 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         }
                         echo '</div><input type="button" class="button" id="' . $id . '_button" value="' . ( $meta ? 'Re-select' : 'Select' ) . '" ' . ( $field['multiple'] ? 'multiple' : '' ) . ' /> <input type="' . ( $meta ? 'button' : 'hidden' ) . '" class="button" id="' . $id . '_remove" value="Remove" /></td>';
                         break;
+                        
+                    case 'date':
+                        echo '<td><input type="date" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" /></td>';
+                        break;
+                        
+                    case 'time':
+                        echo '<td><input type="time" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" /></td>';
+                        break;
+                        
+                    case 'number':
+                        echo '<td><input type="number" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" /></td>';
+                        break;
                 }
                 echo '</tr>';
             }
