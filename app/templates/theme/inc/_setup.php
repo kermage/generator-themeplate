@@ -50,11 +50,11 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         break;
                         
                     case 'select' :
-                        echo '<td><select name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '">';
-                        foreach( $field['options'] as $option ) {
-                            echo'<option';
-                            if ( $meta == $option ) echo ' selected="selected"';
-                            echo'>' . $option . '</option>';
+                        echo '<td><select name="<%= opts.functionPrefix %>_meta[' . $id . ']' . ( $field['multiple'] ? '[]' : '' ) . '" id="' . $id . '" ' . ( $field['multiple'] ? 'multiple="multiple"' : '' ) . '>';
+                        foreach( $field['options'] as $value => $option ) {
+                            echo '<option value="' . $value . '"';
+                            if ( strpos( $meta, (string) $value ) !== false ) echo ' selected="selected"';
+                            echo '>' . $option . '</option>';
                         }
                         echo '</select></td>';
                         break;
@@ -113,7 +113,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_save_meta_box' ) ) {
         }
         
         foreach( $_POST['<%= opts.functionPrefix %>_meta'] as $key => $val ) {
-            update_post_meta( $post_id, $key, $val );
+            update_post_meta( $post_id, $key, is_array( $val ) ? implode( ",", $val ) : $val );
         }
     }
     add_action( 'save_post', '<%= opts.functionPrefix %>_save_meta_box' );

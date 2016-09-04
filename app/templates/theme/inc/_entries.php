@@ -37,7 +37,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_page_meta_boxes' ) ) {
                     'desc'      => __( 'Select page template.', '<%= opts.functionPrefix %>' ),
                     'type'      => 'select',
                     'std'       => 'Header; Footer',
-                    'options' => array( 'Header; Footer', 'No Header; Footer', 'Header; No Footer', 'No Header; No Footer' )
+                    'options'   => array( 'Header; Footer', 'No Header; Footer', 'Header; No Footer', 'No Header; No Footer' ),
+                    // 'multiple'  => true
                 ),
                 $prefix . 'bg_color' => array(
                     'name'      => __( 'Background Color', '<%= opts.functionPrefix %>' ),
@@ -100,7 +101,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_page_meta_boxes' ) ) {
                     'name'      => __( 'Project File', '<%= opts.functionPrefix %>' ),
                     'desc'      => __( 'Select portfolio project file.', '<%= opts.functionPrefix %>' ),
                     'type'      => 'file',
-                    'std'       => ''
+                    'std'       => '',
+                    // 'multiple'  => true
                 )
             )
         ) );
