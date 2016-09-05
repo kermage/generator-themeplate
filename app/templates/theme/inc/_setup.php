@@ -100,7 +100,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         break;
                         
                     case 'number':
-                        echo '<td><input type="number" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" /></td>';
+                        echo '<td><input type="number" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '"';
+                        if ( is_array( $field['options'] ) ) foreach( $field['options'] as $option => $value ) echo $option . '="' . $value . '"';
+                        echo ' /></td>';
                         break;
                 }
                 echo '</tr>';
