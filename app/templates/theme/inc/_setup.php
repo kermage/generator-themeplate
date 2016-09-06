@@ -52,28 +52,21 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                     case 'select' :
                         echo '<td><select name="<%= opts.functionPrefix %>_meta[' . $id . ']' . ( $field['multiple'] ? '[]' : '' ) . '" id="' . $id . '" ' . ( $field['multiple'] ? 'multiple="multiple"' : '' ) . '>';
                         foreach( $field['options'] as $value => $option ) {
-                            echo '<option value="' . $value . '"';
-                            if ( strpos( $meta, (string) $value ) !== false ) echo ' selected="selected"';
-                            echo '>' . $option . '</option>';
+                            echo '<option value="' . ( $value + 1 ) . '"' . selected( $meta, ( $value + 1 ), false ) . '>' . $option . '</option>';
                         }
                         echo '</select></td>';
                         break;
                         
                     case 'radio' :
                         echo '<td>';
-                        foreach( $field['options'] as $option ) {
-                            echo '<label class="radio-label"><input type="radio" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="' . $option . '" class="radio"';
-                            if ( $meta == $option ) echo ' checked="yes"';
-                            echo ' /> ' . $option . '</label>';
+                        foreach( $field['options'] as $value => $option ) {
+                            echo '<label class="radio-label"><input type="radio" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="' . ( $value +  1 ) . '" class="radio"' . checked( $meta, ( $value +  1 ), false ) . ' /> ' . $option . '</label>';
                         }
                         echo '</td>';
                         break;
                         
                     case 'checkbox' :
-                        echo '<td>';
-                        $val = ( $meta == 'on' ) ? ' checked="yes"' : '';
-                        echo '<input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="off" /><input type="checkbox" id="' . $id . '" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="on"' . $val . ' /> ';
-                        echo '</td>';
+                        echo '<td><input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="off" /><input type="checkbox" id="' . $id . '" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="1"' . checked( $meta, 1, false ) . ' /></td>';
                         break;
                         
                     case 'color':
