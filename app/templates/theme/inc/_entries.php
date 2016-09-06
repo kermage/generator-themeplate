@@ -36,7 +36,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_page_meta_boxes' ) ) {
                     'name'      => __( 'Page Template', '<%= opts.functionPrefix %>' ),
                     'desc'      => __( 'Select page template.', '<%= opts.functionPrefix %>' ),
                     'type'      => 'select',
-                    'std'       => 'Header; Footer',
+                    'std'       => '',
                     'options'   => array( 'Header; Footer', 'No Header; Footer', 'Header; No Footer', 'No Header; No Footer' ),
                     // 'multiple'  => true
                 ),
@@ -103,6 +103,12 @@ if( ! function_exists( '<%= opts.functionPrefix %>_page_meta_boxes' ) ) {
                     'type'      => 'file',
                     'std'       => '',
                     // 'multiple'  => true
+                ),
+                $prefix . 'portfolio_date' => array(
+                    'name'      => __( 'Project Date', '<%= opts.functionPrefix %>' ),
+                    'desc'      => __( 'Select portfolio project date.', '<%= opts.functionPrefix %>' ),
+                    'type'      => 'date',
+                    'std'       => ''
                 )
             )
         ) );

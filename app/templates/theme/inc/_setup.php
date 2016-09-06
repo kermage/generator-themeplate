@@ -51,6 +51,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         
                     case 'select' :
                         echo '<td><select name="<%= opts.functionPrefix %>_meta[' . $id . ']' . ( $field['multiple'] ? '[]' : '' ) . '" id="' . $id . '" ' . ( $field['multiple'] ? 'multiple="multiple"' : '' ) . '>';
+                        echo '<option disabled="disabled" selected="selected" hidden>' . __( '&mdash; Select &mdash;' ) . '</option>';
                         foreach( $field['options'] as $value => $option ) {
                             echo '<option value="' . ( $value + 1 ) . '"' . selected( $meta, ( $value + 1 ), false ) . '>' . $option . '</option>';
                         }
@@ -66,7 +67,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         break;
                         
                     case 'checkbox' :
-                        echo '<td><input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="off" /><input type="checkbox" id="' . $id . '" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="1"' . checked( $meta, 1, false ) . ' /></td>';
+                        echo '<td><input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="0" /><input type="checkbox" id="' . $id . '" name="<%= opts.functionPrefix %>_meta[' . $id . ']" value="1"' . checked( $meta, 1, false ) . ' /></td>';
                         break;
                         
                     case 'color':
