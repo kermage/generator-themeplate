@@ -24,20 +24,19 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
         if ( ! is_array( $meta_box ) )
             return false;
         
-        if ( isset( $meta_box['args']['description'] ) && $meta_box['args']['description'] != '' )
+        if ( ! empty( $meta_box['args']['description'] ) )
             echo '<p>' . $meta_box['args']['description'] . '</p>';
         
         $fields = $meta_box['args']['fields'];
-        wp_nonce_field( basename(__FILE__), '<%= opts.functionPrefix %>_meta_box_nonce' );
+        wp_nonce_field( basename( __FILE__ ), '<%= opts.functionPrefix %>_meta_box_nonce' );
         
-        if ( sizeof( $fields ) ) {
+        if ( is_array( $fields ) ) {
             echo '<table class="<%= opts.functionPrefix %>-meta-table">';
             
             foreach ( $fields as $id => $field ) {
                 $meta = get_post_meta( $post->ID, $id, true );
                 $meta = $meta ? $meta : $field['std'];
-                echo '<tr><th><label for="' . $id . '"><strong>' . $field['name'] . '</strong>
-                    <span>' . $field['desc'] . '</span></label></th>';
+                echo '<tr><th><label for="' . $id . '"><strong>' . $field['name'] . '</strong><span>' . $field['desc'] . '</span></label></th>';
                 
                 switch ( $field['type'] ) {
                     default:
@@ -78,7 +77,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         echo '<td><input type="hidden" name="<%= opts.functionPrefix %>_meta[' . $id . ']" id="' . $id . '" value="' . $meta . '" /><div id="' . $id . '_files">';
                         if ( $meta ) {
                             $files = explode( ',', $meta );
-                            foreach( $files as $file ){
+                            foreach( $files as $file ) {
                                 echo '<p>' . get_the_title( $file ) . '</p>'; 
                             }
                         }
