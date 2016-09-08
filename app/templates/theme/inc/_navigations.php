@@ -34,24 +34,21 @@ if( ! function_exists( '<%= opts.functionPrefix %>_footer_menu' ) ) {
 if( ! class_exists( '<%= opts.classPrefix %>_nav_walker' ) ) {
     class <%= opts.classPrefix %>_nav_walker extends Walker_Nav_Menu {
         public function start_lvl( &$output, $depth = 0, $args = array() ) {
-            $output .= "\n$indent<ul class=\"sub-menu\">\n";
+            $output .= '<ul class="sub-menu">';
         }
         
         public function end_lvl( &$output, $depth = 0, $args = array() ) {
-            $indent = str_repeat( "\t", $depth );
-            $output .= "$indent</ul>\n";
+            $output .= '</ul>';
         }
         
         public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-            $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-            
             $classes = empty( $item->classes ) ? array() : (array) $item->classes;
             if( in_array( 'menu-item-has-children', (array) $classes ) ) $classes[] = 'has-sub';
             if( in_array( 'current-menu-item', (array) $classes ) ) $classes[] = 'active';
             $classes = preg_replace( '/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', '', $classes );
             $classes = preg_replace( '/^((menu|page)[-_\w+]+)+/', '', $classes );
             $classes = preg_replace( '/\s\s+/', '', join( ' ', $classes ) );
-            $output .=  $indent . '<li' . ( ( $classes ) ? ' class="' . $classes . '"' : '' ) . '>';
+            $output .= '<li' . ( ( $classes ) ? ' class="' . $classes . '"' : '' ) . '>';
             
             $attributes = ! empty( $item->attr_title )      ? ' title="'            . esc_attr( $item->attr_title   ) . '"' : '';
             $attributes .= ! empty( $item->target )         ? ' target="'           . esc_attr( $item->target       ) . '"' : '';
@@ -73,7 +70,7 @@ if( ! class_exists( '<%= opts.classPrefix %>_nav_walker' ) ) {
         }
         
         public function end_el( &$output, $item, $depth = 0, $args = array() ) {
-            $output .= "</li>\n";
+            $output .= '</li>';
         }
     }
 }
