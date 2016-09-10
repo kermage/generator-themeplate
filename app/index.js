@@ -97,6 +97,9 @@ var Generator = yeoman.generators.Base.extend({
         this.template( 'theme/inc/widgets/_about_widget.php', 'inc/widgets/' + this.opts.classPrefix + '_about_widget.php' );
         this.template( 'theme/inc/widgets/_contact_widget.php', 'inc/widgets/' + this.opts.classPrefix + '_contact_widget.php' );
         
+        this.template( 'theme/inc/settings/_setup.php', 'inc/settings/setup.php' );
+        this.template( 'theme/inc/settings/_entries.php', 'inc/settings/entries.php' );
+        
         this.template( 'theme/inc/post-type/_posts.php', 'inc/post-type/posts.php' );
         this.template( 'theme/inc/post-type/_taxonomies.php', 'inc/post-type/taxonomies.php' );
         

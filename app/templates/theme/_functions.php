@@ -29,6 +29,12 @@ require_once( THEME_INC . 'theme/navigations.php' );
 require_once( THEME_INC . 'theme/widgets.php' );
 
 /* ==================================================
+Register settings
+================================================== */
+require_once( THEME_INC . 'settings/setup.php' );
+require_once( THEME_INC . 'settings/entries.php' );
+
+/* ==================================================
 Register custom post types
 ================================================== */
 require_once( THEME_INC . 'post-type/posts.php' );
