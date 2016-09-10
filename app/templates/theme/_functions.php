@@ -22,23 +22,23 @@ define( 'THEME_INC',        THEME_PATH . 'inc/' );
 define( 'THEME_DEBUG',      true );
 
 /* ==================================================
-Register theme features and widgets
+Setup features, navigations, and widgets
 ================================================== */
-require_once( THEME_INC . 'features.php' );
-require_once( THEME_INC . 'navigations.php' );
-require_once( THEME_INC . 'widgets.php' );
+require_once( THEME_INC . 'theme/features.php' );
+require_once( THEME_INC . 'theme/navigations.php' );
+require_once( THEME_INC . 'theme/widgets.php' );
 
 /* ==================================================
-Register custom post types and taxonomies
+Register custom post types
 ================================================== */
-require_once( THEME_INC . 'posts.php' );
-require_once( THEME_INC . 'taxonomies.php' );
+require_once( THEME_INC . 'post-type/posts.php' );
+require_once( THEME_INC . 'post-type/taxonomies.php' );
 
 /* ==================================================
 Register meta boxes
 ================================================== */
-require_once( THEME_INC . 'setup.php' );
-require_once( THEME_INC . 'entries.php' );
+require_once( THEME_INC . 'meta-box/setup.php' );
+require_once( THEME_INC . 'meta-box/entries.php' );
 
 /* ==================================================
 Cleanup WordPress markup

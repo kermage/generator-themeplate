@@ -90,17 +90,19 @@ var Generator = yeoman.generators.Base.extend({
         
         this.template( 'theme/templates/_fullwidth-page.php', 'templates/fullwidth-page.php' );
         
-        this.template( 'theme/inc/_features.php', 'inc/features.php' );
-        this.template( 'theme/inc/_navigations.php', 'inc/navigations.php' );
-        this.template( 'theme/inc/_widgets.php', 'inc/widgets.php' );
+        this.template( 'theme/inc/theme/_features.php', 'inc/theme/features.php' );
+        this.template( 'theme/inc/theme/_navigations.php', 'inc/theme/navigations.php' );
+        this.template( 'theme/inc/theme/_widgets.php', 'inc/theme/widgets.php' );
         
         this.template( 'theme/inc/widgets/_about_widget.php', 'inc/widgets/' + this.opts.classPrefix + '_about_widget.php' );
         this.template( 'theme/inc/widgets/_contact_widget.php', 'inc/widgets/' + this.opts.classPrefix + '_contact_widget.php' );
         
-        this.template( 'theme/inc/_posts.php', 'inc/posts.php' );
-        this.template( 'theme/inc/_taxonomies.php', 'inc/taxonomies.php' );
-        this.template( 'theme/inc/_setup.php', 'inc/setup.php' );
-        this.template( 'theme/inc/_entries.php', 'inc/entries.php' );
+        this.template( 'theme/inc/post-type/_posts.php', 'inc/post-type/posts.php' );
+        this.template( 'theme/inc/post-type/_taxonomies.php', 'inc/post-type/taxonomies.php' );
+        
+        this.template( 'theme/inc/meta-box/_setup.php', 'inc/meta-box/setup.php' );
+        this.template( 'theme/inc/meta-box/_entries.php', 'inc/meta-box/entries.php' );
+        
         this.template( 'theme/inc/_cleanup.php', 'inc/cleanup.php' );
         this.template( 'theme/inc/_scripts-styles.php', 'inc/scripts-styles.php' );
     },
