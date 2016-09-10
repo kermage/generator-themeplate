@@ -65,7 +65,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_add_settings' ) ) {
                 array(
                     'label_for' => $id,
                     'type'      => $field['type'],
-                    'options'   => $field['options']
+                    'options'   => $field['options'],
+                    'multiple'  => $field['multiple']
                 )
             );
         }
@@ -92,9 +93,12 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_settings' ) ) {
                 break;
                 
             case 'select' :
-                echo '<select name="<%= opts.functionPrefix %>[' . $id . ']" id="' . $id . '">';
+                echo '<select name="<%= opts.functionPrefix %>[' . $id . ']' . ( $param['multiple'] ? '[]' : '' ) . '" id="' . $id . '" ' . ( $param['multiple'] ? 'multiple="multiple"' : '' ) . '>';
                 foreach( $param['options'] as $value => $option ) {
-                    echo '<option value="' . ( $value + 1 ) . '"' . selected( $setting, ( $value + 1 ), false ) . '>' . $option . '</option>';
+                    echo '<option value="' . ( $value + 1 ) . '"';
+                    if ( in_array( ( $value + 1 ), (array) $setting ) ) echo ' selected="selected"';
+                    else selected( $setting, ( $value + 1 ) );
+                    echo '>' . $option . '</option>';
                 }
                 echo '</select>';
                 break;
@@ -116,9 +120,12 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_settings' ) ) {
             case 'file':
                 echo '<input type="hidden" name="<%= opts.functionPrefix %>[' . $id . ']" id="' . $id . '" value="' . $setting . '" /><div id="' . $id . '_files">';
                 if ( $setting ) {
-                    echo '<p>' . get_the_title( $setting ) . '</p>';
+                    $files = explode( ',', $setting );
+                    foreach( $files as $file ) {
+                        echo '<p>' . get_the_title( $file ) . '</p>';
+                    }
                 }
-                echo '</div><input type="button" class="button" id="' . $id . '_button" value="' . ( $setting ? 'Re-select' : 'Select' ) . '" /> <input type="' . ( $setting ? 'button' : 'hidden' ) . '" class="button" id="' . $id . '_remove" value="Remove" />';
+                echo '</div><input type="button" class="button" id="' . $id . '_button" value="' . ( $setting ? 'Re-select' : 'Select' ) . '" ' . ( $param['multiple'] ? 'multiple' : '' ) . '/> <input type="' . ( $setting ? 'button' : 'hidden' ) . '" class="button" id="' . $id . '_remove" value="Remove" />';
                 break;
                 
             case 'date':
