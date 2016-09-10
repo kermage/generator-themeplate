@@ -38,6 +38,26 @@ if( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
                 $prefix . 'disable' => array(
                     'name'      => __( 'Disable Titles', '<%= opts.functionPrefix %>' ),
                     'type'      => 'checkbox'
+                ),
+                $prefix . 'color' => array(
+                    'name'      => __( 'Accent Color', '<%= opts.functionPrefix %>' ),
+                    'type'      => 'color'
+                ),
+                $prefix . 'logo' => array(
+                    'name'      => __( 'Site Logo', '<%= opts.functionPrefix %>' ),
+                    'type'      => 'file'
+                ),
+                $prefix . 'date' => array(
+                    'name'      => __( 'Date', '<%= opts.functionPrefix %>' ),
+                    'type'      => 'date'
+                ),
+                $prefix . 'time' => array(
+                    'name'      => __( 'Time', '<%= opts.functionPrefix %>' ),
+                    'type'      => 'time'
+                ),
+                $prefix . 'number' => array(
+                    'name'      => __( 'Number', '<%= opts.functionPrefix %>' ),
+                    'type'      => 'number'
                 )
             )
         ) );

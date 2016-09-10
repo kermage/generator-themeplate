@@ -27,6 +27,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_settings_menu' ) ) {
 
 if( ! function_exists( '<%= opts.functionPrefix %>_settings_page' ) ) {
     function <%= opts.functionPrefix %>_settings_page() {
+        wp_enqueue_media();
         ?>
         <div class="wrap">
             <h1><%= opts.themeName %> Settings</h1>
@@ -106,6 +107,32 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_settings' ) ) {
                 
             case 'checkbox' :
                 echo '<input type="checkbox" name="<%= opts.functionPrefix %>[' . $id . ']" id="' . $id . '" value="1" ' . checked( $setting, 1, false ) . ' />';
+                break;
+                
+            case 'color':
+                echo '<input type="text" name="<%= opts.functionPrefix %>[' . $id . ']" id="' . $id . '" class="wp-color-picker" value="' . $setting . '" />';
+                break;
+                
+            case 'file':
+                echo '<input type="hidden" name="<%= opts.functionPrefix %>[' . $id . ']" id="' . $id . '" value="' . $setting . '" /><div id="' . $id . '_files">';
+                if ( $setting ) {
+                    echo '<p>' . get_the_title( $setting ) . '</p>';
+                }
+                echo '</div><input type="button" class="button" id="' . $id . '_button" value="' . ( $setting ? 'Re-select' : 'Select' ) . '" /> <input type="' . ( $setting ? 'button' : 'hidden' ) . '" class="button" id="' . $id . '_remove" value="Remove" />';
+                break;
+                
+            case 'date':
+                echo '<input type="date" name="<%= opts.functionPrefix %>[' . $id . ']" id="' . $id . '" value="' . $setting . '" />';
+                break;
+                
+            case 'time':
+                echo '<input type="time" name="<%= opts.functionPrefix %>[' . $id . ']" id="' . $id . '" value="' . $setting . '" />';
+                break;
+                
+            case 'number':
+                echo '<input type="number" name="<%= opts.functionPrefix %>[' . $id . ']" id="' . $id . '" value="' . $setting . '"';
+                if ( is_array( $param['options'] ) ) foreach( $param['options'] as $option => $value ) echo $option . '="' . $value . '"';
+                echo ' />';
                 break;
         }
     }
