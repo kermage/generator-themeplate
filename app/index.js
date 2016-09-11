@@ -100,8 +100,10 @@ var Generator = yeoman.generators.Base.extend({
         this.template( 'theme/inc/settings/_setup.php', 'inc/settings/setup.php' );
         this.template( 'theme/inc/settings/_entries.php', 'inc/settings/entries.php' );
         
-        this.template( 'theme/inc/post-type/_posts.php', 'inc/post-type/posts.php' );
-        this.template( 'theme/inc/post-type/_taxonomies.php', 'inc/post-type/taxonomies.php' );
+        // this.template( 'theme/inc/post-type/_posts.php', 'inc/post-type/posts.php' );
+        // this.template( 'theme/inc/post-type/_taxonomies.php', 'inc/post-type/taxonomies.php' );
+        this.template( 'theme/inc/post-type/_setup.php', 'inc/post-type/setup.php' );
+        this.template( 'theme/inc/post-type/_entries.php', 'inc/post-type/entries.php' );
         
         this.template( 'theme/inc/meta-box/_setup.php', 'inc/meta-box/setup.php' );
         this.template( 'theme/inc/meta-box/_entries.php', 'inc/meta-box/entries.php' );

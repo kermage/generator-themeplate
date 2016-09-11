@@ -37,8 +37,10 @@ require_once( THEME_INC . 'settings/entries.php' );
 /* ==================================================
 Register custom post types
 ================================================== */
-require_once( THEME_INC . 'post-type/posts.php' );
-require_once( THEME_INC . 'post-type/taxonomies.php' );
+// require_once( THEME_INC . 'post-type/posts.php' );
+// require_once( THEME_INC . 'post-type/taxonomies.php' );
+require_once( THEME_INC . 'post-type/setup.php' );
+require_once( THEME_INC . 'post-type/entries.php' );
 
 /* ==================================================
 Register meta boxes
