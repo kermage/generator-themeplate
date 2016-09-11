@@ -52,7 +52,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         echo '<td><select name="<%= opts.functionPrefix %>_meta[' . $id . ']' . ( $field['multiple'] ? '[]' : '' ) . '" id="' . $id . '" ' . ( $field['multiple'] ? 'multiple="multiple"' : '' ) . '>';
                         echo '<option disabled="disabled" selected="selected" hidden>' . __( '&mdash; Select &mdash;' ) . '</option>';
                         foreach( $field['options'] as $value => $option ) {
-                            echo '<option value="' . ( $value + 1 ) . '"' . selected( $meta, ( $value + 1 ), false ) . '>' . $option . '</option>';
+                            echo '<option value="' . ( $value + 1 ) . '"';
+                            if ( in_array( ( $value + 1 ), (array) $meta ) ) echo ' selected="selected"';
+                            echo '>' . $option . '</option>';
                         }
                         echo '</select></td>';
                         break;
@@ -78,7 +80,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         if ( $meta ) {
                             $files = explode( ',', $meta );
                             foreach( $files as $file ) {
-                                echo '<p>' . get_the_title( $file ) . '</p>'; 
+                                echo '<p>' . get_the_title( $file ) . '</p>';
                             }
                         }
                         echo '</div><input type="button" class="button" id="' . $id . '_button" value="' . ( $meta ? 'Re-select' : 'Select' ) . '" ' . ( $field['multiple'] ? 'multiple' : '' ) . ' /> <input type="' . ( $meta ? 'button' : 'hidden' ) . '" class="button" id="' . $id . '_remove" value="Remove" /></td>';
@@ -122,7 +124,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_save_meta_box' ) ) {
         }
         
         foreach( $_POST['<%= opts.functionPrefix %>_meta'] as $key => $val ) {
-            update_post_meta( $post_id, $key, is_array( $val ) ? implode( ",", $val ) : $val );
+            update_post_meta( $post_id, $key, $val );
         }
     }
     add_action( 'save_post', '<%= opts.functionPrefix %>_save_meta_box' );
