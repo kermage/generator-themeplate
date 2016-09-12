@@ -55,8 +55,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_custom_post_types' ) ) {
         
         <%= opts.functionPrefix %>_add_taxonomy( array(
             'name'          => $prefix . 'portfolio-tag',
-            'plural'        => __( 'Portfolio Tags', '<%= opts.functionPrefix %>' ),
-            'singular'      => __( 'Portfolio Tag', '<%= opts.functionPrefix %>' ),
+            'plural'        => __( 'Tags', '<%= opts.functionPrefix %>' ),
+            'singular'      => __( 'Tag', '<%= opts.functionPrefix %>' ),
             'description'   => __( 'Portfolio Tag', '<%= opts.functionPrefix %>' ),
             'type'          => $prefix . 'portfolio',
             'args' => array(
