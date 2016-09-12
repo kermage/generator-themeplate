@@ -122,7 +122,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_settings' ) ) {
                 if ( $setting ) {
                     $files = explode( ',', $setting );
                     foreach( $files as $file ) {
-                        echo '<p>' . get_the_title( $file ) . '</p>';
+                        echo '<p>' . basename( get_attached_file( $file ) ) . '</p>';
                     }
                 }
                 echo '</div><input type="button" class="button" id="' . $id . '_button" value="' . ( $setting ? 'Re-select' : 'Select' ) . '" ' . ( $param['multiple'] ? 'multiple' : '' ) . '/> <input type="' . ( $setting ? 'button' : 'hidden' ) . '" class="button" id="' . $id . '_remove" value="Remove" />';

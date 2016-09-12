@@ -64,8 +64,8 @@ jQuery( document ).ready( function( $ ) {
             });
             
             $( '#' + e.target.id.replace( '_button', '_files' ) ).html( '' );
-            selection.forEach( function( id ) {
-                $( '#' + e.target.id.replace( '_button', '_files' ) ).append( '<p>' + id.title + '</p>' );
+            selection.forEach( function( media ) {
+                $( '#' + e.target.id.replace( '_button', '_files' ) ).append( '<p>' + media.filename + '</p>' );
             });
             
             $( '#' + e.target.id.replace( '_button', '' ) ).val( selected.join( "," ) );

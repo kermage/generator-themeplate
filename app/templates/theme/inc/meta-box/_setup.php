@@ -80,7 +80,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         if ( $meta ) {
                             $files = explode( ',', $meta );
                             foreach( $files as $file ) {
-                                echo '<p>' . get_the_title( $file ) . '</p>';
+                                echo '<p>' . basename( get_attached_file( $file ) ) . '</p>';
                             }
                         }
                         echo '</div><input type="button" class="button" id="' . $id . '_button" value="' . ( $meta ? 'Re-select' : 'Select' ) . '" ' . ( $field['multiple'] ? 'multiple' : '' ) . ' /> <input type="' . ( $meta ? 'button' : 'hidden' ) . '" class="button" id="' . $id . '_remove" value="Remove" /></td>';
