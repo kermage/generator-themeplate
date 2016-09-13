@@ -141,6 +141,14 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_settings' ) ) {
                 if ( is_array( $param['options'] ) ) foreach( $param['options'] as $option => $value ) echo $option . '="' . $value . '"';
                 echo ' />';
                 break;
+                
+            case 'editor':
+                $settings = array(
+                    'textarea_name' => '<%= opts.functionPrefix %>[' . $id . ']',
+                    'textarea_rows' => 10
+                );
+                wp_editor( $setting, $id, $settings );
+                break;
         }
     }
 }

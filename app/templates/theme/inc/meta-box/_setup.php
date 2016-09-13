@@ -99,6 +99,16 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
                         if ( is_array( $field['options'] ) ) foreach( $field['options'] as $option => $value ) echo $option . '="' . $value . '"';
                         echo ' /></td>';
                         break;
+                        
+                    case 'editor':
+                        $settings = array(
+                            'textarea_name' => '<%= opts.functionPrefix %>_meta[' . $id . ']',
+                            'textarea_rows' => 10
+                        );
+                        echo '<td>';
+                        wp_editor( $meta, $id, $settings );
+                        echo '</td>';
+                        break;
                 }
                 echo '</tr>';
             }
