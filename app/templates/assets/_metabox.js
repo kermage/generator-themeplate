@@ -76,7 +76,7 @@ jQuery( document ).ready( function( $ ) {
         meta_media_frame.open();
     });
     
-    $( 'input[id^="themeplate_"][id $="_remove"]' ).click( function( e ) {
+    $( 'input[id^="<%= opts.functionPrefix %>_"][id $="_remove"]' ).click( function( e ) {
         e.preventDefault();
         
         $( '#' + e.target.id.replace( '_remove', '_files' ) ).html( '' );
