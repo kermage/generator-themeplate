@@ -15,7 +15,9 @@ gulp.task('concat', function(){
 gulp.task('uglify', function(){
     gulp.src(['js/*.js','!js/*.min.js'])
         .pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
-        .pipe(plugins.uglify())
+        .pipe(plugins.uglify({
+            preserveComments: 'license'
+        }))
         .pipe(plugins.rename({suffix: '.min'}))
         .pipe(plugins.plumber.stop())
         .pipe(gulp.dest('js'))
