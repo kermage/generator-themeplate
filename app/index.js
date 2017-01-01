@@ -110,6 +110,7 @@ var Generator = yeoman.generators.Base.extend({
         this.template( 'theme/inc/_scripts-styles.php', 'inc/scripts-styles.php' );
     },
     project: function() {
+        this.copy( 'project/_.editorconfig', '.editorconfig' );
         this.template( 'project/_package.json', 'package.json' );
         this.template( 'project/_gulpfile.js', 'gulpfile.js' );
         this.template( 'project/_bower.json', 'bower.json' );
