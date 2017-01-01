@@ -8,6 +8,6 @@
  */
 ?>
 
-                <aside class="sidebar" role="complementary">
-                    <?php dynamic_sidebar( 'sidebar' ); ?>
-                </aside><!-- .sidebar -->
+				<aside class="sidebar" role="complementary">
+					<?php dynamic_sidebar( 'sidebar' ); ?>
+				</aside><!-- .sidebar -->
