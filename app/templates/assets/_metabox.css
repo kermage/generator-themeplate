@@ -1,38 +1,38 @@
 .<%= opts.functionPrefix %>-meta-table {
-    width: 100%;
-    margin-top: .5em;
+	width: 100%;
+	margin-top: .5em;
 }
 
 .<%= opts.functionPrefix %>-meta-table th,
 .<%= opts.functionPrefix %>-meta-table td {
-    border-top: 1px solid #eee;
+	border-top: 1px solid #eee;
 }
 
 .<%= opts.functionPrefix %>-meta-table th {
-    width: 200px;
-    padding: 20px 10px 20px 0;
-    text-align: left;
-    vertical-align: top;
+	width: 200px;
+	padding: 20px 10px 20px 0;
+	text-align: left;
+	vertical-align: top;
 }
 
 .<%= opts.functionPrefix %>-meta-table td {
-    padding: 20px 0 20px 10px;
+	padding: 20px 0 20px 10px;
 }
 
 .<%= opts.functionPrefix %>-meta-table label span {
-    display: block;
-    padding-top: .25em;
-    color: #bbb;
-    font-weight: normal;
+	display: block;
+	padding-top: .25em;
+	color: #bbb;
+	font-weight: normal;
 }
 
 .<%= opts.functionPrefix %>-meta-table input[type="text"],
 .<%= opts.functionPrefix %>-meta-table textarea,
 .<%= opts.functionPrefix %>-meta-table select {
-    width: 100%;
+	width: 100%;
 }
 
 .<%= opts.functionPrefix %>-meta-table .radio-label {
-    display: block;
-    margin: .5em 0;
+	display: block;
+	margin: .5em 0;
 }

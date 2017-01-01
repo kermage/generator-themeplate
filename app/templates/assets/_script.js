@@ -5,6 +5,6 @@
  */
 
 ( function( window, document, undefined ) {
-    'use strict';
-    
+	'use strict';
+
 }( this, window, window.document ));
