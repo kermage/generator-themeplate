@@ -109,6 +109,18 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_meta_box' ) ) {
 						wp_editor( $meta, $id, $settings );
 						echo '</td>';
 						break;
+
+					case 'page':
+						echo '<td><select name="<%= opts.functionPrefix %>_meta[' . $id . ']' . ( $field['multiple'] ? '[]' : '' ) . '" id="' . $id . '" ' . ( $field['multiple'] ? 'multiple="multiple"' : '' ) . '>';
+						echo '<option disabled="disabled" selected="selected" hidden>' . __( '&mdash; Select &mdash;' ) . '</option>';
+						$pages = get_pages( array ( 'post_type' => $field['options'] ) );
+						foreach( $pages as $page ) {
+							echo '<option value="' . $page->ID . '"';
+							if ( in_array( $page->ID, (array) $meta ) ) echo ' selected="selected"';
+							echo '>' . $page->post_title . '</option>';
+						}
+						echo '</select></td>';
+						break;
 				}
 				echo '</tr>';
 			}

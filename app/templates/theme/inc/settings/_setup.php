@@ -149,6 +149,18 @@ if( ! function_exists( '<%= opts.functionPrefix %>_create_settings' ) ) {
 				);
 				wp_editor( $setting, $id, $settings );
 				break;
+
+            case 'page':
+                echo '<select name="<%= opts.functionPrefix %>[' . $id . ']' . ( $param['multiple'] ? '[]' : '' ) . '" id="' . $id . '" ' . ( $param['multiple'] ? 'multiple="multiple"' : '' ) . '>';
+                echo '<option disabled="disabled" selected="selected" hidden>' . __( '&mdash; Select &mdash;' ) . '</option>';
+                $pages = get_pages( array ( 'post_type' => $param['options'] ) );
+                foreach( $pages as $page ) {
+                    echo '<option value="' . $page->ID . '"';
+                    if ( in_array( $page->ID, (array) $setting ) ) echo ' selected="selected"';
+                    echo '>' . $page->post_title . '</option>';
+                }
+                echo '</select>';
+                break;
 		}
 	}
 }
