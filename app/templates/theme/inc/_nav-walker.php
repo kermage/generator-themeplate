@@ -23,26 +23,28 @@ if( ! class_exists( '<%= opts.classPrefix %>_nav_walker' ) ) {
 			if( in_array( 'current-menu-item', (array) $classes ) ) $classes[] = 'active';
 			$classes = preg_replace( '/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', '', $classes );
 			$classes = preg_replace( '/^((menu|page)[-_\w+]+)+/', '', $classes );
-			$classes = preg_replace( '/\s\s+/', '', join( ' ', $classes ) );
-			$output .= '<li' . ( ( $classes ) ? ' class="' . $classes . '"' : '' ) . '>';
+			$classes = join( ' ', array_filter( $classes ) );
+			$output .= '<li' . ( ( $classes ) ? ' class="' . esc_attr( $classes ) . '"' : '' ) . '>';
 
-			$attributes = ! empty( $item->attr_title )      ? ' title="'            . esc_attr( $item->attr_title   ) . '"' : '';
-			$attributes .= ! empty( $item->target )         ? ' target="'           . esc_attr( $item->target       ) . '"' : '';
-			$attributes .= ! empty( $item->xfn )            ? ' rel="'              . esc_attr( $item->xfn          ) . '"' : '';
-			$attributes .= ! empty( $item->url )            ? ' href="'             . esc_attr( $item->url          ) . '"' : '';
-			$description = ! empty( $item->description )    ? '<span class="desc">' . esc_attr( $item->description  ) . '</span>' : '';
+			$atts = array();
+			$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+			$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+			$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+			$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
 
-			$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s%6$s</a>%7$s',
-				$args->before,
-				$attributes,
-				$args->link_before,
-				apply_filters( 'the_title', $item->title, $item->ID ),
-				$description,
-				$args->link_after,
-				$args->after
-			);
+			$attributes = '';
+			foreach ( $atts as $attr => $value ) {
+				if ( ! empty( $value ) ) {
+					$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+					$attributes .= ' ' . $attr . '="' . $value . '"';
+				}
+			}
 
-			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+			$output .= $args->before;
+			$output .= '<a'. $attributes .'>';
+			$output .= $args->link_before . $item->title . $args->link_after;
+			$output .= '</a>';
+			$output .= $args->after;
 		}
 
 		public function end_el( &$output, $item, $depth = 0, $args = array() ) {
