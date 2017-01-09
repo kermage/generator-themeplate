@@ -52,6 +52,7 @@ gulp.task('sass', function(){
 		.pipe(plugins.sass({
 			outputStyle: 'expanded'
 		}))
+		.pipe(plugins.autoprefixer())
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('css'))
 		.pipe(browserSync.stream())
