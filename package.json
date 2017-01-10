@@ -10,12 +10,15 @@
     "name": "Gene Alyson Fortunado Torcende",
     "email": "genealyson.torcende@gmail.com"
   },
+  "files": [
+    "app"
+  ],
   "main": "app/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/kermage/generator-themeplate.git"
   },
   "dependencies": {
-    "yeoman-generator": "^0.21.1"
+    "yeoman-generator": "^1.0.0"
   }
 }

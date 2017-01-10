@@ -1,8 +1,9 @@
+'use strict';
 var yeoman = require( 'yeoman-generator' );
 var async = require( 'async' );
 var fs = require( 'fs' );
 
-var Generator = yeoman.generators.Base.extend({
+var Generator = yeoman.extend({
 	promptUser: function() {
 		var done = this.async();
 		var prompts = [
