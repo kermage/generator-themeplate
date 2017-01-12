@@ -1,13 +1,11 @@
 'use strict';
 var Generator = require( 'yeoman-generator' );
-var async = require( 'async' );
 var fs = require( 'fs' );
 var path = require( 'path' );
 var glob = require( 'glob' );
 
 module.exports = class extends Generator {
 	prompting() {
-		var done = this.async();
 		return this.prompt( [
 			{
 				name: 'themeName',
@@ -65,18 +63,23 @@ module.exports = class extends Generator {
 			}
 		] ).then( props => {
 			this.opts = props;
-			this.opts.projectSlug = this.opts.themeName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' );
-
-			fs.lstat( this.destinationPath( this.opts.projectSlug ), function( err, stats ) {
-				if ( !err && stats.isDirectory() ) {
-					console.log( '\nTheme already exists. Exiting!' );
-					process.exit();
-				}
-			});
-
-			this.destinationRoot( this.opts.projectSlug );
-			done();
 		} );
+	}
+
+	configuring() {
+		var done = this.async();
+
+		this.opts.projectSlug = this.opts.themeName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' );
+
+		fs.lstat( this.destinationPath( this.opts.projectSlug ), function( err, stats ) {
+			if ( !err && stats.isDirectory() ) {
+				console.log( '\nTheme already exists. Exiting!' );
+				process.exit();
+			}
+		});
+
+		this.destinationRoot( this.opts.projectSlug );
+		done();
 	}
 
 	_processDirectory( source, destination, data ) {
