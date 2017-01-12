@@ -132,7 +132,7 @@ module.exports = class extends Generator {
 		);
 	}
 
-	// install: function() {
-	// 	this.installDependencies();
-	// }
+	install() {
+		this.installDependencies();
+	}
 };
