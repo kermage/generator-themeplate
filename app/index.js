@@ -2,6 +2,8 @@
 var Generator = require( 'yeoman-generator' );
 var async = require( 'async' );
 var fs = require( 'fs' );
+var path = require( 'path' );
+var glob = require( 'glob' );
 
 module.exports = class extends Generator {
 	prompting() {
@@ -77,54 +79,59 @@ module.exports = class extends Generator {
 		} );
 	}
 
-	// theme: function() {
-	// 	this.copy( 'theme/_screenshot.png', 'screenshot.png' );
-	// 	this.template( 'theme/_style.css', 'style.css' );
-	// 	this.template( 'theme/_functions.php', 'functions.php' );
-	// 	this.template( 'theme/_index.php', 'index.php' );
-	// 	this.template( 'theme/_header.php', 'header.php' );
-	// 	this.template( 'theme/_footer.php', 'footer.php' );
-	// 	this.template( 'theme/_sidebar.php', 'sidebar.php' );
-	// 	this.template( 'theme/_sidebar-footer.php', 'sidebar-footer.php' );
-	// 	this.template( 'theme/_page.php', 'page.php' );
-	// 	this.template( 'theme/_single.php', 'single.php' );
-	//
-	// 	this.template( 'theme/templates/_fullwidth-page.php', 'templates/fullwidth-page.php' );
-	//
-	// 	this.template( 'theme/inc/theme/_features.php', 'inc/theme/features.php' );
-	// 	this.template( 'theme/inc/theme/_navigations.php', 'inc/theme/navigations.php' );
-	// 	this.template( 'theme/inc/theme/_widgets.php', 'inc/theme/widgets.php' );
-	//
-	// 	this.template( 'theme/inc/widgets/_about_widget.php', 'inc/widgets/' + this.opts.classPrefix + '_about_widget.php' );
-	// 	this.template( 'theme/inc/widgets/_contact_widget.php', 'inc/widgets/' + this.opts.classPrefix + '_contact_widget.php' );
-	//
-	// 	this.template( 'theme/inc/settings/_setup.php', 'inc/settings/setup.php' );
-	// 	this.template( 'theme/inc/settings/_entries.php', 'inc/settings/entries.php' );
-	//
-	// 	this.template( 'theme/inc/post-type/_setup.php', 'inc/post-type/setup.php' );
-	// 	this.template( 'theme/inc/post-type/_entries.php', 'inc/post-type/entries.php' );
-	//
-	// 	this.template( 'theme/inc/meta-box/_setup.php', 'inc/meta-box/setup.php' );
-	// 	this.template( 'theme/inc/meta-box/_entries.php', 'inc/meta-box/entries.php' );
-	//
-	// 	this.template( 'theme/inc/_cleanup.php', 'inc/cleanup.php' );
-	// 	this.template( 'theme/inc/_scripts-styles.php', 'inc/scripts-styles.php' );
-	// },
-	// project: function() {
-	// 	this.copy( 'project/_.editorconfig', '.editorconfig' );
-	// 	this.template( 'project/_package.json', 'package.json' );
-	// 	this.template( 'project/_gulpfile.js', 'gulpfile.js' );
-	// 	this.template( 'project/_bower.json', 'bower.json' );
-	// },
-	// style: function() {
-	// 	this.template( 'assets/_style.scss', 'assets/sass/' + this.opts.projectSlug + '.scss' );
-	// 	this.directory( 'assets/layouts', 'assets/sass/layouts' );
-	// 	this.template( 'assets/_metabox.css', 'css/admin/metabox.css' );
-	// },
-	// script: function() {
-	// 	this.template( 'assets/_script.js', 'assets/js/' + this.opts.projectSlug + '.js' );
-	// 	this.template( 'assets/_metabox.js', 'js/admin/metabox.js' );
-	// },
+	_processDirectory( source, destination, data ) {
+		var files = glob.sync( '**', { cwd: source, dot: true, nodir: true } );
+
+		for ( var i = 0; i < files.length; i++ ) {
+			var file = files[i];
+			var src = path.join( source, file );
+			var dest = path.join( destination, path.dirname( file ), path.basename( file ).replace( /^_/, '' ) );
+			this.fs.copyTpl( src, dest, data );
+		}
+	}
+
+	writing() {
+		// Theme Files
+		this._processDirectory(
+			this.templatePath( 'theme' ),
+			this.destinationPath( '.' ),
+			{ opts: this.opts }
+		);
+
+		// Project Files
+		this._processDirectory(
+			this.templatePath( 'project' ),
+			this.destinationPath( '.' ),
+			{ opts: this.opts }
+		);
+
+		// Assets
+		this.fs.copyTpl(
+			this.templatePath( 'assets/_style.scss' ),
+			this.destinationPath( 'assets/sass/' + this.opts.projectSlug + '.scss' ),
+			{ opts: this.opts }
+		);
+		this.fs.copyTpl(
+			this.templatePath( 'assets/_script.js' ),
+			this.destinationPath( 'assets/js/' + this.opts.projectSlug + '.js' ),
+			{ opts: this.opts }
+		);
+		this.fs.copy(
+			this.templatePath( 'assets/layouts' ),
+			this.destinationPath( 'assets/sass/layouts' )
+		);
+		this.fs.copyTpl(
+			this.templatePath( 'assets/_metabox.css' ),
+			this.destinationPath( 'css/admin/metabox.css' ),
+			{ opts: this.opts }
+		);
+		this.fs.copyTpl(
+			this.templatePath( 'assets/_metabox.js' ),
+			this.destinationPath( 'js/admin/metabox.js' ),
+			{ opts: this.opts }
+		);
+	}
+
 	// install: function() {
 	// 	this.installDependencies();
 	// }
