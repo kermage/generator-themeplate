@@ -88,8 +88,15 @@ module.exports = class extends Generator {
 		for ( var i = 0; i < files.length; i++ ) {
 			var file = files[i];
 			var src = path.join( source, file );
-			var dest = path.join( destination, path.dirname( file ), path.basename( file ).replace( /^_/, '' ) );
-			this.fs.copyTpl( src, dest, data );
+			var dest;
+
+			if ( path.basename( file ).indexOf( '_' ) === 0 ) {
+				dest = path.join( destination, path.dirname( file ), path.basename( file ).replace( /^_/, '' ) );
+				this.fs.copyTpl( src, dest, data );
+			} else {
+				dest = path.join( destination, file );
+				this.fs.copy( src, dest );
+			}
 		}
 	}
 
