@@ -52,6 +52,12 @@ module.exports = class extends Generator {
 				}
 			},
 			{
+				type: 'confirm',
+				name: 'bootstrap',
+				message: 'Use Bootstrap?',
+				default: false
+			},
+			{
 				name: 'license',
 				message: 'License:',
 				default: 'GNU General Public License v2 or later'
@@ -140,6 +146,13 @@ module.exports = class extends Generator {
 			this.destinationPath( 'js/admin/metabox.js' ),
 			{ opts: this.opts }
 		);
+		// Bootstrap
+		if ( this.opts.bootstrap ) {
+			this.fs.copy(
+				this.templatePath( 'assets/_bootstrap-*.scss' ),
+				this.destinationPath( 'assets/sass' )
+			);
+		}
 	}
 
 	install() {
