@@ -22,9 +22,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 // Default Walker
 if( ! function_exists( '<%= opts.functionPrefix %>_walker' ) ) {
 	function <%= opts.functionPrefix %>_walker( $args ) {
-		return array_merge( $args, array(
-			'walker' => new <%= opts.classPrefix %>_nav_walker()
-		) );
+		if ( empty( $args['walker'] ) ) {
+			$args['walker'] = new <%= opts.classPrefix %>_nav_walker();
+		}
 	}
 	add_filter( 'wp_nav_menu_args', '<%= opts.functionPrefix %>_walker' );
 }
