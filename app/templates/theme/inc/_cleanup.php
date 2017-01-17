@@ -20,9 +20,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 		// Remove injected gallery shortcode style
 		add_filter( 'use_default_gallery_style', '__return_false' );
 		// Remove automatic paragraph tags
-		remove_filter( 'the_content', 'wpautop' );
+		// remove_filter( 'the_content', 'wpautop' );
 		add_filter( 'the_content', 'shortcode_unautop', 100 );
-		remove_filter( 'the_excerpt', 'wpautop' );
+		// remove_filter( 'the_excerpt', 'wpautop' );
 		add_filter( 'the_excerpt', 'shortcode_unautop', 100 );
 		// Remove unnecessary body and post classes
 		add_filter( 'body_class', '<%= opts.functionPrefix %>_clean_body_class' );
