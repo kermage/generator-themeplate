@@ -5,6 +5,8 @@ var gulp = require('gulp'),
 gulp.task('concat', function(){
 	gulp.src('assets/js/*.js')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
+		.pipe(plugins.jshint())
+		.pipe(plugins.jshint.reporter('jshint-stylish'))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
 		.pipe(plugins.sourcemaps.write('/'))
@@ -51,6 +53,8 @@ gulp.task('imagemin', function(){
 gulp.task('sass', function(){
 	gulp.src('assets/sass/*.{scss,sass}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
+		.pipe(plugins.sassLint())
+		.pipe(plugins.sassLint.format())
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.sass({
 			outputStyle: 'expanded'
