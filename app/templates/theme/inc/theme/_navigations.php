@@ -8,6 +8,7 @@
  */
 
 require_once( THEME_INC . 'nav-walker.php' );
+<% if ( opts.bootstrap ) { %>require_once( THEME_INC . 'bootstrap-walker.php' );<% } %>
 
 if( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 	function <%= opts.functionPrefix %>_navigations() {
@@ -36,7 +37,10 @@ if( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 		wp_nav_menu( array(
 			'theme_location'    => 'primary',
 			'menu'              => '',
-			'container'         => false,
+			<% if ( opts.bootstrap ) { %>'container'         => 'div',
+			'container_class'   => 'collapse navbar-collapse',
+			'menu_class'        => 'nav navbar-nav',
+			'walker'            => new Bootstrap_Nav_Walker(),<% } else { %>'container'         => false,<% } %>
 			'depth'             => 0
 		) );
 	}
