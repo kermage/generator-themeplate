@@ -116,7 +116,7 @@ module.exports = class extends Generator {
 
 		this._processDirectory(
 			this.templatePath( 'includes' ),
-			this.destinationPath( 'inc' ),
+			this.destinationPath( 'includes' ),
 			{ opts: this.opts }
 		);
 
@@ -128,13 +128,13 @@ module.exports = class extends Generator {
 
 		this._processDirectory(
 			this.templatePath( 'setup' ),
-			this.destinationPath( 'theme' ),
+			this.destinationPath( 'setup' ),
 			{ opts: this.opts }
 		);
 
 		this._processDirectory(
 			this.templatePath( 'widgets' ),
-			this.destinationPath( 'theme/widgets' ),
+			this.destinationPath( 'widgets' ),
 			{ opts: this.opts }
 		);
 
