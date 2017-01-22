@@ -28,24 +28,24 @@ require_once( 'setup/features.php' );
 require_once( 'setup/navigations.php' );
 require_once( 'setup/widgets.php' );
 require_once( 'setup/scripts-styles.php' );
+require_once( 'setup/settings.php' );
+require_once( 'setup/post-types.php' );
+require_once( 'setup/meta-boxes.php' );
 
 /* ==================================================
 Register settings
 ================================================== */
 require_once( THEME_INC . 'settings/setup.php' );
-require_once( THEME_INC . 'settings/entries.php' );
 
 /* ==================================================
 Register custom post types
 ================================================== */
 require_once( THEME_INC . 'post-type/setup.php' );
-require_once( THEME_INC . 'post-type/entries.php' );
 
 /* ==================================================
 Register meta boxes
 ================================================== */
 require_once( THEME_INC . 'meta-box/setup.php' );
-require_once( THEME_INC . 'meta-box/entries.php' );
 
 /* ==================================================
 Cleanup WordPress markup
