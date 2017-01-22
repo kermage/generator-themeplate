@@ -22,11 +22,12 @@ define( 'THEME_INC',        THEME_PATH . 'inc/' );
 define( 'THEME_DEBUG',      true );
 
 /* ==================================================
-Setup features, navigations, and widgets
+Setup Theme
 ================================================== */
-require_once( THEME_INC . 'theme/features.php' );
-require_once( THEME_INC . 'theme/navigations.php' );
-require_once( THEME_INC . 'theme/widgets.php' );
+require_once( 'theme/features.php' );
+require_once( 'theme/navigations.php' );
+require_once( 'theme/widgets.php' );
+require_once( 'theme/scripts-styles.php' );
 
 /* ==================================================
 Register settings
@@ -50,9 +51,4 @@ require_once( THEME_INC . 'meta-box/entries.php' );
 Cleanup WordPress markup
 ================================================== */
 require_once( THEME_INC . 'cleanup.php' );
-
-/* ==================================================
-Enqueue scripts and styles
-================================================== */
-require_once( THEME_INC . 'scripts-styles.php' );
 
