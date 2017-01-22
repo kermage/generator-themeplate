@@ -11,7 +11,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
     function <%= opts.functionPrefix %>_settings() {
         register_setting( '<%= opts.functionPrefix %>', '<%= opts.functionPrefix %>' );
         $prefix = '<%= opts.functionPrefix %>_';
-        
+
         <%= opts.functionPrefix %>_add_settings( array(
             'id'        => $prefix . 'general',
             'title'     => __( 'General', '<%= opts.functionPrefix %>' ),

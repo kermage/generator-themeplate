@@ -25,7 +25,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 
 if( ! function_exists( '<%= opts.functionPrefix %>_settings_menu' ) ) {
 	function <%= opts.functionPrefix %>_settings_menu() {
-		add_options_page(
+		add_menu_page(
 			// Page Title
 			'<%= opts.themeName %> Settings',
 			// Menu Title
