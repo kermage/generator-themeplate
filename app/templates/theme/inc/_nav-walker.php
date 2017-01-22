@@ -7,8 +7,8 @@
  * @since 0.1.0
  */
 
-if( ! class_exists( '<%= opts.classPrefix %>_nav_walker' ) ) {
-	class <%= opts.classPrefix %>_nav_walker extends Walker {
+if( ! class_exists( '<%= opts.classPrefix %>_Nav_Walker' ) ) {
+	class <%= opts.classPrefix %>_Nav_Walker extends Walker {
 		public $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
 
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {

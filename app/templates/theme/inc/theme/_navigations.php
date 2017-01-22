@@ -23,8 +23,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 if( ! function_exists( '<%= opts.functionPrefix %>_walker' ) ) {
 	function <%= opts.functionPrefix %>_walker( $args ) {
 		if ( empty( $args['walker'] ) ) {
-			$args['walker'] = new <%= opts.classPrefix %>_nav_walker();
+			$args['walker'] = new <%= opts.classPrefix %>_Nav_Walker();
 		}
+		return $args;
 	}
 	add_filter( 'wp_nav_menu_args', '<%= opts.functionPrefix %>_walker' );
 }
