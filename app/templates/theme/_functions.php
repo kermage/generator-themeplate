@@ -22,6 +22,13 @@ define( 'THEME_INC',        THEME_PATH . 'includes/' );
 define( 'THEME_DEBUG',      true );
 
 /* ==================================================
+Require Framework
+================================================== */
+require_once( 'framework/settings.php' );
+require_once( 'framework/post-types.php' );
+require_once( 'framework/meta-boxes.php' );
+
+/* ==================================================
 Setup Theme
 ================================================== */
 require_once( 'setup/features.php' );
@@ -33,22 +40,7 @@ require_once( 'setup/post-types.php' );
 require_once( 'setup/meta-boxes.php' );
 
 /* ==================================================
-Register settings
-================================================== */
-require_once( THEME_INC . 'settings/setup.php' );
-
-/* ==================================================
-Register custom post types
-================================================== */
-require_once( THEME_INC . 'post-type/setup.php' );
-
-/* ==================================================
-Register meta boxes
-================================================== */
-require_once( THEME_INC . 'meta-box/setup.php' );
-
-/* ==================================================
-Cleanup WordPress markup
+Extra custom functions
 ================================================== */
 require_once( THEME_INC . 'cleanup.php' );
 

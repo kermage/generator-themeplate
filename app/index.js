@@ -138,6 +138,13 @@ module.exports = class extends Generator {
 			{ opts: this.opts }
 		);
 
+		// Framework Files
+		this._processDirectory(
+			this.templatePath( 'framework' ),
+			this.destinationPath( 'framework' ),
+			{ opts: this.opts }
+		);
+
 		// Project Files
 		this._processDirectory(
 			this.templatePath( 'project' ),
