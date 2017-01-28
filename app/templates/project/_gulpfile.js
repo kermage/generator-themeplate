@@ -101,6 +101,22 @@ gulp.task('browsersync', function() {
 	});
 });
 
+gulp.task('bump', function() {
+	gulp.src(['package.json', 'style.css'])
+		.pipe(plugins.bump())
+		.pipe(gulp.dest('.'));
+	gulp.src('assets/sass/<%= opts.projectSlug %>.scss')
+		.pipe(plugins.bump({
+			key: '<%= opts.themeName %>'
+		}))
+		.pipe(gulp.dest('assets/sass'));
+	gulp.src('assets/js/<%= opts.projectSlug %>.js')
+		.pipe(plugins.bump({
+			key: '<%= opts.themeName %>'
+		}))
+		.pipe(gulp.dest('assets/js'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch('assets/js/**/*.js', ['concat']);
 	gulp.watch('assets/images/**/*.{gif,jpg,png}', ['imagecopy']);
