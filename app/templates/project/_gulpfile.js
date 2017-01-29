@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+	gutil = require('gulp-util'),
 	browserSync = require('browser-sync'),
 	plugins = require('gulp-load-plugins')({ camelize: true });
 
@@ -103,15 +104,22 @@ gulp.task('browsersync', function() {
 
 gulp.task('bump', function() {
 	gulp.src(['package.json', 'style.css'])
-		.pipe(plugins.bump())
+		.pipe(plugins.bump({
+			type: gutil.env.type,
+			version: gutil.env.version
+		}))
 		.pipe(gulp.dest('.'));
 	gulp.src('assets/sass/<%= opts.projectSlug %>.scss')
 		.pipe(plugins.bump({
+			type: gutil.env.type,
+			version: gutil.env.version,
 			key: '<%= opts.themeName %>'
 		}))
 		.pipe(gulp.dest('assets/sass'));
 	gulp.src('assets/js/<%= opts.projectSlug %>.js')
 		.pipe(plugins.bump({
+			type: gutil.env.type,
+			version: gutil.env.version,
 			key: '<%= opts.themeName %>'
 		}))
 		.pipe(gulp.dest('assets/js'));
