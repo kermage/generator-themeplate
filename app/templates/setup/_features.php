@@ -26,7 +26,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 if( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
 	function <%= opts.functionPrefix %>_credit() {
 		return sprintf(
-		   '<a href="%1$s" target="_blank">%2$s %3$s</a> %4$s <span class="dashicons dashicons-heart"></span> by <a href="%5$s" target="_blank">%6$s</a>.',
+			'<a href="%1$s" target="_blank">%2$s %3$s</a> %4$s <span class="dashicons dashicons-heart"></span> by <a href="%5$s" target="_blank">%6$s</a>.',
 			THEME_URI,
 			THEME_NAME,
 			THEME_VERSION,

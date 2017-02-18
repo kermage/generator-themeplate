@@ -13,8 +13,8 @@ require_once( THEME_INC . 'nav-walker.php' );
 if( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 	function <%= opts.functionPrefix %>_navigations() {
 		register_nav_menus( array(
-			'primary'   => __( 'Primary Menu', '<%= opts.functionPrefix %>' ),
-			'footer'    => __( 'Footer Menu', '<%= opts.functionPrefix %>' )
+			'primary' => __( 'Primary Menu', '<%= opts.functionPrefix %>' ),
+			'footer'  => __( 'Footer Menu', '<%= opts.functionPrefix %>' )
 		) );
 	}
 	add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_navigations' );
@@ -35,13 +35,13 @@ if( ! function_exists( '<%= opts.functionPrefix %>_walker' ) ) {
 if( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 	function <%= opts.functionPrefix %>_primary_menu() {
 		wp_nav_menu( array(
-			'theme_location'    => 'primary',
-			'menu'              => '',
-			<% if ( opts.bootstrap ) { %>'container'         => 'div',
-			'container_class'   => 'collapse navbar-collapse',
-			'menu_class'        => 'nav navbar-nav',
-			'walker'            => new Bootstrap_Nav_Walker(),<% } else { %>'container'         => false,<% } %>
-			'depth'             => 0
+			'theme_location'  => 'primary',
+			'menu'            => '',
+			<% if ( opts.bootstrap ) { %>'container'       => 'div',
+			'container_class' => 'collapse navbar-collapse',
+			'menu_class'      => 'nav navbar-nav',
+			'walker'          => new Bootstrap_Nav_Walker(),<% } else { %>'container'       => false,<% } %>
+			'depth'           => 0
 		) );
 	}
 }
@@ -50,10 +50,10 @@ if( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 if( ! function_exists( '<%= opts.functionPrefix %>_footer_menu' ) ) {
 	function <%= opts.functionPrefix %>_footer_menu() {
 		wp_nav_menu( array(
-			'theme_location'    => 'footer',
-			'menu'              => '',
-			'container'         => false,
-			'depth'             => 1
+			'theme_location' => 'footer',
+			'menu'           => '',
+			'container'      => false,
+			'depth'          => 1
 		) );
 	}
 }

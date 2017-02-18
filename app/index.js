@@ -21,7 +21,8 @@ module.exports = class extends Generator {
 				name: 'authorName',
 				message: 'Author:',
 				default: this.user.git.name
-			},          {
+			},
+			{
 				name: 'authorEmail',
 				message: 'Author Email:',
 				default: this.user.git.email
@@ -135,13 +136,6 @@ module.exports = class extends Generator {
 		this._processDirectory(
 			this.templatePath( 'widgets' ),
 			this.destinationPath( 'widgets' ),
-			{ opts: this.opts }
-		);
-
-		// Framework Files
-		this._processDirectory(
-			this.templatePath( 'framework' ),
-			this.destinationPath( 'framework' ),
 			{ opts: this.opts }
 		);
 
