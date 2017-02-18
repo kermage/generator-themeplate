@@ -21,13 +21,13 @@ if( ! function_exists( '<%= opts.functionPrefix %>_add_settings' ) ) {
 
 		foreach ( $param['fields'] as $id => $field ) {
 			add_settings_field(
-				$id,
+				$param['id'] . '_' . $id,
 				$field['name'],
 				'<%= opts.functionPrefix %>_create_settings',
 				'<%= opts.functionPrefix %>',
 				$param['id'],
 				array(
-					'label_for' => $id,
+					'label_for' => $param['id'] . '_' . $id,
 					'type'      => $field['type'],
 					'options'   => $field['options'],
 					'multiple'  => $field['multiple']
