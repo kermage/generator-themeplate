@@ -9,7 +9,7 @@
 
 if( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
     function <%= opts.functionPrefix %>_settings() {
-        <%= opts.functionPrefix %>_add_settings( array(
+        themeplate_add_settings( array(
             'id'        => 'general',
             'title'     => __( 'General', '<%= opts.functionPrefix %>' ),
             'callback'  => '',

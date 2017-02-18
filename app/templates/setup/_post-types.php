@@ -7,11 +7,11 @@
  * @since 0.1.0
  */
 
-if( ! function_exists( '<%= opts.functionPrefix %>_custom_post_types' ) ) {
-	function <%= opts.functionPrefix %>_custom_post_types() {
+if( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
+	function <%= opts.functionPrefix %>_post_types() {
 		$prefix = '<%= opts.functionPrefix %>_';
 
-		<%= opts.functionPrefix %>_add_post_type( array(
+		themeplate_add_post_type( array(
 			'name'          => $prefix . 'portfolio',
 			'plural'        => __( 'Portfolio', '<%= opts.functionPrefix %>' ),
 			'singular'      => __( 'Portfolio', '<%= opts.functionPrefix %>' ),
@@ -34,7 +34,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_custom_post_types' ) ) {
 			)
 		) );
 
-		<%= opts.functionPrefix %>_add_taxonomy( array(
+		themeplate_add_taxonomy( array(
 			'name'          => $prefix . 'portfolio-cat',
 			'plural'        => __( 'Categories', '<%= opts.functionPrefix %>' ),
 			'singular'      => __( 'Category', '<%= opts.functionPrefix %>' ),
@@ -53,7 +53,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_custom_post_types' ) ) {
 			)
 		) );
 
-		<%= opts.functionPrefix %>_add_taxonomy( array(
+		themeplate_add_taxonomy( array(
 			'name'          => $prefix . 'portfolio-tag',
 			'plural'        => __( 'Tags', '<%= opts.functionPrefix %>' ),
 			'singular'      => __( 'Tag', '<%= opts.functionPrefix %>' ),
@@ -72,5 +72,5 @@ if( ! function_exists( '<%= opts.functionPrefix %>_custom_post_types' ) ) {
 			)
 		) );
 	}
-	add_action( 'init', '<%= opts.functionPrefix %>_custom_post_types' );
+	add_action( 'init', '<%= opts.functionPrefix %>_post_types' );
 }
