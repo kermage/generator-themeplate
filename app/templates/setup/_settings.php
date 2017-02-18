@@ -9,8 +9,6 @@
 
 if( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
     function <%= opts.functionPrefix %>_settings() {
-        register_setting( '<%= opts.functionPrefix %>', '<%= opts.functionPrefix %>' );
-
         <%= opts.functionPrefix %>_add_settings( array(
             'id'        => 'general',
             'title'     => __( 'General', '<%= opts.functionPrefix %>' ),
