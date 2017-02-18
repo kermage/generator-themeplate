@@ -24,6 +24,7 @@ define( 'THEME_DEBUG',      true );
 /* ==================================================
 Setup Theme
 ================================================== */
+require_once( 'setup/plugins.php' );
 require_once( 'setup/features.php' );
 require_once( 'setup/navigations.php' );
 require_once( 'setup/widgets.php' );
