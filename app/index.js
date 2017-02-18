@@ -167,16 +167,6 @@ module.exports = class extends Generator {
 			this.templatePath( 'assets/layouts' ),
 			this.destinationPath( 'assets/sass/layouts' )
 		);
-		this.fs.copyTpl(
-			this.templatePath( 'assets/_metabox.css' ),
-			this.destinationPath( 'css/admin/metabox.css' ),
-			{ opts: this.opts }
-		);
-		this.fs.copyTpl(
-			this.templatePath( 'assets/_metabox.js' ),
-			this.destinationPath( 'js/admin/metabox.js' ),
-			{ opts: this.opts }
-		);
 		// Bootstrap
 		if ( this.opts.bootstrap ) {
 			this.fs.copy(
