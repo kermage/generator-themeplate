@@ -24,9 +24,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 
 		$config = array(
 			'id'           => '<%= opts.functionPrefix %>-tgmpa',
-			'menu'         => '<%= opts.functionPrefix %>-plugins',
-			'parent_slug'  => '<%= opts.functionPrefix %>-settings',
-			'dismissable'  => false,
+			'menu'         => 'theme-plugins',
+			'parent_slug'  => 'theme-options',
+			// 'dismissable'  => false,
 			'is_automatic' => true
 		);
 
