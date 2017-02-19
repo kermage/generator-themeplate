@@ -31,8 +31,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 		$widgets =  glob( THEME_PATH . 'widgets/*_widget.php' );
 		foreach( $widgets as $widget ) {
 			require_once $widget;
-			if( class_exists( basename( $widget, ".php" ) ) )
-				register_widget( basename( $widget, ".php" ) );
+			if( class_exists( '<%= opts.classPrefix %>_' . basename( $widget, ".php" ) ) )
+				register_widget( '<%= opts.classPrefix %>_' . basename( $widget, ".php" ) );
 		}
 	}
 	add_action( 'widgets_init', '<%= opts.functionPrefix %>_widgets_init' );

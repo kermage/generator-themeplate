@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-class <%= opts.classPrefix %>_about_widget extends WP_Widget {
+class <%= opts.classPrefix %>_About_Widget extends WP_Widget {
 	function __construct() {
 		$widget_ops = array( 'classname' => '<%= opts.functionPrefix %>_about', 'description' => __( 'Display site logo and info.', '<%= opts.functionPrefix %>' ) );
 		parent::__construct( '<%= opts.functionPrefix %>_about', '<%= opts.themeName %>: About', $widget_ops );

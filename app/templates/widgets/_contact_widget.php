@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-class <%= opts.classPrefix %>_contact_widget extends WP_Widget {
+class <%= opts.classPrefix %>_Contact_Widget extends WP_Widget {
 	function __construct() {
 		$widget_ops = array( 'classname' => '<%= opts.functionPrefix %>_contact', 'description' => __( 'Display contact information.', '<%= opts.functionPrefix %>' ) );
 		parent::__construct( '<%= opts.functionPrefix %>_contact', '<%= opts.themeName %>: Contact', $widget_ops );
