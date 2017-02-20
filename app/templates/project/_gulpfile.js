@@ -60,7 +60,9 @@ gulp.task('sass', function() {
 		.pipe(plugins.sass({
 			outputStyle: 'expanded'
 		}))
-		.pipe(plugins.autoprefixer())
+		.pipe(plugins.autoprefixer({
+			remove: false
+		}))
 		.pipe(plugins.sourcemaps.write('/'))
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('css'))
