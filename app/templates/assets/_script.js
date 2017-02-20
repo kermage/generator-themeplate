@@ -4,7 +4,7 @@
  *  Licensed under <%= opts.license %>.
  */
 
-( function( window, document, undefined ) {
+(function() {
 	'use strict';
 
-}( this, window, window.document ));
+}());
