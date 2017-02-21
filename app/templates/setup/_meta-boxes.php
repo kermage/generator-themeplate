@@ -12,7 +12,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 		$prefix = '<%= opts.functionPrefix %>_';
 
 		themeplate_add_meta_box( array(
-			'id'          => $prefix . 'meta_box_page',
+			'id'          => $prefix . 'page',
 			'title'       => __( 'Page Settings', '<%= opts.functionPrefix %>' ),
 			'description' => __( 'Various options to create different page layouts and styles.', '<%= opts.functionPrefix %>' ),
 			'screen'      => 'page',
@@ -50,7 +50,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 		) );
 
 		themeplate_add_meta_box( array(
-			'id'          => $prefix . 'meta_box_link',
+			'id'          => $prefix . 'link',
 			'title'       => __( 'Link Post Settings', '<%= opts.functionPrefix %>' ),
 			'description' => '',
 			'screen'      => 'post',
@@ -67,7 +67,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 		) );
 
 		themeplate_add_meta_box( array(
-			'id'          => $prefix . 'meta_box_quote',
+			'id'          => $prefix . 'quote',
 			'title'       => __( 'Quote Post Settings', '<%= opts.functionPrefix %>' ),
 			'description' => '',
 			'screen'      => 'post',
@@ -90,7 +90,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 		) );
 
 		themeplate_add_meta_box( array(
-			'id'          => $prefix . 'meta_box_portfolio',
+			'id'          => $prefix . 'portfolio',
 			'title'       => __( 'Portfolio Settings', '<%= opts.functionPrefix %>' ),
 			'description' => '',
 			'screen'      => '<%= opts.functionPrefix %>_portfolio',
