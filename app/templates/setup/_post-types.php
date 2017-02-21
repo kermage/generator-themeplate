@@ -9,10 +9,8 @@
 
 if( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 	function <%= opts.functionPrefix %>_post_types() {
-		$prefix = '<%= opts.functionPrefix %>_';
-
 		themeplate_add_post_type( array(
-			'name'        => $prefix . 'portfolio',
+			'name'        => 'portfolio',
 			'plural'      => __( 'Portfolio', '<%= opts.functionPrefix %>' ),
 			'singular'    => __( 'Portfolio', '<%= opts.functionPrefix %>' ),
 			'description' => __( 'Portfolio', '<%= opts.functionPrefix %>' ),
@@ -35,11 +33,11 @@ if( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 		) );
 
 		themeplate_add_taxonomy( array(
-			'name'        => $prefix . 'portfolio-cat',
+			'name'        => 'portfolio-cat',
 			'plural'      => __( 'Categories', '<%= opts.functionPrefix %>' ),
 			'singular'    => __( 'Category', '<%= opts.functionPrefix %>' ),
 			'description' => __( 'Portfolio Category', '<%= opts.functionPrefix %>' ),
-			'type'        => $prefix . 'portfolio',
+			'type'        => 'portfolio',
 			'args' => array(
 				'public'             => true,
 				// 'show_ui'            => true,
@@ -54,11 +52,11 @@ if( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 		) );
 
 		themeplate_add_taxonomy( array(
-			'name'        => $prefix . 'portfolio-tag',
+			'name'        => 'portfolio-tag',
 			'plural'      => __( 'Tags', '<%= opts.functionPrefix %>' ),
 			'singular'    => __( 'Tag', '<%= opts.functionPrefix %>' ),
 			'description' => __( 'Portfolio Tag', '<%= opts.functionPrefix %>' ),
-			'type'        => $prefix . 'portfolio',
+			'type'        => 'portfolio',
 			'args' => array(
 				'public'             => true,
 				// 'show_ui'            => true,
