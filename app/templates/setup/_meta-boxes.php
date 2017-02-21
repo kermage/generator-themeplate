@@ -17,20 +17,20 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			'context'     => 'normal',
 			'priority'    => 'high',
 			'fields'      => array(
-				'disable_title' => array(
+				'notitle' => array(
 					'name'     => __( 'Disable Page Title', '<%= opts.functionPrefix %>' ),
 					'desc'     => __( 'Select to disable page title.', '<%= opts.functionPrefix %>' ),
 					'type'     => 'checkbox',
 					'std'      => ''
 				),
-				'preferred_layout' => array(
+				'layout' => array(
 					'name'     => __( 'Preferred Layout', '<%= opts.functionPrefix %>' ),
 					'desc'     => __( 'Select preferred layout.', '<%= opts.functionPrefix %>' ),
 					'type'     => 'radio',
 					'std'      => 'Content Left; Sidebar Right',
 					'options'  => array( 'Content Left; Sidebar Right', 'Content Right; Sidebar Left', 'Fullwidth Page' )
 				),
-				'page_template' => array(
+				'template' => array(
 					'name'     => __( 'Page Template', '<%= opts.functionPrefix %>' ),
 					'desc'     => __( 'Select page template.', '<%= opts.functionPrefix %>' ),
 					'type'     => 'select',
@@ -38,7 +38,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 					'options'  => array( 'Header; Footer', 'No Header; Footer', 'Header; No Footer', 'No Header; No Footer' ),
 					// 'multiple' => true
 				),
-				'bg_color' => array(
+				'background' => array(
 					'name'     => __( 'Background Color', '<%= opts.functionPrefix %>' ),
 					'desc'     => __( 'Select background color.', '<%= opts.functionPrefix %>' ),
 					'type'     => 'color',
@@ -55,7 +55,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			'context'     => 'normal',
 			'priority'    => 'high',
 			'fields'      => array(
-				'link_url' => array(
+				'url' => array(
 					'name'     => __( 'The Link', '<%= opts.functionPrefix %>' ),
 					'desc'     => __( 'Insert the URL.', '<%= opts.functionPrefix %>' ),
 					'type'     => 'text',
@@ -72,13 +72,13 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			'context'     => 'normal',
 			'priority'    => 'high',
 			'fields'      => array(
-				'quote_quote' => array(
+				'quote' => array(
 					'name'     => __( 'Quotation', '<%= opts.functionPrefix %>' ),
 					'desc'     => __( 'Input the quote.', '<%= opts.functionPrefix %>' ),
 					'type'     => 'textarea',
 					'std'      => ''
 				),
-				'quote_cite' => array(
+				'cite' => array(
 					'name'     => __( 'Citation', '<%= opts.functionPrefix %>' ),
 					'desc'     => __( 'Source of the quotation.', '<%= opts.functionPrefix %>' ),
 					'type'     => 'text',
@@ -95,14 +95,14 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			'context'     => 'normal',
 			'priority'    => 'high',
 			'fields'      => array(
-				'portfolio_project' => array(
+				'project' => array(
 					'name'     => __( 'Project File', '<%= opts.functionPrefix %>' ),
 					'desc'     => __( 'Select portfolio project file.', '<%= opts.functionPrefix %>' ),
 					'type'     => 'file',
 					'std'      => '',
 					// 'multiple' => true
 				),
-				'portfolio_date' => array(
+				'date' => array(
 					'name'     => __( 'Project Date', '<%= opts.functionPrefix %>' ),
 					'desc'     => __( 'Select portfolio project date.', '<%= opts.functionPrefix %>' ),
 					'type'     => 'date',
