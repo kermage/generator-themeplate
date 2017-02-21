@@ -61,6 +61,7 @@ gulp.task('sass', function() {
 			outputStyle: 'expanded'
 		}))
 		.pipe(plugins.autoprefixer({
+			browsers: '> 1%',
 			remove: false
 		}))
 		.pipe(plugins.sourcemaps.write('/'))
