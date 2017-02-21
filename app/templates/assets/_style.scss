@@ -3,7 +3,6 @@
  *  Copyright (C) <%= new Date().getFullYear() %> <%= opts.authorName %>
  *  Licensed under <%= opts.license %>.
  */
-
 <% if ( opts.bootstrap ) { %>
 @import "bootstrap-variables";
 @import "bootstrap-custom";
@@ -11,7 +10,6 @@
 @import "../../node_modules/susy/sass/susy";
 @import "../../node_modules/normalize-scss/sass/normalize/import-now";
 <% } %>
-
 @import "layouts/grid";
 @import "layouts/header";
 @import "layouts/navigation";
