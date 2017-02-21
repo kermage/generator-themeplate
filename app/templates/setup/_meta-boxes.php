@@ -91,7 +91,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			'id'          => 'portfolio',
 			'title'       => __( 'Portfolio Settings', '<%= opts.functionPrefix %>' ),
 			'description' => '',
-			'screen'      => '<%= opts.functionPrefix %>_portfolio',
+			'screen'      => 'portfolio',
 			'context'     => 'normal',
 			'priority'    => 'high',
 			'fields'      => array(
