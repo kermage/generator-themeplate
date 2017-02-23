@@ -34,6 +34,8 @@ require_once( 'setup/settings.php' );
 require_once( 'setup/post-types.php' );
 require_once( 'setup/meta-boxes.php' );
 endif;
+require_once( 'setup/actions-filters.php' );
+require_once( 'setup/hooks.php' );
 
 /* ==================================================
 Extra custom functions
