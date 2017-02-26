@@ -29,11 +29,14 @@ require_once( 'setup/features.php' );
 require_once( 'setup/navigations.php' );
 require_once( 'setup/widgets.php' );
 require_once( 'setup/scripts-styles.php' );
+
 if ( class_exists( 'ThemePlate' ) ) :
-require_once( 'setup/settings.php' );
-require_once( 'setup/post-types.php' );
-require_once( 'setup/meta-boxes.php' );
+	ThemePlate( '<%= opts.functionPrefix %>' );
+	require_once( 'setup/settings.php' );
+	require_once( 'setup/post-types.php' );
+	require_once( 'setup/meta-boxes.php' );
 endif;
+
 require_once( 'setup/actions-filters.php' );
 require_once( 'setup/hooks.php' );
 

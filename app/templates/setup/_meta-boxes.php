@@ -9,7 +9,7 @@
 
 if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 	function <%= opts.functionPrefix %>_meta_boxes() {
-		themeplate_add_meta_box( array(
+		ThemePlate()->post_meta( array(
 			'id'          => 'page',
 			'title'       => __( 'Page Settings', '<%= opts.functionPrefix %>' ),
 			'description' => __( 'Various options to create different page layouts and styles.', '<%= opts.functionPrefix %>' ),
@@ -47,7 +47,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			)
 		) );
 
-		themeplate_add_meta_box( array(
+		ThemePlate()->post_meta( array(
 			'id'          => 'link',
 			'title'       => __( 'Link Post Settings', '<%= opts.functionPrefix %>' ),
 			'description' => '',
@@ -64,7 +64,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			)
 		) );
 
-		themeplate_add_meta_box( array(
+		ThemePlate()->post_meta( array(
 			'id'          => 'quote',
 			'title'       => __( 'Quote Post Settings', '<%= opts.functionPrefix %>' ),
 			'description' => '',
@@ -87,7 +87,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			)
 		) );
 
-		themeplate_add_meta_box( array(
+		ThemePlate()->post_meta( array(
 			'id'          => 'portfolio',
 			'title'       => __( 'Portfolio Settings', '<%= opts.functionPrefix %>' ),
 			'description' => '',
