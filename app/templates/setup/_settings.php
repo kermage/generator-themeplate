@@ -9,11 +9,12 @@
 
 if( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 	function <%= opts.functionPrefix %>_settings() {
-		themeplate_add_settings( array(
-			'id'       => 'general',
-			'title'    => __( 'General', '<%= opts.functionPrefix %>' ),
-			'callback' => '',
-			'fields'   => array(
+		ThemePlate()->settings( array(
+			'id'          => 'general',
+			'title'       => __( 'General', '<%= opts.functionPrefix %>' ),
+			'description' => __( 'Description', '<%= opts.functionPrefix %>' ),
+			'context'     => 'normal',
+			'fields'      => array(
 				'description' => array(
 					'name'     => __( 'Description', '<%= opts.functionPrefix %>' ),
 					'type'     => 'text'
