@@ -19,6 +19,12 @@ if( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'required'         => true,
 				'source'           => 'https://github.com/kermage/ThemePlate/archive/master.zip',
 				'force_activation' => true
+			),
+			array(
+				'name'             => 'Yoast SEO',
+				'slug'             => 'wordpress-seo',
+				// 'required'         => true,
+				// 'force_activation' => true
 			)
 		);
 
