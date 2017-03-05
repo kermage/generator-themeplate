@@ -26,3 +26,37 @@
 	- Custom clean nav walker
 	- Bootstrap nav walker
 	- Google codes template
+## Requirements
+- [Node.js](https://nodejs.org/): Install from the NodeJS website.
+- [Gulp](http://gulpjs.com/): Run `npm install gulp-cli -g`
+- [Yeoman](http://yeoman.io/): Run `npm install -g yo`
+
+## Installation
+####1. Download or clone this repository
+
+`git clone https://github.com/kermage/generator-themeplate.git`
+
+####2. Enter the directory and link it to npm
+
+`cd generator-themeplate && npm link`
+
+## Usage
+####1. In the desired project directory, initiate the generator
+
+`yo themeplate`
+
+####2. Simply follow the prompts and enter the details
+```
+? Theme Name:
+? Theme URI:
+? Author:
+? Author Email:
+? Author URI:
+? Description:
+? Function Prefix:
+? Use Bootstrap? (y/N)
+? License:
+? License URI:
+```
+
+###3. Navigate to the generated theme directory then run `gulp`
