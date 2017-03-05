@@ -26,6 +26,7 @@
 	- Custom clean nav walker
 	- Bootstrap nav walker
 	- Google codes template
+
 ## Requirements
 - [Node.js](https://nodejs.org/): Install from the NodeJS website.
 - [Gulp](http://gulpjs.com/): Run `npm install gulp-cli -g`
@@ -41,6 +42,7 @@
 `cd generator-themeplate && npm link`
 
 ## Usage
+### Theme Setup
 ####1. In the desired project directory, initiate the generator
 
 `yo themeplate`
@@ -59,4 +61,10 @@
 ? License URI:
 ```
 
-###3. Navigate to the generated theme directory then run `gulp`
+####3. Navigate to the generated theme directory then run `gulp`
+
+### Theme Development
+#### Available Commands
+- `gulp build` — Build assets; Sass compiled, JS concatenated, and images copied.
+- `gulp dev` — Browsersync started; run predefined assets tasks and autoreloads whenever file changes.
+- `gulp dist` — Build assets; CSS and JS minified, and images optimized.
