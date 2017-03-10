@@ -3,6 +3,7 @@ options:
 
 files:
   include: '**/*.s+(a|c)ss'
+  ignore: 'assets/sass/_bootstrap-*.scss'
 
 rules:
   # Extends
