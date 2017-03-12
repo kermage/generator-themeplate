@@ -52,7 +52,7 @@ gulp.task('imagemin', function() {
 });
 
 gulp.task('sass', function() {
-	gulp.src('assets/sass/**/*.{scss,sass}')
+	gulp.src('assets/sass/**/*.s+(a|c)ss')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.sassLint())
 		.pipe(plugins.sassLint.format())
