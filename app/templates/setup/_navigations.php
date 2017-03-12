@@ -27,6 +27,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_walker' ) ) {
 		if ( empty( $args['walker'] ) ) {
 			$args['walker'] = new <%= opts.classPrefix %>_Nav_Walker();
 		}
+		$args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
 		return $args;
 	}
 	add_filter( 'wp_nav_menu_args', '<%= opts.functionPrefix %>_walker' );
