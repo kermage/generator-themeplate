@@ -23,11 +23,15 @@ if( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 // Default Walker
 if( ! function_exists( '<%= opts.functionPrefix %>_walker' ) ) {
 	function <%= opts.functionPrefix %>_walker( $args ) {
-		$args['container'] = false;
+		if ( ( $args['container'] == 'div' ) && empty( $args['container_class'] ) && empty( $args['container_id'] ) ) {
+			$args['container'] = false;
+		}
 		if ( empty( $args['walker'] ) ) {
 			$args['walker'] = new <%= opts.classPrefix %>_Nav_Walker();
 		}
-		$args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
+		if ( empty( $args['menu_id'] ) ) {
+			$args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
+		}
 		return $args;
 	}
 	add_filter( 'wp_nav_menu_args', '<%= opts.functionPrefix %>_walker' );
