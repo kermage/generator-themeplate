@@ -11,8 +11,19 @@ if( ! class_exists( '<%= opts.classPrefix %>_Nav_Walker' ) ) {
 	class <%= opts.classPrefix %>_Nav_Walker extends Walker {
 		public $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
 
+		public $class = array(
+			'sub-menu' => 'sub-menu',
+			'has-sub'  => 'has-sub',
+			'active'   => 'active'
+		);
+
+		public function attributes( $item, $args ) {
+			$atts = array();
+			return $atts;
+		}
+
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {
-			$output .= '<ul class="sub-menu">';
+			$output .= '<ul class="' . $this->class['sub-menu'] . '">';
 		}
 
 		public function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -22,8 +33,8 @@ if( ! class_exists( '<%= opts.classPrefix %>_Nav_Walker' ) ) {
 		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes = preg_replace( '/current[-_](menu|page)[-_](item|parent|ancestor)|(menu|page)[-_\w+]+/', '', $classes );
-			if ( $args->walker->has_children ) $classes[] = 'has-sub';
-			if ( $item->current ) $classes[] = 'active';
+			if ( $args->walker->has_children ) $classes[] = $this->class['has-sub'];
+			if ( $item->current ) $classes[] = $this->class['active'];
 			$classes = join( ' ', array_filter( $classes ) );
 			$output .= '<li' . ( ( $classes ) ? ' class="' . esc_attr( $classes ) . '"' : '' ) . '>';
 
@@ -32,6 +43,8 @@ if( ! class_exists( '<%= opts.classPrefix %>_Nav_Walker' ) ) {
 			$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
 			$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
 			$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+			$atts = array_merge( $atts, $this->attributes( $item, $args ) );
+			$atts = array_filter( $atts );
 
 			$attributes = '';
 			foreach ( $atts as $attr => $value ) {

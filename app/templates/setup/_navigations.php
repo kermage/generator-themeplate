@@ -23,8 +23,14 @@ if( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 // Default Walker
 if( ! function_exists( '<%= opts.functionPrefix %>_walker' ) ) {
 	function <%= opts.functionPrefix %>_walker( $args ) {
+		if ( ( $args['container'] == 'div' ) && empty( $args['container_class'] ) && empty( $args['container_id'] ) ) {
+			$args['container'] = false;
+		}
 		if ( empty( $args['walker'] ) ) {
 			$args['walker'] = new <%= opts.classPrefix %>_Nav_Walker();
+		}
+		if ( empty( $args['menu_id'] ) ) {
+			$args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
 		}
 		return $args;
 	}
@@ -36,11 +42,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 	function <%= opts.functionPrefix %>_primary_menu() {
 		wp_nav_menu( array(
 			'theme_location'  => 'primary',
-			'menu'            => '',
-			<% if ( opts.bootstrap ) { %>'container'       => 'div',
-			'container_class' => 'collapse navbar-collapse',
-			'menu_class'      => 'nav navbar-nav',
-			'walker'          => new Bootstrap_Nav_Walker(),<% } else { %>'container'       => false,<% } %>
+			<% if ( opts.bootstrap ) { %>'menu_class'      => 'nav navbar-nav',
+			'walker'          => new Bootstrap_Nav_Walker(),<% } %>
 			'depth'           => 0
 		) );
 	}
@@ -51,8 +54,6 @@ if( ! function_exists( '<%= opts.functionPrefix %>_footer_menu' ) ) {
 	function <%= opts.functionPrefix %>_footer_menu() {
 		wp_nav_menu( array(
 			'theme_location' => 'footer',
-			'menu'           => '',
-			'container'      => false,
 			'depth'          => 1
 		) );
 	}

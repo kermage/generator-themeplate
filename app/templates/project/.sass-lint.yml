@@ -2,7 +2,8 @@ options:
   formatter: stylish
 
 files:
-  include: '**/*.s+(a|c)ss'
+  include: 'assets/sass/**/*.s+(a|c)ss'
+  ignore: 'assets/sass/_bootstrap-*.scss'
 
 rules:
   # Extends
@@ -22,7 +23,7 @@ rules:
   no-attribute-selectors: 0
   no-color-hex: 0
   no-color-keywords: 1
-  no-color-literals: 1
+  no-color-literals: 0
   no-combinators: 0
   no-css-comments: 1
   no-debug: 1
@@ -53,7 +54,9 @@ rules:
   force-pseudo-nesting: 0
 
   # Name Formats
-  class-name-format: 1
+  class-name-format:
+    - 1
+    - convention: hyphenatedbem
   function-name-format: 1
   id-name-format: 0
   mixin-name-format: 1
@@ -78,7 +81,7 @@ rules:
   max-line-length: 0
   max-file-line-count: 0
   nesting-depth: 1
-  property-sort-order: 1
+  property-sort-order: 0
   pseudo-element: 1
   quotes: 1
   shorthand-values: 1
