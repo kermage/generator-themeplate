@@ -23,7 +23,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 		wp_nav_menu( array(
 			'theme_location'  => 'primary',
 			<% if ( opts.bootstrap ) { %>'menu_class'      => 'nav navbar-nav',
-			'walker'          => new Bootstrap_Nav_Walker(),<% } %>
+			'walker'          => new Bootstrap_NavBar(),<% } %>
 			'depth'           => 0
 		) );
 	}
