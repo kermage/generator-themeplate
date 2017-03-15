@@ -7,9 +7,6 @@
  * @since 0.1.0
  */
 
-require_once( THEME_INC . 'nav-walker.php' );
-<% if ( opts.bootstrap ) { %>require_once( THEME_INC . 'bootstrap-walker.php' );<% } %>
-
 if( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 	function <%= opts.functionPrefix %>_navigations() {
 		register_nav_menus( array(
@@ -18,23 +15,6 @@ if( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 		) );
 	}
 	add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_navigations' );
-}
-
-// Default Walker
-if( ! function_exists( '<%= opts.functionPrefix %>_walker' ) ) {
-	function <%= opts.functionPrefix %>_walker( $args ) {
-		if ( ( $args['container'] == 'div' ) && empty( $args['container_class'] ) && empty( $args['container_id'] ) ) {
-			$args['container'] = false;
-		}
-		if ( empty( $args['walker'] ) ) {
-			$args['walker'] = new <%= opts.classPrefix %>_Nav_Walker();
-		}
-		if ( empty( $args['menu_id'] ) ) {
-			$args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
-		}
-		return $args;
-	}
-	add_filter( 'wp_nav_menu_args', '<%= opts.functionPrefix %>_walker' );
 }
 
 // Primary Menu
