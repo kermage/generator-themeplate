@@ -34,8 +34,8 @@ if ( class_exists( 'ThemePlate' ) ) :
 	ThemePlate( '<%= opts.functionPrefix %>' );
 	require_once( 'setup/settings.php' );
 	require_once( 'setup/post-types.php' );
-	require_once( 'setup/meta-boxes.php' );
-	<% if ( opts.bootstrap ) { %>require_once( THEME_INC . 'bootstrap-walker.php' );<% } %>
+	require_once( 'setup/meta-boxes.php' );<% if ( opts.bootstrap ) { %>
+	require_once( THEME_INC . 'bootstrap-walker.php' );<% } %>
 endif;
 
 require_once( 'setup/actions-filters.php' );
