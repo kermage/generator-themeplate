@@ -44,5 +44,4 @@ require_once( 'setup/hooks.php' );
 /* ==================================================
 Extra custom functions
 ================================================== */
-require_once( THEME_INC . 'cleanup.php' );
 
