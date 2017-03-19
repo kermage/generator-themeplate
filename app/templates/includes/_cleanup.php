@@ -14,7 +14,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 		// Remove the WordPress version from RSS feeds
 		add_filter( 'the_generator', '__return_false' );
 		// Remove injected recent comments sidebar widget style
-		add_action( 'widgets_init', '<%= opts.functionPrefix %>_remove_recent_comments_style', 1 );
+		add_action( 'widgets_init', '<%= opts.functionPrefix %>_remove_recent_comments_style' );
 		// Remove tag cloud inline style
 		add_filter( 'wp_generate_tag_cloud', '<%= opts.functionPrefix %>_remove_tag_cloud_inline_style' );
 		// Remove injected gallery shortcode style
@@ -44,11 +44,11 @@ if( ! function_exists( '<%= opts.functionPrefix %>_cleanup_head' ) ) {
 		// Display the link to the Windows Live Writer manifest file.
 		remove_action( 'wp_head', 'wlwmanifest_link' );
 		// Display relational links for the posts adjacent to the current post for single post pages.
-		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
 		// Output rel=canonical for singular queries.
-		remove_action( 'wp_head', 'rel_canonical', 10, 0 );
+		remove_action( 'wp_head', 'rel_canonical' );
 		// Inject rel=shortlink into head if a shortlink is defined for the current page.
-		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
 		// Display the XHTML generator that is generated on the wp_head hook
 		remove_action( 'wp_head', 'wp_generator' );
 		// Emoji support detection script and styles
@@ -63,8 +63,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_cleanup_head' ) ) {
 		remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 		remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 		// Query strings from static resources
-		add_filter( 'style_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15, 1 );
-		add_filter( 'script_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15, 1 );
+		add_filter( 'style_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15 );
+		add_filter( 'script_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15 );
 		// Output of <link> and <script> tags
 		add_filter( 'style_loader_tag', '<%= opts.functionPrefix %>_clean_style_tag' );
 		add_filter( 'script_loader_tag', '<%= opts.functionPrefix %>_clean_script_tag' );
