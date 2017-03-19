@@ -21,13 +21,11 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 		add_filter( 'use_default_gallery_style', '__return_false' );
 		// Remove URL where emoji SVG images are hosted
 		add_filter( 'emoji_svg_url', '__return_false' );
-		// Remove automatic paragraph tags
+		// // Remove automatic paragraph tags
 		// remove_filter( 'the_content', 'wpautop' );
-		add_filter( 'the_content', 'shortcode_unautop', 100 );
 		// remove_filter( 'the_excerpt', 'wpautop' );
-		add_filter( 'the_excerpt', 'shortcode_unautop', 100 );
+		// remove_filter( 'term_description', 'wpautop' );
 		// remove_filter( 'the_excerpt_embed', 'wpautop' );
-		// add_filter( 'the_excerpt_embed', 'shortcode_unautop', 100 );
 		// Remove unnecessary body and post classes
 		add_filter( 'body_class', '<%= opts.functionPrefix %>_clean_body_class' );
 		add_filter( 'post_class', '<%= opts.functionPrefix %>_clean_post_class' );
