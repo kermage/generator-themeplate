@@ -106,7 +106,10 @@ if( ! function_exists( '<%= opts.functionPrefix %>_remove_recent_comments_style'
 
 if( ! function_exists( '<%= opts.functionPrefix %>_clean_body_class' ) ) {
 	function <%= opts.functionPrefix %>_clean_body_class( $classes ) {
-		$match = '/((postid|attachmentid|page-id|parent-pageid|category|tag|term)-\d+$|(attachment|page-parent|page-child)$)/';
+		$match = '(^(postid|attachmentid|page-id|parent-pageid|category|tag|term)-\d+$|(attachment|page-parent|page-child)$)';
+		$match .= '|(^(page|post|single|category|tag|archive|post-type-archive)$)';
+		$match .= '|(^.*-(template(-default)?(-page-templates)?(-[\w-]+-php)?)$)';
+		$match = '/' . $match . '/';
 		foreach ( $classes as $key => $value ) {
 			if( preg_match( $match, $value ) ) unset( $classes[$key] );
 		}
@@ -116,7 +119,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_clean_body_class' ) ) {
 
 if( ! function_exists( '<%= opts.functionPrefix %>_clean_post_class' ) ) {
 	function <%= opts.functionPrefix %>_clean_post_class( $classes ) {
-		$match = '/(post-\d+$|(type|status|category|tag)-[\w-]+$)/';
+		$match = '/(post-\d+$|(type|status|format)-[\w-]+$)/';
 		foreach ( $classes as $key => $value ) {
 			if( preg_match( $match, $value ) ) unset( $classes[$key] );
 		}
