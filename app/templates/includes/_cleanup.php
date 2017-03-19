@@ -19,6 +19,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 		add_filter( 'wp_generate_tag_cloud', '<%= opts.functionPrefix %>_remove_tag_cloud_inline_style' );
 		// Remove injected gallery shortcode style
 		add_filter( 'use_default_gallery_style', '__return_false' );
+		// Remove URL where emoji SVG images are hosted
+		add_filter( 'emoji_svg_url', '__return_false' );
 		// Remove automatic paragraph tags
 		// remove_filter( 'the_content', 'wpautop' );
 		add_filter( 'the_content', 'shortcode_unautop', 100 );
@@ -33,6 +35,10 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 
 if( ! function_exists( '<%= opts.functionPrefix %>_cleanup_head' ) ) {
 	function <%= opts.functionPrefix %>_cleanup_head() {
+		// Display the links to the general feeds.
+		remove_action( 'wp_head', 'feed_links', 2 );
+		// Display the links to the extra feeds such as category feeds.
+		remove_action( 'wp_head', 'feed_links_extra', 3 );
 		// Display the link to the Really Simple Discovery service endpoint.
 		remove_action( 'wp_head', 'rsd_link' );
 		// Display the link to the Windows Live Writer manifest file.
@@ -53,6 +59,9 @@ if( ! function_exists( '<%= opts.functionPrefix %>_cleanup_head' ) ) {
 		remove_filter( 'the_content_feed', 'wp_staticize_emoji ');
 		remove_filter( 'comment_text_rss', 'wp_staticize_emoji ');
 		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+		remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+		remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+		remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 		// Query strings from static resources
 		add_filter( 'style_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15, 1 );
 		add_filter( 'script_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15, 1 );
