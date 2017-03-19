@@ -26,6 +26,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 		add_filter( 'the_content', 'shortcode_unautop', 100 );
 		// remove_filter( 'the_excerpt', 'wpautop' );
 		add_filter( 'the_excerpt', 'shortcode_unautop', 100 );
+		// remove_filter( 'the_excerpt_embed', 'wpautop' );
+		// add_filter( 'the_excerpt_embed', 'shortcode_unautop', 100 );
 		// Remove unnecessary body and post classes
 		add_filter( 'body_class', '<%= opts.functionPrefix %>_clean_body_class' );
 		add_filter( 'post_class', '<%= opts.functionPrefix %>_clean_post_class' );
@@ -35,8 +37,8 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 
 if( ! function_exists( '<%= opts.functionPrefix %>_cleanup_head' ) ) {
 	function <%= opts.functionPrefix %>_cleanup_head() {
-		// Display the links to the general feeds.
-		remove_action( 'wp_head', 'feed_links', 2 );
+		// // Display the links to the general feeds.
+		// remove_action( 'wp_head', 'feed_links', 2 );
 		// Display the links to the extra feeds such as category feeds.
 		remove_action( 'wp_head', 'feed_links_extra', 3 );
 		// Display the link to the Really Simple Discovery service endpoint.
@@ -47,6 +49,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_cleanup_head' ) ) {
 		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
 		// Output rel=canonical for singular queries.
 		remove_action( 'wp_head', 'rel_canonical' );
+		remove_action( 'embed_head', 'rel_canonical' );
 		// Inject rel=shortlink into head if a shortlink is defined for the current page.
 		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
 		// Display the XHTML generator that is generated on the wp_head hook
@@ -54,6 +57,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_cleanup_head' ) ) {
 		// Emoji support detection script and styles
 		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'embed_head', 'print_emoji_detection_script', 7 );
 		remove_action( 'admin_print_styles', 'print_emoji_styles' );
 		remove_action( 'wp_print_styles', 'print_emoji_styles' );
 		remove_filter( 'the_content_feed', 'wp_staticize_emoji ');
