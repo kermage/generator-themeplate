@@ -14,16 +14,18 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 		// Remove the WordPress version from RSS feeds
 		add_filter( 'the_generator', '__return_false' );
 		// Remove injected recent comments sidebar widget style
-		add_action( 'widgets_init', '<%= opts.functionPrefix %>_remove_recent_comments_style', 1 );
+		add_action( 'widgets_init', '<%= opts.functionPrefix %>_remove_recent_comments_style' );
 		// Remove tag cloud inline style
 		add_filter( 'wp_generate_tag_cloud', '<%= opts.functionPrefix %>_remove_tag_cloud_inline_style' );
 		// Remove injected gallery shortcode style
 		add_filter( 'use_default_gallery_style', '__return_false' );
-		// Remove automatic paragraph tags
+		// Remove URL where emoji SVG images are hosted
+		add_filter( 'emoji_svg_url', '__return_false' );
+		// // Remove automatic paragraph tags
 		// remove_filter( 'the_content', 'wpautop' );
-		add_filter( 'the_content', 'shortcode_unautop', 100 );
 		// remove_filter( 'the_excerpt', 'wpautop' );
-		add_filter( 'the_excerpt', 'shortcode_unautop', 100 );
+		// remove_filter( 'term_description', 'wpautop' );
+		// remove_filter( 'the_excerpt_embed', 'wpautop' );
 		// Remove unnecessary body and post classes
 		add_filter( 'body_class', '<%= opts.functionPrefix %>_clean_body_class' );
 		add_filter( 'post_class', '<%= opts.functionPrefix %>_clean_post_class' );
@@ -33,29 +35,38 @@ if( ! function_exists( '<%= opts.functionPrefix %>_markup_cleaner' ) ) {
 
 if( ! function_exists( '<%= opts.functionPrefix %>_cleanup_head' ) ) {
 	function <%= opts.functionPrefix %>_cleanup_head() {
+		// // Display the links to the general feeds.
+		// remove_action( 'wp_head', 'feed_links', 2 );
+		// Display the links to the extra feeds such as category feeds.
+		remove_action( 'wp_head', 'feed_links_extra', 3 );
 		// Display the link to the Really Simple Discovery service endpoint.
 		remove_action( 'wp_head', 'rsd_link' );
 		// Display the link to the Windows Live Writer manifest file.
 		remove_action( 'wp_head', 'wlwmanifest_link' );
 		// Display relational links for the posts adjacent to the current post for single post pages.
-		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
 		// Output rel=canonical for singular queries.
-		remove_action( 'wp_head', 'rel_canonical', 10, 0 );
+		remove_action( 'wp_head', 'rel_canonical' );
+		remove_action( 'embed_head', 'rel_canonical' );
 		// Inject rel=shortlink into head if a shortlink is defined for the current page.
-		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
 		// Display the XHTML generator that is generated on the wp_head hook
 		remove_action( 'wp_head', 'wp_generator' );
 		// Emoji support detection script and styles
 		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'embed_head', 'print_emoji_detection_script', 7 );
 		remove_action( 'admin_print_styles', 'print_emoji_styles' );
 		remove_action( 'wp_print_styles', 'print_emoji_styles' );
 		remove_filter( 'the_content_feed', 'wp_staticize_emoji ');
 		remove_filter( 'comment_text_rss', 'wp_staticize_emoji ');
 		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+		remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+		remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+		remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 		// Query strings from static resources
-		add_filter( 'style_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15, 1 );
-		add_filter( 'script_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15, 1 );
+		add_filter( 'style_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15 );
+		add_filter( 'script_loader_src', '<%= opts.functionPrefix %>_remove_query_strings', 15 );
 		// Output of <link> and <script> tags
 		add_filter( 'style_loader_tag', '<%= opts.functionPrefix %>_clean_style_tag' );
 		add_filter( 'script_loader_tag', '<%= opts.functionPrefix %>_clean_script_tag' );
@@ -95,7 +106,10 @@ if( ! function_exists( '<%= opts.functionPrefix %>_remove_recent_comments_style'
 
 if( ! function_exists( '<%= opts.functionPrefix %>_clean_body_class' ) ) {
 	function <%= opts.functionPrefix %>_clean_body_class( $classes ) {
-		$match = '/((postid|attachmentid|page-id|parent-pageid|category|tag|term)-\d+$|(attachment|page-parent|page-child)$)/';
+		$match = '(^(postid|attachmentid|page-id|parent-pageid|category|tag|term)-\d+$|(attachment|page-parent|page-child)$)';
+		$match .= '|(^(page|post|single|category|tag|archive|post-type-archive)$)';
+		$match .= '|(^.*-(template(-default)?(-page-templates)?(-[\w-]+-php)?)$)';
+		$match = '/' . $match . '/';
 		foreach ( $classes as $key => $value ) {
 			if( preg_match( $match, $value ) ) unset( $classes[$key] );
 		}
@@ -105,7 +119,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_clean_body_class' ) ) {
 
 if( ! function_exists( '<%= opts.functionPrefix %>_clean_post_class' ) ) {
 	function <%= opts.functionPrefix %>_clean_post_class( $classes ) {
-		$match = '/(post-\d+$|(type|status|category|tag)-[\w-]+$)/';
+		$match = '/(post-\d+$|(type|status|format)-[\w-]+$)/';
 		foreach ( $classes as $key => $value ) {
 			if( preg_match( $match, $value ) ) unset( $classes[$key] );
 		}

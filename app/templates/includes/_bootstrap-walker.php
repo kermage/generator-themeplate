@@ -7,8 +7,8 @@
  * @since 0.1.0
  */
 
-if( ! class_exists( 'Bootstrap_Nav_Walker' ) ) {
-	class Bootstrap_Nav_Walker extends <%= opts.classPrefix %>_Nav_Walker {
+if( ! class_exists( 'Bootstrap_NavBar' ) ) {
+	class Bootstrap_NavBar extends ThemePlate_NavWalker {
 		public $class = array(
 			'sub-menu' => 'dropdown-menu',
 			'has-sub'  => 'dropdown',
