@@ -12,16 +12,16 @@ get_header(); ?>
 	<div class="content-sidebar container">
 		<main class="content" role="main">
 
-			<?php if( is_home() && ! is_front_page() ) : ?>
+			<?php if ( is_home() && ! is_front_page() ) : ?>
 				<h1 class="page-title"><?php single_post_title(); ?></h1>
 			<?php endif; ?>
 
 			<?php if ( have_posts() ) : ?>
-				<?php while ( have_posts() ): the_post(); ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-						<?php if( has_post_thumbnail() ) : ?>
+						<?php if ( has_post_thumbnail() ) : ?>
 							<div class="entry-featured">
 								<?php the_post_thumbnail(); ?>
 							</div>

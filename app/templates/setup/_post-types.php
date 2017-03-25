@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-if( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 	function <%= opts.functionPrefix %>_post_types() {
 		ThemePlate()->post_type( array(
 			'name'        => 'portfolio',

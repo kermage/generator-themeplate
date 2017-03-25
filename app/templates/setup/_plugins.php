@@ -10,7 +10,7 @@
 // TGM Plugin Activation
 require_once( THEME_INC . 'class-tgm-plugin-activation.php' );
 
-if( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 	function <%= opts.functionPrefix %>_plugins() {
 		$plugins = array(
 			array(

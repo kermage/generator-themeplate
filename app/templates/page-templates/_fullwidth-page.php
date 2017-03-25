@@ -11,11 +11,11 @@ get_header(); ?>
 
 	<main class="content" role="main">
 
-		<?php if( ! is_front_page() ) : ?>
+		<?php if ( ! is_front_page() ) : ?>
 			<h1 class="page-title"><?php single_post_title(); ?></h1>
 		<?php endif; ?>
 
-		<?php while ( have_posts() ): the_post(); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 			<?php the_content(); ?>
 		<?php endwhile; ?>
 

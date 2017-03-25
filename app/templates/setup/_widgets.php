@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-if( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 	function <%= opts.functionPrefix %>_widgets_init() {
 		register_sidebar( array(
 			'id'            => 'sidebar',
