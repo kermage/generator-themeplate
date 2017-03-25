@@ -58,7 +58,7 @@ function <%= opts.functionPrefix %>_google_tag_header( $ID ) {
 }
 
 // Google Tag Manager Footer
-function <%= opts.functionPrefix %>_google_tag_footer() {
+function <%= opts.functionPrefix %>_google_tag_footer( $ID ) {
 	ob_start(); ?>
 
 	<!-- Google Tag Manager (noscript) -->
