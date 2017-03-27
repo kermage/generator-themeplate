@@ -7,6 +7,8 @@
  * @since 0.1.0
  */
 
+add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+
 // Enable shortcodes in widgets
 add_filter( 'widget_text', 'do_shortcode' );
 
