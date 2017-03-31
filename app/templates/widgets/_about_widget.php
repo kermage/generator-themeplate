@@ -16,15 +16,15 @@ class <%= opts.classPrefix %>_About_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		echo $args['before_widget'];
 		?>
-			<?php if( isset($instance['logo_url'] ) && $instance['logo_url'] ) { ?>
+			<?php if ( isset($instance['logo_url'] ) && $instance['logo_url'] ) : ?>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 					<img src="<?php echo esc_url($instance['logo_url']); ?>" alt="<?php bloginfo( 'name' ); ?> Logo"/>
 				</a>
-			<?php } ?>
+			<?php endif; ?>
 
-			<?php if( isset($instance['info_text'] ) && $instance['info_text'] ) { ?>
+			<?php if ( isset($instance['info_text'] ) && $instance['info_text'] ) : ?>
 				<p><?php echo $instance['info_text']; ?></p>
-			<?php } ?>
+			<?php endif; ?>
 		<?php
 		echo $args['after_widget'];
 	}

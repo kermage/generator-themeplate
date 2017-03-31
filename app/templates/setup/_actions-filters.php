@@ -7,11 +7,13 @@
  * @since 0.1.0
  */
 
+add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+
 // Enable shortcodes in widgets
 add_filter( 'widget_text', 'do_shortcode' );
 
 // Allow SVG upload
-if( ! function_exists( '<%= opts.functionPrefix %>_mime_types' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_mime_types' ) ) {
 	function <%= opts.functionPrefix %>_mime_types( $mimes ) {
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
@@ -20,7 +22,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_mime_types' ) ) {
 }
 
 // Add SVG as image
-if( ! function_exists( '<%= opts.functionPrefix %>_ext_types' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_ext_types' ) ) {
 	function <%= opts.functionPrefix %>_ext_types( $mimes ) {
 		$mimes['image'][] = 'svg';
 		return $mimes;
@@ -29,7 +31,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_ext_types' ) ) {
 };
 
 // Custom excerpt length
-if( ! function_exists( '<%= opts.functionPrefix %>_excerpt_length' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_length' ) ) {
 	function <%= opts.functionPrefix %>_excerpt_length( $length ) {
 		return 50;
 	}

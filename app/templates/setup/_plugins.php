@@ -10,7 +10,7 @@
 // TGM Plugin Activation
 require_once( THEME_INC . 'class-tgm-plugin-activation.php' );
 
-if( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 	function <%= opts.functionPrefix %>_plugins() {
 		$plugins = array(
 			array(
@@ -29,10 +29,10 @@ if( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 		);
 
 		$config = array(
-			'id'           => '<%= opts.functionPrefix %>-tgmpa',
-			'menu'         => 'theme-plugins',
-			'parent_slug'  => 'theme-options',
-			// 'dismissable'  => false,
+			'id'           => '<%= opts.themeName.toLowerCase() %>-tgmpa',
+			'menu'         => '<%= opts.themeName.toLowerCase() %>-plugins',
+			'parent_slug'  => '<%= opts.themeName.toLowerCase() %>-options',
+			'dismissable'  => false,
 			'is_automatic' => true
 		);
 

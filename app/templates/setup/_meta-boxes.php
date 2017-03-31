@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-if( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 	function <%= opts.functionPrefix %>_meta_boxes() {
 		ThemePlate()->post_meta( array(
 			'id'          => 'page',

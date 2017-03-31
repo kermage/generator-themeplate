@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-if( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 	function <%= opts.functionPrefix %>_settings() {
 		ThemePlate()->settings( array(
 			'id'          => 'general',

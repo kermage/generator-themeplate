@@ -12,7 +12,7 @@
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<?php wp_head(); ?>
 	</head>
 
@@ -21,7 +21,7 @@
 			<div class="branding">
 				<div class="container">
 
-					<?php if( is_front_page() ) : ?>
+					<?php if ( is_front_page() ) : ?>
 						<h1 class="site-title">
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 								<?php bloginfo( 'name' ); ?>

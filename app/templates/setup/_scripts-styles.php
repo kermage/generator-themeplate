@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-if( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles() {
 		$suffix = ( WP_DEBUG || SCRIPT_DEBUG || THEME_DEBUG ) ? '' : '.min';
 

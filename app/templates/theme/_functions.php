@@ -31,7 +31,7 @@ require_once( 'setup/widgets.php' );
 require_once( 'setup/scripts-styles.php' );
 
 if ( class_exists( 'ThemePlate' ) ) :
-	ThemePlate( '<%= opts.functionPrefix %>' );
+	ThemePlate( '<%= opts.themeName %>' );
 	require_once( 'setup/settings.php' );
 	require_once( 'setup/post-types.php' );
 	require_once( 'setup/meta-boxes.php' );<% if ( opts.bootstrap ) { %>
@@ -44,5 +44,4 @@ require_once( 'setup/hooks.php' );
 /* ==================================================
 Extra custom functions
 ================================================== */
-require_once( THEME_INC . 'cleanup.php' );
 

@@ -20,18 +20,18 @@ class <%= opts.classPrefix %>_Contact_Widget extends WP_Widget {
 		}
 		?>
 			<div class="contact-wrap">
-				<?php if( isset($instance['contact_text'] ) && $instance['contact_text'] ) { ?>
+				<?php if ( isset($instance['contact_text'] ) && $instance['contact_text'] ) : ?>
 					<p><?php echo $instance['contact_text']; ?></p>
-				<?php } ?>
-				<?php if( isset($instance['contact_number'] ) && $instance['contact_number'] ) { ?>
+				<?php endif; ?>
+				<?php if ( isset($instance['contact_number'] ) && $instance['contact_number'] ) : ?>
 					<span class="number"><?php echo $instance['contact_number']; ?></span>
-				<?php } ?>
-				<?php if( isset($instance['contact_email'] ) && $instance['contact_email'] ) { ?>
+				<?php endif; ?>
+				<?php if ( isset($instance['contact_email'] ) && $instance['contact_email'] ) : ?>
 					<a href="mailto:<?php echo $instance['contact_email']; ?>" class="email"><?php echo $instance['contact_email']; ?></a>
-				<?php } ?>
-				<?php if( isset($instance['contact_address'] ) && $instance['contact_address'] ) { ?>
+				<?php endif; ?>
+				<?php if ( isset($instance['contact_address'] ) && $instance['contact_address'] ) : ?>
 					<span class="address"><?php echo $instance['contact_address']; ?></span>
-				<?php } ?>
+				<?php endif; ?>
 			</div>
 		<?php
 		echo $args['after_widget'];

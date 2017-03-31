@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-if( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 	function <%= opts.functionPrefix %>_setup() {
 		// Add theme support for Post Formats
 		add_theme_support( 'post-formats', array( 'link', 'image', 'quote', 'video', 'audio' ) );
@@ -23,7 +23,7 @@ if( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 	add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_setup' );
 }
 
-if( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
 	function <%= opts.functionPrefix %>_credit() {
 		return sprintf(
 			'<a href="%1$s" target="_blank">%2$s %3$s</a> %4$s <span class="dashicons dashicons-heart"></span> by <a href="%5$s" target="_blank">%6$s</a>.',
