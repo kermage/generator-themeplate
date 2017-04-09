@@ -40,11 +40,11 @@ gulp.task('imagecopy', function() {
 gulp.task('imagemin', function() {
 	gulp.src('assets/images/*.{gif,jpg,png}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
-		.pipe(plugins.imagemin({
-			optimizationLevel: 7,
-			progressive: true,
-			interlaced: true
-		}))
+		.pipe(plugins.imagemin([
+			plugins.imagemin.optipng({optimizationLevel: 7}),
+			plugins.imagemin.jpegtran({progressive: true}),
+			plugins.imagemin.gifsicle({interlaced: true})
+		]))
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('images'))
 		.pipe(browserSync.stream())
