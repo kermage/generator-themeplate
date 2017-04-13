@@ -9,7 +9,7 @@
 	- Browsersync
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - CSS Framework options
-	- Twitter Bootstrap
+	- Twitter Bootstrap v3.3.7
 	- Default; *blank slate with normalize and susy*
 - Pre-included theme setup/boilerplates/functions
 	- Base template files
@@ -19,17 +19,15 @@
 	- Scripts and Styles
 	- Actions and Filters
 	- Hooks
-	- Plugins
-	- Custom forms/fields
+	- Plugins *(required/recommended)*
+	- Custom forms/fields *(metaboxes)*
 	- Custom post types and taxonomies
-	- WordPress markup cleaner
-	- Custom clean nav walker
-	- Bootstrap nav walker
+	- Bootstrap nav walker *(optional)*
 	- Google codes template
 
 ## Requirements
 - [Node.js](https://nodejs.org/): Install from the NodeJS website.
-- [Gulp](http://gulpjs.com/): Run `npm install gulp-cli -g`
+- [Gulp](http://gulpjs.com/): Run `npm install -g gulp-cli`
 - [Yeoman](http://yeoman.io/): Run `npm install -g yo`
 
 ## Installation
