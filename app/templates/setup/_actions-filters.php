@@ -41,7 +41,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_length' ) ) {
 // Custom excerpt read more
 if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_string' ) ) {
 	function <%= opts.functionPrefix %>_excerpt_string( $more ) {
-		return ' . . .';
+		return '&hellip;';
 	}
 	add_filter( 'excerpt_more', '<%= opts.functionPrefix %>_excerpt_string' );
 }
