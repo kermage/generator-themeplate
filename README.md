@@ -31,21 +31,21 @@
 - [Yeoman](http://yeoman.io/): Run `npm install -g yo`
 
 ## Installation
-####1. Download or clone this repository
+#### 1. Download or clone this repository
 
 `git clone https://github.com/kermage/generator-themeplate.git`
 
-####2. Enter the directory and link it to npm
+#### 2. Enter the directory and link it to npm
 
 `cd generator-themeplate && npm link`
 
 ## Usage
 ### Theme Setup
-####1. In the desired project directory, initiate the generator
+#### 1. In the desired project directory, initiate the generator
 
 `yo themeplate`
 
-####2. Simply follow the prompts and enter the details
+#### 2. Simply follow the prompts and enter the details
 ```
 ? Theme Name:
 ? Theme URI:
@@ -59,10 +59,12 @@
 ? License URI:
 ```
 
-####3. Navigate to the generated theme directory then run `gulp`
-
 ### Theme Development
-#### Available Commands
-- `gulp build` — Build assets; Sass compiled, JS concatenated, and images copied.
-- `gulp dev` — Browsersync started; run predefined assets tasks and autoreloads whenever file changes.
-- `gulp dist` — Build assets; CSS and JS minified, and images optimized.
+#### 1. Navigate to the generated theme directory
+#### 2. Run `gulp`
+- Builds assets
+	- Sass compiled and minified
+	- JS concatenated and minified
+	- Images optimized; loseless
+- Watches theme files and assets for changes
+- Starts Browsersync
