@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	plugins = require('gulp-load-plugins')({camelize: true});
 
 gulp.task('concat', function() {
-	return gulp.src('assets/js/*.js')
+	return gulp.src(['assets/js/<%= opts.projectSlug %>.js','assets/js/_*.js'])
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.jshint())
 		.pipe(plugins.jshint.reporter('jshint-stylish'))
