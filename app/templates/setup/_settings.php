@@ -10,6 +10,25 @@
 if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 	function <%= opts.functionPrefix %>_settings() {
 		ThemePlate()->settings( array(
+			'id'          => 'google',
+			'title'       => __( 'Google Codes', '<%= opts.functionPrefix %>' ),
+			'description' => __( 'Enter the tracking IDs to use in site.', '<%= opts.functionPrefix %>' ),
+			'context'     => 'normal',
+			'fields'      => array(
+				'analytics' => array(
+					'name'     => __( 'Analytics', '<%= opts.functionPrefix %>' ),
+					'desc'     => __( 'UA-XXXXX-Y', '<%= opts.functionPrefix %>' ),
+					'type'     => 'text'
+				),
+				'tagmanager' => array(
+					'name'     => __( 'Tag Manager', '<%= opts.functionPrefix %>' ),
+					'desc'     => __( 'GTM-XXXX', '<%= opts.functionPrefix %>' ),
+					'type'     => 'text'
+				)
+			)
+		) );
+
+		ThemePlate()->settings( array(
 			'id'          => 'general',
 			'title'       => __( 'General', '<%= opts.functionPrefix %>' ),
 			'description' => __( 'Description', '<%= opts.functionPrefix %>' ),
