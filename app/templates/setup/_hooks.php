@@ -11,7 +11,7 @@ require_once( THEME_INC . 'google-codes.php' );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 	function <%= opts.functionPrefix %>_add_ga() {
-		$tid = get_option( '<%= opts.themeName %>-options' )['google_analytics'];
+		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_analytics'];
 		if ( $tid ) {
 			<%= opts.functionPrefix %>_google_analytics( $tid );
 			// <%= opts.functionPrefix %>_google_analytics_async( $tid );
@@ -22,7 +22,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_header' ) ) {
 	function <%= opts.functionPrefix %>_add_gtm_header() {
-		$tid = get_option( '<%= opts.themeName %>-options' )['google_tagmanager'];
+		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_tagmanager'];
 		if ( $tid ) {
 			<%= opts.functionPrefix %>_google_tag_header( $tid );
 		}
@@ -32,7 +32,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_header' ) ) {
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_footer' ) ) {
 	function <%= opts.functionPrefix %>_add_gtm_footer() {
-		$tid = get_option( '<%= opts.themeName %>-options' )['google_tagmanager'];
+		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_tagmanager'];
 		if ( $tid ) {
 			<%= opts.functionPrefix %>_google_tag_footer( $tid );
 		}

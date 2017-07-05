@@ -29,9 +29,9 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 		);
 
 		$config = array(
-			'id'           => '<%= opts.themeName.toLowerCase() %>-tgmpa',
-			'menu'         => '<%= opts.themeName.toLowerCase() %>-plugins',
-			'parent_slug'  => '<%= opts.themeName.toLowerCase() %>-options',
+			'id'           => '<%= opts.functionPrefix %>-tgmpa',
+			'menu'         => '<%= opts.functionPrefix %>-plugins',
+			'parent_slug'  => '<%= opts.functionPrefix %>-options',
 			'dismissable'  => false,
 			'is_automatic' => true
 		);
