@@ -6,6 +6,8 @@
 - Streamlined with Gulp
 	- Sass
 	- Autoprefixer
+	- Linter
+	- Sourcemaps
 	- Browsersync
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - CSS Framework options
@@ -23,7 +25,7 @@
 	- Custom forms/fields *(metaboxes)*
 	- Custom post types and taxonomies
 	- Bootstrap nav walker *(optional)*
-	- Google codes template
+	- Google tracking codes
 
 ## Requirements
 - [Node.js](https://nodejs.org/): Install from the NodeJS website.
@@ -31,6 +33,10 @@
 - [Yeoman](http://yeoman.io/): Run `npm install -g yo`
 
 ## Installation
+#### NEW: Install via npm *(skip steps 1 and 2)*
+
+`npm install -g generator-themeplate`
+
 #### 1. Download or clone this repository
 
 `git clone https://github.com/kermage/generator-themeplate.git`
@@ -55,6 +61,7 @@
 ? Description:
 ? Function Prefix:
 ? Use Bootstrap? (y/N)
+? Class Prefix:
 ? License:
 ? License URI:
 ```
