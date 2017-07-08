@@ -43,6 +43,9 @@ module.exports = class extends Generator {
 				message: 'Function Prefix:',
 				default: function( answer ) {
 					return answer.themeName.toLowerCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-z_]/g, '' );
+				},
+				filter: function( answer ) {
+					return answer.toLowerCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-z_]/g, '' );
 				}
 			},
 			{
@@ -50,6 +53,9 @@ module.exports = class extends Generator {
 				message: 'Class Prefix:',
 				default: function( answer ) {
 					return answer.themeName.replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' );
+				},
+				filter: function( answer ) {
+					return answer.replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' );
 				}
 			},
 			{
