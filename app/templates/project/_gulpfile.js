@@ -106,7 +106,7 @@ gulp.task('watch', function() {
 gulp.task('serve', ['watch'], function() {
 	browserSync.init({
 		files: ['**/*.php'],
-		proxy: "localhost",
+		proxy: '<%= opts.localServer %>',
 		open: false,
 		notify: false
 	});
