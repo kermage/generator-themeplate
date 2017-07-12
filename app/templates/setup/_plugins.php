@@ -21,10 +21,20 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'force_activation' => true
 			),
 			array(
+				'name'             => 'Enable Media Replace',
+				'slug'             => 'enable-media-replace',
+			),
+			array(
+				'name'             => 'Media Files Tools',
+				'slug'             => 'media-files-tools',
+			),
+			array(
+				'name'             => 'W3 Total Cache',
+				'slug'             => 'w3-total-cache',
+			),
+			array(
 				'name'             => 'Yoast SEO',
 				'slug'             => 'wordpress-seo',
-				// 'required'         => true,
-				// 'force_activation' => true
 			)
 		);
 
