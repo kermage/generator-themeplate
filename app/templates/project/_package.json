@@ -38,8 +38,7 @@
     <% if ( opts.bootstrap ) { %>
     "bootstrap-sass": "^3.3.7"
     <% } else { %>
-    "normalize-scss": "^7.0.0",
-    "susy": "^2.2.12"
+    "normalize-scss": "^7.0.0"
     <% } %>
   }
 }

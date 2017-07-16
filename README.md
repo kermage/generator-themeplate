@@ -12,7 +12,7 @@
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - CSS Framework options
 	- Twitter Bootstrap v3.3.7
-	- Default; *blank slate with normalize and susy*
+	- Default; *blank slate with normalize*
 - Pre-included theme setup/boilerplates/functions
 	- Base template files
 	- Features
