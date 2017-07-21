@@ -6,8 +6,6 @@ var gulp = require('gulp'),
 gulp.task('concat', function() {
 	return gulp.src(['assets/js/<%= opts.projectSlug %>.js','assets/js/_*.js'])
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
-		.pipe(plugins.jshint())
-		.pipe(plugins.jshint.reporter('jshint-stylish'))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
 		.pipe(plugins.sourcemaps.write('/'))
@@ -34,6 +32,12 @@ gulp.task('scripts', ['concat'], function() {
     gulp.start('uglify');
 });
 
+gulp.task('scripts:lint', function() {
+	return gulp.src(['assets/js/<%= opts.projectSlug %>.js','assets/js/_*.js'])
+		.pipe(plugins.jshint())
+		.pipe(plugins.jshint.reporter('jshint-stylish'))
+});
+
 gulp.task('images', function() {
 	return gulp.src('assets/images/*.{gif,jpg,png}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
@@ -51,8 +55,6 @@ gulp.task('images', function() {
 gulp.task('sass', function() {
 	return gulp.src('assets/sass/**/*.s+(a|c)ss')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
-		.pipe(plugins.sassLint())
-		.pipe(plugins.sassLint.format())
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.sass({
 			outputStyle: 'expanded'
@@ -83,6 +85,12 @@ gulp.task('cssnano', function() {
 
 gulp.task('styles', ['sass'], function() {
     gulp.start('cssnano');
+});
+
+gulp.task('styles:lint', function() {
+	return gulp.src('assets/sass/**/*.s+(a|c)ss')
+		.pipe(plugins.sassLint())
+		.pipe(plugins.sassLint.format())
 });
 
 gulp.task('debug-true', function() {
@@ -136,6 +144,7 @@ gulp.task('bump', function() {
 });
 
 gulp.task('build', ['images', 'scripts', 'styles']);
+gulp.task('lint', ['scripts:lint', 'styles:lint']);
 gulp.task('default', ['build'], function() {
     gulp.start('serve');
 });
