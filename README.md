@@ -6,21 +6,21 @@
 - Streamlined with Gulp
 	- Sass
 	- Autoprefixer
-	- Linter
 	- Sourcemaps
 	- Browsersync
+	- Linters
+	- Localization
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - CSS Framework options
 	- Twitter Bootstrap v3.3.7
 	- Default; *blank slate with normalize*
-- Pre-included theme setup/boilerplates/functions
+- Pre-included theme boilerplates and functions
 	- Base template files
 	- Features
 	- Navigations
 	- Widgets
 	- Scripts and Styles
 	- Actions and Filters
-	- Hooks
 	- Plugins *(required/recommended)*
 	- Custom forms/fields *(metaboxes)*
 	- Custom post types and taxonomies
@@ -60,10 +60,11 @@
 ? Author URI:
 ? Description:
 ? Function Prefix:
-? Use Bootstrap? (y/N)
 ? Class Prefix:
+? Use Bootstrap? (y/N)
 ? License:
 ? License URI:
+? Local Server:
 ```
 
 ### Theme Development
@@ -75,3 +76,9 @@
 	- Images optimized; loseless
 - Watches theme files and assets for changes
 - Starts Browsersync
+
+#### Available Tasks:
+- `gulp debug-{true|false}` - Set assets to serve; minified or not
+- `gulp bump` - Bump version in files; theme package and assets
+- `gulp lint` - Run scripts and styles against coding rules set
+- `gulp pot` - Generate a POT file for the theme localization
