@@ -143,6 +143,16 @@ gulp.task('bump', function() {
 		.pipe(gulp.dest('assets/js'));
 });
 
+gulp.task('pot', function() {
+	return gulp.src('**/*.php')
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
+		.pipe(plugins.wpPot({
+			domain: 'vj',
+			package: '<%= opts.themeName %>'
+		}))
+		.pipe(gulp.dest('languages/<%= opts.projectSlug %>.pot'));
+});
+
 gulp.task('build', ['images', 'scripts', 'styles']);
 gulp.task('lint', ['scripts:lint', 'styles:lint']);
 gulp.task('default', ['build'], function() {
