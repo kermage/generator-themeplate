@@ -39,9 +39,10 @@ gulp.task('scripts:lint', function() {
 });
 
 gulp.task('images', function() {
-	return gulp.src('assets/images/*.{gif,jpg,png}')
+	return gulp.src('assets/images/*.{gif,jpg,png,svg}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.imagemin([
+			plugins.imagemin.svgo({plugins: [{removeViewBox: true}]}),
 			plugins.imagemin.optipng({optimizationLevel: 7}),
 			plugins.imagemin.jpegtran({progressive: true}),
 			plugins.imagemin.gifsicle({interlaced: true})
