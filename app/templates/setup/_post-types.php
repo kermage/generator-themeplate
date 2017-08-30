@@ -11,9 +11,9 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 	function <%= opts.functionPrefix %>_post_types() {
 		ThemePlate()->post_type( array(
 			'name'        => 'portfolio',
-			'plural'      => __( 'Portfolio', '<%= opts.functionPrefix %>' ),
-			'singular'    => __( 'Portfolio', '<%= opts.functionPrefix %>' ),
-			'description' => __( 'Portfolio', '<%= opts.functionPrefix %>' ),
+			'plural'      => __( 'Portfolio', '<%= opts.projectSlug %>' ),
+			'singular'    => __( 'Portfolio', '<%= opts.projectSlug %>' ),
+			'description' => __( 'Portfolio', '<%= opts.projectSlug %>' ),
 			'args' => array(
 				'public'              => true,
 				// 'exclude_from_search' => false,
@@ -34,9 +34,9 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 
 		ThemePlate()->taxonomy( array(
 			'name'        => 'portfolio-cat',
-			'plural'      => __( 'Categories', '<%= opts.functionPrefix %>' ),
-			'singular'    => __( 'Category', '<%= opts.functionPrefix %>' ),
-			'description' => __( 'Portfolio Category', '<%= opts.functionPrefix %>' ),
+			'plural'      => __( 'Categories', '<%= opts.projectSlug %>' ),
+			'singular'    => __( 'Category', '<%= opts.projectSlug %>' ),
+			'description' => __( 'Portfolio Category', '<%= opts.projectSlug %>' ),
 			'type'        => 'portfolio',
 			'args' => array(
 				'public'             => true,
@@ -53,9 +53,9 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 
 		ThemePlate()->taxonomy( array(
 			'name'        => 'portfolio-tag',
-			'plural'      => __( 'Tags', '<%= opts.functionPrefix %>' ),
-			'singular'    => __( 'Tag', '<%= opts.functionPrefix %>' ),
-			'description' => __( 'Portfolio Tag', '<%= opts.functionPrefix %>' ),
+			'plural'      => __( 'Tags', '<%= opts.projectSlug %>' ),
+			'singular'    => __( 'Tag', '<%= opts.projectSlug %>' ),
+			'description' => __( 'Portfolio Tag', '<%= opts.projectSlug %>' ),
 			'type'        => 'portfolio',
 			'args' => array(
 				'public'             => true,

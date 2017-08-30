@@ -10,7 +10,7 @@
 if ( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 	function <%= opts.functionPrefix %>_setup() {
 		// Make theme available for Translation
-		load_theme_textdomain( '<%= opts.functionPrefix %>', THEME_PATH . 'languages' );
+		load_theme_textdomain( '<%= opts.projectSlug %>', THEME_PATH . 'languages' );
 		// Add theme support for Post Formats
 		add_theme_support( 'post-formats', array( 'link', 'image', 'quote', 'video', 'audio' ) );
 		// Add theme support for Featured Images
@@ -32,7 +32,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
 			THEME_URI,
 			THEME_NAME,
 			THEME_VERSION,
-			__( 'designed and developed with', '<%= opts.functionPrefix %>' ),
+			__( 'designed and developed with', '<%= opts.projectSlug %>' ),
 			AUTHOR_URI,
 			THEME_AUTHOR
 		);
