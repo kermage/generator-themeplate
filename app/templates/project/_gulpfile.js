@@ -148,7 +148,7 @@ gulp.task('pot', function() {
 	return gulp.src('**/*.php')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.wpPot({
-			domain: 'vj',
+			domain: '<%= opts.projectSlug %>',
 			package: '<%= opts.themeName %>'
 		}))
 		.pipe(gulp.dest('languages/<%= opts.projectSlug %>.pot'));
