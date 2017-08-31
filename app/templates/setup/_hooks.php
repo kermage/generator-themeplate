@@ -17,7 +17,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 			// <%= opts.functionPrefix %>_google_analytics_async( $tid );
 		}
 	}
-	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_ga', 10 );
+	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_ga', 5 );
 }
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_header' ) ) {
