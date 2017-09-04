@@ -13,8 +13,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 	function <%= opts.functionPrefix %>_add_ga() {
 		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_analytics'];
 		if ( $tid ) {
-			<%= opts.functionPrefix %>_google_analytics( $tid );
-			// <%= opts.functionPrefix %>_google_analytics_async( $tid );
+			// <%= opts.functionPrefix %>_google_analytics( $tid );
+			<%= opts.functionPrefix %>_google_analytics_async( $tid );
 		}
 	}
 	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_ga', 5 );
