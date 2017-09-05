@@ -34,3 +34,20 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 	}
 	add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_scripts_styles', 20 );
 }
+
+// Async Scripts
+if ( ! function_exists( '<%= opts.functionPrefix %>_async_scripts' ) ) {
+	function <%= opts.functionPrefix %>_async_scripts( $tag, $handle ) {
+		// Add script handles
+		$scripts = array();
+
+		foreach ( $scripts as $script ) {
+			if ( $script == $handle ) {
+				return str_replace( ' src', ' async="async" src', $tag );
+			}
+		}
+
+		return $tag;
+	}
+	add_filter( 'script_loader_tag', '<%= opts.functionPrefix %>_async_scripts', 10, 2 );
+}
