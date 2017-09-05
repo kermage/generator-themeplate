@@ -51,3 +51,20 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_async_scripts' ) ) {
 	}
 	add_filter( 'script_loader_tag', '<%= opts.functionPrefix %>_async_scripts', 10, 2 );
 }
+
+// Defer Scripts
+if ( ! function_exists( '<%= opts.functionPrefix %>_defer_scripts' ) ) {
+	function <%= opts.functionPrefix %>_defer_scripts( $tag, $handle ) {
+		// Add script handles
+		$scripts = array();
+
+		foreach ( $scripts as $script ) {
+			if ( $script == $handle ) {
+				return str_replace( ' src', ' defer="defer" src', $tag );
+			}
+		}
+
+		return $tag;
+	}
+	add_filter( 'script_loader_tag', '<%= opts.functionPrefix %>_defer_scripts', 10, 2 );
+}
