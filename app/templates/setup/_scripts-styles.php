@@ -41,10 +41,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_async_scripts' ) ) {
 		// Add script handles
 		$scripts = array();
 
-		foreach ( $scripts as $script ) {
-			if ( $script == $handle ) {
-				return str_replace( ' src', ' async="async" src', $tag );
-			}
+		if ( in_array( $handle, $scripts ) ) {
+			return str_replace( ' src', ' async="async" src', $tag );
 		}
 
 		return $tag;
@@ -58,10 +56,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_defer_scripts' ) ) {
 		// Add script handles
 		$scripts = array();
 
-		foreach ( $scripts as $script ) {
-			if ( $script == $handle ) {
-				return str_replace( ' src', ' defer="defer" src', $tag );
-			}
+		if ( in_array( $handle, $scripts ) ) {
+			return str_replace( ' src', ' defer="defer" src', $tag );
 		}
 
 		return $tag;
