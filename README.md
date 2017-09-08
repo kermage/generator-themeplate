@@ -26,6 +26,7 @@
 	- Custom post types and taxonomies
 	- Bootstrap nav walker *(optional)*
 	- Google tracking codes
+	- Asynchronous loading and deferred execution of scripts
 
 ## Requirements
 - [Node.js](https://nodejs.org/): Install from the NodeJS website.
@@ -33,17 +34,8 @@
 - [Yeoman](http://yeoman.io/): Run `npm install -g yo`
 
 ## Installation
-#### NEW: Install via npm *(skip steps 1 and 2)*
 
 `npm install -g generator-themeplate`
-
-#### 1. Download or clone this repository
-
-`git clone https://github.com/kermage/generator-themeplate.git`
-
-#### 2. Enter the directory and link it to npm
-
-`cd generator-themeplate && npm link`
 
 ## Usage
 ### Theme Setup
@@ -82,3 +74,9 @@
 - `gulp bump` - Bump version in files; theme package and assets
 - `gulp lint` - Run scripts and styles against coding rules set
 - `gulp pot` - Generate a POT file for the theme localization
+
+## License
+
+Copyright &copy; 2017 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
+
+Licensed under [MIT](LICENSE).
