@@ -1,6 +1,6 @@
 {
   "name": "generator-themeplate",
-  "version": "0.2.0",
+  "version": "0.8.0",
   "description": "A Yeoman generator for ThemePlate",
   "keywords": [
     "yeoman-generator",
