@@ -3,7 +3,9 @@
   "version": "0.2.0",
   "description": "A Yeoman generator for ThemePlate",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "wordpress",
+    "theme"
   ],
   "license": "MIT",
   "author": {
