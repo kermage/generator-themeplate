@@ -12,8 +12,8 @@
 	- Localization
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - CSS Framework options
-	- Twitter Bootstrap v3.3.7
-	- Default; *blank slate with normalize*
+	- Twitter Bootstrap [v3.3.7](https://github.com/twbs/bootstrap-sass)
+	- Blank Slate *(with [normalize](https://github.com/JohnAlbin/normalize-scss))*
 - Pre-included theme boilerplates and functions
 	- Base template files
 	- Features
@@ -70,13 +70,12 @@
 - Starts Browsersync
 
 #### Available Tasks:
-- `gulp debug-{true|false}` - Set assets to serve; minified or not
+- `gulp debug-{false|true}` - Set assets to serve; minified or not
 - `gulp bump` - Bump version in files; theme package and assets
 - `gulp lint` - Run scripts and styles against coding rules set
 - `gulp pot` - Generate a POT file for the theme localization
 
 ## License
-
 Copyright &copy; 2017 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
 
 Licensed under [MIT](LICENSE).
