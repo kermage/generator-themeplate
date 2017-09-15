@@ -57,8 +57,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_string' ) ) {
 // Number of revisions to keep
 if ( ! function_exists( '<%= opts.functionPrefix %>_keep_revisions' ) ) {
 	function <%= opts.functionPrefix %>_keep_revisions( $num, $post ) {
-		$num = 10;
-		return $num;
+		return 10;
 	}
 	add_filter( 'wp_revisions_to_keep', '<%= opts.functionPrefix %>_keep_revisions', 10, 2 );
 }
