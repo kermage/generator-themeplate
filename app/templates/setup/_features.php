@@ -40,3 +40,12 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
 	// Add to the admin footer
 	add_filter( 'admin_footer_text', '<%= opts.functionPrefix %>_credit' );
 }
+
+if ( ! function_exists( '<%= opts.functionPrefix %>_updates' ) ) {
+	function <%= opts.functionPrefix %>_updates( $value ) {
+		unset( $value->response[ get_stylesheet() ] );
+		return $value;
+	}
+	// Disable update notification from WordPress.org repository theme
+	add_filter( 'site_transient_update_themes', '<%= opts.functionPrefix %>_updates' );
+}
