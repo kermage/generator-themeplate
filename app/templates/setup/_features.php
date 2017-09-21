@@ -47,5 +47,5 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_updates' ) ) {
 		return $value;
 	}
 	// Disable update notification from WordPress.org repository theme
-	add_filter( 'site_transient_update_themes', '<%= opts.functionPrefix %>_updates' );
+	add_filter( 'pre_set_site_transient_update_themes', '<%= opts.functionPrefix %>_updates' );
 }
