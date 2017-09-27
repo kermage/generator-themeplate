@@ -10,8 +10,8 @@
 if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 	function <%= opts.functionPrefix %>_navigations() {
 		register_nav_menus( array(
-			'primary' => __( 'Primary Menu', '<%= opts.functionPrefix %>' ),
-			'footer'  => __( 'Footer Menu', '<%= opts.functionPrefix %>' )
+			'primary' => __( 'Primary Menu', '<%= opts.projectSlug %>' ),
+			'footer'  => __( 'Footer Menu', '<%= opts.projectSlug %>' )
 		) );
 	}
 	add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_navigations' );

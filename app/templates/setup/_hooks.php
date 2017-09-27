@@ -11,22 +11,31 @@ require_once( THEME_INC . 'google-codes.php' );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 	function <%= opts.functionPrefix %>_add_ga() {
-		<%= opts.functionPrefix %>_google_analytics( 'UA-XXXXX-Y' );
-		// <%= opts.functionPrefix %>_google_analytics_async( 'UA-XXXXX-Y' );
+		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_analytics'];
+		if ( $tid ) {
+			// <%= opts.functionPrefix %>_google_analytics( $tid );
+			<%= opts.functionPrefix %>_google_analytics_async( $tid );
+		}
 	}
-	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_ga', 10 );
+	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_ga', 5 );
 }
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_header' ) ) {
 	function <%= opts.functionPrefix %>_add_gtm_header() {
-		<%= opts.functionPrefix %>_google_tag_header( 'GTM-XXXX' );
+		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_tagmanager'];
+		if ( $tid ) {
+			<%= opts.functionPrefix %>_google_tag_header( $tid );
+		}
 	}
 	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_gtm_header', 10 );
 }
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_footer' ) ) {
 	function <%= opts.functionPrefix %>_add_gtm_footer() {
-		<%= opts.functionPrefix %>_google_tag_footer( 'GTM-XXXX' );
+		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_tagmanager'];
+		if ( $tid ) {
+			<%= opts.functionPrefix %>_google_tag_footer( $tid );
+		}
 	}
 	add_action( 'wp_footer', '<%= opts.functionPrefix %>_add_gtm_footer', 10 );
 }

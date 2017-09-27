@@ -12,6 +12,14 @@ add_action( 'after_switch_theme', 'flush_rewrite_rules' );
 // Enable shortcodes in widgets
 add_filter( 'widget_text', 'do_shortcode' );
 
+// Remove JPEG compression.
+if ( ! function_exists( '<%= opts.functionPrefix %>_jpeg_quality' ) ) {
+	function <%= opts.functionPrefix %>_jpeg_quality() {
+		return 100;
+	}
+	add_filter( 'jpeg_quality', '<%= opts.functionPrefix %>_jpeg_quality' );
+}
+
 // Allow SVG upload
 if ( ! function_exists( '<%= opts.functionPrefix %>_mime_types' ) ) {
 	function <%= opts.functionPrefix %>_mime_types( $mimes ) {
@@ -41,7 +49,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_length' ) ) {
 // Custom excerpt read more
 if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_string' ) ) {
 	function <%= opts.functionPrefix %>_excerpt_string( $more ) {
-		return ' . . .';
+		return '&hellip;';
 	}
 	add_filter( 'excerpt_more', '<%= opts.functionPrefix %>_excerpt_string' );
 }
@@ -49,8 +57,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_string' ) ) {
 // Number of revisions to keep
 if ( ! function_exists( '<%= opts.functionPrefix %>_keep_revisions' ) ) {
 	function <%= opts.functionPrefix %>_keep_revisions( $num, $post ) {
-		$num = 10;
-		return $num;
+		return 30;
 	}
 	add_filter( 'wp_revisions_to_keep', '<%= opts.functionPrefix %>_keep_revisions', 10, 2 );
 }

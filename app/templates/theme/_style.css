@@ -7,7 +7,7 @@
  * Version:     0.1.0
  * License:     <%= opts.license %>
  * License URI: <%= opts.licenseURI %>
- * Text Domain: <%= opts.functionPrefix %>
- * Tags: 
+ * Text Domain: <%= opts.projectSlug %>
+ * Tags:
  */
 

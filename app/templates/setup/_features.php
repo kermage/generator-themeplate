@@ -9,6 +9,8 @@
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 	function <%= opts.functionPrefix %>_setup() {
+		// Make theme available for Translation
+		load_theme_textdomain( '<%= opts.projectSlug %>', THEME_PATH . 'languages' );
 		// Add theme support for Post Formats
 		add_theme_support( 'post-formats', array( 'link', 'image', 'quote', 'video', 'audio' ) );
 		// Add theme support for Featured Images
@@ -30,11 +32,20 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
 			THEME_URI,
 			THEME_NAME,
 			THEME_VERSION,
-			__( 'designed and developed with', '<%= opts.functionPrefix %>' ),
+			__( 'designed and developed with', '<%= opts.projectSlug %>' ),
 			AUTHOR_URI,
 			THEME_AUTHOR
 		);
 	}
 	// Add to the admin footer
 	add_filter( 'admin_footer_text', '<%= opts.functionPrefix %>_credit' );
+}
+
+if ( ! function_exists( '<%= opts.functionPrefix %>_updates' ) ) {
+	function <%= opts.functionPrefix %>_updates( $value ) {
+		unset( $value->response[ get_stylesheet() ] );
+		return $value;
+	}
+	// Disable update notification from WordPress.org repository theme
+	add_filter( 'pre_set_site_transient_update_themes', '<%= opts.functionPrefix %>_updates' );
 }

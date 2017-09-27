@@ -9,7 +9,7 @@
 
 class <%= opts.classPrefix %>_About_Widget extends WP_Widget {
 	function __construct() {
-		$widget_ops = array( 'classname' => '<%= opts.functionPrefix %>_about', 'description' => __( 'Display site logo and info.', '<%= opts.functionPrefix %>' ) );
+		$widget_ops = array( 'classname' => '<%= opts.functionPrefix %>_about', 'description' => __( 'Display site logo and info.', '<%= opts.projectSlug %>' ) );
 		parent::__construct( '<%= opts.functionPrefix %>_about', '<%= opts.themeName %>: About', $widget_ops );
 	}
 
@@ -34,11 +34,11 @@ class <%= opts.classPrefix %>_About_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'logo_url' ) ); ?>"><?php _e( 'Logo URL:', '<%= opts.functionPrefix %>' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'logo_url' ) ); ?>"><?php _e( 'Logo URL:', '<%= opts.projectSlug %>' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'logo_url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'logo_url' ) ); ?>" value="<?php echo esc_attr( $instance['logo_url'] ); ?>" />
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'info_text' ) ); ?>"><?php _e( 'Info Text:', '<%= opts.functionPrefix %>' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'info_text' ) ); ?>"><?php _e( 'Info Text:', '<%= opts.projectSlug %>' ); ?></label>
 			<textarea class="widefat" rows="4" id="<?php echo esc_attr( $this->get_field_id( 'info_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'info_text' ) ); ?>"><?php echo $instance['info_text']; ?></textarea>
 		</p>
 	<?php

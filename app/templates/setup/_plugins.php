@@ -21,17 +21,27 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'force_activation' => true
 			),
 			array(
+				'name'             => 'Enable Media Replace',
+				'slug'             => 'enable-media-replace',
+			),
+			array(
+				'name'             => 'Media Files Tools',
+				'slug'             => 'media-files-tools',
+			),
+			array(
+				'name'             => 'W3 Total Cache',
+				'slug'             => 'w3-total-cache',
+			),
+			array(
 				'name'             => 'Yoast SEO',
 				'slug'             => 'wordpress-seo',
-				// 'required'         => true,
-				// 'force_activation' => true
 			)
 		);
 
 		$config = array(
-			'id'           => '<%= opts.themeName.toLowerCase() %>-tgmpa',
-			'menu'         => '<%= opts.themeName.toLowerCase() %>-plugins',
-			'parent_slug'  => '<%= opts.themeName.toLowerCase() %>-options',
+			'id'           => '<%= opts.functionPrefix %>-tgmpa',
+			'menu'         => '<%= opts.functionPrefix %>-plugins',
+			'parent_slug'  => '<%= opts.functionPrefix %>-options',
 			'dismissable'  => false,
 			'is_automatic' => true
 		);

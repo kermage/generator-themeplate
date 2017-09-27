@@ -42,14 +42,20 @@ module.exports = class extends Generator {
 				name: 'functionPrefix',
 				message: 'Function Prefix:',
 				default: function( answer ) {
-					return answer.themeName.toLowerCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-z_]/g, '' );
+					return answer.themeName.toLowerCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-z_]/g, '' ).replace( /_+$/, '' );
+				},
+				filter: function( answer ) {
+					return answer.toLowerCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-z_]/g, '' ).replace( /_+$/, '' );
 				}
 			},
 			{
 				name: 'classPrefix',
 				message: 'Class Prefix:',
 				default: function( answer ) {
-					return answer.themeName.replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' );
+					return answer.themeName.replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
+				},
+				filter: function( answer ) {
+					return answer.replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
 				}
 			},
 			{
@@ -67,6 +73,11 @@ module.exports = class extends Generator {
 				name: 'licenseURI',
 				message: 'License URI:',
 				default: 'http://www.gnu.org/licenses/gpl-2.0.html'
+			},
+			{
+				name: 'localServer',
+				message: 'Local Server:',
+				default: 'localhost'
 			}
 		] ).then( props => {
 			this.opts = props;
@@ -76,7 +87,7 @@ module.exports = class extends Generator {
 	configuring() {
 		var done = this.async();
 
-		this.opts.projectSlug = this.opts.themeName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' );
+		this.opts.projectSlug = this.opts.themeName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' ).replace( /[-_]+$/, '' );
 
 		fs.lstat( this.destinationPath( this.opts.projectSlug ), function( err, stats ) {
 			if ( !err && stats.isDirectory() ) {
