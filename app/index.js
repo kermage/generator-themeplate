@@ -160,23 +160,23 @@ module.exports = class extends Generator {
 		// Assets
 		this.fs.copyTpl(
 			this.templatePath( 'assets/_style.scss' ),
-			this.destinationPath( 'assets/sass/' + this.opts.projectSlug + '.scss' ),
+			this.destinationPath( 'src/sass/' + this.opts.projectSlug + '.scss' ),
 			{ opts: this.opts }
 		);
 		this.fs.copyTpl(
 			this.templatePath( 'assets/_script.js' ),
-			this.destinationPath( 'assets/js/' + this.opts.projectSlug + '.js' ),
+			this.destinationPath( 'src/js/' + this.opts.projectSlug + '.js' ),
 			{ opts: this.opts }
 		);
 		this.fs.copy(
 			this.templatePath( 'assets/layouts' ),
-			this.destinationPath( 'assets/sass/layouts' )
+			this.destinationPath( 'src/sass/layouts' )
 		);
 		// Bootstrap
 		if ( this.opts.bootstrap ) {
 			this.fs.copy(
 				this.templatePath( 'assets/_bootstrap-*.scss' ),
-				this.destinationPath( 'assets/sass' )
+				this.destinationPath( 'src/sass' )
 			);
 		}
 	}

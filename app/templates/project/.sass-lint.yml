@@ -2,8 +2,8 @@ options:
   formatter: stylish
 
 files:
-  include: 'assets/sass/**/*.s+(a|c)ss'
-  ignore: 'assets/sass/_bootstrap-*.scss'
+  include: 'src/sass/**/*.s+(a|c)ss'
+  ignore: 'src/sass/_bootstrap-*.scss'
 
 rules:
   # Extends
