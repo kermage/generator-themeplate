@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	plugins = require('gulp-load-plugins')({camelize: true});
 
 gulp.task('concat', function() {
-	return gulp.src(['assets/js/<%= opts.projectSlug %>.js','assets/js/_*.js'])
+	return gulp.src(['src/js/<%= opts.projectSlug %>.js','src/js/_*.js'])
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
@@ -33,13 +33,13 @@ gulp.task('scripts', ['concat'], function() {
 });
 
 gulp.task('scripts:lint', function() {
-	return gulp.src(['assets/js/<%= opts.projectSlug %>.js','assets/js/_*.js'])
+	return gulp.src(['src/js/<%= opts.projectSlug %>.js','src/js/_*.js'])
 		.pipe(plugins.jshint())
 		.pipe(plugins.jshint.reporter('jshint-stylish'))
 });
 
 gulp.task('images', function() {
-	return gulp.src('assets/images/*.{gif,jpg,png,svg}')
+	return gulp.src('src/images/*.{gif,jpg,png,svg}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.imagemin([
 			plugins.imagemin.svgo({plugins: [{removeViewBox: true}]}),
@@ -54,7 +54,7 @@ gulp.task('images', function() {
 });
 
 gulp.task('sass', function() {
-	return gulp.src('assets/sass/**/*.s+(a|c)ss')
+	return gulp.src('src/sass/**/*.s+(a|c)ss')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.sass({
@@ -89,7 +89,7 @@ gulp.task('styles', ['sass'], function() {
 });
 
 gulp.task('styles:lint', function() {
-	return gulp.src('assets/sass/**/*.s+(a|c)ss')
+	return gulp.src('src/sass/**/*.s+(a|c)ss')
 		.pipe(plugins.sassLint())
 		.pipe(plugins.sassLint.format())
 });
@@ -107,9 +107,9 @@ gulp.task('debug-false', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch('assets/js/**/*.js', ['scripts']);
-	gulp.watch('assets/images/**/*.{gif,jpg,png}', ['images']);
-	gulp.watch('assets/sass/**/*.{scss,sass}', ['styles']);
+	gulp.watch('src/js/**/*.js', ['scripts']);
+	gulp.watch('src/images/**/*.{gif,jpg,png}', ['images']);
+	gulp.watch('src/sass/**/*.{scss,sass}', ['styles']);
 });
 
 gulp.task('serve', ['watch'], function() {
@@ -128,20 +128,20 @@ gulp.task('bump', function() {
 			version: gutil.env.version
 		}))
 		.pipe(gulp.dest('.'));
-	gulp.src('assets/sass/<%= opts.projectSlug %>.scss')
+	gulp.src('src/sass/<%= opts.projectSlug %>.scss')
 		.pipe(plugins.bump({
 			type: gutil.env.type,
 			version: gutil.env.version,
 			key: '<%= opts.themeName %>'
 		}))
-		.pipe(gulp.dest('assets/sass'));
-	gulp.src('assets/js/<%= opts.projectSlug %>.js')
+		.pipe(gulp.dest('src/sass'));
+	gulp.src('src/js/<%= opts.projectSlug %>.js')
 		.pipe(plugins.bump({
 			type: gutil.env.type,
 			version: gutil.env.version,
 			key: '<%= opts.themeName %>'
 		}))
-		.pipe(gulp.dest('assets/js'));
+		.pipe(gulp.dest('src/js'));
 });
 
 gulp.task('pot', function() {
