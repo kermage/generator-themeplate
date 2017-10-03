@@ -17,6 +17,8 @@
 	</head>
 
 	<body <?php body_class(); ?>>
+		<a class="screen-reader-text" href="#site-content"><?php _e( 'Skip to content', '<%= opts.projectSlug %>' ); ?></a>
+
 		<header class="site-header" role="banner">
 			<div class="branding">
 				<div class="container">
@@ -51,4 +53,4 @@
 			</div><!-- .navbar -->
 		</header><!-- .site-header -->
 
-		<div class="site-content">
+		<div id="site-content">
