@@ -17,22 +17,24 @@
 	</head>
 
 	<body <?php body_class(); ?>>
+		<a class="screen-reader-text" href="#site-content"><?php _e( 'Skip to content', '<%= opts.projectSlug %>' ); ?></a>
+
 		<header class="site-header" role="banner">
 			<div class="branding">
 				<div class="container">
 
 					<?php if ( is_front_page() ) : ?>
 						<h1 class="site-title">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 								<?php bloginfo( 'name' ); ?>
 							</a>
 						</h1>
 					<?php else : ?>
-						<p class="site-title">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
-								<strong><?php bloginfo( 'name' ); ?></strong>
+						<p class="site-title"><strong>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+								<?php bloginfo( 'name' ); ?>
 							</a>
-						</p>
+						</strong></p>
 					<?php endif; ?>
 
 					<p class="tagline">
@@ -51,4 +53,4 @@
 			</div><!-- .navbar -->
 		</header><!-- .site-header -->
 
-		<div class="site-content">
+		<div id="site-content">
