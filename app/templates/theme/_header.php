@@ -25,16 +25,16 @@
 
 					<?php if ( is_front_page() ) : ?>
 						<h1 class="site-title">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 								<?php bloginfo( 'name' ); ?>
 							</a>
 						</h1>
 					<?php else : ?>
-						<p class="site-title">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
-								<strong><?php bloginfo( 'name' ); ?></strong>
+						<p class="site-title"><strong>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+								<?php bloginfo( 'name' ); ?>
 							</a>
-						</p>
+						</strong></p>
 					<?php endif; ?>
 
 					<p class="tagline">
