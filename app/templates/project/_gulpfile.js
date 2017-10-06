@@ -29,7 +29,7 @@ gulp.task('uglify', function() {
 });
 
 gulp.task('scripts', ['concat'], function() {
-    gulp.start('uglify');
+	gulp.start('uglify');
 });
 
 gulp.task('scripts:lint', function() {
@@ -85,7 +85,7 @@ gulp.task('cssnano', function() {
 });
 
 gulp.task('styles', ['sass'], function() {
-    gulp.start('cssnano');
+	gulp.start('cssnano');
 });
 
 gulp.task('styles:lint', function() {
@@ -157,5 +157,5 @@ gulp.task('pot', function() {
 gulp.task('build', ['images', 'scripts', 'styles']);
 gulp.task('lint', ['scripts:lint', 'styles:lint']);
 gulp.task('default', ['build'], function() {
-    gulp.start('serve');
+	gulp.start('serve');
 });
