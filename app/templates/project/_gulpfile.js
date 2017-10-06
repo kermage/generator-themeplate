@@ -12,7 +12,7 @@ gulp.task('concat', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('js'))
 		.pipe(browserSync.stream())
-		.pipe(plugins.notify({message: 'Concat task complete', onLast: true}));
+		// .pipe(plugins.notify({message: 'Concat task complete', onLast: true}));
 });
 
 gulp.task('uglify', function() {
@@ -25,11 +25,11 @@ gulp.task('uglify', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('js'))
 		.pipe(browserSync.stream())
-		.pipe(plugins.notify({message: 'Uglify task complete', onLast: true}));
+		// .pipe(plugins.notify({message: 'Uglify task complete', onLast: true}));
 });
 
 gulp.task('scripts', ['concat'], function() {
-    gulp.start('uglify');
+	gulp.start('uglify');
 });
 
 gulp.task('scripts:lint', function() {
@@ -50,7 +50,7 @@ gulp.task('images', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('images'))
 		.pipe(browserSync.stream())
-		.pipe(plugins.notify({message: 'Imagemin task complete', onLast: true}));
+		// .pipe(plugins.notify({message: 'Imagemin task complete', onLast: true}));
 });
 
 gulp.task('sass', function() {
@@ -68,7 +68,7 @@ gulp.task('sass', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('css'))
 		.pipe(browserSync.stream())
-		.pipe(plugins.notify({message: 'Sass task complete', onLast: true}));
+		// .pipe(plugins.notify({message: 'Sass task complete', onLast: true}));
 });
 
 gulp.task('cssnano', function() {
@@ -81,11 +81,11 @@ gulp.task('cssnano', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('css'))
 		.pipe(browserSync.stream())
-		.pipe(plugins.notify({message: 'Cssnano task complete', onLast: true}));
+		// .pipe(plugins.notify({message: 'Cssnano task complete', onLast: true}));
 });
 
 gulp.task('styles', ['sass'], function() {
-    gulp.start('cssnano');
+	gulp.start('cssnano');
 });
 
 gulp.task('styles:lint', function() {
@@ -157,5 +157,5 @@ gulp.task('pot', function() {
 gulp.task('build', ['images', 'scripts', 'styles']);
 gulp.task('lint', ['scripts:lint', 'styles:lint']);
 gulp.task('default', ['build'], function() {
-    gulp.start('serve');
+	gulp.start('serve');
 });
