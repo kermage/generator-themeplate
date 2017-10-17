@@ -111,5 +111,5 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			)
 		) );
 	}
-	add_action( 'add_meta_boxes', '<%= opts.functionPrefix %>_meta_boxes' );
+	add_action( 'init', '<%= opts.functionPrefix %>_meta_boxes' );
 }

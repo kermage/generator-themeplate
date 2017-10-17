@@ -29,6 +29,31 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 		) );
 
 		ThemePlate()->settings( array(
+			'id'          => 'social',
+			'title'       => __( 'Social Profiles', '<%= opts.projectSlug %>' ),
+			'description' => __( 'Enter the links to the associated service.', '<%= opts.projectSlug %>' ),
+			'context'     => 'normal',
+			'fields'      => array(
+				'facebook' => array(
+					'name'     => __( 'Facebook', '<%= opts.projectSlug %>' ),
+					'type'     => 'text'
+				),
+				'twitter' => array(
+					'name'     => __( 'Twitter', '<%= opts.projectSlug %>' ),
+					'type'     => 'text'
+				),
+				'instagram' => array(
+					'name'     => __( 'Instagram', '<%= opts.projectSlug %>' ),
+					'type'     => 'text'
+				),
+				'linkedin' => array(
+					'name'     => __( 'LinkedIn', '<%= opts.projectSlug %>' ),
+					'type'     => 'text'
+				)
+			)
+		) );
+
+		ThemePlate()->settings( array(
 			'id'          => 'general',
 			'title'       => __( 'General', '<%= opts.projectSlug %>' ),
 			'description' => __( 'Description', '<%= opts.projectSlug %>' ),
@@ -80,5 +105,5 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 			)
 		) );
 	}
-	add_action( 'admin_init', '<%= opts.functionPrefix %>_settings' );
+	add_action( 'init', '<%= opts.functionPrefix %>_settings' );
 }
