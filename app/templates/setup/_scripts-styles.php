@@ -24,8 +24,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		wp_enqueue_script( '<%= opts.functionPrefix %>-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap' . $suffix . '.js', array(), '3.3.7', true );<% } %>
 
 		// Site scripts and styles
-		wp_enqueue_style( '<%= opts.functionPrefix %>-style', THEME_URL . 'css/<%= opts.projectSlug %>' . $suffix . '.css', array(), THEME_VERSION, false );
-		wp_enqueue_script( '<%= opts.functionPrefix %>-script', THEME_URL . 'js/<%= opts.projectSlug %>' . $suffix . '.js', array(), THEME_VERSION, true );
+		wp_enqueue_style( '<%= opts.functionPrefix %>-style', THEME_URL . 'assets/css/<%= opts.projectSlug %>' . $suffix . '.css', array(), THEME_VERSION, false );
+		wp_enqueue_script( '<%= opts.functionPrefix %>-script', THEME_URL . 'assets/js/<%= opts.projectSlug %>' . $suffix . '.js', array(), THEME_VERSION, true );
 
 		$<%= opts.functionPrefix %>_options = array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' )
