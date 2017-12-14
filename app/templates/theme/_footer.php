@@ -6,6 +6,7 @@
  * @package <%= opts.themeName %>
  * @since 0.1.0
  */
+
 ?>
 
 		</div><!-- .site-content -->
@@ -25,6 +26,6 @@
 			</div>
 		</footer><!-- .site-footer -->
 
-	<?php wp_footer(); ?>
+		<?php wp_footer(); ?>
 	</body>
 </html>
