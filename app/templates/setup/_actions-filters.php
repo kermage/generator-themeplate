@@ -9,9 +9,6 @@
 
 add_action( 'after_switch_theme', 'flush_rewrite_rules' );
 
-// Enable shortcodes in widgets
-add_filter( 'widget_text', 'do_shortcode' );
-
 // Remove JPEG compression.
 if ( ! function_exists( '<%= opts.functionPrefix %>_jpeg_quality' ) ) {
 	function <%= opts.functionPrefix %>_jpeg_quality() {
