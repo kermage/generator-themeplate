@@ -42,6 +42,23 @@ function <%= opts.functionPrefix %>_google_analytics_async( $ID ) {
 	<?php echo ob_get_clean();
 }
 
+// Google Analytics Global Site Tag
+function <%= opts.functionPrefix %>_google_analytics_gtag( $ID ) {
+	ob_start(); ?>
+
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $ID; ?>"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', '<?php echo $ID; ?>');
+	</script>
+
+	<?php echo ob_get_clean();
+}
+
 // Google Tag Manager Header
 function <%= opts.functionPrefix %>_google_tag_header( $ID ) {
 	ob_start(); ?>

@@ -1,4 +1,4 @@
-# generator-themeplate v0.16.0 --
+# generator-themeplate v0.19.0 --
 > *"Quickly scafold a complete WordPress theme project in seconds!"*
 
 ## Features
@@ -6,13 +6,15 @@
 - Streamlined with Gulp
 	- Sass
 	- Autoprefixer
+	- Concatination
 	- Sourcemaps
+	- Minification
 	- Browsersync
 	- Linters
 	- Localization
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - CSS Framework options
-	- Twitter Bootstrap [v3.3.7](https://github.com/twbs/bootstrap-sass)
+	- Twitter Bootstrap [v4.0.0](https://github.com/twbs/bootstrap)
 	- Blank Slate *(with [normalize](https://github.com/JohnAlbin/normalize-scss))*
 - Pre-included theme boilerplates and functions
 	- Base template files
@@ -76,6 +78,6 @@
 - `gulp pot` - Generate a POT file for the theme localization
 
 ## License
-Copyright &copy; 2017 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
+Copyright &copy; 2018 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
 
 Licensed under [MIT](LICENSE).
