@@ -15,6 +15,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		wp_deregister_script( 'jquery' );
 		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header
 		wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-2.2.4' . $suffix . '.js', array(), '2.2.4', false );
+		wp_add_inline_script( 'jquery', 'jQuery.noConflict();' );
 
 		// Google Fonts
 		wp_enqueue_style( '<%= opts.functionPrefix %>-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800' );

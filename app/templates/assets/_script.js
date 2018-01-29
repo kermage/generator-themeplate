@@ -4,7 +4,7 @@
  *  Licensed under <%= opts.license %>.
  */
 
-(function() {
+(function( $ ) {
 	'use strict';
 
-}());
+}( jQuery ));
