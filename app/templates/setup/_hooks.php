@@ -7,6 +7,10 @@
  * @since 0.1.0
  */
 
+function wp_body() {
+	do_action( 'wp_body' );
+}
+
 require_once( THEME_INC . 'google-codes.php' );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
