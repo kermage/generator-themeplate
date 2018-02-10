@@ -32,7 +32,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_header' ) ) {
 			<%= opts.functionPrefix %>_google_tag_header( $tid );
 		}
 	}
-	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_gtm_header', 10 );
+	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_gtm_header', 5 );
 }
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_footer' ) ) {
