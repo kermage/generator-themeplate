@@ -42,5 +42,5 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_footer' ) ) {
 			<%= opts.functionPrefix %>_google_tag_footer( $tid );
 		}
 	}
-	add_action( 'wp_footer', '<%= opts.functionPrefix %>_add_gtm_footer', 10 );
+	add_action( 'wp_body', '<%= opts.functionPrefix %>_add_gtm_footer', 10 );
 }
