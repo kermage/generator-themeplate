@@ -7,6 +7,10 @@
  * @since 0.1.0
  */
 
+function wp_body() {
+	do_action( 'wp_body' );
+}
+
 require_once( THEME_INC . 'google-codes.php' );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
@@ -21,22 +25,22 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_ga', 5 );
 }
 
-if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_header' ) ) {
-	function <%= opts.functionPrefix %>_add_gtm_header() {
+if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_head' ) ) {
+	function <%= opts.functionPrefix %>_add_gtm_head() {
 		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_tagmanager'];
 		if ( $tid ) {
-			<%= opts.functionPrefix %>_google_tag_header( $tid );
+			<%= opts.functionPrefix %>_google_tag_head( $tid );
 		}
 	}
-	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_gtm_header', 10 );
+	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_gtm_head', 5 );
 }
 
-if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_footer' ) ) {
-	function <%= opts.functionPrefix %>_add_gtm_footer() {
+if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_body' ) ) {
+	function <%= opts.functionPrefix %>_add_gtm_body() {
 		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_tagmanager'];
 		if ( $tid ) {
-			<%= opts.functionPrefix %>_google_tag_footer( $tid );
+			<%= opts.functionPrefix %>_google_tag_body( $tid );
 		}
 	}
-	add_action( 'wp_footer', '<%= opts.functionPrefix %>_add_gtm_footer', 10 );
+	add_action( 'wp_body', '<%= opts.functionPrefix %>_add_gtm_body', 5 );
 }

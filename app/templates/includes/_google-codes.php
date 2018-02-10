@@ -59,8 +59,8 @@ function <%= opts.functionPrefix %>_google_analytics_gtag( $ID ) {
 	<?php echo ob_get_clean();
 }
 
-// Google Tag Manager Header
-function <%= opts.functionPrefix %>_google_tag_header( $ID ) {
+// Google Tag Manager <head>
+function <%= opts.functionPrefix %>_google_tag_head( $ID ) {
 	ob_start(); ?>
 
 	<!-- Google Tag Manager -->
@@ -74,8 +74,8 @@ function <%= opts.functionPrefix %>_google_tag_header( $ID ) {
 	<?php echo ob_get_clean();
 }
 
-// Google Tag Manager Footer
-function <%= opts.functionPrefix %>_google_tag_footer( $ID ) {
+// Google Tag Manager <body>
+function <%= opts.functionPrefix %>_google_tag_body( $ID ) {
 	ob_start(); ?>
 
 	<!-- Google Tag Manager (noscript) -->
