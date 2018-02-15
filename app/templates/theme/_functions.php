@@ -24,11 +24,6 @@ define( 'THEME_DEBUG',   true );
 /* ==================================================
 Setup Theme
 ================================================== */
-require_once( 'setup/plugins.php' );
-require_once( 'setup/features.php' );
-require_once( 'setup/navigations.php' );
-require_once( 'setup/widgets.php' );
-require_once( 'setup/scripts-styles.php' );
 
 if ( class_exists( 'ThemePlate' ) ) :
 	ThemePlate( array( '<%= opts.themeName %>', '<%= opts.functionPrefix %>' ) );
@@ -37,6 +32,11 @@ if ( class_exists( 'ThemePlate' ) ) :
 	require_once( 'setup/meta-boxes.php' );
 endif;
 
+require_once( 'setup/plugins.php' );
+require_once( 'setup/features.php' );
+require_once( 'setup/navigations.php' );
+require_once( 'setup/widgets.php' );
+require_once( 'setup/scripts-styles.php' );
 require_once( 'setup/actions-filters.php' );
 require_once( 'setup/hooks.php' );
 
