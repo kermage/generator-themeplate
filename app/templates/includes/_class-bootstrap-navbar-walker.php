@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Bootstrap Nav Walker
+ * Bootstrap NavBar Walker
  *
  * @package ThemePlate
  * @since 0.1.0
