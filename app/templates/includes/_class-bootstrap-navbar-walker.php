@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Bootstrap Nav Walker
+ * Bootstrap NavBar Walker
  *
  * @package ThemePlate
  * @since 0.1.0
  */
 
-if ( ! class_exists( 'Bootstrap_NavBar' ) ) {
+if ( ! class_exists( 'Bootstrap_NavBar' ) && class_exists( 'ThemePlate_NavWalker' ) ) {
 	class Bootstrap_NavBar extends ThemePlate_NavWalker {
 		public $class = array(
 			'sub-menu' => 'dropdown-menu',
