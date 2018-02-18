@@ -6,7 +6,7 @@
 <% if ( opts.bootstrap ) { %>
 @import 'bootstrap-custom';
 <% } else { %>
-@import '../../node_modules/normalize-scss/sass/normalize/import-now';
+@import "../../node_modules/normalize.css/normalize";
 <% } %>
 @import 'layouts/header';
 @import 'layouts/navigation';
