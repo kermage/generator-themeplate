@@ -39,7 +39,7 @@
     <% if ( opts.bootstrap ) { %>
     "bootstrap": "^4.0.0"
     <% } else { %>
-    "normalize-scss": "^7.0.1"
+    "normalize.css": "^8.0.0"
     <% } %>
   }
 }
