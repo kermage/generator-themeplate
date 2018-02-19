@@ -91,13 +91,13 @@ gulp.task('styles:lint', function() {
 });
 
 gulp.task('debug-true', function() {
-	gulp.src('functions.php')
+	return gulp.src('functions.php')
 		.pipe(plugins.replace(/define\( 'THEME_DEBUG',(\s+)\w+ \);/, 'define( \'THEME_DEBUG\',$1true );'))
 		.pipe(gulp.dest('.'));
 });
 
 gulp.task('debug-false', function() {
-	gulp.src('functions.php')
+	return gulp.src('functions.php')
 		.pipe(plugins.replace(/define\( 'THEME_DEBUG',(\s+)\w+ \);/, 'define( \'THEME_DEBUG\',$1false );'))
 		.pipe(gulp.dest('.'));
 });
@@ -117,7 +117,7 @@ gulp.task('serve', gulp.parallel('watch', function() {
 	});
 }));
 
-gulp.task('bump', function() {
+gulp.task('bump', function(done) {
 	gulp.src(['package.json', 'style.css'])
 		.pipe(plugins.bump({
 			type: gutil.env.type,
@@ -138,6 +138,7 @@ gulp.task('bump', function() {
 			key: '<%= opts.themeName %>'
 		}))
 		.pipe(gulp.dest('src/js'));
+	done();
 });
 
 gulp.task('pot', function() {
