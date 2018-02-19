@@ -1,4 +1,4 @@
-# generator-themeplate v0.27.0 --
+# generator-themeplate v0.28.0 --
 > *"Quickly scafold a complete WordPress theme project in seconds!"*
 
 ## Features
