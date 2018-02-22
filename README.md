@@ -1,4 +1,4 @@
-# generator-themeplate v0.28.0 --
+# generator-themeplate v0.28.4 --
 > *"Quickly scafold a complete WordPress theme project in seconds!"*
 
 ## Features
@@ -14,8 +14,8 @@
 	- Localization
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - CSS Framework options
-	- Twitter Bootstrap [v4.0.0](https://github.com/twbs/bootstrap)
-	- Blank Slate *(with [normalize](https://github.com/JohnAlbin/normalize-scss))*
+	- Twitter Bootstrap [v4.0.0](https://getbootstrap.com/)
+	- Blank Slate *(with [normalize.css](https://necolas.github.io/normalize.css/))*
 - Pre-included theme boilerplates and functions
 	- Base template files
 	- Features
