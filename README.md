@@ -14,8 +14,8 @@
 	- Localization
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - CSS Framework options
-	- Twitter Bootstrap [v4.0.0](https://github.com/twbs/bootstrap)
-	- Blank Slate *(with [normalize](https://github.com/necolas/normalize.css))*
+	- Twitter Bootstrap [v4.0.0](https://getbootstrap.com/)
+	- Blank Slate *(with [normalize](https://necolas.github.io/normalize.css/))*
 - Pre-included theme boilerplates and functions
 	- Base template files
 	- Features
