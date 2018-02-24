@@ -16,7 +16,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		wp_deregister_script( 'jquery-migrate' );
 		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header
 		wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-2.2.4' . $suffix . '.js', array(), '2.2.4', false );
-		wp_enqueue_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-1.4.1' . $suffix . '.js', array(), '1.4.1', false );
+		wp_register_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-1.4.1' . $suffix . '.js', array(), '1.4.1', false );
 		wp_add_inline_script( 'jquery', 'jQuery.noConflict();' );
 
 		// Google Fonts
