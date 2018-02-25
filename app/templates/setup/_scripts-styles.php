@@ -12,12 +12,12 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		$suffix = ( WP_DEBUG || SCRIPT_DEBUG || THEME_DEBUG ) ? '' : '.min';
 
 		// Deregister the jquery version bundled with WordPress
-		wp_deregister_script( 'jquery' );
+		wp_deregister_script( 'jquery-core' );
 		wp_deregister_script( 'jquery-migrate' );
 		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header
-		wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-2.2.4' . $suffix . '.js', array(), '2.2.4', false );
+		wp_enqueue_script( 'jquery-core', 'https://code.jquery.com/jquery-2.2.4' . $suffix . '.js', array(), '2.2.4', false );
 		wp_register_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-1.4.1' . $suffix . '.js', array(), '1.4.1', false );
-		wp_add_inline_script( 'jquery', 'jQuery.noConflict();' );
+		wp_add_inline_script( 'jquery-core', 'jQuery.noConflict();' );
 
 		// Google Fonts
 		wp_enqueue_style( '<%= opts.functionPrefix %>-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800' );
