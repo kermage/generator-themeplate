@@ -60,6 +60,12 @@ module.exports = class extends Generator {
 			},
 			{
 				type: 'confirm',
+				name: 'fontawesome',
+				message: 'Use FontAwesome?',
+				default: true
+			},
+			{
+				type: 'confirm',
 				name: 'bootstrap',
 				message: 'Use Bootstrap?',
 				default: false
