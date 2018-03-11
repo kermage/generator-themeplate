@@ -29,6 +29,10 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'slug'             => 'media-files-tools',
 			),
 			array(
+				'name'             => 'Regenerate Thumbnails',
+				'slug'             => 'regenerate-thumbnails',
+			),
+			array(
 				'name'             => 'W3 Total Cache',
 				'slug'             => 'w3-total-cache',
 			),
