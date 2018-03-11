@@ -13,7 +13,7 @@
 	- Linters
 	- Localization
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
-- Font Awesome *(optional)*
+- Font Awesome [v5](https://fontawesome.com/) *(optional)*
 - CSS Framework options
 	- Twitter Bootstrap [v4.0.0](https://getbootstrap.com/)
 	- Blank Slate *(with [normalize.css](https://necolas.github.io/normalize.css/))*
