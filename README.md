@@ -1,4 +1,4 @@
-# generator-themeplate v0.31.0 --
+# generator-themeplate v0.34.0 --
 > *"Quickly scafold a complete WordPress theme project in seconds!"*
 
 ## Features
@@ -13,6 +13,7 @@
 	- Linters
 	- Localization
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
+- Font Awesome [v5](https://fontawesome.com/) *(optional)*
 - CSS Framework options
 	- Twitter Bootstrap [v4.0.0](https://getbootstrap.com/)
 	- Blank Slate *(with [normalize.css](https://necolas.github.io/normalize.css/))*
@@ -55,6 +56,7 @@
 ? Description:
 ? Function Prefix:
 ? Class Prefix:
+? Use Font Awesome? (Y/n)
 ? Use Bootstrap? (y/N)
 ? License:
 ? License URI:

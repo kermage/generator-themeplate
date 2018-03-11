@@ -10,103 +10,106 @@
 if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 	function <%= opts.functionPrefix %>_meta_boxes() {
 		ThemePlate()->post_meta( array(
-			'id'          => 'page',
-			'title'       => __( 'Page Settings', '<%= opts.projectSlug %>' ),
-			'description' => __( 'Various options to create different page layouts and styles.', '<%= opts.projectSlug %>' ),
-			'screen'      => 'page',
-			'context'     => 'normal',
-			'priority'    => 'high',
+			'id'          => 'field',
+			'title'       => __( 'ThemePlate Fields', '<%= opts.projectSlug %>' ),
+			'description' => __( 'All available fields.', '<%= opts.projectSlug %>' ),
 			'fields'      => array(
-				'notitle' => array(
-					'name'     => __( 'Disable Page Title', '<%= opts.projectSlug %>' ),
-					'desc'     => __( 'Select to disable page title.', '<%= opts.projectSlug %>' ),
-					'type'     => 'checkbox',
-					'std'      => ''
-				),
-				'layout' => array(
-					'name'     => __( 'Preferred Layout', '<%= opts.projectSlug %>' ),
-					'desc'     => __( 'Select preferred layout.', '<%= opts.projectSlug %>' ),
-					'type'     => 'radio',
-					'std'      => 'Content Left; Sidebar Right',
-					'options'  => array( 'Content Left; Sidebar Right', 'Content Right; Sidebar Left', 'Fullwidth Page' )
-				),
-				'template' => array(
-					'name'     => __( 'Page Template', '<%= opts.projectSlug %>' ),
-					'desc'     => __( 'Select page template.', '<%= opts.projectSlug %>' ),
-					'type'     => 'select',
-					'std'      => '',
-					'options'  => array( 'Header; Footer', 'No Header; Footer', 'Header; No Footer', 'No Header; No Footer' ),
-					// 'multiple' => true
-				),
-				'background' => array(
-					'name'     => __( 'Background Color', '<%= opts.projectSlug %>' ),
-					'desc'     => __( 'Select background color.', '<%= opts.projectSlug %>' ),
-					'type'     => 'color',
-					'std'      => '#ffffff'
-				)
-			)
-		) );
-
-		ThemePlate()->post_meta( array(
-			'id'          => 'link',
-			'title'       => __( 'Link Post Settings', '<%= opts.projectSlug %>' ),
-			'description' => '',
-			'screen'      => 'post',
-			'context'     => 'normal',
-			'priority'    => 'high',
-			'fields'      => array(
-				'url' => array(
-					'name'     => __( 'The Link', '<%= opts.projectSlug %>' ),
-					'desc'     => __( 'Insert the URL.', '<%= opts.projectSlug %>' ),
-					'type'     => 'text',
-					'std'      => ''
-				)
-			)
-		) );
-
-		ThemePlate()->post_meta( array(
-			'id'          => 'quote',
-			'title'       => __( 'Quote Post Settings', '<%= opts.projectSlug %>' ),
-			'description' => '',
-			'screen'      => 'post',
-			'context'     => 'normal',
-			'priority'    => 'high',
-			'fields'      => array(
-				'quote' => array(
-					'name'     => __( 'Quotation', '<%= opts.projectSlug %>' ),
-					'desc'     => __( 'Input the quote.', '<%= opts.projectSlug %>' ),
-					'type'     => 'textarea',
-					'std'      => ''
-				),
-				'cite' => array(
-					'name'     => __( 'Citation', '<%= opts.projectSlug %>' ),
-					'desc'     => __( 'Source of the quotation.', '<%= opts.projectSlug %>' ),
-					'type'     => 'text',
-					'std'      => ''
-				)
-			)
-		) );
-
-		ThemePlate()->post_meta( array(
-			'id'          => 'portfolio',
-			'title'       => __( 'Portfolio Settings', '<%= opts.projectSlug %>' ),
-			'description' => '',
-			'screen'      => 'portfolio',
-			'context'     => 'normal',
-			'priority'    => 'high',
-			'fields'      => array(
-				'project' => array(
-					'name'     => __( 'Project File', '<%= opts.projectSlug %>' ),
-					'desc'     => __( 'Select portfolio project file.', '<%= opts.projectSlug %>' ),
-					'type'     => 'file',
-					'std'      => '',
-					// 'multiple' => true
+				'text' => array(
+					'name'     => __( 'Text', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Enter a text.', '<%= opts.projectSlug %>' ),
+					'type'     => 'text'
 				),
 				'date' => array(
-					'name'     => __( 'Project Date', '<%= opts.projectSlug %>' ),
-					'desc'     => __( 'Select portfolio project date.', '<%= opts.projectSlug %>' ),
-					'type'     => 'date',
-					'std'      => ''
+					'name'     => __( 'Date', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Set a date.', '<%= opts.projectSlug %>' ),
+					'type'     => 'date'
+				),
+				'time' => array(
+					'name'     => __( 'Time', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Set a time.', '<%= opts.projectSlug %>' ),
+					'type'     => 'time'
+				),
+				'email' => array(
+					'name'     => __( 'Email', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Enter an email.', '<%= opts.projectSlug %>' ),
+					'type'     => 'email'
+				),
+				'url' => array(
+					'name'     => __( 'URL', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Enter a url.', '<%= opts.projectSlug %>' ),
+					'type'     => 'url'
+				),
+				'textarea' => array(
+					'name'     => __( 'Textarea', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Enter in a textarea.', '<%= opts.projectSlug %>' ),
+					'type'     => 'textarea'
+				),
+				'select' => array(
+					'name'     => __( 'Select', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Select a value.', '<%= opts.projectSlug %>' ),
+					'options'   => array( 'One', 'Two', 'Three'),
+					'type'     => 'select'
+				),
+				'radio' => array(
+					'name'     => __( 'Radio', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Select from radio.', '<%= opts.projectSlug %>' ),
+					'options'   => array( 'First', 'Second', 'Third'),
+					'type'     => 'radio'
+				),
+				'checkbox' => array(
+					'name'     => __( 'Checkbox', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Check a box.', '<%= opts.projectSlug %>' ),
+					'options'   => array( 'Uno', 'Dos', 'Tres'),
+					'type'     => 'checkbox'
+				),
+				'color' => array(
+					'name'     => __( 'Color', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Select a color.', '<%= opts.projectSlug %>' ),
+					'type'     => 'color'
+				),
+				'file' => array(
+					'name'     => __( 'File', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Select a file.', '<%= opts.projectSlug %>' ),
+					'type'     => 'file'
+				),
+				'number' => array(
+					'name'     => __( 'Number', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Set a number.', '<%= opts.projectSlug %>' ),
+					'type'     => 'number'
+				),
+				'range' => array(
+					'name'     => __( 'Range', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Set a range.', '<%= opts.projectSlug %>' ),
+					'type'     => 'range'
+				),
+				'editor' => array(
+					'name'     => __( 'Editor', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Enter in an editor.', '<%= opts.projectSlug %>' ),
+					'type'     => 'editor'
+				),
+				'post' => array(
+					'name'     => __( 'Post', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Select a post.', '<%= opts.projectSlug %>' ),
+					'type'     => 'post',
+					'options'  => 'post'
+				),
+				'page' => array(
+					'name'     => __( 'Page', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Select a page.', '<%= opts.projectSlug %>' ),
+					'type'     => 'page',
+					'options'  => 'page'
+				),
+				'user' => array(
+					'name'     => __( 'User', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Select a user.', '<%= opts.projectSlug %>' ),
+					'type'     => 'user',
+					'options'  => 'administrator'
+				),
+				'term' => array(
+					'name'     => __( 'Term', '<%= opts.projectSlug %>' ),
+					'desc'     => __( 'Select a term.', '<%= opts.projectSlug %>' ),
+					'type'     => 'term',
+					'options'  => 'category'
 				)
 			)
 		) );
