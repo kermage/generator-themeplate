@@ -61,7 +61,7 @@ module.exports = class extends Generator {
 			{
 				type: 'confirm',
 				name: 'fontawesome',
-				message: 'Use FontAwesome?',
+				message: 'Use Font Awesome?',
 				default: true
 			},
 			{
