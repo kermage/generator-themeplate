@@ -13,6 +13,7 @@
 	- Linters
 	- Localization
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
+- FontAwesome *(optional)*
 - CSS Framework options
 	- Twitter Bootstrap [v4.0.0](https://getbootstrap.com/)
 	- Blank Slate *(with [normalize.css](https://necolas.github.io/normalize.css/))*
@@ -55,6 +56,7 @@
 ? Description:
 ? Function Prefix:
 ? Class Prefix:
+? Use FontAwesome? (Y/n)
 ? Use Bootstrap? (y/N)
 ? License:
 ? License URI:
