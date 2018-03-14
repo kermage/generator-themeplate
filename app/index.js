@@ -178,6 +178,10 @@ module.exports = class extends Generator {
 			this.templatePath( 'assets/layouts' ),
 			this.destinationPath( 'src/sass/layouts' )
 		);
+		this.fs.copy(
+			this.templatePath( 'theme/screenshot.png' ),
+			this.destinationPath( 'src/images/screenshot.png' )
+		);
 		// Bootstrap
 		if ( this.opts.bootstrap ) {
 			this.fs.copy(
