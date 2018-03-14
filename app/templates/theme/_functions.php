@@ -27,8 +27,8 @@ Setup Theme
 
 if ( class_exists( 'ThemePlate' ) ) :
 	ThemePlate( array( '<%= opts.themeName %>', '<%= opts.functionPrefix %>' ) );
-	require_once( 'setup/settings.php' );
 	require_once( 'setup/post-types.php' );
+	require_once( 'setup/settings.php' );
 	require_once( 'setup/meta-boxes.php' );
 endif;
 

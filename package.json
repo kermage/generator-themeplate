@@ -1,6 +1,6 @@
 {
   "name": "generator-themeplate",
-  "version": "0.34.0",
+  "version": "0.37.0",
   "description": "A Yeoman Generator to kickstart WordPress theme development",
   "keywords": [
     "yeoman-generator",

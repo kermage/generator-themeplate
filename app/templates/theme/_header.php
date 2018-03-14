@@ -56,4 +56,4 @@
 			</div><!-- .navbar -->
 		</header><!-- .site-header -->
 
-		<div id="site-content">
+		<div id="site-content" class="site-content">
