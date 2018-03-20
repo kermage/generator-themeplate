@@ -34,21 +34,26 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 			'description' => __( 'Enter the links to the associated service.', '<%= opts.projectSlug %>' ),
 			'context'     => 'normal',
 			'fields'      => array(
-				'facebook' => array(
-					'name'     => __( 'Facebook', '<%= opts.projectSlug %>' ),
-					'type'     => 'text'
-				),
-				'twitter' => array(
-					'name'     => __( 'Twitter', '<%= opts.projectSlug %>' ),
-					'type'     => 'text'
-				),
-				'instagram' => array(
-					'name'     => __( 'Instagram', '<%= opts.projectSlug %>' ),
-					'type'     => 'text'
-				),
-				'linkedin' => array(
-					'name'     => __( 'LinkedIn', '<%= opts.projectSlug %>' ),
-					'type'     => 'text'
+				'profiles' => array(
+					'name'     => __( 'Service', '<%= opts.projectSlug %>' ),
+					'type'     => 'group',
+					'repeatable' => true,
+					'fields'   => array(
+						'provider' => array(
+							'name'     => __( 'Provider', '<%= opts.projectSlug %>' ),
+							'type'     => 'select',
+							'options'  => array(
+								'facebook' => 'Facebook',
+								'twitter' => 'Twitter',
+								'instagram' => 'Instagram',
+								'linkedin' => 'LinkedIn'
+							)
+						),
+						'link' => array(
+							'name'     => __( 'Link', '<%= opts.projectSlug %>' ),
+							'type'     => 'url'
+						)
+					)
 				)
 			)
 		) );
