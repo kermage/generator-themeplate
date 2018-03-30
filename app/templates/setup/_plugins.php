@@ -25,10 +25,6 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'slug'             => 'enable-media-replace',
 			),
 			array(
-				'name'             => 'Media Files Tools',
-				'slug'             => 'media-files-tools',
-			),
-			array(
 				'name'             => 'Regenerate Thumbnails',
 				'slug'             => 'regenerate-thumbnails',
 			),
