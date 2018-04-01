@@ -3,12 +3,12 @@
 /**
  * Google Tracking Codes
  *
- * @package <%= opts.themeName %>
+ * @package ThemePlate
  * @since 0.1.0
  */
 
 // Google Analytics
-function <%= opts.functionPrefix %>_google_analytics( $ID ) {
+function themeplate_google_analytics( $ID ) {
 	ob_start(); ?>
 
 	<!-- Google Analytics -->
@@ -27,7 +27,7 @@ function <%= opts.functionPrefix %>_google_analytics( $ID ) {
 }
 
 // Google Analytics Async
-function <%= opts.functionPrefix %>_google_analytics_async( $ID ) {
+function themeplate_google_analytics_async( $ID ) {
 	ob_start(); ?>
 
 	<!-- Google Analytics -->
@@ -43,7 +43,7 @@ function <%= opts.functionPrefix %>_google_analytics_async( $ID ) {
 }
 
 // Google Analytics Global Site Tag
-function <%= opts.functionPrefix %>_google_analytics_gtag( $ID ) {
+function themeplate_google_analytics_gtag( $ID ) {
 	ob_start(); ?>
 
 	<!-- Global Site Tag (gtag.js) - Google Analytics -->
@@ -60,7 +60,7 @@ function <%= opts.functionPrefix %>_google_analytics_gtag( $ID ) {
 }
 
 // Google Tag Manager <head>
-function <%= opts.functionPrefix %>_google_tag_head( $ID ) {
+function themeplate_google_tag_head( $ID ) {
 	ob_start(); ?>
 
 	<!-- Google Tag Manager -->
@@ -75,7 +75,7 @@ function <%= opts.functionPrefix %>_google_tag_head( $ID ) {
 }
 
 // Google Tag Manager <body>
-function <%= opts.functionPrefix %>_google_tag_body( $ID ) {
+function themeplate_google_tag_body( $ID ) {
 	ob_start(); ?>
 
 	<!-- Google Tag Manager (noscript) -->
