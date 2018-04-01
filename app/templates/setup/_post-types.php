@@ -27,6 +27,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 				'capability_type'     => 'post',
 				'hierarchical'        => false,
 				'supports'            => array( 'title', 'editor', 'thumbnail' ),
+				// 'taxonomies'          => array( 'category', 'post_tag' ),
 				'has_archive'         => true,
 				'rewrite'             => array( 'slug' => 'portfolio', 'with_front' => false )
 			)
