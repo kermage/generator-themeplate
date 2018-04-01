@@ -9,7 +9,7 @@
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles() {
-		$suffix = ( WP_DEBUG || SCRIPT_DEBUG || THEME_DEBUG ) ? '' : '.min';
+		$suffix = ( SCRIPT_DEBUG || THEME_DEBUG ) ? '' : '.min';
 
 		// Deregister the jquery version bundled with WordPress
 		wp_deregister_script( 'jquery-core' );
