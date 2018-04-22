@@ -7,6 +7,15 @@ gulp.task('concat', function() {
 	return gulp.src(['src/js/<%= opts.projectSlug %>.js','src/js/_*.js'])
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.sourcemaps.init())
+		.pipe(plugins.babel({
+			presets: [
+				['env', {
+					targets: {
+						browsers: '> 1%'
+					}
+				}]
+			]
+		}))
 		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
 		.pipe(plugins.sourcemaps.write('/'))
 		.pipe(plugins.plumber.stop())
