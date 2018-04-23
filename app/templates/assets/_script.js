@@ -5,6 +5,5 @@
  */
 
 (function( $ ) {
-	'use strict';
 
 }( jQuery ));
