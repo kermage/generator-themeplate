@@ -3,6 +3,16 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	plugins = require('gulp-load-plugins')({camelize: true});
 
+var banner = [
+'/*!',
+' *  <%= opts.themeName %> 0.1.0',
+' *  Copyright (C) <%= new Date().getFullYear() %> <%= opts.authorName %>',
+' *  Licensed under <%= opts.license %>.',
+' */',
+'',
+''
+].join('\n');
+
 gulp.task('concat', function() {
 	return gulp.src(['src/js/<%= opts.projectSlug %>.js','src/js/_*.js'])
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
@@ -17,6 +27,7 @@ gulp.task('concat', function() {
 			]
 		}))
 		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
+		.pipe(plugins.header(banner ))
 		.pipe(plugins.sourcemaps.write('/'))
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/js'))
@@ -69,6 +80,7 @@ gulp.task('sass', function() {
 			browsers: '> 1%',
 			remove: false
 		}))
+		.pipe(plugins.header(banner ))
 		.pipe(plugins.sourcemaps.write('/'))
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/css'))
