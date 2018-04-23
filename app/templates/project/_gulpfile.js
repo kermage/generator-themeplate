@@ -141,20 +141,6 @@ gulp.task('bump', function(done) {
 			version: gutil.env.version
 		}))
 		.pipe(gulp.dest('.'));
-	gulp.src('src/sass/<%= opts.projectSlug %>.scss')
-		.pipe(plugins.bump({
-			type: gutil.env.type,
-			version: gutil.env.version,
-			key: '<%= opts.themeName %>'
-		}))
-		.pipe(gulp.dest('src/sass'));
-	gulp.src('src/js/<%= opts.projectSlug %>.js')
-		.pipe(plugins.bump({
-			type: gutil.env.type,
-			version: gutil.env.version,
-			key: '<%= opts.themeName %>'
-		}))
-		.pipe(gulp.dest('src/js'));
 	done();
 });
 
