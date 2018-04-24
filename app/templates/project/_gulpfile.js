@@ -15,7 +15,7 @@ var banner = [
 ].join('\n');
 
 gulp.task('concat', function() {
-	return gulp.src(['src/js/<%= opts.projectSlug %>.js','src/js/_*.js'])
+	return gulp.src(['src/js/*.js'])
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.babel({
@@ -109,7 +109,7 @@ gulp.task('debug:false', function() {
 });
 
 gulp.task('lint:scripts', function() {
-	return gulp.src(['src/js/<%= opts.projectSlug %>.js','src/js/_*.js'])
+	return gulp.src(['src/js/*.js'])
 		.pipe(plugins.jshint())
 		.pipe(plugins.jshint.reporter('jshint-stylish'))
 });
