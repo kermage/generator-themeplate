@@ -49,12 +49,6 @@ gulp.task('uglify', function() {
 		// .pipe(plugins.notify({message: 'Uglify task complete', onLast: true}));
 });
 
-gulp.task('scripts:lint', function() {
-	return gulp.src(['src/js/<%= opts.projectSlug %>.js','src/js/_*.js'])
-		.pipe(plugins.jshint())
-		.pipe(plugins.jshint.reporter('jshint-stylish'))
-});
-
 gulp.task('images', function() {
 	return gulp.src('src/images/*.{gif,jpg,png,svg}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
@@ -102,12 +96,6 @@ gulp.task('cssnano', function() {
 		// .pipe(plugins.notify({message: 'Cssnano task complete', onLast: true}));
 });
 
-gulp.task('styles:lint', function() {
-	return gulp.src('src/sass/**/*.s+(a|c)ss')
-		.pipe(plugins.sassLint())
-		.pipe(plugins.sassLint.format())
-});
-
 gulp.task('debug:true', function() {
 	return gulp.src('functions.php')
 		.pipe(plugins.replace(/define\( 'THEME_DEBUG',(\s+)\w+ \);/, 'define( \'THEME_DEBUG\',$1true );'))
@@ -118,6 +106,18 @@ gulp.task('debug:false', function() {
 	return gulp.src('functions.php')
 		.pipe(plugins.replace(/define\( 'THEME_DEBUG',(\s+)\w+ \);/, 'define( \'THEME_DEBUG\',$1false );'))
 		.pipe(gulp.dest('.'));
+});
+
+gulp.task('lint:scripts', function() {
+	return gulp.src(['src/js/<%= opts.projectSlug %>.js','src/js/_*.js'])
+		.pipe(plugins.jshint())
+		.pipe(plugins.jshint.reporter('jshint-stylish'))
+});
+
+gulp.task('lint:styles', function() {
+	return gulp.src('src/sass/**/*.s+(a|c)ss')
+		.pipe(plugins.sassLint())
+		.pipe(plugins.sassLint.format())
 });
 
 gulp.task('watch', function() {
@@ -157,5 +157,5 @@ gulp.task('pot', function() {
 gulp.task('build:scripts', gulp.series('concat', 'uglify'));
 gulp.task('build:styles', gulp.series('sass', 'cssnano'));
 gulp.task('build', gulp.parallel('images', 'build:scripts', 'build:styles'));
-gulp.task('lint', gulp.parallel('scripts:lint', 'styles:lint'));
+gulp.task('lint', gulp.parallel('lint:scripts', 'lint:styles'));
 gulp.task('default', gulp.series('build', 'serve'));
