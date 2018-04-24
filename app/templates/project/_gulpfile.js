@@ -6,8 +6,8 @@ var gulp = require('gulp'),
 var pkg = require('./package.json');
 var banner = [
 '/*!',
-' *  <%%= pkg.title %> 0.1.0',
-' *  Copyright (C) <%= new Date().getFullYear() %> <%%= pkg.author.name %>',
+' *  <%%= pkg.title %> <%%= pkg.version %>',
+' *  Copyright (C) <%%= new Date().getFullYear() %> <%%= pkg.author.name %>',
 ' *  Licensed under <%%= pkg.license %>.',
 ' */',
 '',
