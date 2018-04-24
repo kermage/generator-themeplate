@@ -136,13 +136,12 @@ gulp.task('serve', gulp.parallel('watch', function() {
 }));
 
 gulp.task('bump', function(done) {
-	gulp.src(['package.json', 'style.css'])
+	return gulp.src(['package.json', 'style.css'])
 		.pipe(plugins.bump({
 			type: gutil.env.type,
 			version: gutil.env.version
 		}))
 		.pipe(gulp.dest('.'));
-	done();
 });
 
 gulp.task('pot', function() {
