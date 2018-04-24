@@ -108,13 +108,13 @@ gulp.task('styles:lint', function() {
 		.pipe(plugins.sassLint.format())
 });
 
-gulp.task('debug-true', function() {
+gulp.task('debug:true', function() {
 	return gulp.src('functions.php')
 		.pipe(plugins.replace(/define\( 'THEME_DEBUG',(\s+)\w+ \);/, 'define( \'THEME_DEBUG\',$1true );'))
 		.pipe(gulp.dest('.'));
 });
 
-gulp.task('debug-false', function() {
+gulp.task('debug:false', function() {
 	return gulp.src('functions.php')
 		.pipe(plugins.replace(/define\( 'THEME_DEBUG',(\s+)\w+ \);/, 'define( \'THEME_DEBUG\',$1false );'))
 		.pipe(gulp.dest('.'));

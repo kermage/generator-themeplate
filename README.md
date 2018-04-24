@@ -74,7 +74,7 @@
 - Starts Browsersync
 
 #### Available Tasks:
-- `gulp debug-{false|true}` - Set assets to serve; minified or not
+- `gulp debug:{false|true}` - Set assets to serve; minified or not
 - `gulp bump` - Bump version in files; theme package and assets
 - `gulp lint` - Run scripts and styles against coding rules set
 - `gulp pot` - Generate a POT file for the theme localization
