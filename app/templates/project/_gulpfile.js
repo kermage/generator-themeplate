@@ -65,7 +65,7 @@ gulp.task('images', function() {
 });
 
 gulp.task('sass', function() {
-	return gulp.src('src/sass/**/*.s+(a|c)ss')
+	return gulp.src('src/sass/*.s+(a|c)ss')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.sass({
@@ -109,7 +109,7 @@ gulp.task('debug:false', function() {
 });
 
 gulp.task('lint:scripts', function() {
-	return gulp.src(['src/js/*.js'])
+	return gulp.src(['src/js/**/*.js'])
 		.pipe(plugins.jshint())
 		.pipe(plugins.jshint.reporter('jshint-stylish'))
 });
