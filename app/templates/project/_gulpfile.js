@@ -3,11 +3,12 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	plugins = require('gulp-load-plugins')({camelize: true});
 
+var pkg = require('./package.json');
 var banner = [
 '/*!',
-' *  <%= opts.themeName %> 0.1.0',
-' *  Copyright (C) <%= new Date().getFullYear() %> <%= opts.authorName %>',
-' *  Licensed under <%= opts.license %>.',
+' *  <%%= pkg.title %> 0.1.0',
+' *  Copyright (C) <%= new Date().getFullYear() %> <%%= pkg.author.name %>',
+' *  Licensed under <%%= pkg.license %>.',
 ' */',
 '',
 ''
@@ -27,7 +28,7 @@ gulp.task('concat', function() {
 			]
 		}))
 		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
-		.pipe(plugins.header(banner ))
+		.pipe(plugins.header(banner, { pkg : pkg } ))
 		.pipe(plugins.sourcemaps.write('/'))
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/js'))
@@ -80,7 +81,7 @@ gulp.task('sass', function() {
 			browsers: '> 1%',
 			remove: false
 		}))
-		.pipe(plugins.header(banner ))
+		.pipe(plugins.header(banner, { pkg : pkg } ))
 		.pipe(plugins.sourcemaps.write('/'))
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/css'))
