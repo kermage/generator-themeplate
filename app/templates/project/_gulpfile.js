@@ -154,6 +154,8 @@ gulp.task('pot', function() {
 		.pipe(gulp.dest('languages/<%= opts.projectSlug %>.pot'));
 });
 
-gulp.task('build', gulp.parallel('images', gulp.series('concat', 'uglify'), gulp.series('sass', 'cssnano')));
+gulp.task('build:scripts', gulp.series('concat', 'uglify'));
+gulp.task('build:styles', gulp.series('sass', 'cssnano'));
+gulp.task('build', gulp.parallel('images', 'build:scripts', 'build:styles'));
 gulp.task('lint', gulp.parallel('scripts:lint', 'styles:lint'));
 gulp.task('default', gulp.series('build', 'serve'));
