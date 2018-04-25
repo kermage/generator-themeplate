@@ -110,8 +110,8 @@ gulp.task('debug:false', function() {
 
 gulp.task('lint:scripts', function() {
 	return gulp.src(['src/js/**/*.js'])
-		.pipe(plugins.jshint())
-		.pipe(plugins.jshint.reporter('jshint-stylish'))
+		.pipe(plugins.eslint())
+		.pipe(plugins.eslint.format())
 });
 
 gulp.task('lint:styles', function() {
