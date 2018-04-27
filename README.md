@@ -6,6 +6,7 @@
 - Streamlined with Gulp
 	- Sass
 	- Autoprefixer
+	- Babel
 	- Concatination
 	- Sourcemaps
 	- Minification
@@ -15,7 +16,7 @@
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - Font Awesome [v5](https://fontawesome.com/) *(optional)*
 - CSS Framework options
-	- Twitter Bootstrap [v4.0.0](https://getbootstrap.com/)
+	- Twitter Bootstrap [v4](https://getbootstrap.com/)
 	- Blank Slate *(with [normalize.css](https://necolas.github.io/normalize.css/))*
 - Pre-included theme boilerplates and functions
 	- Base template files
