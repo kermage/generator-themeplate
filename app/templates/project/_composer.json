@@ -1,0 +1,14 @@
+{
+  "name": "<%= opts.projectSlug %>",
+  "description": "<%= opts.description %>",
+  "type": "wordpress-theme",
+  "license": "<%= opts.license %>",
+  "authors": [
+    {
+      "name": "<%= opts.authorName %>",
+      "email": "<%= opts.authorEmail %>"<% if ( opts.authorURI ) { %>,
+      "homepage": "<%= opts.authorURI %>"<% } %>
+    }
+  ],
+  "require": {}
+}
