@@ -10,5 +10,11 @@
       "homepage": "<%= opts.authorURI %>"<% } %>
     }
   ],
-  "require": {}
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+    "wp-coding-standards/wpcs": "^0.14.1",
+    "squizlabs/php_codesniffer": "^3.2"
+  }
 }
