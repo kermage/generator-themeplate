@@ -2,4 +2,7 @@
 <ruleset name="<%= opts.themeName %> Standards">
 	<!-- Set a description for this ruleset. -->
 	<description>The code standard rules for <%= opts.themeName %>.</description>
+
+	<!-- Include the WordPress ruleset. -->
+	<rule ref="WordPress"/>
 </ruleset>
