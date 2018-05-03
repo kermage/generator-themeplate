@@ -11,4 +11,7 @@
 
 	<!-- Include the WordPress ruleset. -->
 	<rule ref="WordPress-Extra"/>
+
+	<!-- Include PHP cross-version compatibility. -->
+	<rule ref="PHPCompatibility"/>
 </ruleset>
