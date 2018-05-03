@@ -3,6 +3,12 @@
 	<!-- Set a description for this ruleset. -->
 	<description>The code standard rules for <%= opts.themeName %>.</description>
 
+	<!-- Exclude the Node Modules directory. -->
+	 <exclude-pattern>/node_modules/</exclude-pattern>
+
+	<!-- Exclude the Composer Vendor directory. -->
+	 <exclude-pattern>/vendor/</exclude-pattern>
+
 	<!-- Include the WordPress ruleset. -->
 	<rule ref="WordPress"/>
 </ruleset>
