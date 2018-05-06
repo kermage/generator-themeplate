@@ -13,6 +13,6 @@
 	<rule ref="WordPress-Extra"/>
 
 	<!-- Include PHP cross-version compatibility. -->
-	<config name="testVersion" value="5.2-"/>
+	<config name="testVersion" value="5.4-"/>
 	<rule ref="PHPCompatibility"/>
 </ruleset>
