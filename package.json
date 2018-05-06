@@ -21,6 +21,6 @@
     "url": "https://github.com/kermage/generator-themeplate.git"
   },
   "dependencies": {
-    "yeoman-generator": "^2.0.3"
+    "yeoman-generator": "^2.0.5"
   }
 }
