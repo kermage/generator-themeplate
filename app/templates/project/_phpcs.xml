@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="<%= opts.themeName %> Standards">
+<ruleset name="<%= opts.themeName %>">
 	<!-- Set a description for this ruleset. -->
 	<description>The code standard rules for <%= opts.themeName %>.</description>
 
