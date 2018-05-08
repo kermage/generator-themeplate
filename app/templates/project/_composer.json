@@ -1,5 +1,5 @@
 {
-  "name": "<%= opts.projectSlug %>",
+  "name": "<%= opts.projectSlug %>/<%= opts.projectSlug %>",
   "description": "<%= opts.description %>",
   "type": "wordpress-theme",
   "license": "<%= opts.license %>",
