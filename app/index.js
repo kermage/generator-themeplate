@@ -29,7 +29,10 @@ module.exports = class extends Generator {
 			},
 			{
 				name: 'authorURI',
-				message: 'Author URI:'
+				message: 'Author URI:',
+				default: function( answer ) {
+					return 'mailto:' + answer.authorEmail;
+				}
 			},
 			{
 				name: 'description',
