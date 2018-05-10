@@ -11,8 +11,8 @@
   "private": "true",
   "author": {
     "name": "<%= opts.authorName %>",
-    "email": "<%= opts.authorEmail %>"<% if ( opts.authorURI ) { %>,
-    "url": "<%= opts.authorURI %>"<% } %>
+    "email": "<%= opts.authorEmail %>",
+    "url": "<%= opts.authorURI %>"
   },
   "main": "style.css",
   "devDependencies": {

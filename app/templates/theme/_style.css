@@ -2,7 +2,7 @@
  * Theme Name:  <%= opts.themeName %>
  * Theme URI:   <%= opts.themeURI %>
  * Author:      <%= opts.authorName %>
- * Author URI:  <%= ( opts.authorURI ) ? opts.authorURI : opts.authorEmail %>
+ * Author URI:  <%= opts.authorURI %>
  * Description: <%= opts.description %>
  * Version:     0.1.0
  * License:     <%= opts.license %>
