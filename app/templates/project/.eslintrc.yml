@@ -4,6 +4,7 @@ env:
 extends: 'eslint:recommended'
 globals:
   jQuery: true
+  <%= opts.functionPrefix %>_options: true
 rules:
   indent:
     - error
