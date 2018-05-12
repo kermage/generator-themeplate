@@ -76,7 +76,7 @@ module.exports = class extends Generator {
 			{
 				name: 'license',
 				message: 'License:',
-				default: 'GPL-2.0'
+				default: 'GPL-2.0-only'
 			},
 			{
 				name: 'licenseURI',
