@@ -203,6 +203,8 @@ module.exports = class extends Generator {
 	install() {
 		this.installDependencies( {
 			bower: false
+		} ).then( function() {
+			console.log( '\nEverything is ready. ThemePlate!' );
 		} );
 	}
 };
