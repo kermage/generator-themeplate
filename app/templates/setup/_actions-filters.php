@@ -58,3 +58,38 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_keep_revisions' ) ) {
 	}
 	add_filter( 'wp_revisions_to_keep', '<%= opts.functionPrefix %>_keep_revisions', 10, 2 );
 }
+
+// Replace WP login screen logo.
+if ( ! function_exists( '<%= opts.functionPrefix %>_login_logo' ) ) {
+	function <%= opts.functionPrefix %>_login_logo() {
+		?>
+		<style type="text/css">
+			body.login h1 a {
+				background-image: url( <?php echo THEME_URL; ?>screenshot.png );
+				background-position: center;
+				background-size: 440px 330px;
+				width: 320px;
+				height: 120px;
+				box-shadow: 0 1px 3px rgba( 0, 0, 0, .13 );
+			}
+		</style>
+		<?php
+	}
+	add_action( 'login_enqueue_scripts', '<%= opts.functionPrefix %>_login_logo' );
+};
+
+// Link WP login logo to homepage.
+if ( ! function_exists( '<%= opts.functionPrefix %>_login_headerurl' ) ) {
+	function <%= opts.functionPrefix %>_login_headerurl() {
+		return home_url();
+	}
+	add_filter( 'login_headerurl', '<%= opts.functionPrefix %>_login_headerurl' );
+}
+
+// Use the site title instead of 'WordPress'.
+if ( ! function_exists( '<%= opts.functionPrefix %>_login_headertitle' ) ) {
+	function <%= opts.functionPrefix %>_login_headertitle() {
+		return get_option( 'blogname' );
+	}
+	add_filter( 'login_headertitle', '<%= opts.functionPrefix %>_login_headertitle' );
+}
