@@ -13,6 +13,6 @@ if ( ! is_active_sidebar( 'sidebar' ) ) {
 
 ?>
 
-<aside class="sidebar" role="complementary">
+<aside class="sidebar">
 	<?php dynamic_sidebar( 'sidebar' ); ?>
 </aside><!-- .sidebar -->
