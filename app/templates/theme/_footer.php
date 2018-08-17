@@ -13,7 +13,7 @@
 
 		<?php get_sidebar( 'footer' ); ?>
 
-		<footer class="site-footer" role="contentinfo">
+		<footer class="site-footer">
 			<div class="container">
 				<nav class="sitelinks">
 					<?php <%= opts.functionPrefix %>_footer_menu(); ?>
