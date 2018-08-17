@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<div class="content-sidebar container">
-		<main class="content" role="main">
+		<main class="content">
 
 			<?php if ( is_home() && ! is_front_page() ) : ?>
 				<h1 class="page-title"><?php single_post_title(); ?></h1>

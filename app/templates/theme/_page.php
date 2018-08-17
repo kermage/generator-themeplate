@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<main class="content container" role="main">
+	<main class="content container">
 
 		<?php if ( ! is_front_page() ) : ?>
 			<h1 class="page-title"><?php single_post_title(); ?></h1>
