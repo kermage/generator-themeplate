@@ -50,7 +50,7 @@
 
 			<div class="navbar">
 				<div class="container">
-					<nav class="sitenav" role="navigation">
+					<nav class="sitenav">
 						<?php <%= opts.functionPrefix %>_primary_menu(); ?>
 					</nav>
 				</div>
