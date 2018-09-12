@@ -39,7 +39,7 @@
     "gulp-uglify": "^3.0.1",
     "gulp-wp-pot": "^2.3.2",
     <% if ( opts.bootstrap ) { %>
-    "bootstrap": "^4.1.1"
+    "bootstrap": "^4.1.3"
     <% } else { %>
     "normalize.css": "^8.0.0"
     <% } %>
