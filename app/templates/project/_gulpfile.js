@@ -20,7 +20,7 @@ gulp.task('concat', function() {
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.babel({
 			presets: [
-				['env', {
+				['@babel/env', {
 					targets: {
 						browsers: '> 1%'
 					}
