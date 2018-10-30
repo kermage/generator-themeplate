@@ -34,10 +34,13 @@
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.1",
-    "gulp-sass-lint": "^1.4.0",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-stylelint": "^8.0.0",
     "gulp-uglify": "^3.0.1",
     "gulp-wp-pot": "^2.3.2",
+    "stylelint": "^9.6.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.3.2",
     <% if ( opts.bootstrap ) { %>
     "bootstrap": "^4.1.3"
     <% } else { %>

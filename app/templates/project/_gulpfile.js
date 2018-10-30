@@ -116,8 +116,12 @@ gulp.task('lint:scripts', function() {
 
 gulp.task('lint:styles', function() {
 	return gulp.src('src/sass/**/*.s+(a|c)ss')
-		.pipe(plugins.sassLint())
-		.pipe(plugins.sassLint.format())
+		.pipe(plugins.stylelint({
+			reporters: [{
+				formatter: 'verbose',
+				console: true,
+			}],
+		}))
 });
 
 gulp.task('watch', function() {
