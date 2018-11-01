@@ -12,7 +12,8 @@ get_header(); ?>
 	<div class="content-sidebar container">
 		<main class="content">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : ?>
+				<?php the_post(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
