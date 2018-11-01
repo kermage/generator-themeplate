@@ -12,7 +12,7 @@ if ( ! class_exists( 'Bootstrap_NavBar' ) && class_exists( 'ThemePlate_NavWalker
 		public $class = array(
 			'sub-menu' => 'dropdown-menu',
 			'has-sub'  => 'dropdown',
-			'active'   => 'active'
+			'active'   => 'active',
 		);
 
 		public function attributes( $item, $args ) {

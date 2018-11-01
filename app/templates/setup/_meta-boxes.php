@@ -17,32 +17,32 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 				'text' => array(
 					'name'     => __( 'Text', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Enter a text.', '<%= opts.projectSlug %>' ),
-					'type'     => 'text'
+					'type'     => 'text',
 				),
 				'date' => array(
 					'name'     => __( 'Date', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Set a date.', '<%= opts.projectSlug %>' ),
-					'type'     => 'date'
+					'type'     => 'date',
 				),
 				'time' => array(
 					'name'     => __( 'Time', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Set a time.', '<%= opts.projectSlug %>' ),
-					'type'     => 'time'
+					'type'     => 'time',
 				),
 				'email' => array(
 					'name'     => __( 'Email', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Enter an email.', '<%= opts.projectSlug %>' ),
-					'type'     => 'email'
+					'type'     => 'email',
 				),
 				'url' => array(
 					'name'     => __( 'URL', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Enter a url.', '<%= opts.projectSlug %>' ),
-					'type'     => 'url'
+					'type'     => 'url',
 				),
 				'textarea' => array(
 					'name'     => __( 'Textarea', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Enter in a textarea.', '<%= opts.projectSlug %>' ),
-					'type'     => 'textarea'
+					'type'     => 'textarea',
 				),
 				'selects' => array(
 					'name'     => __( 'Selects', '<%= opts.projectSlug %>' ),
@@ -59,16 +59,16 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'name'     => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select a value.', '<%= opts.projectSlug %>' ),
 									'options'  => array( 'One', 'Two', 'Three' ),
-									'type'     => 'select'
+									'type'     => 'select',
 								),
 								'multiple' => array(
 									'name'     => __( 'Multiple', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select values.', '<%= opts.projectSlug %>' ),
 									'options'  => array( 'One', 'Two', 'Three', 'Four', 'Five', 'Six' ),
 									'type'     => 'select',
-									'multiple' => true
-								)
-							)
+									'multiple' => true,
+								),
+							),
 						),
 						'advanced' => array(
 							'name'     => __( 'Advanced', '<%= opts.projectSlug %>' ),
@@ -80,18 +80,18 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'name'     => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select a value.', '<%= opts.projectSlug %>' ),
 									'options'  => array( 'One', 'Two', 'Three' ),
-									'type'     => 'select2'
+									'type'     => 'select2',
 								),
 								'multiple' => array(
 									'name'     => __( 'Multiple', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select values.', '<%= opts.projectSlug %>' ),
 									'options'  => array( 'One', 'Two', 'Three', 'Four', 'Five', 'Six' ),
 									'type'     => 'select2',
-									'multiple' => true
-								)
-							)
-						)
-					)
+									'multiple' => true,
+								),
+							),
+						),
+					),
 				),
 				'choices' => array(
 					'name'     => __( 'Choices', '<%= opts.projectSlug %>' ),
@@ -108,15 +108,15 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'name'     => __( 'Inline', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select from radio.', '<%= opts.projectSlug %>' ),
 									'options'  => array( 'First', 'Second', 'Third' ),
-									'type'     => 'radio'
+									'type'     => 'radio',
 								),
 								'list' => array(
 									'name'     => __( 'List', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select from radio.', '<%= opts.projectSlug %>' ),
 									'options'  => array( 'Fourth', 'Fifth', 'Sixth' ),
-									'type'     => 'radiolist'
-								)
-							)
+									'type'     => 'radiolist',
+								),
+							),
 						),
 						'checkboxes' => array(
 							'name'     => __( 'Checkboxes', '<%= opts.projectSlug %>' ),
@@ -127,22 +127,22 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'name'     => __( 'Inline', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Check a box.', '<%= opts.projectSlug %>' ),
 									'options'  => array( 'Uno', 'Dos', 'Tres' ),
-									'type'     => 'checkbox'
+									'type'     => 'checkbox',
 								),
 								'list' => array(
 									'name'     => __( 'List', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Check a box.', '<%= opts.projectSlug %>' ),
 									'options'  => array( 'Uno', 'Dos', 'Tres' ),
-									'type'     => 'checklist'
-								)
-							)
-						)
-					)
+									'type'     => 'checklist',
+								),
+							),
+						),
+					),
 				),
 				'color' => array(
 					'name'     => __( 'Color', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Select a color.', '<%= opts.projectSlug %>' ),
-					'type'     => 'color'
+					'type'     => 'color',
 				),
 				'files' => array(
 					'name'     => __( 'Files', '<%= opts.projectSlug %>' ),
@@ -152,30 +152,30 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 						'single' => array(
 							'name'     => __( 'Single', '<%= opts.projectSlug %>' ),
 							'desc'     => __( 'Select a file.', '<%= opts.projectSlug %>' ),
-							'type'     => 'file'
+							'type'     => 'file',
 						),
 						'multiple' => array(
 							'name'     => __( 'Multiple', '<%= opts.projectSlug %>' ),
 							'desc'     => __( 'Select files.', '<%= opts.projectSlug %>' ),
 							'type'     => 'file',
-							'multiple' => true
-						)
-					)
+							'multiple' => true,
+						),
+					),
 				),
 				'number' => array(
 					'name'     => __( 'Number', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Set a number.', '<%= opts.projectSlug %>' ),
-					'type'     => 'number'
+					'type'     => 'number',
 				),
 				'range' => array(
 					'name'     => __( 'Range', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Set a range.', '<%= opts.projectSlug %>' ),
-					'type'     => 'range'
+					'type'     => 'range',
 				),
 				'editor' => array(
 					'name'     => __( 'Editor', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'Enter in an editor.', '<%= opts.projectSlug %>' ),
-					'type'     => 'editor'
+					'type'     => 'editor',
 				),
 				'objects' => array(
 					'name'     => __( 'Objects', '<%= opts.projectSlug %>' ),
@@ -192,16 +192,16 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'name'     => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select a post.', '<%= opts.projectSlug %>' ),
 									'type'     => 'post',
-									'options'  => 'post'
+									'options'  => 'post',
 								),
 								'multiple' => array(
 									'name'     => __( 'Multiple', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select posts.', '<%= opts.projectSlug %>' ),
 									'type'     => 'post',
 									'options'  => 'post',
-									'multiple' => true
-								)
-							)
+									'multiple' => true,
+								),
+							),
 						),
 						'page' => array(
 							'name'     => __( 'Pages', '<%= opts.projectSlug %>' ),
@@ -213,16 +213,16 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'name'     => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select a page.', '<%= opts.projectSlug %>' ),
 									'type'     => 'page',
-									'options'  => 'page'
+									'options'  => 'page',
 								),
 								'multiple' => array(
 									'name'     => __( 'Multiple', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select pages.', '<%= opts.projectSlug %>' ),
 									'type'     => 'page',
 									'options'  => 'page',
-									'multiple' => true
-								)
-							)
+									'multiple' => true,
+								),
+							),
 						),
 						'user' => array(
 							'name'     => __( 'Users', '<%= opts.projectSlug %>' ),
@@ -234,16 +234,16 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'name'     => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select a user.', '<%= opts.projectSlug %>' ),
 									'type'     => 'user',
-									'options'  => 'administrator'
+									'options'  => 'administrator',
 								),
 								'multiple' => array(
 									'name'     => __( 'Multiple', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select users.', '<%= opts.projectSlug %>' ),
 									'type'     => 'user',
 									'options'  => 'administrator',
-									'multiple' => true
-								)
-							)
+									'multiple' => true,
+								),
+							),
 						),
 						'term' => array(
 							'name'     => __( 'Terms', '<%= opts.projectSlug %>' ),
@@ -255,18 +255,18 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'name'     => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select a term.', '<%= opts.projectSlug %>' ),
 									'type'     => 'term',
-									'options'  => 'category'
+									'options'  => 'category',
 								),
 								'multiple' => array(
 									'name'     => __( 'Multiple', '<%= opts.projectSlug %>' ),
 									'desc'     => __( 'Select terms.', '<%= opts.projectSlug %>' ),
 									'type'     => 'term',
 									'options'  => 'category',
-									'multiple' => true
-								)
-							)
-						)
-					)
+									'multiple' => true,
+								),
+							),
+						),
+					),
 				),
 				'html' => array(
 					'type'     => 'html',
@@ -274,9 +274,9 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 						<div style="background-color: #d32f2f; padding: 1rem; border-radius: 0.25rem;">
 							<p style="color: #fff; text-align: center;">Display custom content using an <code>html</code> field.</p>
 						</div>
-					'
-				)
-			)
+					',
+				),
+			),
 		) );
 	}
 	add_action( 'init', '<%= opts.functionPrefix %>_meta_boxes' );

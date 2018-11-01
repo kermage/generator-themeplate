@@ -18,7 +18,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'slug'             => 'themeplate',
 				'required'         => true,
 				'source'           => 'https://github.com/kermage/ThemePlate/archive/master.zip',
-				'force_activation' => true
+				'force_activation' => true,
 			),
 			array(
 				'name'             => 'Enable Media Replace',
@@ -35,7 +35,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 			array(
 				'name'             => 'Yoast SEO',
 				'slug'             => 'wordpress-seo',
-			)
+			),
 		);
 
 		$config = array(
@@ -43,7 +43,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 			'menu'         => '<%= opts.functionPrefix %>-plugins',
 			'parent_slug'  => '<%= opts.functionPrefix %>-options',
 			'dismissable'  => false,
-			'is_automatic' => true
+			'is_automatic' => true,
 		);
 
 		tgmpa( $plugins, $config );

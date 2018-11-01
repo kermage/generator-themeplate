@@ -29,8 +29,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 				'supports'            => array( 'title', 'editor', 'thumbnail' ),
 				// 'taxonomies'          => array( 'category', 'post_tag' ),
 				'has_archive'         => true,
-				'rewrite'             => array( 'slug' => 'portfolio', 'with_front' => false )
-			)
+				'rewrite'             => array( 'slug' => 'portfolio', 'with_front' => false ),
+			),
 		) );
 
 		ThemePlate()->taxonomy( array(
@@ -48,8 +48,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 				// 'show_in_quick_edit' => true,
 				'show_admin_column'  => true,
 				'hierarchical'       => true,
-				'rewrite'            => array( 'slug' => 'portfolio-cat' )
-			)
+				'rewrite'            => array( 'slug' => 'portfolio-cat' ),
+			),
 		) );
 
 		ThemePlate()->taxonomy( array(
@@ -67,8 +67,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_post_types' ) ) {
 				// 'show_in_quick_edit' => true,
 				'show_admin_column'  => true,
 				'hierarchical'       => false,
-				'rewrite'            => array( 'slug' => 'portfolio-tag' )
-			)
+				'rewrite'            => array( 'slug' => 'portfolio-tag' ),
+			),
 		) );
 	}
 	add_action( 'init', '<%= opts.functionPrefix %>_post_types' );

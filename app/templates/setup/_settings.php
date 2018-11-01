@@ -18,14 +18,14 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 				'analytics' => array(
 					'name'     => __( 'Analytics', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'UA-XXXXX-Y', '<%= opts.projectSlug %>' ),
-					'type'     => 'text'
+					'type'     => 'text',
 				),
 				'tagmanager' => array(
 					'name'     => __( 'Tag Manager', '<%= opts.projectSlug %>' ),
 					'desc'     => __( 'GTM-XXXX', '<%= opts.projectSlug %>' ),
-					'type'     => 'text'
-				)
-			)
+					'type'     => 'text',
+				),
+			),
 		) );
 
 		ThemePlate()->settings( array(
@@ -46,16 +46,16 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 								'facebook' => 'Facebook',
 								'twitter' => 'Twitter',
 								'instagram' => 'Instagram',
-								'linkedin' => 'LinkedIn'
-							)
+								'linkedin' => 'LinkedIn',
+							),
 						),
 						'link' => array(
 							'name'     => __( 'Link', '<%= opts.projectSlug %>' ),
-							'type'     => 'url'
-						)
-					)
-				)
-			)
+							'type'     => 'url',
+						),
+					),
+				),
+			),
 		) );
 	}
 	add_action( 'init', '<%= opts.functionPrefix %>_settings' );

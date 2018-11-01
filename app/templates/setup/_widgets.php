@@ -16,7 +16,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 			'before_widget' => '<section class="widget %2$s">',
-			'after_widget'  => '</section>'
+			'after_widget'  => '</section>',
 		) );
 		register_sidebars( 3, array(
 			'id'            => 'footer',
@@ -25,7 +25,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 			'before_title'  => '<h4 class="widget-title">',
 			'after_title'   => '</h4>',
 			'before_widget' => '<section class="widget %2$s">',
-			'after_widget'  => '</section>'
+			'after_widget'  => '</section>',
 		) );
 
 		$widgets = glob( THEME_PATH . 'widgets/*_widget.php' );
