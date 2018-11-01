@@ -21,7 +21,7 @@
 	<body <?php body_class(); ?>>
 		<?php wp_body(); ?>
 
-		<a class="screen-reader-text" href="#site-content"><?php _e( 'Skip to content', '<%= opts.projectSlug %>' ); ?></a>
+		<a class="screen-reader-text" href="#site-content"><?php esc_html_e( 'Skip to content', '<%= opts.projectSlug %>' ); ?></a>
 
 		<header class="site-header">
 			<div class="branding">

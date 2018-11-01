@@ -65,7 +65,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_login_logo' ) ) {
 		?>
 		<style type="text/css">
 			body.login h1 a {
-				background-image: url( <?php echo THEME_URL; ?>screenshot.png );
+				background-image: url( <?php echo esc_html( THEME_URL ); ?>screenshot.png );
 				background-position: center;
 				background-size: 440px 330px;
 				width: 320px;
