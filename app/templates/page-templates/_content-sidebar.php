@@ -7,7 +7,9 @@
  * @since 0.1.0
  */
 
-get_header(); ?>
+get_header();
+
+?>
 
 	<div class="content-sidebar container">
 		<main class="content">
@@ -27,4 +29,6 @@ get_header(); ?>
 
 	</div><!-- .content-sidebar.container -->
 
-<?php get_footer();
+<?php
+
+get_footer();

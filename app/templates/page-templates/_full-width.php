@@ -7,7 +7,9 @@
  * @since 0.1.0
  */
 
-get_header(); ?>
+get_header();
+
+?>
 
 	<main class="content">
 
@@ -22,4 +24,6 @@ get_header(); ?>
 
 	</main><!-- .content -->
 
-<?php get_footer();
+<?php
+
+get_footer();
