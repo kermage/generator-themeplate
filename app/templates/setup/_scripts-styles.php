@@ -34,7 +34,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		wp_enqueue_script( '<%= opts.functionPrefix %>-script', THEME_URL . 'assets/js/<%= opts.projectSlug %>' . $suffix . '.js', array(), THEME_VERSION, true );
 
 		$<%= opts.functionPrefix %>_options = array(
-			'ajaxurl' => admin_url( 'admin-ajax.php' )
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		);
 		wp_localize_script( '<%= opts.functionPrefix %>-script', '<%= opts.functionPrefix %>_options', apply_filters( '<%= opts.functionPrefix %>_localize_script', $<%= opts.functionPrefix %>_options ) );
 	}
@@ -61,7 +61,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_defer_scripts' ) ) {
 	function <%= opts.functionPrefix %>_defer_scripts( $tag, $handle ) {
 		// Add script handles
 		$scripts = array(<% if ( opts.fontawesome ) { %>
-			'<%= opts.functionPrefix %>-fontawesome'
+			'<%= opts.functionPrefix %>-fontawesome',
 		<% } %>);
 
 		if ( in_array( $handle, $scripts ) ) {
