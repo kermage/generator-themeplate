@@ -8,7 +8,7 @@
  */
 <% if ( opts.bootstrap ) { %>
 // Bootstrap Nav Walker
-require_once THEME_INC . 'class-bootstrap-navbar-walker.php';
+require_once THEME_INC . 'class-bootstrap-navbar.php';
 <% } %>
 if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 	function <%= opts.functionPrefix %>_navigations() {
