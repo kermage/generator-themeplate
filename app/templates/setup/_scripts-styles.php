@@ -47,7 +47,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_async_scripts' ) ) {
 		// Add script handles
 		$scripts = array();
 
-		if ( in_array( $handle, $scripts ) ) {
+		if ( in_array( $handle, $scripts, true ) ) {
 			return str_replace( ' src', ' async="async" src', $tag );
 		}
 
@@ -64,7 +64,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_defer_scripts' ) ) {
 			'<%= opts.functionPrefix %>-fontawesome',
 		<% } %>);
 
-		if ( in_array( $handle, $scripts ) ) {
+		if ( in_array( $handle, $scripts, true ) ) {
 			return str_replace( ' src', ' defer="defer" src', $tag );
 		}
 
