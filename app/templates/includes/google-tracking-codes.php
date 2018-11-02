@@ -23,7 +23,7 @@ function themeplate_google_analytics( $id ) {
 	</script>
 	<!-- End Google Analytics -->
 
-	<?php echo ob_get_clean();
+	<?php echo ob_get_clean(); // WPCS: XSS ok.
 }
 
 // Google Analytics Async
@@ -39,7 +39,7 @@ function themeplate_google_analytics_async( $id ) {
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	<!-- End Google Analytics -->
 
-	<?php echo ob_get_clean();
+	<?php echo ob_get_clean(); // WPCS: XSS ok.
 }
 
 // Google Analytics Global Site Tag
@@ -56,7 +56,7 @@ function themeplate_google_analytics_gtag( $id ) {
 	  gtag('config', '<?php echo esc_html( $id ); ?>');
 	</script>
 
-	<?php echo ob_get_clean();
+	<?php echo ob_get_clean(); // WPCS: XSS ok.
 }
 
 // Google Tag Manager <head>
@@ -71,7 +71,7 @@ function themeplate_google_tag_head( $id ) {
 	})(window,document,'script','dataLayer','<?php echo esc_html( $id ); ?>');</script>
 	<!-- End Google Tag Manager -->
 
-	<?php echo ob_get_clean();
+	<?php echo ob_get_clean(); // WPCS: XSS ok.
 }
 
 // Google Tag Manager <body>
@@ -83,5 +83,5 @@ function themeplate_google_tag_body( $id ) {
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 
-	<?php echo ob_get_clean();
+	<?php echo ob_get_clean(); // WPCS: XSS ok.
 }
