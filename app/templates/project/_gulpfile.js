@@ -16,7 +16,7 @@ var banner = [
 
 gulp.task('concat', function() {
 	return gulp.src(['src/js/*.js'])
-		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.babel({
 			presets: [
@@ -38,7 +38,7 @@ gulp.task('concat', function() {
 
 gulp.task('uglify', function() {
 	return gulp.src(['assets/js/*.js','!assets/js/*.min.js'])
-		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.uglify({
 			output: {comments: 'uglify-save-license'}
 		}))
@@ -51,7 +51,7 @@ gulp.task('uglify', function() {
 
 gulp.task('images', function() {
 	return gulp.src('src/images/*.{gif,jpg,png,svg}')
-		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.imagemin([
 			plugins.imagemin.svgo({plugins: [{removeViewBox: true}]}),
 			plugins.imagemin.optipng({optimizationLevel: 7}),
@@ -66,7 +66,7 @@ gulp.task('images', function() {
 
 gulp.task('sass', function() {
 	return gulp.src('src/sass/*.s+(a|c)ss')
-		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.sass({
 			outputStyle: 'expanded'
@@ -85,7 +85,7 @@ gulp.task('sass', function() {
 
 gulp.task('cssnano', function() {
 	return gulp.src(['assets/css/*.css','!assets/css/*.min.css'])
-		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.cssnano({
 			discardComments: {removeAllButFirst: true}
 		}))
@@ -150,7 +150,7 @@ gulp.task('bump', function(done) {
 
 gulp.task('pot', function() {
 	return gulp.src('**/*.php')
-		.pipe(plugins.plumber({errorHandler: plugins.notify.onError("Error: <%%= error.message %>")}))
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.wpPot({
 			domain: '<%= opts.projectSlug %>',
 			package: '<%= opts.themeName %>'
