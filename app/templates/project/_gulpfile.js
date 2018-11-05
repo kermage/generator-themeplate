@@ -33,7 +33,6 @@ gulp.task('concat', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/js'))
 		.pipe(browserSync.stream())
-		// .pipe(plugins.notify({message: 'Concat task complete', onLast: true}));
 });
 
 gulp.task('uglify', function() {
@@ -46,7 +45,6 @@ gulp.task('uglify', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/js'))
 		.pipe(browserSync.stream())
-		// .pipe(plugins.notify({message: 'Uglify task complete', onLast: true}));
 });
 
 gulp.task('images', function() {
@@ -61,7 +59,6 @@ gulp.task('images', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/images'))
 		.pipe(browserSync.stream())
-		// .pipe(plugins.notify({message: 'Imagemin task complete', onLast: true}));
 });
 
 gulp.task('sass', function() {
@@ -80,7 +77,6 @@ gulp.task('sass', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/css'))
 		.pipe(browserSync.stream())
-		// .pipe(plugins.notify({message: 'Sass task complete', onLast: true}));
 });
 
 gulp.task('cssnano', function() {
@@ -93,7 +89,6 @@ gulp.task('cssnano', function() {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/css'))
 		.pipe(browserSync.stream())
-		// .pipe(plugins.notify({message: 'Cssnano task complete', onLast: true}));
 });
 
 gulp.task('debug:true', function() {
