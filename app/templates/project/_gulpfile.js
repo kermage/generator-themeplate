@@ -139,7 +139,7 @@ gulp.task('serve', gulp.parallel('watch', function() {
 	});
 }));
 
-gulp.task('bump', function(done) {
+gulp.task('bump', function() {
 	return gulp.src(['package.json', 'style.css'])
 		.pipe(plugins.bump({
 			type: gutil.env.type,
