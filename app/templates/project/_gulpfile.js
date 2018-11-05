@@ -5,13 +5,13 @@ var gulp = require('gulp'),
 
 var pkg = require('./package.json');
 var banner = [
-'/*!',
-' *  <%%= pkg.title %> <%%= pkg.version %>',
-' *  Copyright (C) <%%= new Date().getFullYear() %> <%%= pkg.author.name %>',
-' *  Licensed under <%%= pkg.license %>.',
-' */',
-'',
-''
+	'/*!',
+	' *  <%%= pkg.title %> <%%= pkg.version %>',
+	' *  Copyright (C) <%%= new Date().getFullYear() %> <%%= pkg.author.name %>',
+	' *  Licensed under <%%= pkg.license %>.',
+	' */',
+	'',
+	''
 ].join('\n');
 
 gulp.task('concat', function() {
