@@ -1,4 +1,7 @@
+/* eslint-env node */
+
 'use strict';
+
 var Generator = require( 'yeoman-generator' );
 var fs = require( 'fs' );
 var path = require( 'path' );
