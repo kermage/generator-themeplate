@@ -103,7 +103,7 @@ module.exports = class extends Generator {
 
 		fs.lstat( this.destinationPath( this.opts.projectSlug ), function( err, stats ) {
 			if ( !err && stats.isDirectory() ) {
-				console.log( '\nTheme already exists. Exiting!' );
+				this.log( '\nTheme already exists. Exiting!' );
 				process.exit();
 			}
 		});
