@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	browserSync = require('browser-sync'),
