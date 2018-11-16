@@ -21,20 +21,20 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'force_activation' => true,
 			),
 			array(
-				'name'             => 'Enable Media Replace',
-				'slug'             => 'enable-media-replace',
+				'name' => 'Enable Media Replace',
+				'slug' => 'enable-media-replace',
 			),
 			array(
-				'name'             => 'Regenerate Thumbnails',
-				'slug'             => 'regenerate-thumbnails',
+				'name' => 'Regenerate Thumbnails',
+				'slug' => 'regenerate-thumbnails',
 			),
 			array(
-				'name'             => 'W3 Total Cache',
-				'slug'             => 'w3-total-cache',
+				'name' => 'W3 Total Cache',
+				'slug' => 'w3-total-cache',
 			),
 			array(
-				'name'             => 'Yoast SEO',
-				'slug'             => 'wordpress-seo',
+				'name' => 'Yoast SEO',
+				'slug' => 'wordpress-seo',
 			),
 		);
 
