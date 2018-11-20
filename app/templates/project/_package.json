@@ -8,7 +8,7 @@
   ],
   "homepage": "<%= opts.themeURI %>",
   "license": "<%= opts.license %>",
-  "private": "true",
+  "private": true,
   "author": {
     "name": "<%= opts.authorName %>",
     "email": "<%= opts.authorEmail %>",
