@@ -14,27 +14,27 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 			'title'       => __( 'ThemePlate Fields', '<%= opts.projectSlug %>' ),
 			'description' => __( 'All available types.', '<%= opts.projectSlug %>' ),
 			'fields'      => array(
-				'text' => array(
+				'text'     => array(
 					'name' => __( 'Text', '<%= opts.projectSlug %>' ),
 					'desc' => __( 'Enter a text.', '<%= opts.projectSlug %>' ),
 					'type' => 'text',
 				),
-				'date' => array(
+				'date'     => array(
 					'name' => __( 'Date', '<%= opts.projectSlug %>' ),
 					'desc' => __( 'Set a date.', '<%= opts.projectSlug %>' ),
 					'type' => 'date',
 				),
-				'time' => array(
+				'time'     => array(
 					'name' => __( 'Time', '<%= opts.projectSlug %>' ),
 					'desc' => __( 'Set a time.', '<%= opts.projectSlug %>' ),
 					'type' => 'time',
 				),
-				'email' => array(
+				'email'    => array(
 					'name' => __( 'Email', '<%= opts.projectSlug %>' ),
 					'desc' => __( 'Enter an email.', '<%= opts.projectSlug %>' ),
 					'type' => 'email',
 				),
-				'url' => array(
+				'url'      => array(
 					'name' => __( 'URL', '<%= opts.projectSlug %>' ),
 					'desc' => __( 'Enter a url.', '<%= opts.projectSlug %>' ),
 					'type' => 'url',
@@ -44,18 +44,18 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 					'desc' => __( 'Enter in a textarea.', '<%= opts.projectSlug %>' ),
 					'type' => 'textarea',
 				),
-				'selects' => array(
+				'selects'  => array(
 					'name'   => __( 'Selects', '<%= opts.projectSlug %>' ),
 					'desc'   => __( 'Basic and Advanced select.', '<%= opts.projectSlug %>' ),
 					'type'   => 'group',
 					'fields' => array(
-						'basic' => array(
+						'basic'    => array(
 							'name'   => __( 'Basic', '<%= opts.projectSlug %>' ),
 							'desc'   => __( 'Single and Multiple select.', '<%= opts.projectSlug %>' ),
 							'type'   => 'group',
 							'style'  => 'boxed',
 							'fields' => array(
-								'single' => array(
+								'single'   => array(
 									'name'    => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'    => __( 'Select a value.', '<%= opts.projectSlug %>' ),
 									'options' => array( 'One', 'Two', 'Three' ),
@@ -76,7 +76,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 							'type'   => 'group',
 							'style'  => 'boxed',
 							'fields' => array(
-								'single' => array(
+								'single'   => array(
 									'name'    => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'    => __( 'Select a value.', '<%= opts.projectSlug %>' ),
 									'options' => array( 'One', 'Two', 'Three' ),
@@ -93,13 +93,13 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 						),
 					),
 				),
-				'choices' => array(
+				'choices'  => array(
 					'name'   => __( 'Choices', '<%= opts.projectSlug %>' ),
 					'desc'   => __( 'Single and Multiple choices.', '<%= opts.projectSlug %>' ),
 					'type'   => 'group',
 					'style'  => 'boxed',
 					'fields' => array(
-						'radios' => array(
+						'radios'     => array(
 							'name'   => __( 'Radios', '<%= opts.projectSlug %>' ),
 							'desc'   => __( 'Inline and List radio.', '<%= opts.projectSlug %>' ),
 							'type'   => 'group',
@@ -110,7 +110,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'options' => array( 'First', 'Second', 'Third' ),
 									'type'    => 'radio',
 								),
-								'list' => array(
+								'list'   => array(
 									'name'    => __( 'List', '<%= opts.projectSlug %>' ),
 									'desc'    => __( 'Select from radio.', '<%= opts.projectSlug %>' ),
 									'options' => array( 'Fourth', 'Fifth', 'Sixth' ),
@@ -129,7 +129,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 									'options' => array( 'Uno', 'Dos', 'Tres' ),
 									'type'    => 'checkbox',
 								),
-								'list' => array(
+								'list'   => array(
 									'name'    => __( 'List', '<%= opts.projectSlug %>' ),
 									'desc'    => __( 'Check a box.', '<%= opts.projectSlug %>' ),
 									'options' => array( 'Uno', 'Dos', 'Tres' ),
@@ -139,17 +139,17 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 						),
 					),
 				),
-				'color' => array(
+				'color'    => array(
 					'name' => __( 'Color', '<%= opts.projectSlug %>' ),
 					'desc' => __( 'Select a color.', '<%= opts.projectSlug %>' ),
 					'type' => 'color',
 				),
-				'files' => array(
+				'files'    => array(
 					'name'   => __( 'Files', '<%= opts.projectSlug %>' ),
 					'desc'   => __( 'Single and Multiple file.', '<%= opts.projectSlug %>' ),
 					'type'   => 'group',
 					'fields' => array(
-						'single' => array(
+						'single'   => array(
 							'name' => __( 'Single', '<%= opts.projectSlug %>' ),
 							'desc' => __( 'Select a file.', '<%= opts.projectSlug %>' ),
 							'type' => 'file',
@@ -162,22 +162,22 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 						),
 					),
 				),
-				'number' => array(
+				'number'   => array(
 					'name' => __( 'Number', '<%= opts.projectSlug %>' ),
 					'desc' => __( 'Set a number.', '<%= opts.projectSlug %>' ),
 					'type' => 'number',
 				),
-				'range' => array(
+				'range'    => array(
 					'name' => __( 'Range', '<%= opts.projectSlug %>' ),
 					'desc' => __( 'Set a range.', '<%= opts.projectSlug %>' ),
 					'type' => 'range',
 				),
-				'editor' => array(
+				'editor'   => array(
 					'name' => __( 'Editor', '<%= opts.projectSlug %>' ),
 					'desc' => __( 'Enter in an editor.', '<%= opts.projectSlug %>' ),
 					'type' => 'editor',
 				),
-				'objects' => array(
+				'objects'  => array(
 					'name'   => __( 'Objects', '<%= opts.projectSlug %>' ),
 					'type'   => 'group',
 					'style'  => 'boxed',
@@ -188,7 +188,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 							'type'   => 'group',
 							'style'  => 'boxed',
 							'fields' => array(
-								'single' => array(
+								'single'   => array(
 									'name'    => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'    => __( 'Select a post.', '<%= opts.projectSlug %>' ),
 									'type'    => 'post',
@@ -209,7 +209,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 							'type'   => 'group',
 							'style'  => 'boxed',
 							'fields' => array(
-								'single' => array(
+								'single'   => array(
 									'name'    => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'    => __( 'Select a page.', '<%= opts.projectSlug %>' ),
 									'type'    => 'page',
@@ -230,7 +230,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 							'type'   => 'group',
 							'style'  => 'boxed',
 							'fields' => array(
-								'single' => array(
+								'single'   => array(
 									'name'    => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'    => __( 'Select a user.', '<%= opts.projectSlug %>' ),
 									'type'    => 'user',
@@ -251,7 +251,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 							'type'   => 'group',
 							'style'  => 'boxed',
 							'fields' => array(
-								'single' => array(
+								'single'   => array(
 									'name'    => __( 'Single', '<%= opts.projectSlug %>' ),
 									'desc'    => __( 'Select a term.', '<%= opts.projectSlug %>' ),
 									'type'    => 'term',
@@ -268,7 +268,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_meta_boxes' ) ) {
 						),
 					),
 				),
-				'html' => array(
+				'html'     => array(
 					'type' => 'html',
 					'std'  => '
 						<div style="background-color: #d32f2f; padding: 1rem; border-radius: 0.25rem;">
