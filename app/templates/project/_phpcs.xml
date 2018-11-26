@@ -12,6 +12,13 @@
 	<!-- Include the WordPress ruleset. -->
 	<rule ref="WordPress-Extra"/>
 
+	<!-- Exclude for common WordPress core constructor patterns -->
+	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
+		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
+		<exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments" />
+	</rule>
+
 	<!-- Include PHP cross-version compatibility. -->
 	<config name="testVersion" value="5.4-"/>
 	<rule ref="PHPCompatibility"/>
