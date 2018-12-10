@@ -16,14 +16,14 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 			'context'     => 'normal',
 			'fields'      => array(
 				'analytics'  => array(
-					'name' => __( 'Analytics', '<%= opts.projectSlug %>' ),
-					'desc' => __( 'UA-XXXXX-Y', '<%= opts.projectSlug %>' ),
-					'type' => 'text',
+					'title'       => __( 'Analytics', '<%= opts.projectSlug %>' ),
+					'description' => __( 'UA-XXXXX-Y', '<%= opts.projectSlug %>' ),
+					'type'        => 'text',
 				),
 				'tagmanager' => array(
-					'name' => __( 'Tag Manager', '<%= opts.projectSlug %>' ),
-					'desc' => __( 'GTM-XXXX', '<%= opts.projectSlug %>' ),
-					'type' => 'text',
+					'title'       => __( 'Tag Manager', '<%= opts.projectSlug %>' ),
+					'description' => __( 'GTM-XXXX', '<%= opts.projectSlug %>' ),
+					'type'        => 'text',
 				),
 			),
 		) );
@@ -35,12 +35,12 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 			'context'     => 'normal',
 			'fields'      => array(
 				'profiles' => array(
-					'name'       => __( 'Service', '<%= opts.projectSlug %>' ),
+					'title'      => __( 'Service', '<%= opts.projectSlug %>' ),
 					'type'       => 'group',
 					'repeatable' => true,
 					'fields'     => array(
 						'provider' => array(
-							'name'    => __( 'Provider', '<%= opts.projectSlug %>' ),
+							'title'   => __( 'Provider', '<%= opts.projectSlug %>' ),
 							'type'    => 'select',
 							'options' => array(
 								'facebook'  => 'Facebook',
@@ -50,8 +50,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_settings' ) ) {
 							),
 						),
 						'link'     => array(
-							'name' => __( 'Link', '<%= opts.projectSlug %>' ),
-							'type' => 'url',
+							'title' => __( 'Link', '<%= opts.projectSlug %>' ),
+							'type'  => 'url',
 						),
 					),
 				),
