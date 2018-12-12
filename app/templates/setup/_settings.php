@@ -11,7 +11,7 @@ ThemePlate()->settings( array(
 	'id'          => 'google',
 	'title'       => __( 'Google Codes', '<%= opts.projectSlug %>' ),
 	'description' => __( 'Enter the tracking IDs to use in site.', '<%= opts.projectSlug %>' ),
-	'context'     => 'normal',
+	'context'     => 'side',
 	'fields'      => array(
 		'analytics'  => array(
 			'title'       => __( 'Analytics', '<%= opts.projectSlug %>' ),
@@ -41,10 +41,13 @@ ThemePlate()->settings( array(
 					'title'   => __( 'Provider', '<%= opts.projectSlug %>' ),
 					'type'    => 'select',
 					'options' => array(
-						'facebook'  => 'Facebook',
-						'twitter'   => 'Twitter',
-						'instagram' => 'Instagram',
-						'linkedin'  => 'LinkedIn',
+						'facebook'    => 'Facebook',
+						'twitter'     => 'Twitter',
+						'instagram'   => 'Instagram',
+						'linkedin'    => 'LinkedIn',
+						'youtube'     => 'Youtube',
+						'pinterest'   => 'Pinterest',
+						'google-plus' => 'Google+',
 					),
 				),
 				'link'     => array(
