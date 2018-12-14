@@ -6,12 +6,12 @@
  * @package <%= opts.themeName %>
  * @since 0.1.0
  */
-<% if ( opts.bootstrap ) { %>
-// Bootstrap Nav Walker
-require_once THEME_INC . 'class-bootstrap-navbar.php';
-<% } %>
+
 if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
-	function <%= opts.functionPrefix %>_navigations() {
+	function <%= opts.functionPrefix %>_navigations() {<% if ( opts.bootstrap ) { %>
+		// Bootstrap Nav Walker
+		require_once THEME_INC . 'class-bootstrap-navbar.php';
+		<% } %>
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', '<%= opts.projectSlug %>' ),
 			'footer'  => __( 'Footer Menu', '<%= opts.projectSlug %>' ),
