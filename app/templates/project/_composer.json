@@ -20,9 +20,7 @@
     "wimg/php-compatibility": "^9.0"
   },
   "scripts": {
-    "phpcs": "phpcs -p -s -v",
-    "phpcbf": "phpcbf -p -v",
-    "lint": ["phpcs"],
-    "fix": ["phpcbf"]
+    "lint": "phpcs --colors -p -s -v",
+    "fix": "phpcbf -p -v"
   }
 }
