@@ -207,6 +207,8 @@ module.exports = class extends Generator {
 		this.installDependencies( {
 			bower: false
 		} );
+
+		this.spawnCommand( 'composer', ['install'] );
 	}
 
 	end() {
