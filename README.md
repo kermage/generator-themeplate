@@ -1,4 +1,4 @@
-# generator-themeplate v1.0.0 --
+# generator-themeplate -- ![NPM Version](https://img.shields.io/npm/v/generator-themeplate.svg) ![NPM Downloads](https://img.shields.io/npm/dt/generator-themeplate.svg)
 > *"Quickly scafold a complete WordPress theme project in seconds!"*
 
 ## Features
