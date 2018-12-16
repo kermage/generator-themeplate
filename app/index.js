@@ -18,7 +18,7 @@ module.exports = class extends Generator {
 			{
 				name: 'themeURI',
 				message: 'Theme URI:',
-				default: 'http://wordpress.org/themes'
+				default: 'https://wordpress.org/themes/'
 			},
 			{
 				name: 'authorName',
@@ -84,7 +84,7 @@ module.exports = class extends Generator {
 			{
 				name: 'licenseURI',
 				message: 'License URI:',
-				default: 'http://www.gnu.org/licenses/gpl-2.0.html'
+				default: 'https://www.gnu.org/licenses/gpl-2.0.html'
 			},
 			{
 				name: 'localServer',

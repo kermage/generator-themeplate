@@ -34,8 +34,8 @@
 
 ## Requirements
 - [Node.js](https://nodejs.org/): Install from the NodeJS website.
-- [Gulp](http://gulpjs.com/): Run `npm install -g gulp-cli`
-- [Yeoman](http://yeoman.io/): Run `npm install -g yo`
+- [Gulp](https://gulpjs.com/): Run `npm install -g gulp-cli`
+- [Yeoman](https://yeoman.io/): Run `npm install -g yo`
 
 ## Installation
 
