@@ -21,6 +21,11 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'force_activation' => true,
 			),
 			array(
+				'name'   => 'Augment Types',
+				'slug'   => 'augment-types',
+				'source' => 'https://github.com/kermage/augment-types/releases/download/v1.0.0/augment-types.zip',
+			),
+			array(
 				'name' => 'Enable Media Replace',
 				'slug' => 'enable-media-replace',
 			),
