@@ -17,9 +17,9 @@
   "main": "style.css",
   "devDependencies": {
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
     "browser-sync": "^2.26.3",
-    "genetiks": "^1.0.0",
+    "genetiks": "^1.1.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-babel": "^8.0.0",
@@ -42,7 +42,7 @@
     "minimist": "^1.2.0",
     "stylelint": "^9.9.0",
     "stylelint-config-standard": "^18.2.0",
-    "stylelint-scss": "^3.4.1",
+    "stylelint-scss": "^3.4.4",
     <% if ( opts.bootstrap ) { %>
     "bootstrap": "^4.2.1"
     <% } else { %>
