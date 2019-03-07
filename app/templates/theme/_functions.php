@@ -11,16 +11,16 @@
 Global constants
 ================================================== */
 // phpcs:disable Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma
-define( 'THEME_NAME',    wp_get_theme()->get( 'Name' ) );
-define( 'THEME_VERSION', wp_get_theme()->get( 'Version' ) );
-define( 'THEME_URI',     wp_get_theme()->get( 'ThemeURI' ) );
-define( 'THEME_AUTHOR',  wp_get_theme()->get( 'Author' ) );
-define( 'AUTHOR_URI',    wp_get_theme()->get( 'AuthorURI' ) );
-define( 'PARENT_THEME',  wp_get_theme()->get( 'Template' ) );
-define( 'THEME_URL',     get_stylesheet_directory_uri() . '/' );
-define( 'THEME_PATH',    get_stylesheet_directory() . '/' );
-define( 'THEME_INC',     THEME_PATH . 'includes/' );
-define( 'THEME_DEBUG',   true );
+define( '<%= opts.functionPrefix.toUpperCase() %>_NAME',         wp_get_theme()->get( 'Name' ) );
+define( '<%= opts.functionPrefix.toUpperCase() %>_VERSION',      wp_get_theme()->get( 'Version' ) );
+define( '<%= opts.functionPrefix.toUpperCase() %>_URI',          wp_get_theme()->get( 'ThemeURI' ) );
+define( '<%= opts.functionPrefix.toUpperCase() %>_AUTHOR',       wp_get_theme()->get( 'Author' ) );
+define( '<%= opts.functionPrefix.toUpperCase() %>_AUTHOR_URI',   wp_get_theme()->get( 'AuthorURI' ) );
+define( '<%= opts.functionPrefix.toUpperCase() %>_PARENT_THEME', wp_get_theme()->get( 'Template' ) );
+define( '<%= opts.functionPrefix.toUpperCase() %>_URL',          get_stylesheet_directory_uri() . '/' );
+define( '<%= opts.functionPrefix.toUpperCase() %>_PATH',         get_stylesheet_directory() . '/' );
+define( '<%= opts.functionPrefix.toUpperCase() %>_INCLUDES',     <%= opts.functionPrefix.toUpperCase() %>_PATH . 'includes/' );
+define( '<%= opts.functionPrefix.toUpperCase() %>_DEBUG',        true );
 // phpcs:enable
 
 /* ==================================================

@@ -10,7 +10,7 @@
 if ( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 	function <%= opts.functionPrefix %>_setup() {
 		// Make theme available for Translation
-		load_theme_textdomain( '<%= opts.projectSlug %>', THEME_PATH . 'languages' );
+		load_theme_textdomain( '<%= opts.projectSlug %>', <%= opts.functionPrefix.toUpperCase() %>_PATH . 'languages' );
 		// Add theme support for Post Formats
 		add_theme_support( 'post-formats', array( 'link', 'image', 'quote', 'video', 'audio' ) );
 		// Add theme support for Featured Images
@@ -32,12 +32,12 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
 	function <%= opts.functionPrefix %>_credit() {
 		return sprintf(
 			'<a href="%1$s" target="_blank">%2$s %3$s</a> %4$s <span class="dashicons dashicons-heart"></span> by <a href="%5$s" target="_blank">%6$s</a>.',
-			THEME_URI,
-			THEME_NAME,
-			THEME_VERSION,
+			<%= opts.functionPrefix.toUpperCase() %>_URI,
+			<%= opts.functionPrefix.toUpperCase() %>_NAME,
+			<%= opts.functionPrefix.toUpperCase() %>_VERSION,
 			__( 'designed and developed with', '<%= opts.projectSlug %>' ),
-			AUTHOR_URI,
-			THEME_AUTHOR
+			<%= opts.functionPrefix.toUpperCase() %>_AUTHOR_URI,
+			<%= opts.functionPrefix.toUpperCase() %>_AUTHOR
 		);
 	}
 	// Add to the admin footer

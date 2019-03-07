@@ -8,7 +8,7 @@
  */
 
 // TGM Plugin Activation
-require_once THEME_INC . 'class-tgm-plugin-activation.php';
+require_once <%= opts.functionPrefix.toUpperCase() %>_INCLUDES . 'class-tgm-plugin-activation.php';
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 	function <%= opts.functionPrefix %>_plugins() {

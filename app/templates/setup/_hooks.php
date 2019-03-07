@@ -11,7 +11,7 @@ function wp_body() {
 	do_action( 'wp_body' );
 }
 
-require_once THEME_INC . 'google-tracking-codes.php';
+require_once <%= opts.functionPrefix.toUpperCase() %>_INCLUDES . 'google-tracking-codes.php';
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 	function <%= opts.functionPrefix %>_add_ga() {
