@@ -7,8 +7,10 @@
  * @since 0.1.0
  */
 
-function wp_body() {
-	do_action( 'wp_body' );
+if ( ! function_exists( 'wp_body' ) ) {
+	function wp_body() {
+		do_action( 'wp_body' );
+	}
 }
 
 require_once <%= opts.constantPrefix %>_INCLUDES . 'google-tracking-codes.php';
