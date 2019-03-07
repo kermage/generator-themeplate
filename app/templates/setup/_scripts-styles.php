@@ -9,7 +9,7 @@
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles() {
-		$suffix = ( SCRIPT_DEBUG || <%= opts.functionPrefix.toUpperCase() %>_DEBUG ) ? '' : '.min';
+		$suffix = ( SCRIPT_DEBUG || <%= opts.constantPrefix %>_DEBUG ) ? '' : '.min';
 
 		// Deregister the jquery version bundled with WordPress
 		wp_deregister_script( 'jquery-core' );
@@ -22,7 +22,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		// jQuery
 		wp_enqueue_script( 'jquery-core' );
 		// Google Fonts
-		wp_enqueue_style( '<%= opts.functionPrefix %>-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800', array(), <%= opts.functionPrefix.toUpperCase() %>_VERSION );<% if ( opts.fontawesome ) { %>
+		wp_enqueue_style( '<%= opts.functionPrefix %>-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800', array(), <%= opts.constantPrefix %>_VERSION );<% if ( opts.fontawesome ) { %>
 		// Font Awesome
 		wp_enqueue_script( '<%= opts.functionPrefix %>-fontawesome', 'https://use.fontawesome.com/releases/v5.6.3/js/all.js', array(), '5.6.3', false );
 		wp_add_inline_script( '<%= opts.functionPrefix %>-fontawesome', 'FontAwesomeConfig = { searchPseudoElements: true };' );<% } %><% if ( opts.bootstrap ) { %>
@@ -30,8 +30,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		wp_enqueue_script( '<%= opts.functionPrefix %>-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap' . $suffix . '.js', array(), '4.2.1', true );<% } %>
 
 		// Site scripts and styles
-		wp_enqueue_style( '<%= opts.functionPrefix %>-style', <%= opts.functionPrefix.toUpperCase() %>_URL . 'assets/css/<%= opts.projectSlug %>' . $suffix . '.css', array(), <%= opts.functionPrefix.toUpperCase() %>_VERSION );
-		wp_enqueue_script( '<%= opts.functionPrefix %>-script', <%= opts.functionPrefix.toUpperCase() %>_URL . 'assets/js/<%= opts.projectSlug %>' . $suffix . '.js', array(), <%= opts.functionPrefix.toUpperCase() %>_VERSION, true );
+		wp_enqueue_style( '<%= opts.functionPrefix %>-style', <%= opts.constantPrefix %>_URL . 'assets/css/<%= opts.projectSlug %>' . $suffix . '.css', array(), <%= opts.constantPrefix %>_VERSION );
+		wp_enqueue_script( '<%= opts.functionPrefix %>-script', <%= opts.constantPrefix %>_URL . 'assets/js/<%= opts.projectSlug %>' . $suffix . '.js', array(), <%= opts.constantPrefix %>_VERSION, true );
 
 		$<%= opts.functionPrefix %>_options = array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
