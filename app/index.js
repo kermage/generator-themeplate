@@ -65,6 +65,16 @@ module.exports = class extends Generator {
 				}
 			},
 			{
+				name: 'constantPrefix',
+				message: 'Constant Prefix:',
+				default: function( answer ) {
+					return answer.themeName.toUpperCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
+				},
+				filter: function( answer ) {
+					return answer.toUpperCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
+				}
+			},
+			{
 				type: 'confirm',
 				name: 'fontawesome',
 				message: 'Use Font Awesome?',
