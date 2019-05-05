@@ -7,6 +7,8 @@
  * @since 0.1.0
  */
 
+/* generator-themeplate v<%= opts.generatorVersion %> */
+
 /* ==================================================
 Global constants
 ================================================== */
