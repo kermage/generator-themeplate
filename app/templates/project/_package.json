@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "description": "<%= opts.description %>",
   "keywords": [
-    "wordpress"
+    "generator-themeplate",
+    "wordpress",
+    "theme"
   ],
   "homepage": "<%= opts.themeURI %>",
   "license": "<%= opts.license %>",
