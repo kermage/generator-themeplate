@@ -93,3 +93,26 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_login_headertitle' ) ) {
 	}
 	add_filter( 'login_headertitle', '<%= opts.functionPrefix %>_login_headertitle' );
 }
+
+// Add posts page tag
+if ( ! function_exists( '<%= opts.functionPrefix %>_permastruct_tags' ) ) {
+	function <%= opts.functionPrefix %>_permastruct_tags( $tags ) {
+		$tags['page_for_posts'] = 'Posts Page';
+
+		return $tags;
+	}
+	add_filter( 'available_permalink_structure_tags', '<%= opts.functionPrefix %>_permastruct_tags' );
+}
+
+// Use the posts page slug
+if ( ! function_exists( '<%= opts.functionPrefix %>_post_link' ) ) {
+	function <%= opts.functionPrefix %>_post_link( $permalink ) {
+		if ( false !== strpos( $permalink, '%page_for_posts%' ) ) {
+			$slug      = get_post_field( 'post_name', get_option( 'page_for_posts' ) );
+			$permalink = str_replace( '%page_for_posts%', $slug, $permalink );
+		}
+
+		return $permalink;
+	}
+	add_filter( 'post_link', '<%= opts.functionPrefix %>_post_link' );
+}
