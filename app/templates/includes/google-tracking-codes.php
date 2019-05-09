@@ -8,6 +8,7 @@
  */
 
 // Google Analytics
+if ( ! function_exists( 'themeplate_google_analytics' ) ) :
 function themeplate_google_analytics( $id ) {
 	ob_start();
 	?>
@@ -27,8 +28,10 @@ function themeplate_google_analytics( $id ) {
 	<?php
 	echo ob_get_clean(); // WPCS: XSS ok.
 }
+endif;
 
 // Google Analytics Async
+if ( ! function_exists( 'themeplate_google_analytics_async' ) ) :
 function themeplate_google_analytics_async( $id ) {
 	ob_start();
 	?>
@@ -45,8 +48,10 @@ function themeplate_google_analytics_async( $id ) {
 	<?php
 	echo ob_get_clean(); // WPCS: XSS ok.
 }
+endif;
 
 // Google Analytics Global Site Tag
+if ( ! function_exists( 'themeplate_google_analytics_gtag' ) ) :
 function themeplate_google_analytics_gtag( $id ) {
 	ob_start();
 	?>
@@ -64,8 +69,10 @@ function themeplate_google_analytics_gtag( $id ) {
 	<?php
 	echo ob_get_clean(); // WPCS: XSS ok.
 }
+endif;
 
 // Google Tag Manager <head>
+if ( ! function_exists( 'themeplate_google_tag_head' ) ) :
 function themeplate_google_tag_head( $id ) {
 	ob_start();
 	?>
@@ -81,8 +88,10 @@ function themeplate_google_tag_head( $id ) {
 	<?php
 	echo ob_get_clean(); // WPCS: XSS ok.
 }
+endif;
 
 // Google Tag Manager <body>
+if ( ! function_exists( 'themeplate_google_tag_body' ) ) :
 function themeplate_google_tag_body( $id ) {
 	ob_start();
 	?>
@@ -95,3 +104,4 @@ function themeplate_google_tag_body( $id ) {
 	<?php
 	echo ob_get_clean(); // WPCS: XSS ok.
 }
+endif;
