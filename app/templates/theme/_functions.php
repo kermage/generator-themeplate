@@ -13,14 +13,14 @@
 Global constants
 ================================================== */
 // phpcs:disable Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma
-define( '<%= opts.constantPrefix %>_NAME',         wp_get_theme()->get( 'Name' ) );
-define( '<%= opts.constantPrefix %>_VERSION',      wp_get_theme()->get( 'Version' ) );
-define( '<%= opts.constantPrefix %>_URI',          wp_get_theme()->get( 'ThemeURI' ) );
-define( '<%= opts.constantPrefix %>_AUTHOR',       wp_get_theme()->get( 'Author' ) );
-define( '<%= opts.constantPrefix %>_AUTHOR_URI',   wp_get_theme()->get( 'AuthorURI' ) );
-define( '<%= opts.constantPrefix %>_PARENT_THEME', wp_get_theme()->get( 'Template' ) );
-define( '<%= opts.constantPrefix %>_URL',          get_stylesheet_directory_uri() . '/' );
-define( '<%= opts.constantPrefix %>_PATH',         get_stylesheet_directory() . '/' );
+define( '<%= opts.constantPrefix %>_NAME',         wp_get_theme( basename( __DIR__ ) )->get( 'Name' ) );
+define( '<%= opts.constantPrefix %>_VERSION',      wp_get_theme( basename( __DIR__ ) )->get( 'Version' ) );
+define( '<%= opts.constantPrefix %>_URI',          wp_get_theme( basename( __DIR__ ) )->get( 'ThemeURI' ) );
+define( '<%= opts.constantPrefix %>_AUTHOR',       wp_get_theme( basename( __DIR__ ) )->get( 'Author' ) );
+define( '<%= opts.constantPrefix %>_AUTHOR_URI',   wp_get_theme( basename( __DIR__ ) )->get( 'AuthorURI' ) );
+define( '<%= opts.constantPrefix %>_PARENT_THEME', wp_get_theme( basename( __DIR__ ) )->get( 'Template' ) );
+define( '<%= opts.constantPrefix %>_URL',          get_theme_root_uri( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
+define( '<%= opts.constantPrefix %>_PATH',         get_theme_root( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
 define( '<%= opts.constantPrefix %>_INCLUDES',     <%= opts.constantPrefix %>_PATH . 'includes/' );
 define( '<%= opts.constantPrefix %>_DEBUG',        true );
 // phpcs:enable
