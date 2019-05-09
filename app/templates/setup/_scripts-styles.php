@@ -27,7 +27,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		wp_enqueue_script( '<%= opts.functionPrefix %>-fontawesome', 'https://use.fontawesome.com/releases/v5.6.3/js/all.js', array(), '5.6.3', false );
 		wp_add_inline_script( '<%= opts.functionPrefix %>-fontawesome', 'FontAwesomeConfig = { searchPseudoElements: true };' );<% } %><% if ( opts.bootstrap ) { %>
 		// Bootstrap
-		wp_enqueue_script( '<%= opts.functionPrefix %>-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap' . $suffix . '.js', array(), '4.2.1', true );<% } %>
+		wp_enqueue_script( '<%= opts.functionPrefix %>-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap' . $suffix . '.js', array(), '4.3.1', true );<% } %>
 
 		// Site scripts and styles
 		wp_enqueue_style( '<%= opts.functionPrefix %>-style', <%= opts.constantPrefix %>_URL . 'assets/css/<%= opts.projectSlug %>' . $suffix . '.css', array(), <%= opts.constantPrefix %>_VERSION );
