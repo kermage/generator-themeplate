@@ -19,7 +19,7 @@
 	</head>
 
 	<body <?php body_class(); ?>>
-		<?php wp_body(); ?>
+		<?php wp_body_open(); ?>
 
 		<a class="screen-reader-text" href="#site-content"><?php esc_html_e( 'Skip to content', '<%= opts.projectSlug %>' ); ?></a>
 

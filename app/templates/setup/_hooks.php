@@ -7,12 +7,6 @@
  * @since 0.1.0
  */
 
-if ( ! function_exists( 'wp_body' ) ) {
-	function wp_body() {
-		do_action( 'wp_body' );
-	}
-}
-
 require_once <%= opts.constantPrefix %>_INCLUDES . 'google-tracking-codes.php';
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
@@ -44,5 +38,5 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_body' ) ) {
 			themeplate_google_tag_body( $tid );
 		}
 	}
-	add_action( 'wp_body', '<%= opts.functionPrefix %>_add_gtm_body', 5 );
+	add_action( 'wp_body_open', '<%= opts.functionPrefix %>_add_gtm_body', 5 );
 }
