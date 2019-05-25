@@ -116,3 +116,12 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_post_link' ) ) {
 	}
 	add_filter( 'post_link', '<%= opts.functionPrefix %>_post_link' );
 }
+
+// Remove WP icon from the admin bar.
+if ( ! function_exists( '<%= opts.functionPrefix %>_remove_wp_icon' ) ) {
+	function <%= opts.functionPrefix %>_remove_wp_icon() {
+		global $wp_admin_bar;
+		$wp_admin_bar->remove_menu( 'wp-logo' );
+	}
+	add_action( 'wp_before_admin_bar_render', '<%= opts.functionPrefix %>_remove_wp_icon' );
+}
