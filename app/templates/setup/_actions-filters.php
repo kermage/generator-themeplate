@@ -125,3 +125,19 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_remove_wp_icon' ) ) {
 	}
 	add_action( 'wp_before_admin_bar_render', '<%= opts.functionPrefix %>_remove_wp_icon' );
 }
+
+// Makes WordPress-generated emails appear 'from' the site name.
+if ( ! function_exists( '<%= opts.functionPrefix %>_mail_from_name' ) ) {
+	function <%= opts.functionPrefix %>_mail_from_name() {
+		return get_option( 'blogname' );
+	}
+	add_filter( 'wp_mail_from_name', '<%= opts.functionPrefix %>_mail_from_name' );
+}
+
+// Makes WordPress-generated emails appear 'from' the site admin email address.
+if ( ! function_exists( '<%= opts.functionPrefix %>_wp_mail_from' ) ) {
+	function <%= opts.functionPrefix %>_wp_mail_from() {
+		return get_option( 'admin_email' );
+	}
+	add_filter( 'wp_mail_from', '<%= opts.functionPrefix %>_wp_mail_from' );
+}
