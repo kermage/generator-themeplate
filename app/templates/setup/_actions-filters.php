@@ -59,6 +59,19 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_keep_revisions' ) ) {
 	add_filter( 'wp_revisions_to_keep', '<%= opts.functionPrefix %>_keep_revisions', 10, 2 );
 }
 
+// Re-add underline and justify buttons in the editor
+if ( ! function_exists( '<%= opts.functionPrefix %>_editor_buttons' ) ) {
+	function <%= opts.functionPrefix %>_editor_buttons( $buttons ) {
+		$temp    = array_slice( $buttons, 0, 3, true ) + array( 4 => 'underline' ) + array_slice( $buttons, 3, count( $buttons ) - 1, true );
+		$buttons = $temp;
+		$temp    = array_slice( $buttons, 0, 9, true ) + array( 10 => 'alignjustify' ) + array_slice( $buttons, 9, count( $buttons ) - 1, true );
+		$buttons = $temp;
+
+		return $buttons;
+	}
+	add_filter( 'mce_buttons', '<%= opts.functionPrefix %>_editor_buttons' );
+}
+
 // Replace WP login screen logo.
 if ( ! function_exists( '<%= opts.functionPrefix %>_login_logo' ) ) {
 	function <%= opts.functionPrefix %>_login_logo() {
