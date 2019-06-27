@@ -21,13 +21,7 @@ gulp.task('concat', function() {
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.babel({
-			presets: [
-				['@babel/env', {
-					targets: {
-						browsers: '> 1%'
-					}
-				}]
-			]
+			presets: ['@babel/env']
 		}))
 		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
 		.pipe(plugins.header(banner, { pkg : pkg } ))
@@ -71,7 +65,6 @@ gulp.task('sass', function() {
 			outputStyle: 'expanded'
 		}))
 		.pipe(plugins.autoprefixer({
-			browsers: '> 1%',
 			remove: false
 		}))
 		.pipe(plugins.header(banner, { pkg : pkg } ))
