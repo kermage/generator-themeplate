@@ -21,6 +21,7 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "browser-sync": "^2.26.7",
+    "eslint": "^6.0.1",
     "genetiks": "^1.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
