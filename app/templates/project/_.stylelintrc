@@ -3,7 +3,9 @@
 		"stylelint-config-standard"
 	],
 
-	"plugins": "stylelint-scss",
+	"plugins": [
+		"stylelint-scss"
+	],
 <% if ( opts.bootstrap ) { %>
 	"ignoreFiles": [
 		"src/sass/_bootstrap-*.scss"
