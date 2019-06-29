@@ -21,5 +21,5 @@
 
 	<!-- Include PHP cross-version compatibility. -->
 	<config name="testVersion" value="5.4-"/>
-	<rule ref="PHPCompatibility"/>
+	<rule ref="PHPCompatibilityWP"/>
 </ruleset>
