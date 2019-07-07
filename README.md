@@ -3,6 +3,7 @@
 
 ## Features
 - Fully-fleshed out package
+- Follows WordPress standards
 - Streamlined with Gulp
 	- Sass
 	- Autoprefixer
@@ -57,6 +58,7 @@
 ? Description:
 ? Function Prefix:
 ? Class Prefix:
+? Constant Prefix:
 ? Use Font Awesome? (Y/n)
 ? Use Bootstrap? (y/N)
 ? License:
