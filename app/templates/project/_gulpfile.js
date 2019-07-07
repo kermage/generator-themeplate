@@ -21,7 +21,7 @@ gulp.task('concat', function() {
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(plugins.babel({
-			presets: ['@babel/env']
+			presets: ['@babel/preset-env']
 		}))
 		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
 		.pipe(plugins.header(banner, { pkg : pkg } ))
