@@ -108,19 +108,32 @@ module.exports = class extends Generator {
 
 	configuring() {
 		var done = this.async();
+		var self = this;
 
 		this.opts.projectSlug = this.opts.themeName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' ).replace( /[-_]+$/, '' );
 		this.opts.generatorVersion = this.rootGeneratorVersion();
 
 		fs.lstat( this.destinationPath( this.opts.projectSlug ), function( err, stats ) {
 			if ( !err && stats.isDirectory() ) {
-				this.log( '\nTheme already exists. Exiting!' );
-				process.exit();
+				self.prompt( [
+					{
+						type: 'confirm',
+						name: 'overwrite',
+						message: 'Theme already exists. Overwrite?',
+						default: false
+					}
+				] ).then( answer => {
+					if ( ! answer.overwrite ) {
+						self.log( '\nExiting!' );
+						process.exit();
+					}
+
+					done();
+				} );
 			}
 		});
 
 		this.destinationRoot( this.opts.projectSlug );
-		done();
 	}
 
 	_processDirectory( source, destination, data ) {
