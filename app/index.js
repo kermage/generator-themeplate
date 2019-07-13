@@ -9,8 +9,8 @@ var glob = require( 'glob' );
 var chalk = require( 'chalk' );
 
 module.exports = class extends Generator {
-	prompting() {
-		return this.prompt( [
+	async prompting() {
+		this.opts = await this.prompt( [
 			{
 				name: 'themeName',
 				message: 'Theme Name:',
@@ -102,9 +102,7 @@ module.exports = class extends Generator {
 				message: 'Local Server:',
 				default: 'localhost'
 			}
-		] ).then( props => {
-			this.opts = props;
-		} );
+		] );
 	}
 
 	configuring() {
