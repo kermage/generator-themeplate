@@ -6,6 +6,7 @@ var Generator = require( 'yeoman-generator' );
 var fs = require( 'fs' );
 var path = require( 'path' );
 var glob = require( 'glob' );
+var chalk = require( 'chalk' );
 
 module.exports = class extends Generator {
 	prompting() {
@@ -228,7 +229,15 @@ module.exports = class extends Generator {
 	}
 
 	install() {
+		this.log( "\n\nI'm all done. Running " +
+			chalk.yellow.bold( 'npm install' ) +
+			' and ' +
+			chalk.yellow.bold( 'composer install' ) +
+			' for you to install the required dependencies. If this fails, try running the command yourself.\n\n'
+		);
+
 		this.installDependencies( {
+			skipMessage: true,
 			bower: false
 		} );
 
