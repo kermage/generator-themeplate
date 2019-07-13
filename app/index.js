@@ -116,16 +116,19 @@ module.exports = class extends Generator {
 
 		fs.lstat( this.destinationPath( this.opts.projectSlug ), function( err, stats ) {
 			if ( !err && stats.isDirectory() ) {
+				self.log( '\n' + chalk.blue.bold( self.opts.themeName ) + ' already exists.\n' );
 				self.prompt( [
 					{
 						type: 'confirm',
 						name: 'overwrite',
-						message: 'Theme already exists. Overwrite?',
+						message: 'Overwrite "' + self.opts.projectSlug + '"?',
 						default: false
 					}
 				] ).then( answer => {
+					self.log( '' );
+
 					if ( ! answer.overwrite ) {
-						self.log( '\nExiting!' );
+						self.log( 'Close one! ' + chalk.red.bold( 'Generator aborted.' ) );
 						process.exit();
 					}
 
@@ -233,7 +236,7 @@ module.exports = class extends Generator {
 			chalk.yellow.bold( 'npm install' ) +
 			' and ' +
 			chalk.yellow.bold( 'composer install' ) +
-			' for you to install the required dependencies. If this fails, try running the command yourself.\n\n'
+			' for you to install the required dependencies. If this fails, try running the commands yourself.\n\n'
 		);
 
 		this.installDependencies( {
@@ -245,6 +248,6 @@ module.exports = class extends Generator {
 	}
 
 	end() {
-		this.log( '\n\nEverything is ready. ThemePlate!\n\n' );
+		this.log( '\n\nEverything is ready. ' + chalk.green.bold( 'ThemePlate!' ) + '\n\n' );
 	}
 };
