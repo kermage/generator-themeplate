@@ -101,7 +101,7 @@ gulp.task('debug:false', function() {
 gulp.task('lint:scripts', function() {
 	return gulp.src(['src/js/**/*.js'])
 		.pipe(plugins.eslint())
-		.pipe(plugins.eslint.format());
+		.pipe(plugins.eslint.format('stylish'));
 });
 
 gulp.task('lint:styles', function() {
