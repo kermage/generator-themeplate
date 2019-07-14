@@ -34,8 +34,16 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'slug' => 'regenerate-thumbnails',
 			),
 			array(
+				'name' => 'ShortPixel Image Optimizer',
+				'slug' => 'shortpixel-image-optimizer',
+			),
+			array(
 				'name' => 'W3 Total Cache',
 				'slug' => 'w3-total-cache',
+			),
+			array(
+				'name' => 'Wordfence Security',
+				'slug' => 'wordfence',
 			),
 			array(
 				'name' => 'Yoast SEO',
