@@ -82,6 +82,10 @@
 - `gulp lint` - Run scripts and styles against coding rules set
 - `gulp pot` - Generate a POT file for the theme localization
 
+##### Bump Options
+- `--to-type={major|minor}`
+- `--to-version={#}`
+
 ## License
 Copyright &copy; 2019 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
 
