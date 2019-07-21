@@ -35,7 +35,7 @@ gulp.task('uglify', function() {
 	return gulp.src(['assets/js/*.js','!assets/js/*.min.js'])
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.uglify({
-			output: {comments: 'uglify-save-license'}
+			output: {comments: /^!/}
 		}))
 		.pipe(plugins.rename({suffix: '.min'}))
 		.pipe(plugins.plumber.stop())
