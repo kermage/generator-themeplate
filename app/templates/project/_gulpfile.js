@@ -2,7 +2,9 @@
 
 var gulp = require('gulp'),
 	argv = require('minimist')(process.argv.slice(2)),
+	autoprefixer = require('autoprefixer'),
 	browserSync = require('browser-sync'),
+	cssnano = require('cssnano'),
 	plugins = require('gulp-load-plugins')({camelize: true});
 
 var pkg = require('./package.json');
@@ -64,9 +66,11 @@ gulp.task('sass', function() {
 		.pipe(plugins.sass({
 			outputStyle: 'expanded'
 		}))
-		.pipe(plugins.autoprefixer({
-			remove: false
-		}))
+		.pipe(plugins.postcss([
+			autoprefixer({
+				remove: false
+			})
+		]))
 		.pipe(plugins.header(banner, { pkg : pkg } ))
 		.pipe(plugins.sourcemaps.write('/'))
 		.pipe(plugins.plumber.stop())
@@ -77,9 +81,15 @@ gulp.task('sass', function() {
 gulp.task('cssnano', function() {
 	return gulp.src(['assets/css/*.css','!assets/css/*.min.css'])
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
-		.pipe(plugins.cssnano({
-			discardComments: {removeAllButFirst: true}
-		}))
+		.pipe(plugins.postcss([
+			cssnano({
+				preset: ['default', {
+					discardComments: {
+						removeAllButFirst: true,
+					},
+				}]
+			})
+		]))
 		.pipe(plugins.rename({suffix: '.min'}))
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/css'))
