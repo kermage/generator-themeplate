@@ -33,7 +33,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_ext_types' ) ) {
 		return $mimes;
 	}
 	add_filter( 'ext2type', '<%= opts.functionPrefix %>_ext_types' );
-};
+}
 
 // Custom excerpt length
 if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_length' ) ) {
@@ -89,7 +89,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_login_logo' ) ) {
 		<?php
 	}
 	add_action( 'login_enqueue_scripts', '<%= opts.functionPrefix %>_login_logo' );
-};
+}
 
 // Link WP login logo to homepage.
 if ( ! function_exists( '<%= opts.functionPrefix %>_login_headerurl' ) ) {
