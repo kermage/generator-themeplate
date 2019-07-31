@@ -1,9 +1,9 @@
-<% if ( opts.bootstrap ) { %>@import 'bootstrap-custom';
-<% } else { %>@import '../../node_modules/normalize.css/normalize';
+<% if ( opts.bootstrap ) { %>@import "bootstrap-custom";
+<% } else { %>@import "../../node_modules/normalize.css/normalize";
 <% } %>
-@import '../../node_modules/genetiks/utilities';
+@import "../../node_modules/genetiks/utilities";
 
-@import 'layouts/header';
-@import 'layouts/navigation';
-@import 'layouts/content';
-@import 'layouts/footer';
+@import "layouts/header";
+@import "layouts/navigation";
+@import "layouts/content";
+@import "layouts/footer";
