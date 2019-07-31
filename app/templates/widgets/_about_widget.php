@@ -8,12 +8,12 @@
  */
 
 class <%= opts.classPrefix %>_About_Widget extends WP_Widget {
-	function __construct() {
+	public function __construct() {
 		$widget_ops = array( 'classname' => '<%= opts.functionPrefix %>_about', 'description' => __( 'Display site logo and info.', '<%= opts.projectSlug %>' ) );
 		parent::__construct( '<%= opts.functionPrefix %>_about', '<%= opts.themeName %>: About', $widget_ops );
 	}
 
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 		?>
 			<?php if ( isset($instance['logo_url'] ) && $instance['logo_url'] ) : ?>
@@ -29,7 +29,7 @@ class <%= opts.classPrefix %>_About_Widget extends WP_Widget {
 		echo $args['after_widget'];
 	}
 
-	function form( $instance ) {
+	public function form( $instance ) {
 		$defaults = array( 'logo_url' => '', 'info_text' => '' );
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
@@ -44,7 +44,7 @@ class <%= opts.classPrefix %>_About_Widget extends WP_Widget {
 	<?php
 	}
 
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['logo_url'] = $new_instance['logo_url'];
 		$instance['info_text'] = $new_instance['info_text'];

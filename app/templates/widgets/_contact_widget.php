@@ -8,12 +8,12 @@
  */
 
 class <%= opts.classPrefix %>_Contact_Widget extends WP_Widget {
-	function __construct() {
+	public function __construct() {
 		$widget_ops = array( 'classname' => '<%= opts.functionPrefix %>_contact', 'description' => __( 'Display contact information.', '<%= opts.projectSlug %>' ) );
 		parent::__construct( '<%= opts.functionPrefix %>_contact', '<%= opts.themeName %>: Contact', $widget_ops );
 	}
 
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 		if ( ! empty( $instance['contact_title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['contact_title'] ). $args['after_title'];
@@ -37,7 +37,7 @@ class <%= opts.classPrefix %>_Contact_Widget extends WP_Widget {
 		echo $args['after_widget'];
 	}
 
-	function form( $instance ) {
+	public function form( $instance ) {
 		$defaults = array( 'contact_title' => '', 'contact_text' => '', 'contact_number' => '', 'contact_email' => '', 'contact_address' => '' );
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
@@ -64,7 +64,7 @@ class <%= opts.classPrefix %>_Contact_Widget extends WP_Widget {
 	<?php
 	}
 
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['contact_title'] = $new_instance['contact_title'];
 		$instance['contact_text'] = $new_instance['contact_text'];
