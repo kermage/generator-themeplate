@@ -101,7 +101,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_login_headerurl' ) ) {
 
 // Use the site title instead of 'WordPress'.
 if ( ! function_exists( '<%= opts.functionPrefix %>_login_headertext' ) ) {
-	function <%= opts.functionPrefix %>_login_headertitle() {
+	function <%= opts.functionPrefix %>_login_headertext() {
 		return get_option( 'blogname' );
 	}
 	add_filter( 'login_headertext', '<%= opts.functionPrefix %>_login_headertext' );
