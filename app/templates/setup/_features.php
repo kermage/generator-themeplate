@@ -23,7 +23,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 		add_theme_support( 'title-tag' );
 
 		// Add theme image sizes
-		add_image_size( 'max', 1920, 1080, false );
+		add_image_size( 'max', 1920, 1080 );
 	}
 	add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_setup' );
 }
