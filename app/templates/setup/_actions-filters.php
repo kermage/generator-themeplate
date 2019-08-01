@@ -62,9 +62,9 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_keep_revisions' ) ) {
 // Re-add underline and justify buttons in the editor
 if ( ! function_exists( '<%= opts.functionPrefix %>_editor_buttons' ) ) {
 	function <%= opts.functionPrefix %>_editor_buttons( $buttons ) {
-		$temp    = array_slice( $buttons, 0, 3, true ) + array( 4 => 'underline' ) + array_slice( $buttons, 3, count( $buttons ) - 1, true );
+		$temp    = array_merge( array_slice( $buttons, 0, 3, true ), array( 4 => 'underline' ), array_slice( $buttons, 3, count( $buttons ) - 1, true ) );
 		$buttons = $temp;
-		$temp    = array_slice( $buttons, 0, 9, true ) + array( 10 => 'alignjustify' ) + array_slice( $buttons, 9, count( $buttons ) - 1, true );
+		$temp    = array_merge( array_slice( $buttons, 0, 9, true ), array( 10 => 'alignjustify' ), array_slice( $buttons, 9, count( $buttons ) - 1, true ) );
 		$buttons = $temp;
 
 		return $buttons;
