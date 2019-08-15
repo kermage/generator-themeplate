@@ -11,7 +11,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 	function <%= opts.functionPrefix %>_navigations() {<% if ( opts.bootstrap ) { %>
 		// Bootstrap Nav Walker
 		require_once <%= opts.constantPrefix %>_INCLUDES . 'class-bootstrap-navbar.php';
-		<% } %>
+<% } %>
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', '<%= opts.projectSlug %>' ),
 			'footer'  => __( 'Footer Menu', '<%= opts.projectSlug %>' ),
