@@ -9,27 +9,30 @@
 
 class <%= opts.classPrefix %>_Contact_Widget extends WP_Widget {
 	public function __construct() {
-		$widget_ops = array( 'classname' => '<%= opts.functionPrefix %>_contact', 'description' => __( 'Display contact information.', '<%= opts.projectSlug %>' ) );
+		$widget_ops = array(
+			'classname'   => '<%= opts.functionPrefix %>_contact',
+			'description' => __( 'Display contact information.', '<%= opts.projectSlug %>' ),
+		);
 		parent::__construct( '<%= opts.functionPrefix %>_contact', '<%= opts.themeName %>: Contact', $widget_ops );
 	}
 
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 		if ( ! empty( $instance['contact_title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['contact_title'] ). $args['after_title'];
+			echo $args['before_title'] . apply_filters( 'widget_title', $instance['contact_title'] ) . $args['after_title'];
 		}
 		?>
 			<div class="contact-wrap">
-				<?php if ( isset($instance['contact_text'] ) && $instance['contact_text'] ) : ?>
+				<?php if ( isset( $instance['contact_text'] ) && $instance['contact_text'] ) : ?>
 					<p><?php echo $instance['contact_text']; ?></p>
 				<?php endif; ?>
-				<?php if ( isset($instance['contact_number'] ) && $instance['contact_number'] ) : ?>
+				<?php if ( isset( $instance['contact_number'] ) && $instance['contact_number'] ) : ?>
 					<span class="number"><?php echo $instance['contact_number']; ?></span>
 				<?php endif; ?>
-				<?php if ( isset($instance['contact_email'] ) && $instance['contact_email'] ) : ?>
+				<?php if ( isset( $instance['contact_email'] ) && $instance['contact_email'] ) : ?>
 					<a href="mailto:<?php echo $instance['contact_email']; ?>" class="email"><?php echo $instance['contact_email']; ?></a>
 				<?php endif; ?>
-				<?php if ( isset($instance['contact_address'] ) && $instance['contact_address'] ) : ?>
+				<?php if ( isset( $instance['contact_address'] ) && $instance['contact_address'] ) : ?>
 					<span class="address"><?php echo $instance['contact_address']; ?></span>
 				<?php endif; ?>
 			</div>
@@ -38,7 +41,13 @@ class <%= opts.classPrefix %>_Contact_Widget extends WP_Widget {
 	}
 
 	public function form( $instance ) {
-		$defaults = array( 'contact_title' => '', 'contact_text' => '', 'contact_number' => '', 'contact_email' => '', 'contact_address' => '' );
+		$defaults = array(
+			'contact_title'   => '',
+			'contact_text'    => '',
+			'contact_number'  => '',
+			'contact_email'   => '',
+			'contact_address' => '',
+		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
 		<p>
@@ -61,16 +70,18 @@ class <%= opts.classPrefix %>_Contact_Widget extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'contact_address' ) ); ?>"><?php _e( 'Site Address:', '<%= opts.projectSlug %>' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'contact_address' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'contact_address' ) ); ?>" value="<?php echo esc_attr( $instance['contact_address'] ); ?>" />
 		</p>
-	<?php
+		<?php
 	}
 
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['contact_title'] = $new_instance['contact_title'];
-		$instance['contact_text'] = $new_instance['contact_text'];
-		$instance['contact_number'] = $new_instance['contact_number'];
-		$instance['contact_email'] = $new_instance['contact_email'];
+
+		$instance['contact_title']   = $new_instance['contact_title'];
+		$instance['contact_text']    = $new_instance['contact_text'];
+		$instance['contact_number']  = $new_instance['contact_number'];
+		$instance['contact_email']   = $new_instance['contact_email'];
 		$instance['contact_address'] = $new_instance['contact_address'];
+
 		return $instance;
 	}
 }
