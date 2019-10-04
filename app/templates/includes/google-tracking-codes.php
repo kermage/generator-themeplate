@@ -26,7 +26,7 @@ if ( ! function_exists( 'themeplate_google_analytics' ) ) {
 		<!-- End Google Analytics -->
 
 		<?php
-		echo ob_get_clean(); // WPCS: XSS ok.
+		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -46,7 +46,7 @@ if ( ! function_exists( 'themeplate_google_analytics_async' ) ) {
 		<!-- End Google Analytics -->
 
 		<?php
-		echo ob_get_clean(); // WPCS: XSS ok.
+		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -67,7 +67,7 @@ if ( ! function_exists( 'themeplate_google_analytics_gtag' ) ) {
 		</script>
 
 		<?php
-		echo ob_get_clean(); // WPCS: XSS ok.
+		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -86,7 +86,7 @@ if ( ! function_exists( 'themeplate_google_tag_head' ) ) {
 		<!-- End Google Tag Manager -->
 
 		<?php
-		echo ob_get_clean(); // WPCS: XSS ok.
+		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -102,6 +102,6 @@ if ( ! function_exists( 'themeplate_google_tag_body' ) ) {
 		<!-- End Google Tag Manager (noscript) -->
 
 		<?php
-		echo ob_get_clean(); // WPCS: XSS ok.
+		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
