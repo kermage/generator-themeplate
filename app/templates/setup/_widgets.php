@@ -20,6 +20,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 		) );
 		register_sidebars( 3, array(
 			'id'            => 'footer',
+			/* translators: count */
 			'name'          => __( 'Footer Area %d', '<%= opts.projectSlug %>' ),
 			'description'   => __( 'Add widgets here to appear in footer.', '<%= opts.projectSlug %>' ),
 			'before_title'  => '<h4 class="widget-title">',
