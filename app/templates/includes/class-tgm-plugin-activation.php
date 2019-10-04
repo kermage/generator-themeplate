@@ -1,4 +1,5 @@
 <?php
+// phpcs:ignoreFile -- external library
 /**
  * Plugin installation and activation for WordPress themes.
  *
