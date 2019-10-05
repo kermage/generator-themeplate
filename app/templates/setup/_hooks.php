@@ -13,8 +13,6 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 	function <%= opts.functionPrefix %>_add_ga() {
 		$tid = get_option( '<%= opts.functionPrefix %>-options' )['google_analytics'];
 		if ( $tid ) {
-			// themeplate_google_analytics( $tid );
-			// themeplate_google_analytics_async( $tid );
 			themeplate_google_analytics_gtag( $tid );
 		}
 	}
