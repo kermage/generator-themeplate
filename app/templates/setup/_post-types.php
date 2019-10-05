@@ -13,24 +13,10 @@ ThemePlate()->post_type( array(
 	'singular'    => __( 'Portfolio', '<%= opts.projectSlug %>' ),
 	'description' => __( 'Portfolio', '<%= opts.projectSlug %>' ),
 	'args'        => array(
-		'public'          => true,
-		// 'exclude_from_search' => false,
-		// 'publicly_queryable'  => true,
-		// 'show_ui'             => true,
-		// 'show_in_nav_menus'   => true,
-		// 'show_in_menu'        => true,
-		// 'show_in_admin_bar'   => true,
-		'menu_position'   => 5,
-		'menu_icon'       => 'dashicons-media-document',
-		'capability_type' => 'post',
-		'hierarchical'    => false,
-		'supports'        => array( 'title', 'editor', 'thumbnail' ),
-		// 'taxonomies'          => array( 'category', 'post_tag' ),
-		'has_archive'     => true,
-		'rewrite'         => array(
-			'slug'       => 'portfolio',
-			'with_front' => false,
-		),
+		'menu_position' => 5,
+		'menu_icon'     => 'dashicons-media-document',
+		'supports'      => array( 'title', 'editor', 'thumbnail' ),
+		'has_archive'   => true,
 	),
 ) );
 
@@ -41,15 +27,7 @@ ThemePlate()->taxonomy( array(
 	'description' => __( 'Portfolio Category', '<%= opts.projectSlug %>' ),
 	'type'        => 'portfolio',
 	'args'        => array(
-		'public'            => true,
-		// 'show_ui'            => true,
-		// 'show_in_menu'       => true,
-		// 'show_in_nav_menus'  => true,
-		// 'show_tagcloud'      => true,
-		// 'show_in_quick_edit' => true,
-		'show_admin_column' => true,
-		'hierarchical'      => true,
-		'rewrite'           => array( 'slug' => 'portfolio-cat' ),
+		'hierarchical' => true,
 	),
 ) );
 
@@ -59,15 +37,4 @@ ThemePlate()->taxonomy( array(
 	'singular'    => __( 'Tag', '<%= opts.projectSlug %>' ),
 	'description' => __( 'Portfolio Tag', '<%= opts.projectSlug %>' ),
 	'type'        => 'portfolio',
-	'args'        => array(
-		'public'            => true,
-		// 'show_ui'            => true,
-		// 'show_in_menu'       => true,
-		// 'show_in_nav_menus'  => true,
-		// 'show_tagcloud'      => true,
-		// 'show_in_quick_edit' => true,
-		'show_admin_column' => true,
-		'hierarchical'      => false,
-		'rewrite'           => array( 'slug' => 'portfolio-tag' ),
-	),
 ) );
