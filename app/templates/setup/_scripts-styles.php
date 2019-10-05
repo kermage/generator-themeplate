@@ -15,8 +15,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		wp_deregister_script( 'jquery-core' );
 		wp_deregister_script( 'jquery-migrate' );
 		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header
-		wp_register_script( 'jquery-core', 'https://code.jquery.com/jquery-2.2.4' . $suffix . '.js', array(), '2.2.4' );
-		wp_register_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-1.4.1' . $suffix . '.js', array(), '1.4.1' );
+		wp_register_script( 'jquery-core', 'https://code.jquery.com/jquery-2.2.4' . $suffix . '.js', array(), '2.2.4', false );
+		wp_register_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-1.4.1' . $suffix . '.js', array(), '1.4.1', false );
 		wp_add_inline_script( 'jquery-core', 'jQuery.noConflict();' );
 
 		// jQuery
@@ -24,7 +24,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles' ) ) {
 		// Google Fonts
 		wp_enqueue_style( '<%= opts.functionPrefix %>-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800', array(), <%= opts.constantPrefix %>_VERSION );<% if ( opts.fontawesome ) { %>
 		// Font Awesome
-		wp_enqueue_script( '<%= opts.functionPrefix %>-fontawesome', 'https://use.fontawesome.com/releases/v5.10.0/js/all.js', array(), '5.10.0' );
+		wp_enqueue_script( '<%= opts.functionPrefix %>-fontawesome', 'https://use.fontawesome.com/releases/v5.10.0/js/all.js', array(), '5.10.0', false );
 		wp_add_inline_script( '<%= opts.functionPrefix %>-fontawesome', 'FontAwesomeConfig = { searchPseudoElements: true };' );<% } %><% if ( opts.bootstrap ) { %>
 		// Bootstrap
 		wp_enqueue_script( '<%= opts.functionPrefix %>-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap' . $suffix . '.js', array(), '4.3.1', true );<% } %>
