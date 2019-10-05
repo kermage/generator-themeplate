@@ -7,6 +7,8 @@
  * @since 0.1.0
  */
 
+// phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedScript
+
 // Google Analytics
 if ( ! function_exists( 'themeplate_google_analytics' ) ) {
 	function themeplate_google_analytics( $id ) {
