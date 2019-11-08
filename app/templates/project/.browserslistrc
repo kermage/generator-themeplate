@@ -1,3 +1,5 @@
 # Browsers that we support
 
 extends @wordpress/browserslist-config
+
+IE 10
