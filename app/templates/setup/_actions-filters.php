@@ -32,6 +32,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_jpeg_quality' ) ) {
 if ( ! function_exists( '<%= opts.functionPrefix %>_mime_types' ) ) {
 	function <%= opts.functionPrefix %>_mime_types( $mimes ) {
 		$mimes['svg'] = 'image/svg+xml';
+		$mimes['svgz'] = 'image/svg+xml';
 		return $mimes;
 	}
 	add_filter( 'upload_mimes', '<%= opts.functionPrefix %>_mime_types' );
@@ -46,6 +47,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_ext_types' ) ) {
 	add_filter( 'ext2type', '<%= opts.functionPrefix %>_ext_types' );
 }
 
+// Correctly identify SVGs
 if ( ! function_exists( '<%= opts.functionPrefix %>_type_svg' ) ) {
 	function <%= opts.functionPrefix %>_type_svg( $data = null, $file = null, $filename = null ) {
 		$ext = isset( $data['ext'] ) ? $data['ext'] : '';
@@ -58,6 +60,9 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_type_svg' ) ) {
 		if ( $ext === 'svg' ) {
 			$data['type'] = 'image/svg+xml';
 			$data['ext']  = 'svg';
+		} elseif ( $ext === 'svgz' ) {
+			$data['type'] = 'image/svg+xml';
+			$data['ext']  = 'svgz';
 		}
 
 		return $data;
