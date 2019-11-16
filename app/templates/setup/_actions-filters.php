@@ -46,6 +46,25 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_ext_types' ) ) {
 	add_filter( 'ext2type', '<%= opts.functionPrefix %>_ext_types' );
 }
 
+if ( ! function_exists( '<%= opts.functionPrefix %>_type_svg' ) ) {
+	function <%= opts.functionPrefix %>_type_svg( $data = null, $file = null, $filename = null ) {
+		$ext = isset( $data['ext'] ) ? $data['ext'] : '';
+
+		if ( strlen( $ext ) < 1 ) {
+			$exploded = explode( '.', $filename );
+			$ext      = strtolower( end( $exploded ) );
+		}
+
+		if ( $ext === 'svg' ) {
+			$data['type'] = 'image/svg+xml';
+			$data['ext']  = 'svg';
+		}
+
+		return $data;
+	}
+	add_filter( 'wp_check_filetype_and_ext', '<%= opts.functionPrefix %>_type_svg', 10, 3 );
+}
+
 // Custom excerpt length
 if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_length' ) ) {
 	function <%= opts.functionPrefix %>_excerpt_length( $length ) {
