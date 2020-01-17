@@ -35,7 +35,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 			),
 			array(
 				'name' => 'ShortPixel Image Optimizer',
-				'slug' => 'shortpixel-image-optimizer',
+				'slug' => 'shortpixel-image-optimiser',
 			),
 			array(
 				'name' => 'W3 Total Cache',
