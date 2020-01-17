@@ -166,3 +166,14 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_wp_mail_from' ) ) {
 	}
 	add_filter( 'wp_mail_from', '<%= opts.functionPrefix %>_wp_mail_from' );
 }
+
+// Set default embed size.
+if ( ! function_exists( '<%= opts.functionPrefix %>_embed_defaults' ) ) {
+	function <%= opts.functionPrefix %>_embed_defaults( $attr ) {
+		return array(
+			'width'  => '1280',
+			'height' => '720',
+		);
+	}
+	add_filter( 'embed_defaults', '<%= opts.functionPrefix %>_embed_defaults' );
+}
