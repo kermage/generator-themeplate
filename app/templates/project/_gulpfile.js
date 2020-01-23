@@ -51,7 +51,7 @@ gulp.task('images', function() {
 		.pipe(plugins.imagemin([
 			plugins.imagemin.svgo({plugins: [{removeViewBox: true}]}),
 			plugins.imagemin.optipng({optimizationLevel: 7}),
-			plugins.imagemin.jpegtran({progressive: true}),
+			plugins.imagemin.mozjpeg({quality: 100}),
 			plugins.imagemin.gifsicle({interlaced: true})
 		]))
 		.pipe(plugins.plumber.stop())
