@@ -47,6 +47,8 @@ require_once 'setup/scripts-styles.php';
 require_once 'setup/actions-filters.php';
 require_once 'setup/hooks.php';
 
+$<%= opts.functionPrefix %>_options = get_option( '<%= opts.functionPrefix %>-options' );
+
 /* ==================================================
 Extra custom functions
 ================================================== */
