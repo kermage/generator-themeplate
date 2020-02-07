@@ -30,8 +30,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'slug' => 'enable-media-replace',
 			),
 			array(
-				'name' => 'Regenerate Thumbnails',
-				'slug' => 'regenerate-thumbnails',
+				'name' => 'Regenerate Thumbnails Advanced',
+				'slug' => 'regenerate-thumbnails-advanced',
 			),
 			array(
 				'name' => 'ShortPixel Image Optimizer',
