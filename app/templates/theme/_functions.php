@@ -29,6 +29,8 @@ define( '<%= opts.constantPrefix %>_DEBUG',        true );
 Setup Theme
 ================================================== */
 
+$<%= opts.functionPrefix %>_options = get_option( '<%= opts.functionPrefix %>-options' );
+
 if ( class_exists( 'ThemePlate' ) ) :
 	ThemePlate( array(
 		'title' => '<%= opts.themeName %>',
@@ -46,8 +48,6 @@ require_once 'setup/widgets.php';
 require_once 'setup/scripts-styles.php';
 require_once 'setup/actions-filters.php';
 require_once 'setup/hooks.php';
-
-$<%= opts.functionPrefix %>_options = get_option( '<%= opts.functionPrefix %>-options' );
 
 /* ==================================================
 Extra custom functions
