@@ -5,8 +5,10 @@ var gulp = require('gulp'),
 	autoprefixer = require('autoprefixer'),
 	browserSync = require('browser-sync'),
 	cssnano = require('cssnano'),
-	rollup = require('rollup'),
+	rollup = require('@rollup/stream'),
 	babel = require('rollup-plugin-babel'),
+	buffer = require('vinyl-buffer'),
+	source = require('vinyl-source-stream')
 	plugins = require('gulp-load-plugins')({camelize: true});
 
 var pkg = require('./package.json');
@@ -21,17 +23,26 @@ var banner = [
 ].join('\n');
 
 gulp.task('rollup', function() {
-	return rollup.rollup({
+	return rollup({
 		input: 'src/js/<%= opts.projectSlug %>.js',
+		output: {
+			format: 'iife',
+			sourcemap: true
+		},
 		plugins: [babel({
-			presets: ['@babel/preset-env']
-		})]
-	}).then(function(bundle) {
-		return bundle.write({
-			file: 'assets/js/<%= opts.projectSlug %>.js',
-			format: 'iife'
-		});
-	});
+			presets: [
+				['@babel/preset-env', {"modules": false}]
+			]
+		})],
+	}).pipe(source('<%= opts.projectSlug %>.js'))
+		.pipe(buffer())
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
+		.pipe(plugins.sourcemaps.init({ loadMaps: true }))
+		.pipe(plugins.header(banner, { pkg : pkg } ))
+		.pipe(plugins.sourcemaps.write('/'))
+		.pipe(plugins.plumber.stop())
+		.pipe(gulp.dest('assets/js'))
+		.pipe(browserSync.stream());
 });
 
 gulp.task('concat', function() {
