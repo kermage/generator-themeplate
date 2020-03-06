@@ -5,6 +5,8 @@ var gulp = require('gulp'),
 	autoprefixer = require('autoprefixer'),
 	browserSync = require('browser-sync'),
 	cssnano = require('cssnano'),
+	rollup = require('rollup'),
+	babel = require('rollup-plugin-babel'),
 	plugins = require('gulp-load-plugins')({camelize: true});
 
 var pkg = require('./package.json');
@@ -17,6 +19,20 @@ var banner = [
 	'',
 	''
 ].join('\n');
+
+gulp.task('rollup', function() {
+	return rollup.rollup({
+		input: 'src/js/<%= opts.projectSlug %>.js',
+		plugins: [babel({
+			presets: ['@babel/preset-env']
+		})]
+	}).then(function(bundle) {
+		return bundle.write({
+			file: 'assets/js/<%= opts.projectSlug %>.js',
+			format: 'iife'
+		});
+	});
+});
 
 gulp.task('concat', function() {
 	return gulp.src(['src/js/*.js'])
