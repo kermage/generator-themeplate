@@ -37,6 +37,11 @@ ThemePlate()->post_meta( array(
 			'description' => __( 'Enter a url.', '<%= opts.projectSlug %>' ),
 			'type'        => 'url',
 		),
+		'link'     => array(
+			'title'       => __( 'Link', '<%= opts.projectSlug %>' ),
+			'description' => __( 'Select a link.', '<%= opts.projectSlug %>' ),
+			'type'        => 'link',
+		),
 		'textarea' => array(
 			'title'       => __( 'Textarea', '<%= opts.projectSlug %>' ),
 			'description' => __( 'Enter in a textarea.', '<%= opts.projectSlug %>' ),
