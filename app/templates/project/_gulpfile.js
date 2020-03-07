@@ -72,6 +72,15 @@ gulp.task('uglify', function() {
 		.pipe(browserSync.stream());
 });
 
+gulp.task('webp', function() {
+	return gulp.src('src/images/*.{gif,jpg,png}')
+		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
+		.pipe(plugins.webp({quality: 100}))
+		.pipe(plugins.plumber.stop())
+		.pipe(gulp.dest('assets/images'))
+		.pipe(browserSync.stream());
+});
+
 gulp.task('images', function() {
 	return gulp.src('src/images/*.{gif,jpg,png,svg}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
