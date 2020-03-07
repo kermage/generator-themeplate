@@ -72,6 +72,8 @@ gulp.task('uglify', function() {
 		.pipe(browserSync.stream());
 });
 
+gulp.task('build:scripts', gulp.series(argv['rollup'] ? 'rollup' : 'concat', 'uglify'));
+
 gulp.task('webp', function() {
 	return gulp.src('src/images/*.{gif,jpg,png}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
@@ -81,7 +83,7 @@ gulp.task('webp', function() {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('images', function() {
+gulp.task('imagemin', function() {
 	return gulp.src('src/images/*.{gif,jpg,png,svg}')
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.imagemin([
@@ -94,6 +96,8 @@ gulp.task('images', function() {
 		.pipe(gulp.dest('assets/images'))
 		.pipe(browserSync.stream());
 });
+
+gulp.task('build:images', gulp.series('webp', 'imagemin'));
 
 gulp.task('sass', function() {
 	return gulp.src('src/sass/*.s+(a|c)ss')
@@ -131,6 +135,8 @@ gulp.task('cssnano', function() {
 		.pipe(gulp.dest('assets/css'))
 		.pipe(browserSync.stream());
 });
+
+gulp.task('build:styles', gulp.series('sass', 'cssnano'));
 
 gulp.task('debug:true', function() {
 	return gulp.src('functions.php')
@@ -177,9 +183,9 @@ gulp.task('fix:styles', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch('src/js/**/*.js', gulp.series(argv['rollup'] ? 'rollup' : 'concat', 'uglify'));
-	gulp.watch('src/images/**/*.{gif,jpg,png}', gulp.series('images'));
-	gulp.watch('src/sass/**/*.{scss,sass}', gulp.series('sass', 'cssnano'));
+	gulp.watch('src/js/**/*.js', gulp.series('build:scripts'));
+	gulp.watch('src/images/**/*.{gif,jpg,png}', gulp.series('build:images'));
+	gulp.watch('src/sass/**/*.{scss,sass}', gulp.series('build:styles'));
 });
 
 gulp.task('serve', gulp.parallel('watch', function() {
@@ -210,9 +216,7 @@ gulp.task('pot', function() {
 		.pipe(gulp.dest('languages/<%= opts.projectSlug %>.pot'));
 });
 
-gulp.task('build:scripts', gulp.series(argv['rollup'] ? 'rollup' : 'concat', 'uglify'));
-gulp.task('build:styles', gulp.series('sass', 'cssnano'));
-gulp.task('build', gulp.parallel('images', 'build:scripts', 'build:styles'));
+gulp.task('build', gulp.parallel('build:images', 'build:scripts', 'build:styles'));
 gulp.task('lint', gulp.parallel('lint:scripts', 'lint:styles'));
 gulp.task('fix', gulp.parallel('fix:scripts', 'fix:styles'));
 gulp.task('default', gulp.series('build', 'serve'));
