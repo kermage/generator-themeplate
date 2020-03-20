@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 	rollup = require('@rollup/stream'),
 	babel = require('rollup-plugin-babel'),
 	buffer = require('vinyl-buffer'),
-	source = require('vinyl-source-stream')
+	source = require('vinyl-source-stream'),
 	plugins = require('gulp-load-plugins')({camelize: true});
 
 var pkg = require('./package.json');

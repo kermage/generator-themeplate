@@ -52,6 +52,8 @@
     "rollup-plugin-babel": "^4.3.3",
     "stylelint": "^13.0.0",
     "stylelint-config-wordpress": "^16.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
     <% if ( opts.bootstrap ) { %>
     "bootstrap": "^4.4.1"
     <% } else { %>
