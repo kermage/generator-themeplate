@@ -215,7 +215,7 @@ gulp.task('pot', function() {
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
 		.pipe(plugins.wpPot({
 			domain: '<%= opts.projectSlug %>',
-			package: '<%= opts.themeName %>'
+			package: '<%= opts.projectName %>'
 		}))
 		.pipe(gulp.dest('languages/<%= opts.projectSlug %>.pot'));
 });

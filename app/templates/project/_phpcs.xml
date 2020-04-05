@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<ruleset name="<%= opts.themeName %>">
+<ruleset name="<%= opts.projectName %>">
 	<!-- Set a description for this ruleset. -->
-	<description>The code standard rules for <%= opts.themeName %>.</description>
+	<description>The code standard rules for <%= opts.projectName %>.</description>
 
 	<!-- A comma separated list of file extensions to check. -->
 	<arg name="extensions" value="php" />

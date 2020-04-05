@@ -1,9 +1,9 @@
 <?php
 
 /**
- * <%= opts.themeName %> Contact widget
+ * <%= opts.projectName %> Contact widget
  *
- * @package <%= opts.themeName %>
+ * @package <%= opts.projectName %>
  * @since 0.1.0
  */
 
@@ -13,7 +13,7 @@ class <%= opts.classPrefix %>_Contact_Widget extends WP_Widget {
 			'classname'   => '<%= opts.functionPrefix %>_contact',
 			'description' => __( 'Display contact information.', '<%= opts.projectSlug %>' ),
 		);
-		parent::__construct( '<%= opts.functionPrefix %>_contact', '<%= opts.themeName %>: Contact', $widget_ops );
+		parent::__construct( '<%= opts.functionPrefix %>_contact', '<%= opts.projectName %>: Contact', $widget_ops );
 	}
 
 	public function widget( $args, $instance ) {

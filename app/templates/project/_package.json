@@ -1,6 +1,6 @@
 {
   "name": "<%= opts.projectSlug %>",
-  "title": "<%= opts.themeName %>",
+  "title": "<%= opts.projectName %>",
   "version": "0.1.0",
   "description": "<%= opts.description %>",
   "keywords": [
@@ -8,7 +8,7 @@
     "wordpress",
     "theme"
   ],
-  "homepage": "<%= opts.themeURI %>",
+  "homepage": "<%= opts.projectURI %>",
   "license": "<%= opts.license %>",
   "private": true,
   "author": {

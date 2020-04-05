@@ -3,7 +3,7 @@
 /**
  * The template for displaying pages
  *
- * @package <%= opts.themeName %>
+ * @package <%= opts.projectName %>
  * @since 0.1.0
  */
 

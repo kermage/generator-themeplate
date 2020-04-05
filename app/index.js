@@ -12,14 +12,14 @@ module.exports = class extends Generator {
 	async prompting() {
 		this.opts = await this.prompt( [
 			{
-				name: 'themeName',
-				message: 'Theme Name:',
+				name: 'projectName',
+				message: 'Project Name:',
 				default: 'ThemePlate'
 			},
 			{
-				name: 'themeURI',
-				message: 'Theme URI:',
-				default: 'https://wordpress.org/themes/'
+				name: 'projectURI',
+				message: 'Project URI:',
+				default: 'https://github.com/kermage/generator-themeplate'
 			},
 			{
 				name: 'authorName',
@@ -42,14 +42,14 @@ module.exports = class extends Generator {
 				name: 'description',
 				message: 'Description:',
 				default: function( answer ) {
-					return 'Theme for ' + answer.themeName;
+					return 'A ThemePlate project for ' + answer.projectName;
 				}
 			},
 			{
 				name: 'functionPrefix',
 				message: 'Function Prefix:',
 				default: function( answer ) {
-					return answer.themeName.toLowerCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-z_]/g, '' ).replace( /_+$/, '' );
+					return answer.projectName.toLowerCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-z_]/g, '' ).replace( /_+$/, '' );
 				},
 				filter: function( answer ) {
 					return answer.toLowerCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-z_]/g, '' ).replace( /_+$/, '' );
@@ -59,7 +59,7 @@ module.exports = class extends Generator {
 				name: 'classPrefix',
 				message: 'Class Prefix:',
 				default: function( answer ) {
-					return answer.themeName.replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
+					return answer.projectName.replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
 				},
 				filter: function( answer ) {
 					return answer.replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
@@ -69,7 +69,7 @@ module.exports = class extends Generator {
 				name: 'constantPrefix',
 				message: 'Constant Prefix:',
 				default: function( answer ) {
-					return answer.themeName.toUpperCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
+					return answer.projectName.toUpperCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
 				},
 				filter: function( answer ) {
 					return answer.toUpperCase().replace( /[\s-]/g, '_' ).replace( /[^0-9a-zA-Z_]/g, '' ).replace( /_+$/, '' );
@@ -109,12 +109,12 @@ module.exports = class extends Generator {
 		var done = this.async();
 		var self = this;
 
-		this.opts.projectSlug = this.opts.themeName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' ).replace( /[-_]+$/, '' );
+		this.opts.projectSlug = this.opts.projectName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' ).replace( /[-_]+$/, '' );
 		this.opts.generatorVersion = this.rootGeneratorVersion();
 
 		fs.lstat( this.destinationPath( this.opts.projectSlug ), function( err, stats ) {
 			if ( !err && stats.isDirectory() ) {
-				self.log( '\n' + chalk.blue.bold( self.opts.themeName ) + ' already exists.\n' );
+				self.log( '\n' + chalk.blue.bold( self.opts.projectName ) + ' already exists.\n' );
 				self.prompt( [
 					{
 						type: 'confirm',

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * <%= opts.themeName %> About widget
+ * <%= opts.projectName %> About widget
  *
- * @package <%= opts.themeName %>
+ * @package <%= opts.projectName %>
  * @since 0.1.0
  */
 
@@ -13,7 +13,7 @@ class <%= opts.classPrefix %>_About_Widget extends WP_Widget {
 			'classname'   => '<%= opts.functionPrefix %>_about',
 			'description' => __( 'Display site logo and info.', '<%= opts.projectSlug %>' ),
 		);
-		parent::__construct( '<%= opts.functionPrefix %>_about', '<%= opts.themeName %>: About', $widget_ops );
+		parent::__construct( '<%= opts.functionPrefix %>_about', '<%= opts.projectName %>: About', $widget_ops );
 	}
 
 	public function widget( $args, $instance ) {

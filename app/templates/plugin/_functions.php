@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name: <%= opts.themeName %>
- * Plugin URI:  <%= opts.themeURI %>
+ * Plugin Name: <%= opts.projectName %>
+ * Plugin URI:  <%= opts.projectURI %>
  * Author:      <%= opts.authorName %>
  * Author URI:  <%= opts.authorURI %>
  * Description: <%= opts.description %>
@@ -31,7 +31,7 @@ Setup Plugin
 
 if ( class_exists( 'ThemePlate' ) ) :
 	ThemePlate( array(
-		'title' => '<%= opts.themeName %>',
+		'title' => '<%= opts.projectName %>',
 		'key'   => '<%= opts.functionPrefix %>',
 	) );
 	require_once 'setup/post-types.php';

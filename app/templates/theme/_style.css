@@ -1,6 +1,6 @@
 /**
- * Theme Name:  <%= opts.themeName %>
- * Theme URI:   <%= opts.themeURI %>
+ * Theme Name:  <%= opts.projectName %>
+ * Theme URI:   <%= opts.projectURI %>
  * Author:      <%= opts.authorName %>
  * Author URI:  <%= opts.authorURI %>
  * Description: <%= opts.description %>

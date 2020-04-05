@@ -50,8 +50,8 @@
 
 #### 2. Simply follow the prompts and enter the details
 ```
-? Theme Name:
-? Theme URI:
+? Project Name:
+? Project URI:
 ? Author:
 ? Author Email:
 ? Author URI:

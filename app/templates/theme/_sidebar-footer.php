@@ -3,7 +3,7 @@
 /**
  * The template containing the footer areas
  *
- * @package <%= opts.themeName %>
+ * @package <%= opts.projectName %>
  * @since 0.1.0
  */
 
