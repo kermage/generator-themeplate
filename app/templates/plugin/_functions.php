@@ -29,6 +29,19 @@ define( '<%= opts.constantPrefix %>_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 Setup Plugin
 ================================================== */
 
+if ( class_exists( 'ThemePlate' ) ) :
+	ThemePlate( array(
+		'title' => '<%= opts.themeName %>',
+		'key'   => '<%= opts.functionPrefix %>',
+	) );
+	require_once 'setup/post-types.php';
+	require_once 'setup/settings.php';
+	require_once 'setup/meta-boxes.php';
+endif;
+
+require_once 'setup/plugins.php';
+require_once 'setup/hooks.php';
+
 /* ==================================================
 Extra custom functions
 ================================================== */
