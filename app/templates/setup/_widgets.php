@@ -29,11 +29,17 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 			'after_widget'  => '</section>',
 		) );
 
-		$widgets = glob( <%= opts.constantPrefix %>_PATH . 'widgets/*_widget.php' );
+		$widgets = glob( <%= opts.constantPrefix %>_PATH . 'widgets/class-*-widget.php' );
+
 		foreach ( $widgets as $widget ) {
+			$name = basename( $widget, '.php' );
+			$name = str_replace( array( 'class-', '-widget' ), array( '', '_Widget' ), $name );
+			$name = ucfirst( $name );
+
 			require_once $widget;
-			if ( class_exists( '<%= opts.classPrefix %>_' . basename( $widget, '.php' ) ) ) {
-				register_widget( '<%= opts.classPrefix %>_' . basename( $widget, '.php' ) );
+
+			if ( class_exists( '<%= opts.classPrefix %>_' . $name ) ) {
+				register_widget( '<%= opts.classPrefix %>_' . $name );
 			}
 		}
 	}
