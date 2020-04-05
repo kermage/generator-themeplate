@@ -203,8 +203,12 @@ module.exports = class extends Generator {
 		// Plugin Files
 		this._processDirectory(
 			this.templatePath( 'plugin' ),
-			this.destinationPath( 'plugin' ),
+			this.destinationPath( this.opts.projectSlug ),
 			{ opts: this.opts }
+		);
+		this.fs.move(
+			this.destinationPath( this.opts.projectSlug + '/functions.php' ),
+			this.destinationPath( this.opts.projectSlug + '/' + this.opts.projectSlug + '.php' )
 		);
 	}
 
