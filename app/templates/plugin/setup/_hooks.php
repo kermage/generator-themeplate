@@ -11,9 +11,7 @@ require_once <%= opts.constantPrefix %>_PLUGIN_PATH . 'includes/google-tracking-
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 	function <%= opts.functionPrefix %>_add_ga() {
-		global $<%= opts.functionPrefix %>_options;
-
-		$tid = $<%= opts.functionPrefix %>_options['google_analytics'];
+		$tid = <%= opts.functionPrefix %>_options( 'google_analytics' );
 
 		if ( $tid ) {
 			themeplate_google_analytics_gtag( $tid );
@@ -24,9 +22,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_head' ) ) {
 	function <%= opts.functionPrefix %>_add_gtm_head() {
-		global $<%= opts.functionPrefix %>_options;
-
-		$tid = $<%= opts.functionPrefix %>_options['google_tagmanager'];
+		$tid = <%= opts.functionPrefix %>_options( 'google_tagmanager' );
 
 		if ( $tid ) {
 			themeplate_google_tag_head( $tid );
@@ -37,9 +33,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_head' ) ) {
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_body' ) ) {
 	function <%= opts.functionPrefix %>_add_gtm_body() {
-		global $<%= opts.functionPrefix %>_options;
-
-		$tid = $<%= opts.functionPrefix %>_options['google_tagmanager'];
+		$tid = <%= opts.functionPrefix %>_options( 'google_tagmanager' );
 
 		if ( $tid ) {
 			themeplate_google_tag_body( $tid );

@@ -31,8 +31,6 @@ require_once '<%= opts.projectSlug %>/<%= opts.projectSlug %>.php';
 Setup Theme
 ================================================== */
 
-$<%= opts.functionPrefix %>_options = get_option( '<%= opts.functionPrefix %>-options' );
-
 require_once 'setup/features.php';
 require_once 'setup/navigations.php';
 require_once 'setup/widgets.php';
