@@ -166,36 +166,6 @@ module.exports = class extends Generator {
 			{ opts: this.opts }
 		);
 
-		this._processDirectory(
-			this.templatePath( 'includes' ),
-			this.destinationPath( 'includes' ),
-			{ opts: this.opts }
-		);
-
-		this._processDirectory(
-			this.templatePath( 'page-templates' ),
-			this.destinationPath( 'page-templates' ),
-			{ opts: this.opts }
-		);
-
-		this._processDirectory(
-			this.templatePath( 'template-parts' ),
-			this.destinationPath( 'template-parts' ),
-			{ opts: this.opts }
-		);
-
-		this._processDirectory(
-			this.templatePath( 'setup' ),
-			this.destinationPath( 'setup' ),
-			{ opts: this.opts }
-		);
-
-		this._processDirectory(
-			this.templatePath( 'widgets' ),
-			this.destinationPath( 'widgets' ),
-			{ opts: this.opts }
-		);
-
 		// Project Files
 		this._processDirectory(
 			this.templatePath( 'project' ),
