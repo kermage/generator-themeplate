@@ -24,6 +24,7 @@ define( '<%= opts.constantPrefix %>_PATH',         get_theme_root( basename( __D
 define( '<%= opts.constantPrefix %>_DEBUG',        true );
 // phpcs:enable
 
+// Better move this folder (<%= opts.projectSlug %>) to the plugins directory, then remove these lines after
 require_once '<%= opts.projectSlug %>/<%= opts.projectSlug %>.php';
 
 /* ==================================================

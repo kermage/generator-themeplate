@@ -1,5 +1,5 @@
 # generator-themeplate -- ![NPM Version](https://img.shields.io/npm/v/generator-themeplate.svg) ![NPM Downloads](https://img.shields.io/npm/dt/generator-themeplate.svg)
-> *"Quickly scafold a complete WordPress theme project in seconds!"*
+> *"Quickly scafold a complete WordPress site project in seconds!"*
 
 ## Features
 - Fully-fleshed out package
@@ -19,9 +19,9 @@
 - CSS Framework options
 	- Twitter Bootstrap [v4](https://getbootstrap.com/)
 	- Blank Slate *(with [normalize.css](https://necolas.github.io/normalize.css/))*
-- Pre-included theme boilerplates and functions
-	- Base template files
-	- Features
+- Pre-included boilerplates and functions
+	- Base theme template files
+	- Theme Features
 	- Navigations
 	- Widgets
 	- Scripts and Styles
@@ -43,7 +43,7 @@
 `npm install -g generator-themeplate`
 
 ## Usage
-### Theme Setup
+### Setup
 #### 1. In the desired project directory, initiate the generator
 
 `yo themeplate`
@@ -66,21 +66,21 @@
 ? Local Server:
 ```
 
-### Theme Development
-#### 1. Navigate to the generated theme directory
+### Development
+#### 1. Navigate to the generated directory
 #### 2. Run `gulp`
 - Builds assets
 	- Sass compiled and minified
 	- JS concatenated and minified
 	- Images optimized; loseless
-- Watches theme files and assets for changes
+- Watches files and assets for changes
 - Starts Browsersync
 
 #### Available Tasks:
 - `gulp debug:{false|true}` - Set assets to serve; minified or not
-- `gulp bump` - Bump version in files; theme package and assets
+- `gulp bump` - Bump version in files; package and assets
 - `gulp lint` - Run scripts and styles against coding rules set
-- `gulp pot` - Generate a POT file for the theme localization
+- `gulp pot` - Generate a POT file for the localization
 
 ##### Bump Options
 - `--to-type={major|minor}`
