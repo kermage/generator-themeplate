@@ -13,7 +13,6 @@
  * Tags:        generator-themeplate, translation-ready, accessibility-ready
  */
 
-
 /* generator-themeplate v<%= opts.generatorVersion %> */
 
 /* ==================================================
@@ -24,6 +23,19 @@ define( '<%= opts.constantPrefix %>_PLUGIN_FILE', __FILE__ );
 define( '<%= opts.constantPrefix %>_PLUGIN_URL',  plugin_dir_url( __FILE__ ) );
 define( '<%= opts.constantPrefix %>_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 // phpcs:enable
+
+function <%= opts.functionPrefix %>_options( $key = '', $default = false ) {
+	$options = get_option( '<%= opts.functionPrefix %>-options', $default );
+	$value   = $default;
+
+	if ( empty( $key ) ) {
+		$value = $options;
+	} elseif ( is_array( $options ) && array_key_exists( $key, $options ) && false !== $options[ $key ] ) {
+		$value = $options[ $key ];
+	}
+
+	return $value;
+}
 
 /* ==================================================
 Setup Plugin

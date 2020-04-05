@@ -41,16 +41,3 @@ require_once 'setup/actions-filters.php';
 Extra custom functions
 ================================================== */
 
-function <%= opts.functionPrefix %>_options( $key = '', $default = false ) {
-	$options = get_option( '<%= opts.functionPrefix %>-options', $default );
-	$value   = $default;
-
-	if ( empty( $key ) ) {
-		$value = $options;
-	} elseif ( is_array( $options ) && array_key_exists( $key, $options ) && false !== $options[ $key ] ) {
-		$value = $options[ $key ];
-	}
-
-	return $value;
-}
-
