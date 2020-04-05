@@ -24,8 +24,12 @@ var banner = [
 
 gulp.task('rollup', function() {
 	return rollup({
+		external: ['jquery'],
 		input: 'src/js/<%= opts.projectSlug %>.js',
 		output: {
+			globals: {
+				jquery: 'jQuery',
+			},
 			format: 'iife',
 			sourcemap: true
 		},
