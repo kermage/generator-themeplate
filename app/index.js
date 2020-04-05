@@ -199,6 +199,13 @@ module.exports = class extends Generator {
 				this.destinationPath( 'src/sass' )
 			);
 		}
+
+		// Plugin Files
+		this._processDirectory(
+			this.templatePath( 'plugin' ),
+			this.destinationPath( 'plugin' ),
+			{ opts: this.opts }
+		);
 	}
 
 	install() {

@@ -25,6 +25,8 @@ define( '<%= opts.constantPrefix %>_INCLUDES',     <%= opts.constantPrefix %>_PA
 define( '<%= opts.constantPrefix %>_DEBUG',        true );
 // phpcs:enable
 
+require_once 'plugin/functions.php';
+
 /* ==================================================
 Setup Theme
 ================================================== */
