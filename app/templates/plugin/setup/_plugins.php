@@ -8,7 +8,7 @@
  */
 
 // TGM Plugin Activation
-require_once <%= opts.constantPrefix %>_INCLUDES . 'class-tgm-plugin-activation.php';
+require_once <%= opts.constantPrefix %>_PLUGIN_PATH . 'includes/class-tgm-plugin-activation.php';
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 	function <%= opts.functionPrefix %>_plugins() {

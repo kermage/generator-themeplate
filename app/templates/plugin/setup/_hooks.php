@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-require_once <%= opts.constantPrefix %>_INCLUDES . 'google-tracking-codes.php';
+require_once <%= opts.constantPrefix %>_PLUGIN_PATH . 'includes/google-tracking-codes.php';
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 	function <%= opts.functionPrefix %>_add_ga() {
