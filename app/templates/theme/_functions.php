@@ -21,7 +21,6 @@ define( '<%= opts.constantPrefix %>_AUTHOR_URI',   wp_get_theme( basename( __DIR
 define( '<%= opts.constantPrefix %>_PARENT_THEME', wp_get_theme( basename( __DIR__ ) )->get( 'Template' ) );
 define( '<%= opts.constantPrefix %>_URL',          get_theme_root_uri( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
 define( '<%= opts.constantPrefix %>_PATH',         get_theme_root( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
-define( '<%= opts.constantPrefix %>_INCLUDES',     <%= opts.constantPrefix %>_PATH . 'includes/' );
 define( '<%= opts.constantPrefix %>_DEBUG',        true );
 // phpcs:enable
 
