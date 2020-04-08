@@ -142,18 +142,6 @@ gulp.task('cssnano', function() {
 
 gulp.task('build:styles', gulp.series('sass', 'cssnano'));
 
-gulp.task('debug:true', function() {
-	return gulp.src('functions.php')
-		.pipe(plugins.replace(/define\( '<%= opts.constantPrefix %>_DEBUG',(\s+)\w+ \);/, 'define( \'<%= opts.constantPrefix %>_DEBUG\',$1true );'))
-		.pipe(gulp.dest('.'));
-});
-
-gulp.task('debug:false', function() {
-	return gulp.src('functions.php')
-		.pipe(plugins.replace(/define\( '<%= opts.constantPrefix %>_DEBUG',(\s+)\w+ \);/, 'define( \'<%= opts.constantPrefix %>_DEBUG\',$1false );'))
-		.pipe(gulp.dest('.'));
-});
-
 gulp.task('lint:scripts', function() {
 	return gulp.src(['src/js/**/*.js'])
 		.pipe(plugins.eslint())
