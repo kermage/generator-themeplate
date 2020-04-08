@@ -30,14 +30,16 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
 	function <%= opts.functionPrefix %>_credit() {
+		$theme = wp_get_theme( <%= opts.constantPrefix %>_BASE );
+
 		return sprintf(
 			'<a href="%1$s" target="_blank">%2$s %3$s</a> %4$s <span class="dashicons dashicons-heart"></span> by <a href="%5$s" target="_blank">%6$s</a>.',
-			<%= opts.constantPrefix %>_URI,
-			<%= opts.constantPrefix %>_NAME,
-			<%= opts.constantPrefix %>_VERSION,
+			$theme->get( 'ThemeURI' ),
+			$theme->get( 'Name' ),
+			$theme->get( 'Version' ),
 			__( 'designed and developed with', '<%= opts.projectSlug %>' ),
-			<%= opts.constantPrefix %>_AUTHOR_URI,
-			<%= opts.constantPrefix %>_AUTHOR
+			$theme->get( 'AuthorURI' ),
+			$theme->get( 'Author' )
 		);
 	}
 	// Add to the admin footer
