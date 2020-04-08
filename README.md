@@ -85,7 +85,16 @@
 - `--to-type={major|minor}`
 - `--to-version={#}`
 
+### Production
+#### 1. Set the theme debug constant to `false`
+- Specifies to serve the minified assets
+- Line is in the theme's `functions.php` file
+
+#### 2. Move out the plugin folder inside the theme
+- Standard and default path at `wp-content/plugins`
+- Plugin folder is named the same with the theme folder
+
 ## License
-Copyright &copy; 2019 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
+Copyright &copy; 2020 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
 
 Licensed under [MIT](LICENSE).
