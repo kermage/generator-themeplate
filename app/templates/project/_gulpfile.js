@@ -6,7 +6,8 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	cssnano = require('cssnano'),
 	rollup = require('@rollup/stream'),
-	babel = require('rollup-plugin-babel'),
+	babel = require('@rollup/plugin-babel').babel,
+	typescript = require('@rollup/plugin-typescript'),
 	buffer = require('vinyl-buffer'),
 	source = require('vinyl-source-stream'),
 	plugins = require('gulp-load-plugins')({camelize: true});
@@ -33,11 +34,15 @@ gulp.task('rollup', function() {
 			format: 'iife',
 			sourcemap: true
 		},
-		plugins: [babel({
-			presets: [
-				['@babel/preset-env', {"modules": false}]
-			]
-		})],
+		plugins: [
+			babel({
+				presets: [
+					['@babel/env', { modules: false }],
+					['@babel/typescript', { allExtensions: true }]
+				]
+			}),
+			typescript({ allowJs: true })
+		],
 	}).pipe(source('<%= opts.projectSlug %>.js'))
 		.pipe(buffer())
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))

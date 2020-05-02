@@ -20,6 +20,9 @@
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
+    "@babel/preset-typescript": "^7.9.0",
+    "@rollup/plugin-babel": "^5.0.0",
+    "@rollup/plugin-typescript": "^4.1.1",
     "@rollup/stream": "^0.1.0",
     "@wordpress/browserslist-config": "^2.6.0",
     "@wordpress/eslint-plugin": "^4.0.0",
@@ -48,9 +51,9 @@
     "gulp-wp-pot": "^2.3.6",
     "minimist": "^1.2.5",
     "rollup": "^2.1.0",
-    "rollup-plugin-babel": "^4.3.3",
     "stylelint": "^13.2.1",
     "stylelint-config-wordpress": "^16.0.0",
+    "typescript": "^3.8.3",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     <% if ( opts.bootstrap ) { %>
