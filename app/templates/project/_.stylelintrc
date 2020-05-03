@@ -6,9 +6,11 @@
 
 	"rules": {
 		"string-quotes": "single"
-	}<% if ( opts.bootstrap ) { %>,
+	},
 
 	"ignoreFiles": [
-		"src/sass/_bootstrap-*.scss"
-	]<% } %>
+		"node_modules/**",
+		"assets/css/*.css"<% if ( opts.bootstrap ) { %>,
+		"src/sass/_bootstrap-*.scss"<% } %>
+	]
 }

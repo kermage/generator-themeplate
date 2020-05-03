@@ -4,6 +4,11 @@
 		"plugin:@typescript-eslint/recommended"
 	],
 
+	"ignorePatterns": [
+		"node_modules/**",
+		"assets/js/*.js"
+	],
+
 	"rules": {
 		"space-in-parens": [
 			"error",
