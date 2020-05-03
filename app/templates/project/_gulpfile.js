@@ -54,21 +54,6 @@ gulp.task('rollup', function() {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('concat', function() {
-	return gulp.src(['src/js/*.js'])
-		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
-		.pipe(plugins.sourcemaps.init())
-		.pipe(plugins.babel({
-			presets: ['@babel/preset-env']
-		}))
-		.pipe(plugins.concat('<%= opts.projectSlug %>.js'))
-		.pipe(plugins.header(banner, { pkg : pkg } ))
-		.pipe(plugins.sourcemaps.write('/'))
-		.pipe(plugins.plumber.stop())
-		.pipe(gulp.dest('assets/js'))
-		.pipe(browserSync.stream());
-});
-
 gulp.task('uglify', function() {
 	return gulp.src(['assets/js/*.js','!assets/js/*.min.js'])
 		.pipe(plugins.plumber({errorHandler: plugins.notify.onError('Error: <%%= error.message %>')}))
@@ -81,7 +66,7 @@ gulp.task('uglify', function() {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('build:scripts', gulp.series(argv['rollup'] ? 'rollup' : 'concat', 'uglify'));
+gulp.task('build:scripts', gulp.series('rollup', 'uglify'));
 
 gulp.task('webp', function() {
 	return gulp.src('src/images/*.{gif,jpg,png}')
