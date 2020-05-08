@@ -36,6 +36,7 @@ gulp.task( 'rollup', function() {
 		},
 		plugins: [
 			babel( {
+				babelHelpers: 'bundled',
 				presets: [
 					[ '@babel/env', { modules: false } ],
 					[ '@babel/typescript', { allExtensions: true } ],
