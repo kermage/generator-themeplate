@@ -6,6 +6,7 @@
 
 	"ignorePatterns": [
 		"node_modules/**",
+		"gulpfile.js",
 		"assets/js/*.js"
 	],
 
