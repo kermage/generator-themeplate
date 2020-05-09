@@ -23,7 +23,6 @@
     "@babel/preset-typescript": "^7.9.0",
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-typescript": "^4.1.1",
-    "@rollup/stream": "^0.1.0",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
     "@wordpress/browserslist-config": "^2.6.0",
@@ -44,6 +43,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^2.0.0",
+    "gulp-rollup-each": "^3.0.2",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
@@ -55,8 +55,6 @@
     "stylelint": "^13.2.1",
     "stylelint-config-wordpress": "^16.0.0",
     "typescript": "^3.8.3",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
     <% if ( opts.bootstrap ) { %>
     "bootstrap": "^4.4.1"
     <% } else { %>

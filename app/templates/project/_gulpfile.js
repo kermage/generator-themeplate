@@ -5,11 +5,9 @@ const gulp = require( 'gulp' ),
 	autoprefixer = require( 'autoprefixer' ),
 	browserSync = require( 'browser-sync' ),
 	cssnano = require( 'cssnano' ),
-	rollup = require( '@rollup/stream' ),
+	rollup = require( 'gulp-rollup-each' ),
 	babel = require( '@rollup/plugin-babel' ).babel,
 	typescript = require( '@rollup/plugin-typescript' ),
-	buffer = require( 'vinyl-buffer' ),
-	source = require( 'vinyl-source-stream' ),
 	plugins = require( 'gulp-load-plugins' )( { camelize: true } );
 
 const pkg = require( './package.json' );
@@ -24,24 +22,23 @@ const banner = [
 ].join( '\n' );
 
 gulp.task( 'rollup', function() {
-	return rollup( {
-		external: [ 'jquery' ],
-		input: 'src/js/<%= opts.projectSlug %>.js',
-		output: {
-			globals: {
-				jquery: 'jQuery',
-			},
-			format: 'iife',
-			sourcemap: true,
-		},
-		plugins: [
-			babel( { babelHelpers: 'bundled' } ),
-			typescript(),
-		],
-	} ).pipe( source( '<%= opts.projectSlug %>.js' ) )
-		.pipe( buffer() )
+	return gulp.src( [ 'src/js/**/*.+(j|t)s' ] )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.sourcemaps.init( { loadMaps: true } ) )
+		.pipe( rollup( {
+			external: [ 'jquery' ],
+			output: {
+				globals: {
+					jquery: 'jQuery',
+				},
+				format: 'iife',
+				sourcemap: true,
+			},
+			plugins: [
+				babel( { babelHelpers: 'bundled' } ),
+				typescript(),
+			],
+		} ) )
 		.pipe( plugins.header( banner, { pkg } ) )
 		.pipe( plugins.sourcemaps.write( '/' ) )
 		.pipe( plugins.plumber.stop() )
