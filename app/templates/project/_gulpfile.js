@@ -35,14 +35,8 @@ gulp.task( 'rollup', function() {
 			sourcemap: true,
 		},
 		plugins: [
-			babel( {
-				babelHelpers: 'bundled',
-				presets: [
-					[ '@babel/env', { modules: false } ],
-					[ '@babel/typescript', { allExtensions: true } ],
-				],
-			} ),
-			typescript( { allowJs: true } ),
+			babel( { babelHelpers: 'bundled' } ),
+			typescript(),
 		],
 	} ).pipe( source( '<%= opts.projectSlug %>.js' ) )
 		.pipe( buffer() )
