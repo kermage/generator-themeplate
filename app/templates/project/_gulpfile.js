@@ -22,7 +22,7 @@ const banner = [
 ].join( '\n' );
 
 gulp.task( 'rollup', function() {
-	return gulp.src( [ 'src/js/**/*.+(j|t)s' ] )
+	return gulp.src( [ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ] )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.sourcemaps.init( { loadMaps: true } ) )
 		.pipe( rollup( {
