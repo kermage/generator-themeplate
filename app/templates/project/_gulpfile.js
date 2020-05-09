@@ -40,6 +40,9 @@ gulp.task( 'rollup', function() {
 			],
 		} ) )
 		.pipe( plugins.header( banner, { pkg } ) )
+		.pipe( plugins.rename( function ( file ) {
+			file.extname = file.extname.replace( 't', 'j' );
+		} ) )
 		.pipe( plugins.sourcemaps.write( '/' ) )
 		.pipe( plugins.plumber.stop() )
 		.pipe( gulp.dest( 'assets/js' ) )
