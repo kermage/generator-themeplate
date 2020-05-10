@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 const gulp = require( 'gulp' ),
+	path = require( 'path' ),
 	argv = require( 'minimist' )( process.argv.slice( 2 ) ),
 	autoprefixer = require( 'autoprefixer' ),
 	browserSync = require( 'browser-sync' ),
@@ -27,20 +28,27 @@ gulp.task( 'rollup', function() {
 		.pipe( plugins.sourcemaps.init( { loadMaps: true } ) )
 		.pipe( rollup( {
 			external: [ 'jquery' ],
-			output: {
-				globals: {
-					jquery: 'jQuery',
-				},
-				format: 'iife',
-				sourcemap: true,
-			},
 			plugins: [
 				babel( { babelHelpers: 'bundled' } ),
 				typescript(),
 			],
+		},
+		function( file ) {
+			var base_file = path.basename( file.path, file.extname );
+			var extension = path.extname( base_file );
+
+			return {
+				globals: {
+					jquery: 'jQuery',
+				},
+				format: extension ? extension.replace( '.', '' ) : 'iife',
+				name: path.basename( base_file, extension ),
+				sourcemap: true,
+			};
 		} ) )
 		.pipe( plugins.header( banner, { pkg } ) )
 		.pipe( plugins.rename( function ( file ) {
+			file.basename = file.basename.replace( path.extname( file.basename ), '' );
 			file.extname = file.extname.replace( 't', 'j' );
 		} ) )
 		.pipe( plugins.sourcemaps.write( '/' ) )
