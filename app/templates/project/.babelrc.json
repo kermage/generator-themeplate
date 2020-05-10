@@ -1,6 +1,6 @@
 {
 	"presets": [
 		[ "@babel/env", { "modules": false } ],
-		[ "@babel/typescript", { "allExtensions": true } ],
+		[ "@babel/typescript", { "allExtensions": true } ]
 	]
 }
