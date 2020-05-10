@@ -7,8 +7,6 @@ const gulp = require( 'gulp' ),
 	browserSync = require( 'browser-sync' ),
 	cssnano = require( 'cssnano' ),
 	rollup = require( 'gulp-rollup-each' ),
-	babel = require( '@rollup/plugin-babel' ).babel,
-	typescript = require( '@rollup/plugin-typescript' ),
 	plugins = require( 'gulp-load-plugins' )( { camelize: true } );
 
 const pkg = require( './package.json' );
@@ -26,26 +24,7 @@ gulp.task( 'rollup', function() {
 	return gulp.src( [ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ] )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.sourcemaps.init( { loadMaps: true } ) )
-		.pipe( rollup( {
-			external: [ 'jquery' ],
-			plugins: [
-				babel( { babelHelpers: 'bundled' } ),
-				typescript(),
-			],
-		},
-		function( file ) {
-			var base_file = path.basename( file.path, file.extname );
-			var extension = path.extname( base_file );
-
-			return {
-				globals: {
-					jquery: 'jQuery',
-				},
-				format: extension ? extension.replace( '.', '' ) : 'iife',
-				name: path.basename( base_file, extension ),
-				sourcemap: true,
-			};
-		} ) )
+		.pipe( rollup( require( './rollup.config.js' ) ) )
 		.pipe( plugins.header( banner, { pkg } ) )
 		.pipe( plugins.rename( function ( file ) {
 			file.basename = file.basename.replace( path.extname( file.basename ), '' );
