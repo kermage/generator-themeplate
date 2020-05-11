@@ -13,6 +13,7 @@
   "exclude": [
     "node_modules",
     "gulpfile.js",
+    "rollup.config.js",
     "assets/js/*.js"
   ]
 }
