@@ -2,8 +2,16 @@ const path = require( 'path' );
 const babel = require( '@rollup/plugin-babel' ).babel;
 const typescript = require( '@rollup/plugin-typescript' );
 
+const external = [
+	'jquery',
+];
+
+const globals = {
+	jquery: 'jQuery',
+};
+
 const config = {
-	external: [ 'jquery' ],
+	external,
 	plugins: [
 		babel( { babelHelpers: 'bundled' } ),
 		typescript(),
@@ -13,14 +21,12 @@ const config = {
 		const extension = path.extname( baseFile );
 
 		return {
-			globals: {
-				jquery: 'jQuery',
-			},
+			globals,
 			format: extension ? extension.replace( '.', '' ) : 'iife',
-			name: path.basename( baseFile, extension ),
+			name: path.basename( baseFile, extension ).replace( /-/g, '_' ),
 			sourcemap: true,
 		};
-	}
+	},
 };
 
 module.exports = config;
