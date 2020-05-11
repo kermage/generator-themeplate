@@ -1,6 +1,9 @@
 {
 	"presets": [
-		[ "@babel/env", { "modules": false } ],
+		[ "@babel/env", { "loose": true, "modules": false } ],
 		[ "@babel/typescript", { "allExtensions": true } ]
+	],
+	"plugins": [
+		"@babel/plugin-proposal-object-rest-spread"
 	]
 }
