@@ -8,7 +8,7 @@
 	- Sass
 	- Autoprefixer
 	- Babel
-	- Concatination
+	- Rollup
 	- Sourcemaps
 	- Minification
 	- Browsersync
@@ -70,16 +70,15 @@
 #### 1. Navigate to the generated directory
 #### 2. Run `gulp`
 - Builds assets
-	- Sass compiled and minified
-	- JS concatenated and minified
-	- Images optimized; loseless
+	- Sass and Javascript/Typescript compiled and minified
+	- Images converted to WebP and optimized; loseless
 - Watches files and assets for changes
 - Starts Browsersync
 
 #### Available Tasks:
-- `gulp bump` - Bump version in files; package and assets
-- `gulp lint` - Run scripts and styles against coding rules set
+- `gulp lint` and `gulp fix` - Run scripts and styles against the coding rules set
 - `gulp pot` - Generate a POT file for the localization
+- `gulp bump` - Bump version in files; package and assets
 
 ##### Bump Options
 - `--to-type={major|minor}`
