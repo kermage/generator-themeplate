@@ -1,25 +1,25 @@
 {
-	"extends": [
-		"plugin:@wordpress/eslint-plugin/recommended-with-formatting",
-		"plugin:@typescript-eslint/recommended"
-	],
+  "extends": [
+    "plugin:@wordpress/eslint-plugin/recommended-with-formatting",
+    "plugin:@typescript-eslint/recommended"
+  ],
 
-	"ignorePatterns": [
-		"node_modules/**",
-		"gulpfile.js",
-		"rollup.config.js",
-		"assets/js/*.js"
-	],
+  "ignorePatterns": [
+    "node_modules/**",
+    "gulpfile.js",
+    "rollup.config.js",
+    "assets/js/*.js"
+  ],
 
-	"rules": {
-		"space-in-parens": [
-			"error",
-			"always"
-		]
-	},
+  "rules": {
+    "space-in-parens": [
+      "error",
+      "always"
+    ]
+  },
 
-	"globals": {
-		"jQuery": true,
-		"<%= opts.functionPrefix %>_options": true
-	}
+  "globals": {
+    "jQuery": true,
+    "<%= opts.functionPrefix %>_options": true
+  }
 }

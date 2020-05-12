@@ -1,16 +1,16 @@
 {
-	"extends": [
-		"stylelint-config-wordpress/scss",
-		"genetiks/config"
-	],
+  "extends": [
+    "stylelint-config-wordpress/scss",
+    "genetiks/config"
+  ],
 
-	"rules": {
-		"string-quotes": "single"
-	},
+  "rules": {
+    "string-quotes": "single"
+  },
 
-	"ignoreFiles": [
-		"node_modules/**",
-		"assets/css/*.css"<% if ( opts.bootstrap ) { %>,
-		"src/sass/_bootstrap-*.scss"<% } %>
-	]
+  "ignoreFiles": [
+    "node_modules/**",
+    "assets/css/*.css"<% if ( opts.bootstrap ) { %>,
+    "src/sass/_bootstrap-*.scss"<% } %>
+  ]
 }
