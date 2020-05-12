@@ -9,9 +9,11 @@
 
 /* generator-themeplate v<%= opts.generatorVersion %> */
 
-/* ==================================================
-Global constants
-================================================== */
+/*
+ * ==================================================
+ * Global constants
+ * ==================================================
+ */
 // phpcs:disable Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma
 define( '<%= opts.constantPrefix %>_BASE',  basename( __DIR__ ) );
 define( '<%= opts.constantPrefix %>_URL',   get_theme_root_uri( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
@@ -22,9 +24,12 @@ define( '<%= opts.constantPrefix %>_DEBUG', true );
 // Better move this folder (<%= opts.projectSlug %>) to the plugins directory, then remove these lines after
 require_once '<%= opts.projectSlug %>/<%= opts.projectSlug %>.php';
 
-/* ==================================================
-Setup Theme
-================================================== */
+
+/*
+ * ==================================================
+ * Setup Theme
+ * ==================================================
+ */
 
 require_once 'setup/features.php';
 require_once 'setup/navigations.php';
@@ -32,7 +37,10 @@ require_once 'setup/widgets.php';
 require_once 'setup/scripts-styles.php';
 require_once 'setup/actions-filters.php';
 
-/* ==================================================
-Extra custom functions
-================================================== */
+
+/*
+ * ==================================================
+ * Extra custom functions
+ * ==================================================
+ */
 

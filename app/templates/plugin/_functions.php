@@ -15,9 +15,11 @@
 
 /* generator-themeplate v<%= opts.generatorVersion %> */
 
-/* ==================================================
-Global constants
-================================================== */
+/*
+ * ==================================================
+ * Global constants
+ * ==================================================
+ */
 // phpcs:disable Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma
 define( '<%= opts.constantPrefix %>_PLUGIN_FILE', __FILE__ );
 define( '<%= opts.constantPrefix %>_PLUGIN_URL',  plugin_dir_url( __FILE__ ) );
@@ -37,9 +39,12 @@ function <%= opts.functionPrefix %>_options( $key = '', $default = false ) {
 	return $value;
 }
 
-/* ==================================================
-Setup Plugin
-================================================== */
+
+/*
+ * ==================================================
+ * Setup Plugin
+ * ==================================================
+ */
 
 if ( class_exists( 'ThemePlate' ) ) :
 	ThemePlate( array(
@@ -54,7 +59,10 @@ endif;
 require_once 'setup/plugins.php';
 require_once 'setup/hooks.php';
 
-/* ==================================================
-Extra custom functions
-================================================== */
+
+/*
+ * ==================================================
+ * Extra custom functions
+ * ==================================================
+ */
 
