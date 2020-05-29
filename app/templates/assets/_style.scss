@@ -1,7 +1,10 @@
-<% if ( opts.bootstrap ) { %>@import 'bootstrap-custom';
-<% } else { %>@import '../../node_modules/normalize.css/normalize';
-<% } %>// A just right amount of clean but powerful toolkit
+// A just right amount of clean but powerful toolkit
 @import '../../node_modules/genetiks/utilities';
+<% if ( opts.bootstrap ) { %>
+@import 'bootstrap-custom';
+<% } else { %>
+@import '../../node_modules/normalize.css/normalize';
+<% } %>
 // Layouts. ThemePlate!
 @import 'layouts/header';
 @import 'layouts/navigation';
