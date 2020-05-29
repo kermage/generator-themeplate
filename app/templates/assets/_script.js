@@ -1,4 +1,7 @@
 import $ from 'jquery';
+<% if ( opts.bootstrap ) { %>
+import './_bootstrap';
+<% } %>
 
 $( document ).ready( function() {
 	// eslint-disable-next-line no-console

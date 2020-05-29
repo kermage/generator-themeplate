@@ -192,11 +192,16 @@ module.exports = class extends Generator {
 			this.templatePath( 'theme/screenshot.png' ),
 			this.destinationPath( 'src/images/screenshot.png' )
 		);
+
 		// Bootstrap
 		if ( this.opts.bootstrap ) {
 			this.fs.copy(
 				this.templatePath( 'assets/_bootstrap-*.scss' ),
 				this.destinationPath( 'src/sass' )
+			);
+			this.fs.copy(
+				this.templatePath( 'assets/_bootstrap.js' ),
+				this.destinationPath( 'src/js/_bootstrap.js' )
 			);
 		}
 
