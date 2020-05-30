@@ -58,6 +58,7 @@ endif;
 
 require_once 'setup/plugins.php';
 require_once 'setup/hooks.php';
+require_once 'setup/actions-filters.php';
 
 
 /*
