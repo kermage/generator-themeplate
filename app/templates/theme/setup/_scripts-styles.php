@@ -47,7 +47,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_late' ) ) {
 		);
 		wp_localize_script( '<%= opts.functionPrefix %>-script', '<%= opts.functionPrefix %>_options', apply_filters( '<%= opts.functionPrefix %>_localize_script', $<%= opts.functionPrefix %>_options ) );
 	}
-	add_action( 'wp_footer', '<%= opts.functionPrefix %>_scripts_styles_late' );
+	add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_scripts_styles_late', 20 );
 }
 
 // Async Scripts
