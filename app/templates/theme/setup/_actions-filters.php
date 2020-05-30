@@ -9,15 +9,14 @@
 
 add_action( 'after_switch_theme', 'flush_rewrite_rules' );
 
-// Move scripts and styles to footer
-if ( ! function_exists( '<%= opts.functionPrefix %>_assets_to_footer' ) ) {
-	function <%= opts.functionPrefix %>_assets_to_footer() {
+// Move all scripts to footer
+if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_to_footer' ) ) {
+	function <%= opts.functionPrefix %>_scripts_to_footer() {
 		remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
-		remove_action( 'wp_head', 'wp_print_styles', 8 );
 		remove_action( 'wp_head', 'wp_print_head_scripts', 9 );
 		remove_action( 'wp_head', 'wp_print_scripts' );
 	}
-	add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_assets_to_footer' );
+	add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_scripts_to_footer' );
 }
 
 // Remove JPEG compression.
