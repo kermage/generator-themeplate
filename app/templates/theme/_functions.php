@@ -15,10 +15,10 @@
  * ==================================================
  */
 // phpcs:disable Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma
-define( '<%= opts.constantPrefix %>_BASE',  basename( __DIR__ ) );
-define( '<%= opts.constantPrefix %>_URL',   get_theme_root_uri( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
-define( '<%= opts.constantPrefix %>_PATH',  get_theme_root( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
-define( '<%= opts.constantPrefix %>_DEBUG', true );
+define( '<%= opts.constantPrefix %>_THEME_BASE',  basename( __DIR__ ) );
+define( '<%= opts.constantPrefix %>_THEME_URL',   get_theme_root_uri( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
+define( '<%= opts.constantPrefix %>_THEME_PATH',  get_theme_root( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
+define( '<%= opts.constantPrefix %>_THEME_DEBUG', true );
 // phpcs:enable
 
 // Better move this folder (<%= opts.projectSlug %>) to the plugins directory, then remove these lines after

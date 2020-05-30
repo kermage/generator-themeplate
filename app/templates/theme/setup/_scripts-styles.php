@@ -9,8 +9,8 @@
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_early' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles_early() {
-		$suffix = ( SCRIPT_DEBUG || <%= opts.constantPrefix %>_DEBUG ) ? '' : '.min';
-		$theme  = wp_get_theme( <%= opts.constantPrefix %>_BASE );
+		$suffix = ( SCRIPT_DEBUG || <%= opts.constantPrefix %>_THEME_DEBUG ) ? '' : '.min';
+		$theme  = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
 
 		// Deregister the jquery version bundled with WordPress
 		wp_deregister_script( 'jquery-core' );
@@ -33,12 +33,12 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_early' ) ) {
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_late' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles_late() {
-		$suffix = ( SCRIPT_DEBUG || <%= opts.constantPrefix %>_DEBUG ) ? '' : '.min';
-		$theme  = wp_get_theme( <%= opts.constantPrefix %>_BASE );
+		$suffix = ( SCRIPT_DEBUG || <%= opts.constantPrefix %>_THEME_DEBUG ) ? '' : '.min';
+		$theme  = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
 
 		// Site scripts and styles
-		wp_enqueue_style( '<%= opts.functionPrefix %>-style', <%= opts.constantPrefix %>_URL . 'assets/css/<%= opts.projectSlug %>' . $suffix . '.css', array(), $theme->get( 'Version' ) );
-		wp_enqueue_script( '<%= opts.functionPrefix %>-script', <%= opts.constantPrefix %>_URL . 'assets/js/<%= opts.projectSlug %>' . $suffix . '.js', array(), $theme->get( 'Version' ), true );
+		wp_enqueue_style( '<%= opts.functionPrefix %>-style', <%= opts.constantPrefix %>_THEME_URL . 'assets/css/<%= opts.projectSlug %>' . $suffix . '.css', array(), $theme->get( 'Version' ) );
+		wp_enqueue_script( '<%= opts.functionPrefix %>-script', <%= opts.constantPrefix %>_THEME_URL . 'assets/js/<%= opts.projectSlug %>' . $suffix . '.js', array(), $theme->get( 'Version' ), true );
 
 		$<%= opts.functionPrefix %>_options = array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),

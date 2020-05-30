@@ -29,7 +29,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 			'after_widget'  => '</section>',
 		) );
 
-		$widgets = glob( <%= opts.constantPrefix %>_PATH . 'widgets/class-*-widget.php' );
+		$widgets = glob( <%= opts.constantPrefix %>_THEME_PATH . 'widgets/class-*-widget.php' );
 
 		foreach ( $widgets as $widget ) {
 			$name = basename( $widget, '.php' );
