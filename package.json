@@ -1,6 +1,6 @@
 {
   "name": "generator-themeplate",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "description": "A Yeoman Generator to kickstart WordPress theme development",
   "keywords": [
     "yeoman-generator",
@@ -21,6 +21,6 @@
     "url": "https://github.com/kermage/generator-themeplate.git"
   },
   "dependencies": {
-    "yeoman-generator": "^4.7.2"
+    "yeoman-generator": "^4.10.1"
   }
 }
