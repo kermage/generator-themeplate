@@ -22,7 +22,7 @@ $theme = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
 				</nav>
 
 				<div class="copyright">
-					Copyright &copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>.
+					<small>Copyright &copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>.</small>
 					<span>Designed and developed by <a href="<?php echo esc_url( $theme->get( 'AuthorURI' ) ); ?>"><?php echo esc_html( $theme->get( 'Author' ) ); ?></a>.</span>
 				</div>
 			</div>
