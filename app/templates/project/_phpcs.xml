@@ -20,7 +20,7 @@
 	</rule>
 
 	<!-- Include PHP cross-version compatibility. -->
-	<config name="testVersion" value="7.1-"/>
+	<config name="testVersion" value="7.3-"/>
 
 	<!-- Include PHP Compatibility Coding Standard for WordPress. -->
 	<rule ref="PHPCompatibilityWP" />
