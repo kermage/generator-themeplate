@@ -16,8 +16,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_early' ) ) {
 		wp_deregister_script( 'jquery' );
 		wp_deregister_script( 'jquery-migrate' );
 		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header
-		wp_register_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery' . $suffix . '.js', array(), '2.2.4', false );
-		wp_register_script( 'jquery-migrate', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate' . $suffix . '.js', array(), '1.4.1', false );
+		wp_register_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery' . $suffix . '.js', array(), '3.5.1', false );
+		wp_register_script( 'jquery-migrate', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate' . $suffix . '.js', array(), '3.3.2', false );
 		wp_add_inline_script( 'jquery', 'jQuery.noConflict();' );
 
 		// jQuery
