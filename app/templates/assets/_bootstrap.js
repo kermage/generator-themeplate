@@ -13,8 +13,8 @@ import Util from 'bootstrap/js/src/util';
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.5.0): index.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Bootstrap (v4.5.3): index.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
