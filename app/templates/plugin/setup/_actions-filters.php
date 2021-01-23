@@ -17,15 +17,6 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_mime_types' ) ) {
 	add_filter( 'upload_mimes', '<%= opts.functionPrefix %>_mime_types' );
 }
 
-// Add SVG as image
-if ( ! function_exists( '<%= opts.functionPrefix %>_ext_types' ) ) {
-	function <%= opts.functionPrefix %>_ext_types( $mimes ) {
-		$mimes['image'][] = 'svg';
-		return $mimes;
-	}
-	add_filter( 'ext2type', '<%= opts.functionPrefix %>_ext_types' );
-}
-
 // Correctly identify SVGs
 if ( ! function_exists( '<%= opts.functionPrefix %>_type_svg' ) ) {
 	function <%= opts.functionPrefix %>_type_svg( $data = null, $file = null, $filename = null ) {
