@@ -34,6 +34,10 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'slug' => 'regenerate-thumbnails-advanced',
 			),
 			array(
+				'name' => 'Safe SVG',
+				'slug' => 'safe-svg',
+			),
+			array(
 				'name' => 'ShortPixel Image Optimizer',
 				'slug' => 'shortpixel-image-optimiser',
 			),
