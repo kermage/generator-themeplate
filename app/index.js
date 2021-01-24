@@ -232,18 +232,14 @@ module.exports = class extends Generator {
 
 	install() {
 		this.log( "\n\nI'm all done. Running " +
-			chalk.yellow.bold( 'npm install' ) +
-			' and ' +
 			chalk.yellow.bold( 'composer install' ) +
+			' and ' +
+			chalk.yellow.bold( 'npm install' ) +
 			' for you to install the required dependencies. If this fails, try running the commands yourself.\n\n'
 		);
 
-		this.installDependencies( {
-			skipMessage: true,
-			bower: false
-		} );
-
-		this.spawnCommand( 'composer', ['install'] );
+		this.spawnCommandSync( 'composer', ['install'] );
+		this.spawnCommandSync( 'npm', ['install'] );
 	}
 
 	end() {
