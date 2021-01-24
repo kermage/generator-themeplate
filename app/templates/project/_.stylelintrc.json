@@ -10,7 +10,7 @@
 
   "ignoreFiles": [
     "node_modules/**",
-    "assets/css/*.css"<% if ( opts.bootstrap ) { %>,
+    "assets/css/*.css"<% if ( 'bootstrap' === opts.framework ) { %>,
     "src/sass/_bootstrap-*.scss"<% } %>
   ]
 }

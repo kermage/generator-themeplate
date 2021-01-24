@@ -8,7 +8,7 @@
  */
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
-	function <%= opts.functionPrefix %>_navigations() {<% if ( opts.bootstrap ) { %>
+	function <%= opts.functionPrefix %>_navigations() {<% if ( 'bootstrap' === opts.framework ) { %>
 		// Bootstrap Nav Walker
 		require_once <%= opts.constantPrefix %>_THEME_PATH . 'includes/class-bootstrap-navbar.php';
 <% } %>
@@ -24,7 +24,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 if ( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 	function <%= opts.functionPrefix %>_primary_menu() {
 		wp_nav_menu( array(
-			'theme_location' => 'primary',<% if ( opts.bootstrap ) { %>
+			'theme_location' => 'primary',<% if ( 'bootstrap' === opts.framework ) { %>
 			'menu_class'     => 'nav navbar-nav',
 			'walker'         => new Bootstrap_NavBar(),<% } %>
 			'depth'          => 0,

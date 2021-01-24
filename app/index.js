@@ -82,10 +82,24 @@ module.exports = class extends Generator {
 				default: true
 			},
 			{
-				type: 'confirm',
-				name: 'bootstrap',
-				message: 'Use Bootstrap?',
-				default: false
+				type: 'list',
+				name: 'framework',
+				message: 'CSS Framework:',
+				choices: [
+					{
+						name: 'Blank Slate',
+						value: 'blank',
+					},
+					{
+						name: 'Twitter Bootstrap',
+						value: 'bootstrap',
+					},
+					{
+						name: 'Tailwind CSS',
+						value: 'tailwind',
+					}
+				],
+				default: 'blank'
 			},
 			{
 				name: 'license',
@@ -193,8 +207,7 @@ module.exports = class extends Generator {
 			this.destinationPath( 'src/images/screenshot.png' )
 		);
 
-		// Bootstrap
-		if ( this.opts.bootstrap ) {
+		if ( 'bootstrap' === this.opts.framework ) {
 			this.fs.copy(
 				this.templatePath( 'assets/_bootstrap-*.scss' ),
 				this.destinationPath( 'src/sass' )

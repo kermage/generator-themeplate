@@ -1,7 +1,11 @@
 // A just right amount of clean but powerful toolkit
 @import '../../node_modules/genetiks/utilities';
-<% if ( opts.bootstrap ) { %>
+<% if ( 'bootstrap' === opts.framework ) { %>
 @import 'bootstrap-custom';
+<% } else if ( 'tailwind' === opts.framework ) { %>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 <% } else { %>
 @import '../../node_modules/normalize.css/normalize';
 <% } %>
