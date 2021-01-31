@@ -9,11 +9,8 @@
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 	function <%= opts.functionPrefix %>_navigations() {
-		<%_ if ( 'bootstrap' === opts.framework ) { _%>
-		// Bootstrap Nav Walker
-		require_once <%= opts.constantPrefix %>_THEME_PATH . 'includes/class-bootstrap-navbar.php';
+		require_once <%= opts.constantPrefix %>_THEME_PATH . 'includes/class-clean-navbar.php';
 
-		<%_ } _%>
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', '<%= opts.projectSlug %>' ),
 			'footer'  => __( 'Footer Menu', '<%= opts.projectSlug %>' ),
@@ -27,10 +24,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 	function <%= opts.functionPrefix %>_primary_menu() {
 		wp_nav_menu( array(
 			'theme_location' => 'primary',
-			<%_ if ( 'bootstrap' === opts.framework ) { _%>
-			'menu_class'     => 'nav navbar-nav',
-			'walker'         => new Bootstrap_NavBar(),
-			<%_ } _%>
+			'menu_class'     => 'navbar-nav',
+			'walker'         => new Clean_NavBar(),
 			'depth'          => 0,
 		) );
 	}

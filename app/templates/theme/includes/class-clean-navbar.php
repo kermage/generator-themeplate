@@ -1,28 +1,30 @@
 <?php
 
 /**
- * Bootstrap NavBar Walker
+ * Clean Navbar Walker
  *
  * @package ThemePlate
  * @since 0.1.0
  */
 
-if ( ! class_exists( 'Bootstrap_NavBar' ) ) {
+if ( ! class_exists( 'Clean_Navbar' ) ) {
 	if ( class_exists( 'ThemePlate_NavWalker' ) ) {
-		class Bootstrap_NavBar extends ThemePlate_NavWalker {
+		class Clean_Navbar extends ThemePlate_NavWalker {
 			public $class = array(
 				'sub-menu' => 'dropdown-menu',
 				'has-sub'  => 'dropdown',
 				'active'   => 'active',
+				'item'     => 'nav-item',
 			);
 
 			public function attributes( $item, $args ) {
-				$atts = array();
+				$atts = array(
+					'class' => 'nav-link',
+				);
 
 				if ( $args->walker->has_children ) {
-					$atts['href']          = '#';
+					$atts['class']        .= ' dropdown-toggle';
 					$atts['data-toggle']   = 'dropdown';
-					$atts['class']         = 'dropdown-toggle';
 					$atts['aria-haspopup'] = 'true';
 				}
 
@@ -30,6 +32,6 @@ if ( ! class_exists( 'Bootstrap_NavBar' ) ) {
 			}
 		}
 	} else {
-		class Bootstrap_NavBar extends Walker_Nav_Menu {}
+		class Clean_Navbar extends Walker_Nav_Menu {}
 	}
 }
