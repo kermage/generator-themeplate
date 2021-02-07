@@ -16,8 +16,8 @@
  */
 // phpcs:disable Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma
 define( '<%= opts.constantPrefix %>_THEME_BASE',  basename( __DIR__ ) );
-define( '<%= opts.constantPrefix %>_THEME_URL',   get_theme_root_uri( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
-define( '<%= opts.constantPrefix %>_THEME_PATH',  get_theme_root( basename( __DIR__ ) ) . '/' . basename( __DIR__ ) . '/' );
+define( '<%= opts.constantPrefix %>_THEME_URL',   get_theme_root_uri( <%= opts.constantPrefix %>_THEME_BASE ) . '/' . <%= opts.constantPrefix %>_THEME_BASE . '/' );
+define( '<%= opts.constantPrefix %>_THEME_PATH',  get_theme_root( <%= opts.constantPrefix %>_THEME_BASE ) . '/' . <%= opts.constantPrefix %>_THEME_BASE . '/' );
 define( '<%= opts.constantPrefix %>_THEME_DEBUG', true );
 
 define( '<%= opts.constantPrefix %>_THEME_REQUIRES', array(
