@@ -38,7 +38,6 @@ function <%= opts.functionPrefix %>_notice() {
 }
 
 function <%= opts.functionPrefix %>_switch_theme() {
-	echo 'asd';
 	switch_theme( WP_DEFAULT_THEME );
 	unset( $_GET['activated'] );
 	add_action( 'admin_notices', '<%= opts.functionPrefix %>_notice' );
