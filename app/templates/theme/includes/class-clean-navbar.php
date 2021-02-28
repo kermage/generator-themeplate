@@ -8,8 +8,8 @@
  */
 
 if ( ! class_exists( 'Clean_Navbar' ) ) {
-	if ( class_exists( 'ThemePlate_NavWalker' ) ) {
-		class Clean_Navbar extends ThemePlate_NavWalker {
+	if ( class_exists( 'ThemePlate\NavWalker' ) ) {
+		class Clean_Navbar extends ThemePlate\NavWalker {
 			public $class = array(
 				'sub-menu' => 'dropdown-menu',
 				'has-sub'  => 'dropdown',

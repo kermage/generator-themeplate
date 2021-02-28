@@ -17,7 +17,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'name'             => 'ThemePlate',
 				'slug'             => 'themeplate',
 				'required'         => true,
-				'source'           => 'https://github.com/kermage/ThemePlate/releases/download/v3.16.1/themeplate.zip',
+				'source'           => 'https://github.com/kermage/ThemePlate/releases/download/v3.17.0/themeplate.zip',
 				'force_activation' => true,
 			),
 			array(
