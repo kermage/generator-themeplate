@@ -42,6 +42,10 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'slug' => 'shortpixel-image-optimiser',
 			),
 			array(
+				'name' => 'UpdraftPlus - Backup/Restore',
+				'slug' => 'updraftplus',
+			),
+			array(
 				'name' => 'W3 Total Cache',
 				'slug' => 'w3-total-cache',
 			),

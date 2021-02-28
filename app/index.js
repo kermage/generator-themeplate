@@ -99,7 +99,7 @@ module.exports = class extends Generator {
 						value: 'tailwind',
 					}
 				],
-				default: 'blank'
+				default: 'tailwind'
 			},
 			{
 				name: 'license',
