@@ -54,6 +54,10 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'slug' => 'wordfence',
 			),
 			array(
+				'name' => 'WP Mail SMTP by WPForms',
+				'slug' => 'wp-mail-smtp',
+			),
+			array(
 				'name' => 'Yoast SEO',
 				'slug' => 'wordpress-seo',
 			),
