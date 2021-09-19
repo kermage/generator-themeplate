@@ -18,7 +18,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 		// Add theme support for Automatic Feed Links
 		add_theme_support( 'automatic-feed-links' );
 		// Add theme support for HTML5 Semantic Markup
-		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
 		// Add theme support for document Title tag
 		add_theme_support( 'title-tag' );
 
