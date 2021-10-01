@@ -77,7 +77,7 @@ gulp.task( 'sass', function() {
 	return gulp.src( 'src/sass/*.s+(a|c)ss' )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.sourcemaps.init() )
-		.pipe( plugins.sass( {
+		.pipe( plugins.sass( require( 'sass' ) )( {
 			outputStyle: 'expanded',
 		} ) )
 		.pipe( plugins.postcss( { minified: false } ) )
