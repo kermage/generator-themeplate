@@ -58,7 +58,7 @@
     "stylelint-config-wordpress": "^17.0.0",
     "typescript": "^4.1.3",
     <%_ if ( 'bootstrap' === opts.framework ) { _%>
-    "bootstrap": "~4.6.0",
+    "bootstrap": "~5.1.1",
     "@popperjs/core": "^2.6.0"
     <%_ } else if ( 'tailwind' === opts.framework ) { _%>
     "tailwindcss": "^2.0.2"
