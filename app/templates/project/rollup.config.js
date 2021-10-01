@@ -1,6 +1,7 @@
 const path = require( 'path' );
 const babel = require( '@rollup/plugin-babel' ).babel;
 const resolve = require( '@rollup/plugin-node-resolve' ).nodeResolve;
+const replace = require( '@rollup/plugin-replace' );
 const typescript = require( '@rollup/plugin-typescript' );
 
 const external = [
@@ -15,6 +16,10 @@ const config = {
 	external,
 	plugins: [
 		babel( { babelHelpers: 'bundled' } ),
+		replace( {
+			preventAssignment: true,
+			'process.env.NODE_ENV': process.env.NODE_ENV,
+		} ),
 		resolve(),
 		typescript(),
 	],

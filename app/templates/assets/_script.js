@@ -1,7 +1,7 @@
 // External jQuery
 import $ from 'jquery';
-<% if ( 'bootstrap' === opts.framework ) { %>
-import './_bootstrap';
+<%_ if ( 'bootstrap' === opts.framework ) { _%>
+import bootstrap from './_bootstrap';
 <% } %>
 $( document ).ready( function() {
 	// eslint-disable-next-line no-console
