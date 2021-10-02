@@ -12,9 +12,6 @@
   },
   "exclude": [
     "node_modules",
-    "gulpfile.js",
-    "postcss.config.js",
-    "rollup.config.js",
-    "assets/js/*.js"
+    "assets/js/**/*.js"
   ]
 }

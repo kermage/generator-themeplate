@@ -13,6 +13,6 @@
     <%_ if ( 'bootstrap' === opts.framework ) { _%>
     "src/sass/_bootstrap-*.scss",
     <%_ } _%>
-    "assets/css/*.css"
+    "assets/css/**/*.css"
   ]
 }
