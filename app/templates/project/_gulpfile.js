@@ -21,6 +21,16 @@ const banner = [
 const productionMode = argv[ 'production' ];
 process.env.NODE_ENV = productionMode ? 'production' : 'development';
 
+const betterLastRun = function( file, task ) {
+	const lastRun = gulp.lastRun( task );
+
+	if ( lastRun <= file.stat.ctime ) {
+		return 0;
+	}
+
+	return lastRun;
+}
+
 gulp.task( 'rollup', function() {
 	return gulp.src( [ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ] )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
@@ -38,7 +48,7 @@ gulp.task( 'rollup', function() {
 } );
 
 gulp.task( 'uglify', function() {
-	return gulp.src( [ 'assets/js/*.js', '!assets/js/*.min.js' ] )
+	return gulp.src( [ 'assets/js/**/*.js', '!assets/js/**/*.min.js' ] )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.uglify( {
 			output: { comments: /^!/ },
@@ -52,7 +62,7 @@ gulp.task( 'uglify', function() {
 gulp.task( 'build:scripts', gulp.series( 'rollup', productionMode ? 'uglify' : [] ) );
 
 gulp.task( 'webp', function() {
-	return gulp.src( 'src/images/*.{gif,jpg,png}' )
+	return gulp.src( 'src/images/**/*.{gif,jpg,png}' )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.webp( { quality: 100 } ) )
 		.pipe( plugins.plumber.stop() )
@@ -61,7 +71,7 @@ gulp.task( 'webp', function() {
 } );
 
 gulp.task( 'imagemin', function() {
-	return gulp.src( 'src/images/*.{gif,jpg,png,svg}' )
+	return gulp.src( 'src/images/**/*.{gif,jpg,png,svg}' )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.imagemin( [
 			plugins.imagemin.svgo( { plugins: [ { removeViewBox: true } ] } ),
@@ -75,7 +85,7 @@ gulp.task( 'imagemin', function() {
 } );
 
 gulp.task( 'imagecopy', function() {
-	return gulp.src( 'src/images/*.{gif,jpg,png,svg}' )
+	return gulp.src( 'src/images/**/*.{gif,jpg,png,svg}' )
 		.pipe( gulp.dest( 'assets/images' ) )
 		.pipe( browserSync.stream() );
 } );
@@ -83,7 +93,7 @@ gulp.task( 'imagecopy', function() {
 gulp.task( 'build:images', gulp.series( 'webp', productionMode ? 'imagemin' : 'imagecopy' ) );
 
 gulp.task( 'sass', function() {
-	return gulp.src( 'src/sass/*.s+(a|c)ss' )
+	return gulp.src( 'src/sass/**/*.s+(a|c)ss' )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.sourcemaps.init() )
 		.pipe( plugins.sass( require( 'sass' ) )( {
@@ -98,7 +108,7 @@ gulp.task( 'sass', function() {
 } );
 
 gulp.task( 'cssnano', function() {
-	return gulp.src( [ 'assets/css/*.css', '!assets/css/*.min.css' ] )
+	return gulp.src( [ 'assets/css/**/*.css', '!assets/css/**/*.min.css' ] )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.postcss( { minified: true } ) )
 		.pipe( plugins.rename( { suffix: '.min' } ) )
@@ -143,7 +153,7 @@ gulp.task( 'fix:styles', function() {
 
 gulp.task( 'watch', function() {
 	gulp.watch( 'src/js/**/*.{js,ts}', gulp.series( 'build:scripts' ) );
-	gulp.watch( 'src/images/**/*.{gif,jpg,png}', gulp.series( 'build:images' ) );
+	gulp.watch( 'src/images/**/*.{gif,jpg,png,svg}', gulp.series( 'build:images' ) );
 	gulp.watch( 'src/sass/**/*.{scss,sass}', gulp.series( 'build:styles' ) );
 } );
 
