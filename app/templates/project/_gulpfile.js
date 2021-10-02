@@ -74,7 +74,13 @@ gulp.task( 'imagemin', function() {
 		.pipe( browserSync.stream() );
 } );
 
-gulp.task( 'build:images', gulp.series( 'webp', productionMode ? 'imagemin' : [] ) );
+gulp.task( 'imagecopy', function() {
+	return gulp.src( 'src/images/*.{gif,jpg,png,svg}' )
+		.pipe( gulp.dest( 'assets/images' ) )
+		.pipe( browserSync.stream() );
+} );
+
+gulp.task( 'build:images', gulp.series( 'webp', productionMode ? 'imagemin' : 'imagecopy' ) );
 
 gulp.task( 'sass', function() {
 	return gulp.src( 'src/sass/*.s+(a|c)ss' )
