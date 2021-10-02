@@ -15,7 +15,10 @@ const globals = {
 const config = {
 	external,
 	plugins: [
-		babel( { babelHelpers: 'bundled' } ),
+		babel( {
+			babelHelpers: 'bundled',
+			exclude: 'node_modules/**',
+		} ),
 		replace( {
 			preventAssignment: true,
 			'process.env.NODE_ENV': process.env.NODE_ENV,

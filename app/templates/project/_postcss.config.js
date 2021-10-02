@@ -1,4 +1,4 @@
-module.exports = context => {
+module.exports = ( context ) => {
 	const options = context.options;
 	const plugins = {};
 
@@ -20,4 +20,4 @@ module.exports = context => {
 	}
 
 	return { plugins };
-}
+};
