@@ -18,6 +18,9 @@ const banner = [
 	'',
 ].join( '\n' );
 
+const productionMode = argv[ 'production' ];
+process.env.NODE_ENV = productionMode ? 'production' : 'development';
+
 gulp.task( 'rollup', function() {
 	return gulp.src( [ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ] )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
@@ -46,7 +49,7 @@ gulp.task( 'uglify', function() {
 		.pipe( browserSync.stream() );
 } );
 
-gulp.task( 'build:scripts', gulp.series( 'rollup', 'uglify' ) );
+gulp.task( 'build:scripts', gulp.series( 'rollup', productionMode ? 'uglify' : [] ) );
 
 gulp.task( 'webp', function() {
 	return gulp.src( 'src/images/*.{gif,jpg,png}' )
@@ -71,7 +74,7 @@ gulp.task( 'imagemin', function() {
 		.pipe( browserSync.stream() );
 } );
 
-gulp.task( 'build:images', gulp.series( 'webp', 'imagemin' ) );
+gulp.task( 'build:images', gulp.series( 'webp', productionMode ? 'imagemin' : [] ) );
 
 gulp.task( 'sass', function() {
 	return gulp.src( 'src/sass/*.s+(a|c)ss' )
@@ -98,7 +101,7 @@ gulp.task( 'cssnano', function() {
 		.pipe( browserSync.stream() );
 } );
 
-gulp.task( 'build:styles', gulp.series( 'sass', 'cssnano' ) );
+gulp.task( 'build:styles', gulp.series( 'sass', productionMode ? 'cssnano' : [] ) );
 
 gulp.task( 'lint:scripts', function() {
 	return gulp.src( [ 'src/js/**/*.+(j|t)s' ] )
