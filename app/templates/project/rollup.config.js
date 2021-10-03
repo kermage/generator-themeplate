@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const path = require( 'path' );
 const babel = require( '@rollup/plugin-babel' ).babel;
 const resolve = require( '@rollup/plugin-node-resolve' ).nodeResolve;

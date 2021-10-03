@@ -10,9 +10,11 @@
   ],
 
   "rules": {
-    "space-in-parens": [
-      "error",
-      "always"
+    "import/no-unresolved": [
+      2,
+      {
+        "ignore": ["^jquery$"]
+      }
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off"
   },
@@ -27,7 +29,7 @@
   ],
 
   "globals": {
-    "jQuery": true,
-    "<%= opts.functionPrefix %>_options": true
+    "jQuery": "readonly",
+    "<%= opts.functionPrefix %>_options": "writable"
   }
 }

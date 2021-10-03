@@ -1,4 +1,3 @@
-// External jQuery
 import $ from 'jquery';
 <%_ if ( 'bootstrap' === opts.framework ) { _%>
 import bootstrap from './_bootstrap';
