@@ -1,5 +1,6 @@
 # Browsers that we support
 
-extends @wordpress/browserslist-config
-
-IE 10
+> 0.1%
+last 2 versions
+not dead
+not ie 11
