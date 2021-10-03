@@ -32,7 +32,7 @@ const betterLastRun = function( file, task ) {
 }
 
 gulp.task( 'rollup', function() {
-	return gulp.src( [ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ] )
+	return gulp.src( [ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ], { since: ( file ) => betterLastRun( file, 'rollup' ) } )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.sourcemaps.init( { loadMaps: true } ) )
 		.pipe( rollup( require( './rollup.config.js' ) ) )
@@ -48,7 +48,7 @@ gulp.task( 'rollup', function() {
 } );
 
 gulp.task( 'uglify', function() {
-	return gulp.src( [ 'assets/js/**/*.js', '!assets/js/**/*.min.js' ] )
+	return gulp.src( [ 'assets/js/**/*.js', '!assets/js/**/*.min.js' ], { since: ( file ) => betterLastRun( file, 'uglify' ) } )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.uglify( {
 			output: { comments: /^!/ },
@@ -62,7 +62,7 @@ gulp.task( 'uglify', function() {
 gulp.task( 'build:scripts', gulp.series( 'rollup', productionMode ? 'uglify' : [] ) );
 
 gulp.task( 'webp', function() {
-	return gulp.src( 'src/images/**/*.{gif,jpg,png}' )
+	return gulp.src( 'src/images/**/*.{gif,jpg,png}', { since: ( file ) => betterLastRun( file, 'webp' ) } )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.webp( { quality: 100 } ) )
 		.pipe( plugins.plumber.stop() )
@@ -71,7 +71,7 @@ gulp.task( 'webp', function() {
 } );
 
 gulp.task( 'imagemin', function() {
-	return gulp.src( 'src/images/**/*.{gif,jpg,png,svg}' )
+	return gulp.src( 'src/images/**/*.{gif,jpg,png,svg}', { since: ( file ) => betterLastRun( file, 'imagemin' ) } )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.imagemin( [
 			plugins.imagemin.svgo( { plugins: [ { removeViewBox: true } ] } ),
@@ -85,7 +85,7 @@ gulp.task( 'imagemin', function() {
 } );
 
 gulp.task( 'imagecopy', function() {
-	return gulp.src( 'src/images/**/*.{gif,jpg,png,svg}' )
+	return gulp.src( 'src/images/**/*.{gif,jpg,png,svg}', { since: ( file ) => betterLastRun( file, 'imagecopy' ) } )
 		.pipe( gulp.dest( 'assets/images' ) )
 		.pipe( browserSync.stream() );
 } );
@@ -93,7 +93,7 @@ gulp.task( 'imagecopy', function() {
 gulp.task( 'build:images', gulp.series( 'webp', productionMode ? 'imagemin' : 'imagecopy' ) );
 
 gulp.task( 'sass', function() {
-	return gulp.src( 'src/sass/**/*.s+(a|c)ss' )
+	return gulp.src( 'src/sass/**/*.s+(a|c)ss', { since: ( file ) => betterLastRun( file, 'sass' ) } )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.sourcemaps.init() )
 		.pipe( plugins.sass( require( 'sass' ) )( {
@@ -108,7 +108,7 @@ gulp.task( 'sass', function() {
 } );
 
 gulp.task( 'cssnano', function() {
-	return gulp.src( [ 'assets/css/**/*.css', '!assets/css/**/*.min.css' ] )
+	return gulp.src( [ 'assets/css/**/*.css', '!assets/css/**/*.min.css' ], { since: ( file ) => betterLastRun( file, 'cssnano' ) } )
 		.pipe( plugins.plumber( { errorHandler: plugins.notify.onError( 'Error: <%%= error.message %>' ) } ) )
 		.pipe( plugins.postcss( { minified: true } ) )
 		.pipe( plugins.rename( { suffix: '.min' } ) )
