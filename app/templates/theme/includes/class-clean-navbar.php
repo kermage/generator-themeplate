@@ -10,17 +10,15 @@
 if ( ! class_exists( 'Clean_Navbar' ) ) {
 	if ( class_exists( 'ThemePlate\NavWalker' ) ) {
 		class Clean_Navbar extends ThemePlate\NavWalker {
-			public $class = array(
+			public $classes = array(
 				'sub-menu' => 'dropdown-menu',
 				'has-sub'  => 'dropdown',
 				'active'   => 'active',
 				'item'     => 'nav-item',
 			);
 
-			public function attributes( $item, $args ) {
-				$atts = array(
-					'class' => 'nav-link',
-				);
+			public function link_attributes( $atts, $item, $args, $depth ) {
+				$atts['class'] = 'nav-link';
 
 				if ( $args->walker->has_children ) {
 					$atts['class']        .= ' dropdown-toggle';
