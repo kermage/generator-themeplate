@@ -18,7 +18,7 @@ const banner = [
 	'',
 ].join( '\n' );
 
-const productionMode = argv[ 'production' ];
+const productionMode = argv.production;
 process.env.NODE_ENV = productionMode ? 'production' : 'development';
 
 const betterLastRun = function( file, task ) {
@@ -29,7 +29,7 @@ const betterLastRun = function( file, task ) {
 	}
 
 	return lastRun;
-}
+};
 
 gulp.task( 'rollup', function() {
 	return gulp.src( [ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ], { since: ( file ) => betterLastRun( file, 'rollup' ) } )
@@ -37,7 +37,7 @@ gulp.task( 'rollup', function() {
 		.pipe( plugins.sourcemaps.init( { loadMaps: true } ) )
 		.pipe( rollup( require( './rollup.config.js' ) ) )
 		.pipe( plugins.header( banner, { pkg } ) )
-		.pipe( plugins.rename( function ( file ) {
+		.pipe( plugins.rename( function( file ) {
 			file.basename = file.basename.replace( path.extname( file.basename ), '' );
 			file.extname = file.extname.replace( 't', 'j' );
 		} ) )
