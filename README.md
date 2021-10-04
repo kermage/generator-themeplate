@@ -7,6 +7,7 @@
 - Streamlined with Gulp
 	- Sass
 	- Autoprefixer
+	- Typescript
 	- Babel
 	- Rollup
 	- Sourcemaps
@@ -17,10 +18,12 @@
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - Font Awesome [v5](https://fontawesome.com/) *(optional)*
 - CSS Framework options
-	- Twitter Bootstrap [v4](https://getbootstrap.com/)
+	- Tailwind CSS [v2](https://tailwindcss.com/)
+	- Twitter Bootstrap [v5](https://getbootstrap.com/)
 	- Blank Slate *(with [normalize.css](https://necolas.github.io/normalize.css/))*
 - Pre-included boilerplates and functions
 	- Base theme template files
+	- Compatibility checks
 	- Theme Features
 	- Navigations
 	- Widgets
@@ -29,7 +32,7 @@
 	- Plugins *(required/recommended)*
 	- Custom forms/fields *(metaboxes)*
 	- Custom post types and taxonomies
-	- Bootstrap nav walker *(optional)*
+	- Clean navbar walker
 	- Google tracking codes
 	- Asynchronous loading and deferred execution of scripts
 
@@ -60,7 +63,7 @@
 ? Class Prefix:
 ? Constant Prefix:
 ? Use Font Awesome? (Y/n)
-? Use Bootstrap? (y/N)
+? CSS Framework:
 ? License:
 ? License URI:
 ? Local Server:
@@ -70,8 +73,8 @@
 #### 1. Navigate to the generated directory
 #### 2. Run `gulp`
 - Builds assets
-	- Sass and Javascript/Typescript compiled and minified
-	- Images converted to WebP and optimized; loseless
+	- Sass and Javascript/Typescript compiled
+	- Images copied with WebP format
 - Watches files and assets for changes
 - Starts Browsersync
 
@@ -85,11 +88,14 @@
 - `--to-version={#}`
 
 ### Production
-#### 1. Set the theme debug constant to `false`
+#### 1. Run `gulp build --production`
+- Assets minified (images optimized; loseless)
+
+#### 2. Set the theme debug constant to `false`
 - Specifies to serve the minified assets
 - Line is in the theme's `functions.php` file
 
-#### 2. Move out the plugin folder inside the theme
+#### 3. Move out the plugin folder inside the theme
 - Standard and default path at `wp-content/plugins`
 - Plugin folder is named the same with the theme folder
 
