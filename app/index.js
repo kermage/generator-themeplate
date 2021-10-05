@@ -220,7 +220,7 @@ module.exports = class extends Generator {
 
 		if ( 'tailwind' === this.opts.framework ) {
 			this.fs.copy(
-				this.templatePath( 'project/tailwind.config.js' ),
+				this.templatePath( 'assets/tailwind.config.js' ),
 				this.destinationPath( 'tailwind.config.js' ),
 			);
 		}
