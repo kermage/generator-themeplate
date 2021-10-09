@@ -8,14 +8,14 @@
  */
 
 function <%= opts.functionPrefix %>_upgrade_message() {
-	$theme = wp_get_theme( <%= opts.constantPrefix %>_BASE );
+	$theme = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
 
 	$requirement = sprintf(
 		/* translators: 1. PHP version, 2. WordPress version */
 		__( '<strong>%1$s</strong> requires at least PHP version <strong>%2$s</strong> and WordPress version <strong>%3$s</strong>.', '<%= opts.projectSlug %>' ),
 		$theme->get( 'Name' ),
-		<%= opts.constantPrefix %>_REQUIRES['PHP'],
-		<%= opts.constantPrefix %>_REQUIRES['WP']
+		<%= opts.constantPrefix %>_THEME_REQUIRES['PHP'],
+		<%= opts.constantPrefix %>_THEME_REQUIRES['WP']
 	);
 
 	$installed = sprintf(
