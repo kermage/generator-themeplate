@@ -15,6 +15,11 @@
 
 /* generator-themeplate v<%= opts.generatorVersion %> */
 
+// Accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /*
  * ==================================================
  * Global constants
