@@ -10,7 +10,9 @@
  * License:     <%= opts.license %>
  * License URI: <%= opts.licenseURI %>
  * Text Domain: <%= opts.projectSlug %>
- * Tags:        generator-themeplate, translation-ready, accessibility-ready
+ *
+ * @package <%= opts.projectName %>
+ * @since 0.1.0
  */
 
 /* generator-themeplate v<%= opts.generatorVersion %> */
