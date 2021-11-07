@@ -33,6 +33,10 @@ function <%= opts.functionPrefix %>_upgrade_message() {
 	);
 }
 
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	WP_CLI::error( <%= opts.functionPrefix %>_upgrade_message() );
+}
+
 function <%= opts.functionPrefix %>_notice() {
 	printf( '<div class="error">%s</div>', <%= opts.functionPrefix %>_upgrade_message() ); // phpcs:ignore WordPress.Security.EscapeOutput
 }
