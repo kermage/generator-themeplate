@@ -11,6 +11,10 @@
  * License URI: <%= opts.licenseURI %>
  * Text Domain: <%= opts.projectSlug %>
  *
+ * Requires at least: 5.9
+ * Tested up to:      5.9
+ * Requires PHP:      7.4
+ *
  * @package <%= opts.projectName %>
  * @since 0.1.0
  */

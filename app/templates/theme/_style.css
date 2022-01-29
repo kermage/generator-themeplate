@@ -9,5 +9,9 @@
  * License URI: <%= opts.licenseURI %>
  * Text Domain: <%= opts.projectSlug %>
  * Tags:        generator-themeplate, translation-ready, accessibility-ready
+ *
+ * Requires at least: 5.9
+ * Tested up to:      5.9
+ * Requires PHP:      7.4
+ *
  */
-
