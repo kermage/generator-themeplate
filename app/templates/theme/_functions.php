@@ -38,7 +38,18 @@ if ( version_compare( PHP_VERSION, <%= opts.constantPrefix %>_THEME_REQUIRES['PH
 }
 
 // Better move this folder (<%= opts.projectSlug %>) to the plugins directory, then remove these lines after
-require_once '<%= opts.projectSlug %>/<%= opts.projectSlug %>.php';
+if ( file_exists( <%= opts.constantPrefix %>_THEME_PATH . '<%= opts.projectSlug %>/<%= opts.projectSlug %>.php' ) ) {
+	function <%= opts.functionPrefix %>_stock_notice() {
+		printf(
+			'<div class="notice notice-info"><p>Better move <strong>%s</strong> to <strong>%s</strong>.</p></div>',
+			wp_normalize_path( <%= opts.constantPrefix %>_PLUGIN_PATH ),
+			wp_normalize_path( WP_PLUGIN_DIR )
+		);
+	}
+
+	add_action( 'admin_notices', '<%= opts.functionPrefix %>_stock_notice' );
+	require_once '<%= opts.projectSlug %>/<%= opts.projectSlug %>.php';
+}
 
 
 /*
