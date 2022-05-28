@@ -32,6 +32,24 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 	} else {
 		class Clean_Navbar extends Walker_Nav_Menu {}
 
+		add_filter( 'nav_menu_submenu_css_class', function() {
+			return array( 'dropdown-menu' );
+		} );
+
+		add_filter( 'nav_menu_css_class', function() {
+			return array( 'nav-item' );
+		} );
+
+		add_filter( 'nav_menu_item_id', function() {
+			return '';
+		} );
+
+		add_filter( 'nav_menu_link_attributes', function( $atts ) {
+			$atts['class'] = 'nav-link';
+
+			return $atts;
+		} );
+
 		add_filter( 'wp_nav_menu_args', function( $args ) {
 			if ( 'wp_page_menu' === $args['fallback_cb'] ) {
 				$args['fallback_cb'] = function( $args ) {
@@ -41,8 +59,8 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 						'a menu',
 					);
 
-					$nav_menu = '<ul><li>' . implode( '</li><li>', array_map( function( $text ) {
-						return '<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . $text . '</a>';
+					$nav_menu = '<ul><li class="nav-item">' . implode( '</li><li class="nav-item">', array_map( function( $text ) {
+						return '<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">' . $text . '</a>';
 					}, $texts ) ) . '</li></ul>';
 
 					if ( $args['echo'] ) {
@@ -51,6 +69,10 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 						return $nav_menu;
 					}
 				};
+			}
+
+			if ( '<ul id="%1$s" class="%2$s">%3$s</ul>' === $args['items_wrap'] ) {
+				$args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
 			}
 
 			return $args;
