@@ -28,20 +28,6 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 			'before_widget' => '<section class="widget %2$s">',
 			'after_widget'  => '</section>',
 		) );
-
-		$widgets = glob( <%= opts.constantPrefix %>_THEME_PATH . 'widgets/class-*-widget.php' );
-
-		foreach ( $widgets as $widget ) {
-			$name = basename( $widget, '.php' );
-			$name = str_replace( array( 'class-', '-widget' ), array( '', '_Widget' ), $name );
-			$name = ucfirst( $name );
-
-			require_once $widget;
-
-			if ( class_exists( '<%= opts.classPrefix %>_' . $name ) ) {
-				register_widget( '<%= opts.classPrefix %>_' . $name );
-			}
-		}
 	}
 	add_action( 'widgets_init', '<%= opts.functionPrefix %>_widgets_init' );
 }
