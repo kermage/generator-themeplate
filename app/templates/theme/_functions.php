@@ -27,7 +27,7 @@ define( '<%= opts.constantPrefix %>_THEME_DEBUG', true );
 
 define( '<%= opts.constantPrefix %>_THEME_REQUIRES', array(
 	'PHP' => '7.4',
-	'WP'  => '5.9',
+	'WP'  => '6.0',
 ) );
 // phpcs:enable
 

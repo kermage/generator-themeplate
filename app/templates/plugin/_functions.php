@@ -11,8 +11,8 @@
  * License URI: <%= opts.licenseURI %>
  * Text Domain: <%= opts.projectSlug %>
  *
- * Requires at least: 5.9
- * Tested up to:      5.9
+ * Requires at least: 6.0
+ * Tested up to:      6.0
  * Requires PHP:      7.4
  *
  * @package <%= opts.projectName %>
@@ -38,6 +38,16 @@ define( '<%= opts.constantPrefix %>_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 // phpcs:enable
 
 function <%= opts.functionPrefix %>_options( $key = '', $default = false ) {
+	if ( class_exists( 'ThemePlate' ) && ThemePlate::is_initialized() ) {
+		$value = ThemePlate()->get_option( $key );
+
+		if ( ! $value ) {
+			$value = $default;
+		}
+
+		return $value;
+	}
+
 	$options = get_option( '<%= opts.functionPrefix %>-options', $default );
 	$value   = $default;
 
