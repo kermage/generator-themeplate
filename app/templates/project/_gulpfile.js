@@ -5,7 +5,7 @@ const gulp = require( 'gulp' ),
 	argv = require( 'minimist' )( process.argv.slice( 2 ) ),
 	browserSync = require( 'browser-sync' ),
 	rollup = require( 'gulp-rollup-each' ),
-	plugins = require( 'gulp-load-plugins' )( { camelize: true } );
+	plugins = require( 'gulp-load-plugins' )( { maintainScope: false } );
 
 const pkg = require( './package.json' );
 const banner = [
