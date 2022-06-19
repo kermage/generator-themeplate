@@ -32,4 +32,4 @@ $theme = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
 	</body>
 </html>
 
-<!-- A generator-themeplate project -->
+<!-- A generator-themeplate project - https://github.com/kermage/generator-themeplate -->

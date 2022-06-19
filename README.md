@@ -18,7 +18,7 @@
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - Font Awesome [v5](https://fontawesome.com/) *(optional)*
 - CSS Framework options
-	- Tailwind CSS [v2](https://tailwindcss.com/)
+	- Tailwind CSS [v3](https://tailwindcss.com/)
 	- Twitter Bootstrap [v5](https://getbootstrap.com/)
 	- Blank Slate *(with [normalize.css](https://necolas.github.io/normalize.css/))*
 - Pre-included boilerplates and functions
@@ -100,6 +100,6 @@
 - Plugin folder is named the same with the theme folder
 
 ## License
-Copyright &copy; 2021 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
+Copyright &copy; 2022 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
 
 Licensed under [MIT](LICENSE).
