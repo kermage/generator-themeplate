@@ -52,7 +52,7 @@
 			<div class="navbar">
 				<div class="container">
 					<nav class="sitenav">
-						<?php <%= opts.functionPrefix %>_primary_menu(); ?>
+						<?php <%= opts.functionPrefix %>_primary_menu( array( 'navbar-nav' ) ); ?>
 					</nav>
 				</div>
 			</div><!-- .navbar -->

@@ -21,10 +21,10 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 
 // Primary Menu
 if ( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
-	function <%= opts.functionPrefix %>_primary_menu() {
+	function <%= opts.functionPrefix %>_primary_menu( $classes = array() ) {
 		wp_nav_menu( array(
 			'theme_location' => 'primary',
-			'menu_class'     => 'navbar-nav',
+			'menu_class'     => implode( ' ', $classes ),
 			'walker'         => new Clean_NavBar(),
 			'depth'          => 0,
 		) );
@@ -33,9 +33,10 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 
 // Footer Menu
 if ( ! function_exists( '<%= opts.functionPrefix %>_footer_menu' ) ) {
-	function <%= opts.functionPrefix %>_footer_menu() {
+	function <%= opts.functionPrefix %>_footer_menu( $classes = array() ) {
 		wp_nav_menu( array(
 			'theme_location' => 'footer',
+			'menu_class'     => implode( ' ', $classes ),
 			'depth'          => 1,
 		) );
 	}
