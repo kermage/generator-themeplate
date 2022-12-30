@@ -7,7 +7,7 @@ import browserSync from 'browser-sync';
 import File from 'vinyl';
 
 const plugins = require('gulp-load-plugins')({ maintainScope: false });
-const rollup = require('gulp-rollup-each');
+const rollupEach = require('gulp-rollup-each');
 const argv = minimist(process.argv.slice(2));
 
 const pkg = require('./package.json');
@@ -24,7 +24,11 @@ const banner = [
 const productionMode = argv.production;
 process.env.NODE_ENV = productionMode ? 'production' : 'development';
 
-const betterLastRun = function (file: File, task: string): number {
+const betterLastRun = function (file: File, task: string, force = false): number {
+	if (force) {
+		return 0;
+	}
+
 	const lastRun = gulp.lastRun(task);
 	const cTime = file.stat?.ctime.getTime() || 0;
 
@@ -35,12 +39,16 @@ const betterLastRun = function (file: File, task: string): number {
 	return lastRun;
 };
 
-gulp.task('rollup', function () {
+gulp.task('rollup', () => rollup());
+gulp.task('rollup:forced', () => rollup(true));
+const rollup = (force = false): void => {
 	return gulp
-		.src([ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ], { since: (file) => betterLastRun(file, 'rollup') })
+		.src([ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ], {
+			since: (file) => betterLastRun(file, 'rollup', force),
+		})
 		.pipe(plugins.plumber({ errorHandler: plugins.notify.onError('Error: <%%= error.message %>') }))
 		.pipe(plugins.sourcemaps.init({ loadMaps: true }))
-		.pipe(rollup(require('./rollup.config.js')))
+		.pipe(rollupEach(require('./rollup.config.js')))
 		.pipe(plugins.header(banner, { pkg }))
 		.pipe(
 			plugins.rename(function (file: File) {
@@ -52,7 +60,7 @@ gulp.task('rollup', function () {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/js'))
 		.pipe(browserSync.stream());
-});
+};
 
 gulp.task('uglify', function () {
 	return gulp
@@ -115,9 +123,13 @@ if (productionMode) {
 	gulp.task('build:images', gulp.series('webp', 'imagecopy'));
 }
 
-gulp.task('sass', function () {
+gulp.task('sass', () => sass());
+gulp.task('sass:forced', () => sass(true));
+const sass = (force = false): void => {
 	return gulp
-		.src('src/sass/**/*.s+(a|c)ss', { since: (file) => betterLastRun(file, 'sass') })
+		.src('src/sass/**/*.s+(a|c)ss', {
+			since: (file) => betterLastRun(file, 'sass', force),
+		})
 		.pipe(plugins.plumber({ errorHandler: plugins.notify.onError('Error: <%%= error.message %>') }))
 		.pipe(plugins.sourcemaps.init())
 		.pipe(
@@ -131,7 +143,7 @@ gulp.task('sass', function () {
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/css'))
 		.pipe(browserSync.stream());
-});
+};
 
 gulp.task('cssnano', function () {
 	return gulp
@@ -196,11 +208,11 @@ gulp.task('watch', function () {
 	gulp.watch('src/js/**/*.{js,ts}', gulp.series('build:scripts'));
 	gulp.watch('src/images/**/*.{gif,jpg,png,svg}', gulp.series('build:images'));
 	gulp.watch('src/sass/**/*.{scss,sass}', gulp.series('build:styles'));
+	gulp.watch('**/*.php', gulp.parallel('rollup:forced', 'sass:forced'));
 });
 
 gulp.task('browsersync', function () {
 	browserSync.init({
-		files: ['**/*.php'],
 		proxy: '<%= opts.localServer %>',
 		open: false,
 		notify: false,
