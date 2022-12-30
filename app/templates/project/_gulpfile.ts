@@ -43,10 +43,14 @@ gulp.task('rollup', () => rollup());
 gulp.task('rollup:forced', () => rollup(true));
 const rollup = (force = false): void => {
 	return gulp
-		.src([ 'src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s' ], {
+		.src(['src/js/**/*.+(j|t)s', '!src/js/**/_*.+(j|t)s'], {
 			since: (file) => betterLastRun(file, 'rollup', force),
 		})
-		.pipe(plugins.plumber({ errorHandler: plugins.notify.onError('Error: <%%= error.message %>') }))
+		.pipe(
+			plugins.plumber({
+				errorHandler: plugins.notify.onError('Error: <%%= error.message %>'),
+			})
+		)
 		.pipe(plugins.sourcemaps.init({ loadMaps: true }))
 		.pipe(rollupEach(require('./rollup.config.js')))
 		.pipe(plugins.header(banner, { pkg }))
@@ -64,8 +68,14 @@ const rollup = (force = false): void => {
 
 gulp.task('uglify', function () {
 	return gulp
-		.src([ 'assets/js/**/*.js', '!assets/js/**/*.min.js' ], { since: (file) => betterLastRun(file, 'uglify') })
-		.pipe(plugins.plumber({ errorHandler: plugins.notify.onError('Error: <%%= error.message %>') }))
+		.src(['assets/js/**/*.js', '!assets/js/**/*.min.js'], {
+			since: (file) => betterLastRun(file, 'uglify'),
+		})
+		.pipe(
+			plugins.plumber({
+				errorHandler: plugins.notify.onError('Error: <%%= error.message %>'),
+			})
+		)
 		.pipe(
 			plugins.uglify({
 				output: { comments: /^!/ },
@@ -85,8 +95,14 @@ if (productionMode) {
 
 gulp.task('webp', function () {
 	return gulp
-		.src('src/images/**/*.{gif,jpg,png}', { since: (file) => betterLastRun(file, 'webp') })
-		.pipe(plugins.plumber({ errorHandler: plugins.notify.onError('Error: <%%= error.message %>') }))
+		.src('src/images/**/*.{gif,jpg,png}', {
+			since: (file) => betterLastRun(file, 'webp'),
+		})
+		.pipe(
+			plugins.plumber({
+				errorHandler: plugins.notify.onError('Error: <%%= error.message %>'),
+			})
+		)
 		.pipe(plugins.webp({ quality: 100 }))
 		.pipe(plugins.plumber.stop())
 		.pipe(gulp.dest('assets/images'))
@@ -95,11 +111,17 @@ gulp.task('webp', function () {
 
 gulp.task('imagemin', function () {
 	return gulp
-		.src('src/images/**/*.{gif,jpg,png,svg}', { since: (file) => betterLastRun(file, 'imagemin') })
-		.pipe(plugins.plumber({ errorHandler: plugins.notify.onError('Error: <%%= error.message %>') }))
+		.src('src/images/**/*.{gif,jpg,png,svg}', {
+			since: (file) => betterLastRun(file, 'imagemin'),
+		})
+		.pipe(
+			plugins.plumber({
+				errorHandler: plugins.notify.onError('Error: <%%= error.message %>'),
+			})
+		)
 		.pipe(
 			plugins.imagemin([
-				plugins.imagemin.svgo({ plugins: [ { removeViewBox: true } ] }),
+				plugins.imagemin.svgo({ plugins: [{ removeViewBox: true }] }),
 				plugins.imagemin.optipng({ optimizationLevel: 7 }),
 				plugins.imagemin.mozjpeg({ quality: 100 }),
 				plugins.imagemin.gifsicle({ interlaced: true }),
@@ -112,7 +134,9 @@ gulp.task('imagemin', function () {
 
 gulp.task('imagecopy', function () {
 	return gulp
-		.src('src/images/**/*.{gif,jpg,png,svg}', { since: (file) => betterLastRun(file, 'imagecopy') })
+		.src('src/images/**/*.{gif,jpg,png,svg}', {
+			since: (file) => betterLastRun(file, 'imagecopy'),
+		})
 		.pipe(gulp.dest('assets/images'))
 		.pipe(browserSync.stream());
 });
@@ -130,7 +154,11 @@ const sass = (force = false): void => {
 		.src('src/sass/**/*.s+(a|c)ss', {
 			since: (file) => betterLastRun(file, 'sass', force),
 		})
-		.pipe(plugins.plumber({ errorHandler: plugins.notify.onError('Error: <%%= error.message %>') }))
+		.pipe(
+			plugins.plumber({
+				errorHandler: plugins.notify.onError('Error: <%%= error.message %>'),
+			})
+		)
 		.pipe(plugins.sourcemaps.init())
 		.pipe(
 			plugins.sass(require('sass'))({
@@ -147,8 +175,14 @@ const sass = (force = false): void => {
 
 gulp.task('cssnano', function () {
 	return gulp
-		.src([ 'assets/css/**/*.css', '!assets/css/**/*.min.css' ], { since: (file) => betterLastRun(file, 'cssnano') })
-		.pipe(plugins.plumber({ errorHandler: plugins.notify.onError('Error: <%%= error.message %>') }))
+		.src(['assets/css/**/*.css', '!assets/css/**/*.min.css'], {
+			since: (file) => betterLastRun(file, 'cssnano'),
+		})
+		.pipe(
+			plugins.plumber({
+				errorHandler: plugins.notify.onError('Error: <%%= error.message %>'),
+			})
+		)
 		.pipe(plugins.postcss({ minified: true }))
 		.pipe(plugins.rename({ suffix: '.min' }))
 		.pipe(plugins.plumber.stop())
@@ -164,27 +198,29 @@ if (productionMode) {
 
 gulp.task('lint:scripts', function () {
 	return gulp
-		.src([ 'src/js/**/*.+(j|t)s' ])
+		.src(['src/js/**/*.+(j|t)s']) //
 		.pipe(plugins.eslint())
 		.pipe(plugins.eslint.format('stylish'));
 });
 
 gulp.task('lint:styles', function () {
 	return gulp
-		.src('src/sass/**/*.s+(a|c)ss')
+		.src('src/sass/**/*.s+(a|c)ss') //
 		.pipe(
 			plugins.stylelint({
-				reporters: [ {
-					formatter: 'verbose',
-					console: true,
-				} ],
+				reporters: [
+					{
+						formatter: 'verbose',
+						console: true,
+					},
+				],
 			})
 		);
 });
 
 gulp.task('fix:scripts', function () {
 	return gulp
-		.src([ 'src/js/**/*.+(j|t)s' ])
+		.src(['src/js/**/*.+(j|t)s'])
 		.pipe(
 			plugins.eslint({
 				fix: true,
@@ -223,11 +259,11 @@ gulp.task('serve', gulp.parallel('watch', 'browsersync'));
 
 gulp.task('bump', function () {
 	return gulp
-		.src([ 'package.json', 'style.css' ])
+		.src(['package.json', 'style.css'])
 		.pipe(
 			plugins.bump({
-				type: argv[ 'to-type' ],
-				version: argv[ 'to-version' ],
+				type: argv['to-type'],
+				version: argv['to-version'],
 			})
 		)
 		.pipe(gulp.dest('.'));
@@ -236,7 +272,11 @@ gulp.task('bump', function () {
 gulp.task('pot', function () {
 	return gulp
 		.src('**/*.php')
-		.pipe(plugins.plumber({ errorHandler: plugins.notify.onError('Error: <%%= error.message %>') }))
+		.pipe(
+			plugins.plumber({
+				errorHandler: plugins.notify.onError('Error: <%%= error.message %>'),
+			})
+		)
 		.pipe(
 			plugins.wpPot({
 				domain: '<%= opts.projectSlug %>',

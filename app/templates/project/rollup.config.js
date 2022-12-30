@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-const path = require( 'path' );
-const babel = require( '@rollup/plugin-babel' ).babel;
-const resolve = require( '@rollup/plugin-node-resolve' ).nodeResolve;
-const replace = require( '@rollup/plugin-replace' );
-const typescript = require( '@rollup/plugin-typescript' );
+import path from 'path';
+import { babel } from '@rollup/plugin-babel';
+import { nodeResolve as resolve } from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
+import typescript from '@rollup/plugin-typescript';
 
 const external = [
+	// WP or CDN loaded
 	'jquery',
 ];
 
@@ -17,25 +16,25 @@ const globals = {
 const config = {
 	external,
 	plugins: [
-		babel( {
+		babel({
 			babelHelpers: 'bundled',
 			exclude: 'node_modules/**',
-		} ),
-		replace( {
+		}),
+		replace({
 			preventAssignment: true,
 			'process.env.NODE_ENV': process.env.NODE_ENV,
-		} ),
+		}),
 		resolve(),
 		typescript(),
 	],
-	output( file ) {
-		const baseFile = path.basename( file.path, file.extname );
-		const extension = path.extname( baseFile );
+	output(file) {
+		const baseFile = path.basename(file.path, file.extname);
+		const extension = path.extname(baseFile);
 
 		return {
 			globals,
-			format: extension ? extension.replace( '.', '' ) : 'iife',
-			name: path.basename( baseFile, extension ).replace( /-/g, '_' ),
+			format: extension ? extension.replace('.', '') : 'iife',
+			name: path.basename(baseFile, extension).replace(/-/g, '_'),
 			sourcemap: true,
 		};
 	},

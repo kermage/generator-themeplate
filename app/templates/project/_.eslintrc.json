@@ -1,14 +1,11 @@
 {
   "extends": [
-    "plugin:@wordpress/eslint-plugin/recommended-with-formatting",
+    "plugin:@wordpress/eslint-plugin/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
 
   "ignorePatterns": [
     "node_modules/**",
-    "gulpfile.js",
-    "postcss.config.js",
-    "rollup.config.js",
     "assets/js/**/*.js"
   ],
 

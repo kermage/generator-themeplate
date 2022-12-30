@@ -1,9 +1,9 @@
-module.exports = ( context ) => {
+module.exports = (context) => {
 	const options = context.options;
 	const plugins = {};
 
-	if ( ! options.minified ) {
-		<%_ if ( 'tailwind' === opts.framework ) { _%>
+	if (!options.minified) {
+		<%_ if ('tailwind' === opts.framework) { _%>
 		plugins.tailwindcss = {};
 		<%_ } _%>
 		plugins.autoprefixer = {
@@ -11,11 +11,14 @@ module.exports = ( context ) => {
 		};
 	} else {
 		plugins.cssnano = {
-			preset: [ 'default', {
-				discardComments: {
-					removeAllButFirst: true,
+			preset: [
+				'default',
+				{
+					discardComments: {
+						removeAllButFirst: true,
+					},
 				},
-			} ],
+			],
 		};
 	}
 

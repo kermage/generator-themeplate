@@ -1,15 +1,23 @@
 module.exports = {
 	content: [
-		"./*.php",
-		"./template-parts/**/*.php",
-		"./page-templates/**/*.php",
-		"./src/js/**/*.js",
+		'./*.php',
+		'./includes/*.php',
+		'./setup/*.php',
+		'./template-parts/**/*.php',
+		'./page-templates/**/*.php',
+		'./src/js/**/*.js',
 	],
 	theme: {
-		extend: {},
+		extend: {
+			// Custom
+		},
 	},
 	variants: {
-		extend: {},
+		extend: {
+			// Custom
+		},
 	},
-	plugins: [],
+	plugins: [
+		// Custom
+	],
 };
