@@ -8,8 +8,14 @@
     "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
   },
   "exclude": [
     "node_modules",
