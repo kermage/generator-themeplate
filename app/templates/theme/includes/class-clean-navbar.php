@@ -17,7 +17,11 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 				'item'     => 'nav-item',
 			);
 
-			public function link_attributes( $atts, $item, $args, $depth ) {
+			public function link_attributes( $atts, $menu_item, $args, $depth ) {
+				if ( ! $args->walker instanceof $this ) {
+					return $atts;
+				}
+
 				$atts['class'] = 'nav-link';
 
 				if ( $args->walker->has_children ) {
@@ -32,23 +36,41 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 	} else {
 		class Clean_Navbar extends Walker_Nav_Menu {}
 
-		add_filter( 'nav_menu_submenu_css_class', function() {
-			return array( 'dropdown-menu' );
-		} );
+		add_filter( 'nav_menu_submenu_css_class', function( $classes, $args ) {
+			if ( ! $args->walker instanceof Clean_Navbar ) {
+				return array( 'sub-menu' );
+			}
 
-		add_filter( 'nav_menu_css_class', function() {
+			return array( 'dropdown-menu' );
+		}, PHP_INT_MAX, 2 );
+
+		add_filter( 'nav_menu_css_class', function( $classes, $menu_item, $args ) {
+			if ( ! $args->walker instanceof Clean_Navbar ) {
+				return array( '' );
+			}
+
 			return array( 'nav-item' );
-		} );
+		}, PHP_INT_MAX, 3 );
 
 		add_filter( 'nav_menu_item_id', function() {
 			return '';
 		} );
 
-		add_filter( 'nav_menu_link_attributes', function( $atts ) {
+		add_filter( 'nav_menu_link_attributes', function( $atts, $menu_item, $args ) {
+			if ( ! $args->walker instanceof Clean_Navbar ) {
+				return $atts;
+			}
+
 			$atts['class'] = 'nav-link';
 
+			if ( $args->walker->has_children ) {
+				$atts['class']        .= ' dropdown-toggle';
+				$atts['data-toggle']   = 'dropdown';
+				$atts['aria-haspopup'] = 'true';
+			}
+
 			return $atts;
-		} );
+		}, PHP_INT_MAX, 3 );
 
 		add_filter( 'wp_nav_menu_args', function( $args ) {
 			if ( 'wp_page_menu' === $args['fallback_cb'] ) {
@@ -76,6 +98,6 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 			}
 
 			return $args;
-		}, 10, 2 );
+		}, PHP_INT_MAX, 2 );
 	}
 }
