@@ -100,6 +100,6 @@
 - Plugin folder is named the same with the theme folder
 
 ## License
-Copyright &copy; 2022 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
+Copyright &copy; 2023 [Gene Alyson Fortunado Torcende](https://github.com/kermage)
 
 Licensed under [MIT](LICENSE).
