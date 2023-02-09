@@ -163,6 +163,7 @@ const sass = (force = false): void => {
 		.pipe(
 			plugins.sass(require('sass'))({
 				outputStyle: 'expanded',
+				includePaths: ['node_modules'],
 			})
 		)
 		.pipe(plugins.postcss({ minified: false }))
