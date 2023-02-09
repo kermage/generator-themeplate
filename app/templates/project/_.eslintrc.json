@@ -10,6 +10,13 @@
   ],
 
   "rules": {
+    "camelcase": [
+      "error",
+      {
+        "ignoreGlobals": true,
+        "properties": "never"
+      }
+    ],
     "space-in-parens": ["error", "never"],
     "space-before-function-paren": [
       "error",
