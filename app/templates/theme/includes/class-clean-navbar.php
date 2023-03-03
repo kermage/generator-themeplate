@@ -13,7 +13,7 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 			public $classes = array(
 				'sub-menu' => 'dropdown-menu',
 				'has-sub'  => 'dropdown',
-				'active'   => 'active',
+				'active'   => '',
 				'item'     => 'nav-item',
 			);
 
@@ -25,9 +25,13 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 				$atts['class'] = 'nav-link';
 
 				if ( $args->walker->has_children ) {
-					$atts['class']        .= ' dropdown-toggle';
-					$atts['data-toggle']   = 'dropdown';
-					$atts['aria-haspopup'] = 'true';
+					$atts['class']         .= ' dropdown-toggle';
+					$atts['data-bs-toggle'] = 'dropdown';
+					$atts['aria-haspopup']  = 'true';
+				}
+
+				if ( isset( $menu_item->current ) && $menu_item->current ) {
+					$atts['class'] .= ' active';
 				}
 
 				return $atts;
@@ -49,7 +53,13 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 				return array( '' );
 			}
 
-			return array( 'nav-item' );
+			$classes = array( 'nav-item' );
+
+			if ( $args->walker->has_children ) {
+				$classes[] = 'dropdown';
+			}
+
+			return $classes;
 		}, PHP_INT_MAX, 3 );
 
 		add_filter( 'nav_menu_item_id', function() {
@@ -64,9 +74,13 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 			$atts['class'] = 'nav-link';
 
 			if ( $args->walker->has_children ) {
-				$atts['class']        .= ' dropdown-toggle';
-				$atts['data-toggle']   = 'dropdown';
-				$atts['aria-haspopup'] = 'true';
+				$atts['class']         .= ' dropdown-toggle';
+				$atts['data-bs-toggle'] = 'dropdown';
+				$atts['aria-haspopup']  = 'true';
+			}
+
+			if ( isset( $menu_item->current ) && $menu_item->current ) {
+				$atts['class'] .= ' active';
 			}
 
 			return $atts;
@@ -98,6 +112,6 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 			}
 
 			return $args;
-		}, PHP_INT_MAX, 2 );
+		}, PHP_INT_MAX );
 	}
 }
