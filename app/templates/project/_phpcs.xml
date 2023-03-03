@@ -10,7 +10,7 @@
 	<exclude-pattern>/vendor/</exclude-pattern>
 
 	<!-- Include the WordPress ruleset. -->
-	<rule ref="WordPress-Extra"/>
+	<rule ref="WordPress-Extra" />
 
 	<!-- Exclude for common WordPress core constructor patterns -->
 	<rule ref="PEAR.Functions.FunctionCallSignature">
@@ -25,6 +25,6 @@
 	<!-- Include PHP Compatibility Coding Standard for WordPress. -->
 	<rule ref="PHPCompatibilityWP" />
 
-	<!-- Include minimum supported WP version -->
+	<!-- Include minimum supported WP version. -->
 	<config name="minimum_supported_wp_version" value="5.9" />
 </ruleset>

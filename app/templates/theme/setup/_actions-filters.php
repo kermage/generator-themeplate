@@ -29,7 +29,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_jpeg_quality' ) ) {
 
 // Custom excerpt length
 if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_length' ) ) {
-	function <%= opts.functionPrefix %>_excerpt_length( $length ) {
+	function <%= opts.functionPrefix %>_excerpt_length() {
 		return 50;
 	}
 	add_filter( 'excerpt_length', '<%= opts.functionPrefix %>_excerpt_length' );
@@ -37,7 +37,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_length' ) ) {
 
 // Custom excerpt read more
 if ( ! function_exists( '<%= opts.functionPrefix %>_excerpt_string' ) ) {
-	function <%= opts.functionPrefix %>_excerpt_string( $more ) {
+	function <%= opts.functionPrefix %>_excerpt_string() {
 		return '&hellip;';
 	}
 	add_filter( 'excerpt_more', '<%= opts.functionPrefix %>_excerpt_string' );
@@ -93,7 +93,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_login_headertext' ) ) {
 
 // Set default embed size.
 if ( ! function_exists( '<%= opts.functionPrefix %>_embed_defaults' ) ) {
-	function <%= opts.functionPrefix %>_embed_defaults( $attr ) {
+	function <%= opts.functionPrefix %>_embed_defaults() {
 		return array(
 			'width'  => '1280',
 			'height' => '720',
