@@ -48,6 +48,10 @@ ThemePlate()->settings( array(
 						'youtube'     => 'Youtube',
 						'pinterest'   => 'Pinterest',
 						'google-plus' => 'Google+',
+						'telegram'    => 'Telegram',
+						'discord'     => 'Discord',
+						'github'      => 'GitHub',
+						'spotify'     => 'Spotify',
 					),
 				),
 				'link'     => array(
