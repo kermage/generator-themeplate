@@ -17,13 +17,12 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 				'name'             => 'ThemePlate',
 				'slug'             => 'themeplate',
 				'required'         => true,
-				'source'           => 'https://github.com/kermage/ThemePlate/releases/download/v3.18.3/themeplate.zip',
+				'source'           => 'https://github.com/kermage/ThemePlate/releases/download/v3.19.0/themeplate.zip',
 				'force_activation' => true,
 			),
 			array(
-				'name'   => 'Augment Types',
-				'slug'   => 'augment-types',
-				'source' => 'https://github.com/kermage/augment-types/releases/download/v1.13.0/augment-types.zip',
+				'name' => 'Augment Types',
+				'slug' => 'augment-types',
 			),
 			array(
 				'name' => 'Enable Media Replace',
