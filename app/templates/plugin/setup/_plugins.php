@@ -67,7 +67,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 			'id'           => '<%= opts.functionPrefix %>-tgmpa',
 			'menu'         => '<%= opts.functionPrefix %>-plugins',
 			'parent_slug'  => '<%= opts.functionPrefix %>-options',
-			'dismissable'  => false,
+			'dismissable'  => true,
 			'is_automatic' => true,
 		);
 
