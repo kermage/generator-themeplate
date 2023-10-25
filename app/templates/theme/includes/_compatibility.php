@@ -38,7 +38,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 }
 
 function <%= opts.functionPrefix %>_notice() {
-	printf( '<div class="error">%s</div>', <%= opts.functionPrefix %>_upgrade_message() ); // phpcs:ignore WordPress.Security.EscapeOutput
+	wp_admin_notice( <%= opts.functionPrefix %>_upgrade_message(), array( 'type' => 'error', 'paragraph_wrap' => false ) );
 }
 
 function <%= opts.functionPrefix %>_switch_theme() {
