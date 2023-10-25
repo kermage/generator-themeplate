@@ -35,5 +35,5 @@
 	<!-- Include PHP cross-version compatibility. -->
 	<config name="testVersion" value="7.4-" />
 	<!-- Include minimum supported WP version. -->
-	<config name="minimum_supported_wp_version" value="6.0" />
+	<config name="minimum_supported_wp_version" value="6.4" />
 </ruleset>
