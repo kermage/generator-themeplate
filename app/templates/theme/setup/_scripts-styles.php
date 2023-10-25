@@ -26,7 +26,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_early' ) ) {
 		wp_enqueue_style( '<%= opts.functionPrefix %>-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800&display=swap', array(), $theme->get( 'Version' ) );
 		<%_ if ( opts.fontawesome ) { _%>
 		// Font Awesome
-		wp_enqueue_script( '<%= opts.functionPrefix %>-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js', array(), '5.15.4', false );
+		wp_enqueue_script( '<%= opts.functionPrefix %>-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js', array(), '5.15.4', array( 'strategy' => 'defer', 'in_footer' => false ) );
 		wp_add_inline_script( '<%= opts.functionPrefix %>-fontawesome', 'FontAwesomeConfig = { searchPseudoElements: true };' );
 		<%_ } _%>
 	}
@@ -48,38 +48,4 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_late' ) ) {
 		wp_localize_script( '<%= opts.functionPrefix %>-script', '<%= opts.functionPrefix %>_options', apply_filters( '<%= opts.functionPrefix %>_localize_script', $<%= opts.functionPrefix %>_options ) );
 	}
 	add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_scripts_styles_late', 20 );
-}
-
-// Async Scripts
-if ( ! function_exists( '<%= opts.functionPrefix %>_async_scripts' ) ) {
-	function <%= opts.functionPrefix %>_async_scripts( $tag, $handle ) {
-		// Add script handles
-		$scripts = array();
-
-		if ( in_array( $handle, $scripts, true ) ) {
-			return str_replace( ' src', ' async="async" src', $tag );
-		}
-
-		return $tag;
-	}
-	add_filter( 'script_loader_tag', '<%= opts.functionPrefix %>_async_scripts', 10, 2 );
-}
-
-// Defer Scripts
-if ( ! function_exists( '<%= opts.functionPrefix %>_defer_scripts' ) ) {
-	function <%= opts.functionPrefix %>_defer_scripts( $tag, $handle ) {
-		// Add script handles
-		$scripts = array(
-			<%_ if ( opts.fontawesome ) { _%>
-			'<%= opts.functionPrefix %>-fontawesome',
-			<%_ } _%>
-		);
-
-		if ( in_array( $handle, $scripts, true ) ) {
-			return str_replace( ' src', ' defer="defer" src', $tag );
-		}
-
-		return $tag;
-	}
-	add_filter( 'script_loader_tag', '<%= opts.functionPrefix %>_defer_scripts', 10, 2 );
 }
