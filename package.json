@@ -15,15 +15,17 @@
   "files": [
     "app"
   ],
+  "type": "module",
   "main": "app/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/kermage/generator-themeplate.git"
   },
   "engines": {
-    "node": ">=12.13.0"
+    "node": "^18.17.0 || >=20.5.0"
   },
   "dependencies": {
-    "yeoman-generator": "^5.6.1"
+    "chalk": "^5.3.0",
+    "yeoman-generator": "^7.1.1"
   }
 }

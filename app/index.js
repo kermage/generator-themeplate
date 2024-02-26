@@ -1,14 +1,9 @@
-/* eslint-env node */
+import chalk from 'chalk';
+import fs from 'fs';
+import path from 'path';
+import Generator from 'yeoman-generator';
 
-'use strict';
-
-var Generator = require( 'yeoman-generator' );
-var fs = require( 'fs' );
-var path = require( 'path' );
-var glob = require( 'glob' );
-var chalk = require( 'chalk' );
-
-module.exports = class extends Generator {
+export default class extends Generator {
 	async prompting() {
 		this.opts = await this.prompt( [
 			{
@@ -24,12 +19,12 @@ module.exports = class extends Generator {
 			{
 				name: 'authorName',
 				message: 'Author:',
-				default: this.user.git.name
+				default: await this.git.name()
 			},
 			{
 				name: 'authorEmail',
 				message: 'Author Email:',
-				default: this.user.git.email
+				default: await this.git.email()
 			},
 			{
 				name: 'authorURI',
@@ -119,57 +114,50 @@ module.exports = class extends Generator {
 		] );
 	}
 
-	configuring() {
-		var done = this.async();
-		var self = this;
-
+	async configuring() {
 		this.opts.projectSlug = this.opts.projectName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' ).replace( /[-_]+$/, '' );
 		this.opts.generatorVersion = this.rootGeneratorVersion();
 
-		fs.lstat( this.destinationPath( this.opts.projectSlug ), function( err, stats ) {
-			if ( !err && stats.isDirectory() ) {
-				self.log( '\n' + chalk.blue.bold( self.opts.projectName ) + ' already exists.\n' );
-				self.prompt( [
+		try {
+			if ( fs.lstatSync( this.destinationPath( this.opts.projectSlug ) ).isDirectory() ) {
+				this.log( '\n' + chalk.blue.bold( this.opts.projectName ) + ' already exists.\n' );
+				await this.prompt( [
 					{
 						type: 'confirm',
 						name: 'overwrite',
-						message: 'Overwrite "' + self.opts.projectSlug + '"?',
+						message: 'Overwrite "' + this.opts.projectSlug + '"?',
 						default: false
 					}
 				] ).then( answer => {
-					self.log( '' );
+					this.log( '' );
 
 					if ( ! answer.overwrite ) {
-						self.log( 'Close one! ' + chalk.red.bold( 'Generator aborted.' ) );
+						this.log( 'Close one! ' + chalk.red.bold( 'Generator aborted.' ) );
 						process.exit();
 					}
-
-					done();
 				} );
-			} else {
-				done();
 			}
-		});
+		} catch {}
 
 		this.destinationRoot( this.opts.projectSlug );
 	}
 
 	_processDirectory( source, destination, data ) {
-		var files = glob.sync( '**', { cwd: source, dot: true, nodir: true } );
-
-		for ( var i = 0; i < files.length; i++ ) {
-			var file = files[i];
+		fs.readdirSync( source, { recursive: true } ).forEach( file => {
 			var src = path.join( source, file );
-			var dest;
+			var dest = path.join( destination, file );
+
+			if ( fs.statSync( src ).isDirectory() ) {
+				return this._processDirectory( src, dest, data );
+			}
 
 			if ( path.basename( file ).indexOf( '_' ) === 0 ) {
 				dest = path.join( destination, path.dirname( file ), path.basename( file ).replace( /^_/, '' ) );
 				this.fs.copyTpl( src, dest, data );
 			} else {
-				dest = path.join( destination, file );
 				this.fs.copy( src, dest );
 			}
-		}
+		} )
 	}
 
 	writing() {
@@ -245,8 +233,8 @@ module.exports = class extends Generator {
 			' for you to install the required dependencies. If this fails, try running the commands yourself.\n\n'
 		);
 
-		this.spawnCommandSync( 'composer', ['install'] );
-		this.spawnCommandSync( 'npm', ['install'] );
+		this.spawnSync( 'composer', ['install'] );
+		this.spawnSync( 'npm', ['install'] );
 	}
 
 	end() {
