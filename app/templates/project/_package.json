@@ -26,7 +26,7 @@
     "lint:styles": "stylelint src/sass/",
     "fix": "run-p fix:* --continue-on-error",
     "fix:scripts": "eslint src/js/ --fix",
-    "fix:styles": "stylelint src/js/ --fix"
+    "fix:styles": "stylelint src/sass/ --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
