@@ -4,6 +4,16 @@ import path from 'path';
 import Generator from 'yeoman-generator';
 
 export default class extends Generator {
+	async initializing() {
+		try {
+			fs.lstatSync( this.destinationPath( 'themes' ) );
+			fs.lstatSync( this.destinationPath( 'plugins' ) );
+		} catch {
+			this.log( `\nLooks like we are not in the ${ chalk.blue.bold( 'WP_CONTENT_DIR' ) }. ${ chalk.red.bold( 'Generator aborted.' ) }` );
+			process.exit();
+		}
+	}
+
 	async prompting() {
 		this.opts = await this.prompt( [
 			{
@@ -119,8 +129,11 @@ export default class extends Generator {
 		this.opts.generatorVersion = this.rootGeneratorVersion();
 
 		try {
-			if ( fs.lstatSync( this.destinationPath( this.opts.projectSlug ) ).isDirectory() ) {
-				this.log( '\n' + chalk.blue.bold( this.opts.projectName ) + ' already exists.\n' );
+			if (
+				fs.lstatSync( this.destinationPath( path.join( 'themes', this.opts.projectSlug ) ) ).isDirectory() ||
+				fs.lstatSync( this.destinationPath( path.join( 'plugins', this.opts.projectSlug ) ) ).isDirectory()
+			) {
+				this.log( '\n' + chalk.blue.bold( this.opts.projectName ) + ' project already exists.\n' );
 				await this.prompt( [
 					{
 						type: 'confirm',
@@ -138,8 +151,6 @@ export default class extends Generator {
 				} );
 			}
 		} catch {}
-
-		this.destinationRoot( this.opts.projectSlug );
 	}
 
 	_processDirectory( source, destination, data ) {
@@ -161,6 +172,8 @@ export default class extends Generator {
 	}
 
 	writing() {
+		this.destinationRoot( path.join( 'themes', this.opts.projectSlug ) );
+
 		// Theme Files
 		this._processDirectory(
 			this.templatePath( 'theme' ),
@@ -213,15 +226,17 @@ export default class extends Generator {
 			);
 		}
 
+		this.destinationRoot( path.join( 'plugins', this.opts.projectSlug ) );
+
 		// Plugin Files
 		this._processDirectory(
 			this.templatePath( 'plugin' ),
-			this.destinationPath( this.opts.projectSlug ),
+			this.destinationPath( '.' ),
 			{ opts: this.opts }
 		);
 		this.fs.move(
-			this.destinationPath( this.opts.projectSlug + '/functions.php' ),
-			this.destinationPath( this.opts.projectSlug + '/' + this.opts.projectSlug + '.php' )
+			this.destinationPath( 'functions.php' ),
+			this.destinationPath( this.opts.projectSlug + '.php' )
 		);
 	}
 
