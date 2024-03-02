@@ -52,7 +52,7 @@
 
 ### Setup
 
-#### 1. In the desired project directory, initiate the generator
+#### 1. Go to WP_CONTENT_DIR then initiate the generator
 
 `yo themeplate`
 
@@ -77,7 +77,7 @@
 
 ### Development
 
-#### 1. Navigate to the generated directory
+#### 1. Navigate to the generated theme directory
 
 #### 2. Run `gulp`
 
