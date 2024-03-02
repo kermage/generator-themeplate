@@ -1,5 +1,5 @@
 // A just right amount of clean but powerful toolkit
-@import '../../node_modules/genetiks/utilities';
+@import 'genetiks/utilities';
 <% if ( 'bootstrap' === opts.framework ) { %>
 @import 'bootstrap-custom';
 <% } else if ( 'tailwind' === opts.framework ) { %>
@@ -7,7 +7,7 @@
 @tailwind components;
 @tailwind utilities;
 <% } else { %>
-@import '../../node_modules/normalize.css/normalize';
+@import 'normalize.css/normalize';
 <% } %>
 // Layouts. ThemePlate!
 @import 'layouts/header';

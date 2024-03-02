@@ -16,33 +16,8 @@
         "ignoreGlobals": true,
         "properties": "never"
       }
-    ],
-    "space-in-parens": ["error", "never"],
-    "space-before-function-paren": [
-      "error",
-      {
-        "anonymous": "always",
-        "named": "never",
-        "asyncArrow": "always"
-      }
-    ],
-    "import/no-unresolved": [
-      2,
-      {
-        "ignore": ["^jquery$"]
-      }
-    ],
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    ]
   },
-
-  "overrides": [
-    {
-      "files": ["*.ts", "*.tsx"],
-      "rules": {
-        "@typescript-eslint/explicit-module-boundary-types": ["error"]
-      }
-    }
-  ],
 
   "globals": {
     "jQuery": "readonly",

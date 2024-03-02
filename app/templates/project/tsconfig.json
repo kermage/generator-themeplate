@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "module": "ES6",
+    "target": "ES6",
+    "module": "ESNext",
     "noEmit": true,
     "allowJs": true,
     "sourceMap": true,
@@ -15,7 +15,7 @@
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "commonjs"
+      "module": "CommonJS"
     }
   },
   "exclude": [
