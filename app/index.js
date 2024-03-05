@@ -249,7 +249,7 @@ export default class extends Generator {
 		);
 
 		this.spawnSync( 'composer', ['install'] );
-		this.spawnSync( 'npm', ['install'] );
+		this.spawnSync( 'pnpm', ['install'] );
 	}
 
 	end() {
