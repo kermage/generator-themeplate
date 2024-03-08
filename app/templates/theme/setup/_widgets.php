@@ -10,6 +10,13 @@
 if ( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 	function <%= opts.functionPrefix %>_widgets_init() {
 		register_sidebar( array(
+			'id'            => 'error404',
+			'name'          => __( '404 Content', '<%= opts.projectSlug %>' ),
+			'description'   => __( 'Add widgets here to appear in 404 page.', '<%= opts.projectSlug %>' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+		) );
+		register_sidebar( array(
 			'id'            => 'sidebar',
 			'name'          => __( 'Sidebar Area', '<%= opts.projectSlug %>' ),
 			'description'   => __( 'Add widgets here to appear in sidebar.', '<%= opts.projectSlug %>' ),
