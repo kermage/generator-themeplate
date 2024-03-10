@@ -21,6 +21,10 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
 		// Add theme support for document Title tag
 		add_theme_support( 'title-tag' );
+		// Add theme support for custom Editor Styles
+		add_theme_support( 'editor-styles' );
+		// Add theme support for Responsive Embeds
+		add_theme_support( 'responsive-embeds' );
 
 		// Add theme image sizes
 		add_image_size( 'max', 1920, 1080 );
