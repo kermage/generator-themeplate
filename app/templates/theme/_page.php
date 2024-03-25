@@ -13,10 +13,6 @@ get_header();
 
 	<main class="content container">
 
-		<?php if ( ! is_front_page() ) : ?>
-			<h1 class="page-title"><?php single_post_title(); ?></h1>
-		<?php endif; ?>
-
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
 			<?php the_content(); ?>

@@ -4,10 +4,6 @@
     "genetiks/config"
   ],
 
-  "rules": {
-    "string-quotes": "single"
-  },
-
   "ignoreFiles": [
     "node_modules/**",
     <%_ if ( 'bootstrap' === opts.framework ) { _%>
