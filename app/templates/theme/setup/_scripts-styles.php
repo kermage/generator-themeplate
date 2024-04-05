@@ -23,7 +23,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_registration'
 		wp_register_style( '<%= opts.functionPrefix %>-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800&display=swap', array(), $theme->get( 'Version' ) );
 		<%_ if ( opts.fontawesome ) { _%>
 		// Font Awesome
-		wp_register_script( '<%= opts.functionPrefix %>-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js', array(), '6.4.2', array( 'strategy' => 'defer', 'in_footer' => false ) );
+		wp_register_script( '<%= opts.functionPrefix %>-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js', array(), '6.5.2', array( 'strategy' => 'defer', 'in_footer' => false ) );
 		<%_ } _%>
 	}
 	add_action( 'init', '<%= opts.functionPrefix %>_scripts_styles_registration' );
@@ -31,9 +31,6 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_registration'
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_early' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles_early() {
-		$suffix = ( SCRIPT_DEBUG || <%= opts.constantPrefix %>_THEME_DEBUG ) ? '' : '.min';
-		$theme  = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
-
 		// jQuery
 		wp_enqueue_script( 'jquery' );
 		wp_add_inline_script( 'jquery', 'jQuery.noConflict();' );
