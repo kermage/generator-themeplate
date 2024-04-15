@@ -226,22 +226,5 @@ gulp.task('bump', function () {
 		.pipe(gulp.dest('.'));
 });
 
-gulp.task('pot', function () {
-	return gulp
-		.src('**/*.php')
-		.pipe(
-			plugins.plumber({
-				errorHandler: plugins.notify.onError('Error: <%%= error.message %>'),
-			})
-		)
-		.pipe(
-			plugins.wpPot({
-				domain: '<%= opts.projectSlug %>',
-				package: '<%= opts.projectName %>',
-			})
-		)
-		.pipe(gulp.dest('languages/<%= opts.projectSlug %>.pot'));
-});
-
 gulp.task('build', gulp.parallel('build:images', 'build:scripts', 'build:styles'));
 gulp.task('default', gulp.series('build', 'serve'));

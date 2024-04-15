@@ -16,7 +16,6 @@
   - Minification
   - Browsersync
   - Linters
-  - Localization
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - Font Awesome [v5](https://fontawesome.com/) *(optional)*
 - CSS Framework options
@@ -90,7 +89,6 @@
 #### Available Tasks
 
 - `npm run lint` and `npm run fix` - Run scripts and styles against the coding rules set
-- `gulp pot` - Generate a POT file for the localization
 - `gulp bump` - Bump version in files; package and assets
 
 ##### Bump Options
