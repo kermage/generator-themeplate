@@ -9,15 +9,7 @@
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_registration' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles_registration() {
-		$suffix = ( SCRIPT_DEBUG || <%= opts.constantPrefix %>_THEME_DEBUG ) ? '' : '.min';
-		$theme  = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
-
-		// Deregister the jquery version bundled with WordPress
-		wp_deregister_script( 'jquery' );
-		wp_deregister_script( 'jquery-migrate' );
-		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header
-		wp_register_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery' . $suffix . '.js', array(), '3.7.1', false );
-		wp_register_script( 'jquery-migrate', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate' . $suffix . '.js', array(), '3.4.1', false );
+		$theme = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
 
 		// Google Fonts
 		wp_register_style( '<%= opts.functionPrefix %>-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,600,800&display=swap', array(), $theme->get( 'Version' ) );
@@ -31,9 +23,6 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_registration'
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_early' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles_early() {
-		// jQuery
-		wp_enqueue_script( 'jquery' );
-		wp_add_inline_script( 'jquery', 'jQuery.noConflict();' );
 		// Google Fonts
 		wp_enqueue_style( '<%= opts.functionPrefix %>-fonts' );
 		<%_ if ( opts.fontawesome ) { _%>

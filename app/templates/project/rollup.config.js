@@ -5,12 +5,9 @@ import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 
 const external = [
-	// WP or CDN loaded
-	'jquery',
 ];
 
 const globals = {
-	jquery: 'jQuery',
 };
 
 const config = {

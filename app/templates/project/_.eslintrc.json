@@ -20,7 +20,6 @@
   },
 
   "globals": {
-    "jQuery": "readonly",
     "<%= opts.functionPrefix %>_options": "writable"
   }
 }
