@@ -87,26 +87,6 @@ export default class extends Generator {
 				default: true
 			},
 			{
-				type: 'list',
-				name: 'framework',
-				message: 'CSS Framework:',
-				choices: [
-					{
-						name: 'Blank Slate',
-						value: 'blank',
-					},
-					{
-						name: 'Twitter Bootstrap',
-						value: 'bootstrap',
-					},
-					{
-						name: 'Tailwind CSS',
-						value: 'tailwind',
-					}
-				],
-				default: 'tailwind'
-			},
-			{
 				name: 'license',
 				message: 'License:',
 				default: 'GPL-2.0-only'
@@ -208,23 +188,10 @@ export default class extends Generator {
 			this.destinationPath( 'src/images/screenshot.png' )
 		);
 
-		if ( 'bootstrap' === this.opts.framework ) {
-			this.fs.copy(
-				this.templatePath( 'assets/_bootstrap-*.scss' ),
-				this.destinationPath( 'src/sass' )
-			);
-			this.fs.copy(
-				this.templatePath( 'assets/_bootstrap.js' ),
-				this.destinationPath( 'src/js/_bootstrap.js' )
-			);
-		}
-
-		if ( 'tailwind' === this.opts.framework ) {
-			this.fs.copy(
-				this.templatePath( 'assets/tailwind.config.js' ),
-				this.destinationPath( 'tailwind.config.js' ),
-			);
-		}
+		this.fs.copy(
+			this.templatePath( 'assets/tailwind.config.js' ),
+			this.destinationPath( 'tailwind.config.js' ),
+		);
 
 		this.destinationRoot( path.join( 'plugins', this.opts.projectSlug ) );
 

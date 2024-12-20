@@ -6,9 +6,6 @@
 
   "ignoreFiles": [
     "node_modules/**",
-    <%_ if ( 'bootstrap' === opts.framework ) { _%>
-    "src/sass/_bootstrap-*.scss",
-    <%_ } _%>
     "assets/css/**/*.css"
   ]
 }

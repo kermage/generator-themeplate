@@ -71,16 +71,9 @@
     "rollup": "^4.3.0",
     "sass": "^1.42.1",
     "stylelint": "^14.9.1",
+    "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
-    "vinyl": "^3.0.0",
-    <%_ if ( 'bootstrap' === opts.framework ) { _%>
-    "bootstrap": "~5.3.3",
-    "@popperjs/core": "^2.11.8"
-    <%_ } else if ( 'tailwind' === opts.framework ) { _%>
-    "tailwindcss": "^3.4.3"
-    <%_ } else { _%>
-    "normalize.css": "^8.0.1"
-    <%_ } _%>
+    "vinyl": "^3.0.0"
   }
 }

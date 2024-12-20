@@ -3,9 +3,7 @@ module.exports = (context) => {
 	const plugins = {};
 
 	if (undefined === options || !options.minified) {
-		<%_ if ('tailwind' === opts.framework) { _%>
 		plugins.tailwindcss = {};
-		<%_ } _%>
 		plugins.autoprefixer = {
 			remove: false,
 		};

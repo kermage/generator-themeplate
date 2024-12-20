@@ -18,10 +18,7 @@
   - Linters
 - Powered by [ThemePlate](https://github.com/kermage/ThemePlate)
 - Font Awesome [v5](https://fontawesome.com/) *(optional)*
-- CSS Framework options
-  - Tailwind CSS [v3](https://tailwindcss.com/)
-  - Twitter Bootstrap [v5](https://getbootstrap.com/)
-  - Blank Slate *(with [normalize.css](https://necolas.github.io/normalize.css/))*
+- Tailwind CSS [v3](https://tailwindcss.com/)
 - Pre-included boilerplates and functions
   - Base theme template files
   - Compatibility checks
@@ -68,7 +65,6 @@
 ? Class Prefix:
 ? Constant Prefix:
 ? Use Font Awesome? (Y/n)
-? CSS Framework:
 ? License:
 ? License URI:
 ? Local Server:
