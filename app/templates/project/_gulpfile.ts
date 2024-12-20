@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-import gulp from 'gulp';
-import path from 'path';
-import minimist from 'minimist';
 import browserSync from 'browser-sync';
+import gulp from 'gulp';
+import minimist from 'minimist';
+import path from 'path';
 import File from 'vinyl';
 
 const plugins = require('gulp-load-plugins')({ maintainScope: false });

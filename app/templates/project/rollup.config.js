@@ -1,8 +1,8 @@
-import path from 'path';
 import { babel } from '@rollup/plugin-babel';
 import { nodeResolve as resolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
+import path from 'path';
 
 const external = [
 ];

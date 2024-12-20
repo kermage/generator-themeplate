@@ -126,6 +126,11 @@ ThemePlate()->post_meta( array(
 					'description' => __( 'Inline and List checkbox.', '<%= opts.projectSlug %>' ),
 					'type'        => 'group',
 					'fields'      => array(
+						'single' => array(
+							'title'       => __( 'Single', '<%= opts.projectSlug %>' ),
+							'description' => __( 'Enable/Disable.', '<%= opts.projectSlug %>' ),
+							'type'        => 'checkbox',
+						),
 						'inline' => array(
 							'title'       => __( 'Inline', '<%= opts.projectSlug %>' ),
 							'description' => __( 'Check a box.', '<%= opts.projectSlug %>' ),

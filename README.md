@@ -103,11 +103,6 @@
 - Specifies to serve the minified assets
 - Line is in the theme's `functions.php` file
 
-#### 3. Move out the plugin folder inside the theme
-
-- Standard and default path at `wp-content/plugins`
-- Plugin folder is named the same with the theme folder
-
 ## License
 
 Copyright &copy; 2024 [Gene Alyson Fortunado Torcende](https://github.com/kermage)

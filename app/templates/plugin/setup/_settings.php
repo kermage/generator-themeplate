@@ -43,11 +43,11 @@ ThemePlate()->settings( array(
 					'options' => array(
 						'facebook'    => 'Facebook',
 						'twitter'     => 'Twitter',
+						'x-twitter'   => 'X (Twitter)',
 						'instagram'   => 'Instagram',
 						'linkedin'    => 'LinkedIn',
 						'youtube'     => 'Youtube',
 						'pinterest'   => 'Pinterest',
-						'google-plus' => 'Google+',
 						'telegram'    => 'Telegram',
 						'discord'     => 'Discord',
 						'github'      => 'GitHub',
