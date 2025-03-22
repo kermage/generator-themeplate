@@ -175,8 +175,8 @@ export default class extends Generator {
 			{ opts: this.opts }
 		);
 		this.fs.copyTpl(
-			this.templatePath( 'assets/_script.js' ),
-			this.destinationPath( 'src/js/' + this.opts.projectSlug + '.js' ),
+			this.templatePath( 'assets/_script.ts' ),
+			this.destinationPath( 'src/js/' + this.opts.projectSlug + '.ts' ),
 			{ opts: this.opts }
 		);
 		this.fs.copy(
