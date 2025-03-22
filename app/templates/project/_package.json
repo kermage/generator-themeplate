@@ -20,6 +20,11 @@
   "engines": {
     "node": "^16.13.0 || >=18.12.0"
   },
+  "browserslist": [
+    "> 0.1%",
+    "last 2 versions",
+    "not dead"
+  ],
   "scripts": {
     "lint": "run-p lint:* --continue-on-error",
     "lint:scripts": "eslint src/js/",

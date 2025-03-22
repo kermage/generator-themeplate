@@ -46,6 +46,7 @@ if ( version_compare( PHP_VERSION, <%= opts.constantPrefix %>_THEME_REQUIRES['PH
 
 require_once 'setup/features.php';
 require_once 'setup/navigations.php';
+require_once 'setup/templates.php';
 require_once 'setup/widgets.php';
 require_once 'setup/scripts-styles.php';
 require_once 'setup/actions-filters.php';
