@@ -1,12 +1,13 @@
 // A just right amount of clean but powerful toolkit
-@import 'genetiks/utilities';
+@use 'pkg:genetiks';
+@use "sass:meta";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 // Layouts. ThemePlate!
-@import 'layouts/header';
-@import 'layouts/navigation';
-@import 'layouts/content';
-@import 'layouts/footer';
+@include meta.load-css('layouts/header');
+@include meta.load-css('layouts/navigation');
+@include meta.load-css('layouts/content');
+@include meta.load-css('layouts/footer');

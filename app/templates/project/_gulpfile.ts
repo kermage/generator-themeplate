@@ -149,6 +149,7 @@ if (productionMode) {
 
 gulp.task('sass', () => sass());
 gulp.task('sass:forced', () => sass(true));
+const sassy = require('sass');
 const sass = (force = false): void => {
 	return gulp
 		.src('src/sass/**/*.s+(a|c)ss', {
@@ -161,9 +162,9 @@ const sass = (force = false): void => {
 		)
 		.pipe(plugins.sourcemaps.init())
 		.pipe(
-			plugins.sass(require('sass'))({
-				outputStyle: 'expanded',
-				includePaths: ['node_modules'],
+			plugins.sass(sassy)({
+				style: 'expanded',
+				importers: [new sassy.NodePackageImporter()],
 			})
 		)
 		.pipe(plugins.postcss({ minified: false }))
