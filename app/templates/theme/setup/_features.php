@@ -29,8 +29,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_setup' ) ) {
 		// Add theme image sizes
 		add_image_size( 'max', 1920, 1080 );
 	}
-	add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_setup' );
 }
+add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_setup' );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
 	function <%= opts.functionPrefix %>_credit() {
@@ -46,15 +46,15 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_credit' ) ) {
 			$theme->get( 'Author' )
 		);
 	}
-	// Add to the admin footer
-	add_filter( 'admin_footer_text', '<%= opts.functionPrefix %>_credit' );
 }
+// Add to the admin footer
+add_filter( 'admin_footer_text', '<%= opts.functionPrefix %>_credit' );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_updates' ) ) {
 	function <%= opts.functionPrefix %>_updates( $value ) {
 		unset( $value->response[ get_stylesheet() ] );
 		return $value;
 	}
-	// Disable update notification from WordPress.org repository theme
-	add_filter( 'pre_set_site_transient_update_themes', '<%= opts.functionPrefix %>_updates' );
 }
+// Disable update notification from WordPress.org repository theme
+add_filter( 'pre_set_site_transient_update_themes', '<%= opts.functionPrefix %>_updates' );

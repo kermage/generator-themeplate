@@ -23,10 +23,10 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_query_templates' ) ) {
 
 		return $templates;
 	}
+}
 
-	foreach ( glob( <%= opts.constantPrefix %>_THEME_PATH . 'templates/*.php' ) as $template ) {
-		$base = basename( $template, '.php' );
+foreach ( glob( <%= opts.constantPrefix %>_THEME_PATH . 'templates/*.php' ) as $template ) {
+	$base = basename( $template, '.php' );
 
-		add_filter( "{$base}_template_hierarchy", '<%= opts.functionPrefix %>_query_templates' );
-	}
+	add_filter( "{$base}_template_hierarchy", '<%= opts.functionPrefix %>_query_templates' );
 }

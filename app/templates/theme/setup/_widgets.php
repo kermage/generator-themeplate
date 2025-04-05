@@ -36,5 +36,5 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_widgets_init' ) ) {
 			'after_widget'  => '</section>',
 		) );
 	}
-	add_action( 'widgets_init', '<%= opts.functionPrefix %>_widgets_init' );
 }
+add_action( 'widgets_init', '<%= opts.functionPrefix %>_widgets_init' );

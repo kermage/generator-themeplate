@@ -16,8 +16,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 			'footer'  => __( 'Footer Menu', '<%= opts.projectSlug %>' ),
 		) );
 	}
-	add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_navigations' );
 }
+add_action( 'after_setup_theme', '<%= opts.functionPrefix %>_navigations' );
 
 // Primary Menu
 if ( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {

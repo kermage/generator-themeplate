@@ -72,5 +72,5 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_plugins' ) ) {
 
 		tgmpa( $plugins, $config );
 	}
-	add_action( 'tgmpa_register', '<%= opts.functionPrefix %>_plugins' );
 }
+add_action( 'tgmpa_register', '<%= opts.functionPrefix %>_plugins' );

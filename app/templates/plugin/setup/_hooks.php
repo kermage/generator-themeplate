@@ -17,8 +17,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 			themeplate_google_analytics_gtag( $tid );
 		}
 	}
-	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_ga', 5 );
 }
+add_action( 'wp_head', '<%= opts.functionPrefix %>_add_ga', 5 );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_head' ) ) {
 	function <%= opts.functionPrefix %>_add_gtm_head() {
@@ -28,8 +28,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_head' ) ) {
 			themeplate_google_tag_head( $tid );
 		}
 	}
-	add_action( 'wp_head', '<%= opts.functionPrefix %>_add_gtm_head', 5 );
 }
+add_action( 'wp_head', '<%= opts.functionPrefix %>_add_gtm_head', 5 );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_body' ) ) {
 	function <%= opts.functionPrefix %>_add_gtm_body() {
@@ -39,5 +39,5 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_body' ) ) {
 			themeplate_google_tag_body( $tid );
 		}
 	}
-	add_action( 'wp_body_open', '<%= opts.functionPrefix %>_add_gtm_body', 5 );
 }
+add_action( 'wp_body_open', '<%= opts.functionPrefix %>_add_gtm_body', 5 );

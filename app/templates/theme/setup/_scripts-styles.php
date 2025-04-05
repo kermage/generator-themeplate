@@ -18,8 +18,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_registration'
 		wp_register_script( '<%= opts.functionPrefix %>-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js', array(), '6.7.2', array( 'strategy' => 'defer', 'in_footer' => false ) );
 		<%_ } _%>
 	}
-	add_action( 'init', '<%= opts.functionPrefix %>_scripts_styles_registration' );
 }
+add_action( 'init', '<%= opts.functionPrefix %>_scripts_styles_registration' );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_early' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles_early() {
@@ -31,8 +31,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_early' ) ) {
 		wp_add_inline_script( '<%= opts.functionPrefix %>-fontawesome', 'FontAwesomeConfig = { searchPseudoElements: true };' );
 		<%_ } _%>
 	}
-	add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_scripts_styles_early', 5 );
 }
+add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_scripts_styles_early', 5 );
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_late' ) ) {
 	function <%= opts.functionPrefix %>_scripts_styles_late() {
@@ -48,5 +48,5 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_scripts_styles_late' ) ) {
 		);
 		wp_localize_script( '<%= opts.functionPrefix %>-script', '<%= opts.functionPrefix %>_options', apply_filters( '<%= opts.functionPrefix %>_localize_script', $<%= opts.functionPrefix %>_options ) );
 	}
-	add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_scripts_styles_late', 20 );
 }
+add_action( 'wp_enqueue_scripts', '<%= opts.functionPrefix %>_scripts_styles_late', 20 );
