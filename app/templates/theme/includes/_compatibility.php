@@ -49,13 +49,13 @@ function <%= opts.functionPrefix %>_switch_theme() {
 add_action( 'after_switch_theme', '<%= opts.functionPrefix %>_switch_theme' );
 
 function <%= opts.functionPrefix %>_customize() {
-	wp_die( <%= opts.functionPrefix %>_upgrade_message(), '', array( 'back_link' => true ) );
+	wp_die( wp_kses_post( <%= opts.functionPrefix %>_upgrade_message() ), '', array( 'back_link' => true ) );
 }
 add_action( 'load-customize.php', '<%= opts.functionPrefix %>_customize' );
 
 function <%= opts.functionPrefix %>_preview() {
 	if ( isset( $_GET['preview'] ) ) {
-		wp_die( <%= opts.functionPrefix %>_upgrade_message() );
+		wp_die( wp_kses_post( <%= opts.functionPrefix %>_upgrade_message() ) );
 	}
 }
 add_action( 'template_redirect', '<%= opts.functionPrefix %>_preview' );
