@@ -96,6 +96,7 @@ if (productionMode) {
 gulp.task('webp', function () {
 	return gulp
 		.src('src/images/**/*.{gif,jpg,png}', {
+			encoding: false,
 			since: (file) => betterLastRun(file, 'webp'),
 		})
 		.pipe(
@@ -112,6 +113,7 @@ gulp.task('webp', function () {
 gulp.task('imagemin', function () {
 	return gulp
 		.src('src/images/**/*.{gif,jpg,png,svg}', {
+			encoding: false,
 			since: (file) => betterLastRun(file, 'imagemin'),
 		})
 		.pipe(
@@ -135,6 +137,7 @@ gulp.task('imagemin', function () {
 gulp.task('imagecopy', function () {
 	return gulp
 		.src('src/images/**/*.{gif,jpg,png,svg}', {
+			encoding: false,
 			since: (file) => betterLastRun(file, 'imagecopy'),
 		})
 		.pipe(gulp.dest('assets/images'))
