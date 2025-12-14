@@ -193,6 +193,7 @@ export default class extends Generator {
 			this.destinationPath( 'tailwind.config.js' ),
 		);
 
+		this.themeRoot = this.destinationRoot();
 		this.destinationRoot( path.join( 'plugins', this.opts.projectSlug ) );
 
 		// Plugin Files
@@ -215,8 +216,8 @@ export default class extends Generator {
 			' for you to install the required dependencies. If this fails, try running the commands yourself.\n\n'
 		);
 
-		this.spawnSync( 'composer', ['install'] );
-		this.spawnSync( 'pnpm', ['install'] );
+		this.spawnSync( 'composer', ['install'], { cwd: this.themeRoot } );
+		this.spawnSync( 'pnpm', ['install'], { cwd: this.themeRoot } );
 	}
 
 	end() {
