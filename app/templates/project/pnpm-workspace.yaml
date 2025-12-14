@@ -1,0 +1,9 @@
+allowBuilds:
+  '@parcel/watcher': false
+  core-js: false
+  cwebp-bin: true
+  es5-ext: false
+  gifsicle: true
+  mozjpeg: true
+  optipng-bin: true
+  unrs-resolver: false
