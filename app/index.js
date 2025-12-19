@@ -209,15 +209,19 @@ export default class extends Generator {
 	}
 
 	install() {
+		const commands = [
+			['composer', ['install']],
+			['pnpm', ['install']]
+		];
+
 		this.log( "\n\nI'm all done. Running " +
-			chalk.yellow.bold( 'composer install' ) +
-			' and ' +
-			chalk.yellow.bold( 'npm install' ) +
-			' for you to install the required dependencies. If this fails, try running the commands yourself.\n\n'
+			commands.map( ( [ command, args ] ) => chalk.yellow.bold( [ command, ...args ].join( ' ' ) ) ).join( ' and ' ) +
+			' for you to install the required dependencies. If this fails, try running the commands yourself in ' +
+			chalk.blue.bold( this.themeRoot ) +
+			'.\n\n'
 		);
 
-		this.spawnSync( 'composer', ['install'], { cwd: this.themeRoot } );
-		this.spawnSync( 'pnpm', ['install'], { cwd: this.themeRoot } );
+		commands.forEach( ( [ command, args ] ) => this.spawnSync( command, args, { cwd: this.themeRoot } ) );
 	}
 
 	end() {
