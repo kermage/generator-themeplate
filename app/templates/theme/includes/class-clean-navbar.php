@@ -38,9 +38,11 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 			}
 		}
 	} else {
+		// phpcs:disable Generic.Classes.DuplicateClassName.Found, Generic.Files.OneObjectStructurePerFile.MultipleFound -- fallback for when ThemePlate is not loaded; only one branch declares the class.
 		class Clean_Navbar extends Walker_Nav_Menu {}
+		// phpcs:enable
 
-		add_filter( 'nav_menu_submenu_css_class', function( $classes, $args ) {
+		add_filter( 'nav_menu_submenu_css_class', function ( $classes, $args ) {
 			if ( ! $args->walker instanceof Clean_Navbar ) {
 				return array( 'sub-menu' );
 			}
@@ -48,7 +50,7 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 			return array( 'dropdown-menu' );
 		}, PHP_INT_MAX, 2 );
 
-		add_filter( 'nav_menu_css_class', function( $classes, $menu_item, $args ) {
+		add_filter( 'nav_menu_css_class', function ( $classes, $menu_item, $args ) {
 			if ( ! $args->walker instanceof Clean_Navbar ) {
 				return array( '' );
 			}
@@ -62,11 +64,11 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 			return $classes;
 		}, PHP_INT_MAX, 3 );
 
-		add_filter( 'nav_menu_item_id', function() {
+		add_filter( 'nav_menu_item_id', function () {
 			return '';
 		} );
 
-		add_filter( 'nav_menu_link_attributes', function( $atts, $menu_item, $args ) {
+		add_filter( 'nav_menu_link_attributes', function ( $atts, $menu_item, $args ) {
 			if ( ! $args->walker instanceof Clean_Navbar ) {
 				return $atts;
 			}
@@ -86,21 +88,21 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 			return $atts;
 		}, PHP_INT_MAX, 3 );
 
-		add_filter( 'wp_nav_menu_args', function( $args ) {
+		add_filter( 'wp_nav_menu_args', function ( $args ) {
 			if ( 'wp_page_menu' === $args['fallback_cb'] ) {
-				$args['fallback_cb'] = function( $args ) {
+				$args['fallback_cb'] = function ( $args ) {
 					$texts = array(
 						'Click here',
 						'to add',
 						'a menu',
 					);
 
-					$nav_menu = '<ul><li class="nav-item">' . implode( '</li><li class="nav-item">', array_map( function( $text ) {
+					$nav_menu = '<ul><li class="nav-item">' . implode( '</li><li class="nav-item">', array_map( function ( $text ) {
 						return '<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">' . $text . '</a>';
 					}, $texts ) ) . '</li></ul>';
 
 					if ( $args['echo'] ) {
-						echo $nav_menu;
+						echo wp_kses_post( $nav_menu );
 					} else {
 						return $nav_menu;
 					}

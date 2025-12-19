@@ -57,4 +57,3 @@ require_once 'setup/actions-filters.php';
  * Extra custom functions
  * ==================================================
  */
-

@@ -38,7 +38,10 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 }
 
 function <%= opts.functionPrefix %>_notice() {
-	wp_admin_notice( <%= opts.functionPrefix %>_upgrade_message(), array( 'type' => 'error', 'paragraph_wrap' => false ) );
+	wp_admin_notice( <%= opts.functionPrefix %>_upgrade_message(), array(
+		'type'           => 'error',
+		'paragraph_wrap' => false,
+	) );
 }
 
 function <%= opts.functionPrefix %>_switch_theme() {
@@ -54,7 +57,7 @@ function <%= opts.functionPrefix %>_customize() {
 add_action( 'load-customize.php', '<%= opts.functionPrefix %>_customize' );
 
 function <%= opts.functionPrefix %>_preview() {
-	if ( isset( $_GET['preview'] ) ) {
+	if ( isset( $_GET['preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- only checks for a preview request, nothing is processed.
 		wp_die( wp_kses_post( <%= opts.functionPrefix %>_upgrade_message() ) );
 	}
 }
