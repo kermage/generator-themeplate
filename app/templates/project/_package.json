@@ -18,7 +18,8 @@
   },
   "main": "style.css",
   "engines": {
-    "node": "^16.13.0 || >=18.12.0"
+    "node": ">=20.19.0",
+    "pnpm": ">=10.26.0"
   },
   "browserslist": [
     "> 0.1%",
