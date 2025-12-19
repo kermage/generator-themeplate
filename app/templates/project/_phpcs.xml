@@ -18,6 +18,8 @@
 	<file>.</file>
 	<!-- Exclude the Composer Vendor directory. -->
 	<exclude-pattern>/vendor/</exclude-pattern>
+	<!-- Exclude the Node Modules directory. -->
+	<exclude-pattern>/node_modules/</exclude-pattern>
 
 	<!-- Include the WordPress ruleset. -->
 	<rule ref="WordPress-Extra" />
