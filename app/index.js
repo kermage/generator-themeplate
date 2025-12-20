@@ -34,13 +34,43 @@ export default class extends Generator {
 			{
 				name: 'authorEmail',
 				message: 'Author Email:',
-				default: await this.git.email()
+				default: await this.git.email(),
+				validate: function( answer ) {
+					answer = answer.trim();
+
+					if ( ! answer ) {
+						return 'Author email is required.';
+					}
+
+					return answer.includes( '@' ) || 'Author email must contain @.';
+				},
+				filter: function( answer ) {
+					return answer.trim();
+				}
 			},
 			{
 				name: 'authorURI',
 				message: 'Author URI:',
 				default: function( answer ) {
 					return 'mailto:' + answer.authorEmail;
+				},
+				validate: function( answer ) {
+					answer = answer.trim();
+
+					if ( ! answer ) {
+						return 'Author URI is required.';
+					}
+
+					try {
+						new URL( answer );
+					} catch {
+						return 'Author URI must be an absolute URI, such as https://example.com or mailto:you@example.com.';
+					}
+
+					return true;
+				},
+				filter: function( answer ) {
+					return answer.trim();
 				}
 			},
 			{
