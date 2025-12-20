@@ -7,7 +7,7 @@
  * @since 0.1.0
  */
 
-$theme = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
+$<%= opts.functionPrefix %>_theme = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
 
 ?>
 
@@ -23,7 +23,7 @@ $theme = wp_get_theme( <%= opts.constantPrefix %>_THEME_BASE );
 
 				<div class="copyright">
 					<small>Copyright &copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>.</small>
-					<span>Designed and developed by <a href="<?php echo esc_url( $theme->get( 'AuthorURI' ) ); ?>"><?php echo esc_html( $theme->get( 'Author' ) ); ?></a>.</span>
+					<span>Designed and developed by <a href="<?php echo esc_url( $<%= opts.functionPrefix %>_theme->get( 'AuthorURI' ) ); ?>"><?php echo esc_html( $<%= opts.functionPrefix %>_theme->get( 'Author' ) ); ?></a>.</span>
 				</div>
 			</div>
 		</footer><!-- .site-footer -->

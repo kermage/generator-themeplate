@@ -106,6 +106,7 @@ export default class extends Generator {
 
 	async configuring() {
 		this.opts.projectSlug = this.opts.projectName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' ).replace( /[-_]+$/, '' );
+		this.opts.classSlug = this.opts.classPrefix.toLowerCase().replace( /_/g, '-' );
 		this.opts.generatorVersion = this.rootGeneratorVersion();
 
 		try {
@@ -159,6 +160,10 @@ export default class extends Generator {
 			this.templatePath( 'theme' ),
 			this.destinationPath( '.' ),
 			{ opts: this.opts }
+		);
+		this.fs.move(
+			this.destinationPath( 'includes/class-clean-navbar.php' ),
+			this.destinationPath( 'includes/class-' + this.opts.classSlug + '-clean-navbar.php' )
 		);
 
 		// Project Files

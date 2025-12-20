@@ -9,7 +9,7 @@
 
 if ( ! function_exists( '<%= opts.functionPrefix %>_navigations' ) ) {
 	function <%= opts.functionPrefix %>_navigations() {
-		require_once <%= opts.constantPrefix %>_THEME_PATH . 'includes/class-clean-navbar.php';
+		require_once <%= opts.constantPrefix %>_THEME_PATH . 'includes/class-<%= opts.classSlug %>-clean-navbar.php';
 
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', '<%= opts.projectSlug %>' ),
@@ -25,7 +25,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_primary_menu' ) ) {
 		wp_nav_menu( array(
 			'theme_location' => 'primary',
 			'menu_class'     => implode( ' ', $classes ),
-			'walker'         => new Clean_NavBar(),
+			'walker'         => new <%= opts.classPrefix %>_Clean_Navbar(),
 			'depth'          => 0,
 		) );
 	}

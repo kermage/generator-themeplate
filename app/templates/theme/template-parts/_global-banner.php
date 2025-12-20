@@ -12,12 +12,12 @@ if ( is_single() || is_404() ) {
 }
 
 if ( is_archive() ) {
-	$heading = get_the_archive_title();
+	$<%= opts.functionPrefix %>_heading = get_the_archive_title();
 } else {
-	$heading = single_post_title( '', false );
+	$<%= opts.functionPrefix %>_heading = single_post_title( '', false );
 }
 
-if ( empty( $heading ) ) {
+if ( empty( $<%= opts.functionPrefix %>_heading ) ) {
 	return;
 }
 
@@ -25,6 +25,6 @@ if ( empty( $heading ) ) {
 
 <div class="banner">
 	<div class="container">
-		<h1><?php echo esc_html( $heading ); ?></h1>
+		<h1><?php echo esc_html( $<%= opts.functionPrefix %>_heading ); ?></h1>
 	</div>
 </div><!-- .banner -->

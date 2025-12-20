@@ -25,8 +25,8 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_query_templates' ) ) {
 	}
 }
 
-foreach ( glob( <%= opts.constantPrefix %>_THEME_PATH . 'templates/*.php' ) as $template ) {
-	$base = basename( $template, '.php' );
+foreach ( glob( <%= opts.constantPrefix %>_THEME_PATH . 'templates/*.php' ) as $<%= opts.functionPrefix %>_template ) {
+	$<%= opts.functionPrefix %>_base = basename( $<%= opts.functionPrefix %>_template, '.php' );
 
-	add_filter( "{$base}_template_hierarchy", '<%= opts.functionPrefix %>_query_templates' );
+	add_filter( "{$<%= opts.functionPrefix %>_base}_template_hierarchy", '<%= opts.functionPrefix %>_query_templates' );
 }

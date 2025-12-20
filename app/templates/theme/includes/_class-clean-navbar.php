@@ -7,9 +7,9 @@
  * @since 0.1.0
  */
 
-if ( ! class_exists( 'Clean_Navbar' ) ) {
+if ( ! class_exists( '<%= opts.classPrefix %>_Clean_Navbar' ) ) {
 	if ( class_exists( 'ThemePlate\NavWalker' ) ) {
-		class Clean_Navbar extends ThemePlate\NavWalker {
+		class <%= opts.classPrefix %>_Clean_Navbar extends ThemePlate\NavWalker {
 			public $classes = array(
 				'sub-menu' => 'dropdown-menu',
 				'has-sub'  => 'dropdown',
@@ -39,11 +39,11 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 		}
 	} else {
 		// phpcs:disable Generic.Classes.DuplicateClassName.Found, Generic.Files.OneObjectStructurePerFile.MultipleFound -- fallback for when ThemePlate is not loaded; only one branch declares the class.
-		class Clean_Navbar extends Walker_Nav_Menu {}
+		class <%= opts.classPrefix %>_Clean_Navbar extends Walker_Nav_Menu {}
 		// phpcs:enable
 
 		add_filter( 'nav_menu_submenu_css_class', function ( $classes, $args ) {
-			if ( ! $args->walker instanceof Clean_Navbar ) {
+			if ( ! $args->walker instanceof <%= opts.classPrefix %>_Clean_Navbar ) {
 				return array( 'sub-menu' );
 			}
 
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 		}, PHP_INT_MAX, 2 );
 
 		add_filter( 'nav_menu_css_class', function ( $classes, $menu_item, $args ) {
-			if ( ! $args->walker instanceof Clean_Navbar ) {
+			if ( ! $args->walker instanceof <%= opts.classPrefix %>_Clean_Navbar ) {
 				return array( '' );
 			}
 
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Clean_Navbar' ) ) {
 		} );
 
 		add_filter( 'nav_menu_link_attributes', function ( $atts, $menu_item, $args ) {
-			if ( ! $args->walker instanceof Clean_Navbar ) {
+			if ( ! $args->walker instanceof <%= opts.classPrefix %>_Clean_Navbar ) {
 				return $atts;
 			}
 
