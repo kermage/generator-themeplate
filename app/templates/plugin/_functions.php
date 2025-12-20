@@ -37,19 +37,19 @@ define( '<%= opts.constantPrefix %>_PLUGIN_URL',  plugin_dir_url( __FILE__ ) );
 define( '<%= opts.constantPrefix %>_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 // phpcs:enable
 
-function <%= opts.functionPrefix %>_options( $key = '', $default = false ) {
+function <%= opts.functionPrefix %>_options( $key = '', $default_value = false ) {
 	if ( class_exists( 'ThemePlate' ) && ThemePlate::is_initialized() ) {
 		$value = ThemePlate()->get_option( $key );
 
 		if ( ! $value ) {
-			$value = $default;
+			$value = $default_value;
 		}
 
 		return $value;
 	}
 
-	$options = get_option( '<%= opts.functionPrefix %>-options', $default );
-	$value   = $default;
+	$options = get_option( '<%= opts.functionPrefix %>-options', $default_value );
+	$value   = $default_value;
 
 	if ( empty( $key ) ) {
 		$value = $options;
@@ -87,4 +87,3 @@ require_once 'setup/actions-filters.php';
  * Extra custom functions
  * ==================================================
  */
-

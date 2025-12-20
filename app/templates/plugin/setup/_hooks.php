@@ -14,7 +14,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_ga' ) ) {
 		$tid = <%= opts.functionPrefix %>_options( 'google_analytics' );
 
 		if ( $tid ) {
-			themeplate_google_analytics_gtag( $tid );
+			<%= opts.functionPrefix %>_google_analytics_gtag( $tid );
 		}
 	}
 }
@@ -25,7 +25,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_head' ) ) {
 		$tid = <%= opts.functionPrefix %>_options( 'google_tagmanager' );
 
 		if ( $tid ) {
-			themeplate_google_tag_head( $tid );
+			<%= opts.functionPrefix %>_google_tag_head( $tid );
 		}
 	}
 }
@@ -36,7 +36,7 @@ if ( ! function_exists( '<%= opts.functionPrefix %>_add_gtm_body' ) ) {
 		$tid = <%= opts.functionPrefix %>_options( 'google_tagmanager' );
 
 		if ( $tid ) {
-			themeplate_google_tag_body( $tid );
+			<%= opts.functionPrefix %>_google_tag_body( $tid );
 		}
 	}
 }

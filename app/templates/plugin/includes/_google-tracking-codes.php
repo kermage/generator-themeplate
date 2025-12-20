@@ -3,15 +3,15 @@
 /**
  * Google Tracking Codes
  *
- * @package ThemePlate
+ * @package <%= opts.projectName %>
  * @since 0.1.0
  */
 
 // phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedScript
 
 // Google Analytics
-if ( ! function_exists( 'themeplate_google_analytics' ) ) {
-	function themeplate_google_analytics( $id ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_google_analytics' ) ) {
+	function <%= opts.functionPrefix %>_google_analytics( $id ) {
 		ob_start();
 		?>
 
@@ -33,8 +33,8 @@ if ( ! function_exists( 'themeplate_google_analytics' ) ) {
 }
 
 // Google Analytics Async
-if ( ! function_exists( 'themeplate_google_analytics_async' ) ) {
-	function themeplate_google_analytics_async( $id ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_google_analytics_async' ) ) {
+	function <%= opts.functionPrefix %>_google_analytics_async( $id ) {
 		ob_start();
 		?>
 
@@ -53,8 +53,8 @@ if ( ! function_exists( 'themeplate_google_analytics_async' ) ) {
 }
 
 // Google Analytics Global Site Tag
-if ( ! function_exists( 'themeplate_google_analytics_gtag' ) ) {
-	function themeplate_google_analytics_gtag( $id ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_google_analytics_gtag' ) ) {
+	function <%= opts.functionPrefix %>_google_analytics_gtag( $id ) {
 		ob_start();
 		?>
 
@@ -74,8 +74,8 @@ if ( ! function_exists( 'themeplate_google_analytics_gtag' ) ) {
 }
 
 // Google Tag Manager <head>
-if ( ! function_exists( 'themeplate_google_tag_head' ) ) {
-	function themeplate_google_tag_head( $id ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_google_tag_head' ) ) {
+	function <%= opts.functionPrefix %>_google_tag_head( $id ) {
 		ob_start();
 		?>
 
@@ -93,8 +93,8 @@ if ( ! function_exists( 'themeplate_google_tag_head' ) ) {
 }
 
 // Google Tag Manager <body>
-if ( ! function_exists( 'themeplate_google_tag_body' ) ) {
-	function themeplate_google_tag_body( $id ) {
+if ( ! function_exists( '<%= opts.functionPrefix %>_google_tag_body' ) ) {
+	function <%= opts.functionPrefix %>_google_tag_body( $id ) {
 		ob_start();
 		?>
 
