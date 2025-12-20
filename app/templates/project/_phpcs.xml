@@ -24,6 +24,26 @@
 	<!-- Include the WordPress ruleset. -->
 	<rule ref="WordPress-Extra" />
 
+	<!-- Require the project prefixes on everything declared in the global namespace. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="<%= opts.functionPrefix %>" />
+				<element value="<%= opts.classPrefix %>" />
+				<element value="<%= opts.constantPrefix %>" />
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Require the project text domain on every translatable string. -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="<%= opts.projectSlug %>" />
+			</property>
+		</properties>
+	</rule>
+
 	<!-- Exclude for common WordPress core constructor patterns -->
 	<rule ref="PEAR.Functions.FunctionCallSignature">
 		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
