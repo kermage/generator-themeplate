@@ -7,3 +7,4 @@ allowBuilds:
   mozjpeg: true
   optipng-bin: true
   unrs-resolver: false
+engineStrict: true
