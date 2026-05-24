@@ -55,7 +55,7 @@
 	<rule ref="PHPCompatibilityWP" />
 
 	<!-- Include PHP cross-version compatibility. -->
-	<config name="testVersion" value="7.4-" />
+	<config name="testVersion" value="<%= opts.floors.php %>-" />
 	<!-- Include minimum supported WP version. -->
-	<config name="minimum_supported_wp_version" value="6.4" />
+	<config name="minimum_supported_wp_version" value="<%= opts.floors.wordpress %>" />
 </ruleset>

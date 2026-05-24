@@ -26,8 +26,8 @@ define( '<%= opts.constantPrefix %>_THEME_PATH',  get_theme_root( <%= opts.const
 define( '<%= opts.constantPrefix %>_THEME_DEBUG', true );
 
 define( '<%= opts.constantPrefix %>_THEME_REQUIRES', array(
-	'PHP' => '7.4',
-	'WP'  => '6.4',
+	'PHP' => '<%= opts.floors.php %>',
+	'WP'  => '<%= opts.floors.wordpress %>',
 ) );
 // phpcs:enable
 

@@ -3,6 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import Generator from 'yeoman-generator';
 
+import floors from './floors.js';
+
 export default class extends Generator {
 	async initializing() {
 		try {
@@ -138,6 +140,7 @@ export default class extends Generator {
 		this.opts.projectSlug = this.opts.projectName.toLowerCase().replace( /[\s]/g, '-' ).replace( /[^0-9a-z-_]/g, '' ).replace( /[-_]+$/, '' );
 		this.opts.classSlug = this.opts.classPrefix.toLowerCase().replace( /_/g, '-' );
 		this.opts.generatorVersion = this.rootGeneratorVersion();
+		this.opts.floors = floors;
 
 		try {
 			if (
